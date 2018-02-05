@@ -1,0 +1,20 @@
+PODS:
+  - FeedKit (7.0.1)
+  - Realm (3.1.0):
+    - Realm/Headers (= 3.1.0)
+  - Realm/Headers (3.1.0)
+  - RealmSwift (3.1.0):
+    - Realm (= 3.1.0)
+
+DEPENDENCIES:
+  - FeedKit
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  FeedKit: 9be69ab57ef0eb922ee4b6c31cb6b8840a5bbb29
+  Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
+  RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
+
+PODFILE CHECKSUM: 0e785806490a54398066c5c99ed86df923e7c6cf
+
+COCOAPODS: 1.4.0

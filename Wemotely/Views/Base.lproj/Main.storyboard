@@ -80,7 +80,7 @@
         <!--Filter-->
         <scene sceneID="Dc3-f4-Yac">
             <objects>
-                <tableViewController title="Filter" id="QSP-fn-eQo" customClass="FilterTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Filter" modalPresentationStyle="formSheet" id="QSP-fn-eQo" customClass="FilterTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gfo-h2-euh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,7 +182,7 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="Zdf-7t-Un8"/>
                     <connections>
                         <segue destination="QSP-fn-eQo" kind="show" identifier="showFilter" id="1QS-ku-U5s"/>
-                        <segue destination="eRk-o7-102" kind="show" identifier="showSettings" id="aQ9-XV-dNJ"/>
+                        <segue destination="eRk-o7-102" kind="show" identifier="showSettings" id="wem-Ri-8OI"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -247,6 +247,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k7M-J3-SRf"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

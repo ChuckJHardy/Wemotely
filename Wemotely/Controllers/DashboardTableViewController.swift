@@ -33,7 +33,8 @@ class DashboardTableViewController: UITableViewController {
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
+        switch segue.identifier {
+        case "showDetail"?:
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! JobViewController
@@ -41,6 +42,8 @@ class DashboardTableViewController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        default:
+            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
         }
     }
 

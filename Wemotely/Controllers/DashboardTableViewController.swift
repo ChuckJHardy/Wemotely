@@ -11,13 +11,10 @@ class DashboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupToolbar()
+        showToolbar()
+        
         navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            title: "Settings",
-            style: .plain,
-            target: self,
-            action: #selector(leftBarButtonItemSeleted(_:))
-        )
         
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 
@@ -29,6 +26,7 @@ class DashboardTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        showToolbar()
         super.viewWillAppear(animated)
     }
 
@@ -43,7 +41,6 @@ class DashboardTableViewController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
-        } else if segue.identifier == "showSettings" {
         }
     }
 
@@ -78,7 +75,39 @@ class DashboardTableViewController: UITableViewController {
         }
     }
     
-    @objc private func leftBarButtonItemSeleted(_ sender: Any) -> Void {
-        performSegue(withIdentifier: "showSettings", sender: nil)
+    private func showToolbar() {
+        navigationController?.setToolbarHidden(false, animated: false)
+    }
+    
+    private func setupToolbar() {
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+        
+        let filterItem = UIBarButtonItem(
+            title: "Filter",
+            style: .plain,
+            target: self,
+            action: #selector(filterToolbarItemSelected(_:))
+        )
+        
+        let settingsItem = UIBarButtonItem(
+            title: "Settings",
+            style: .plain,
+            target: self,
+            action: #selector(settingsToolbarItemSelected(_:))
+        )
+        
+        toolbarItems = [filterItem, spacer, settingsItem]
+    }
+    
+    @objc private func settingsToolbarItemSelected(_ sender: Any) {
+        performSegue(withIdentifier: "showSettings", sender: self)
+    }
+    
+    @objc private func filterToolbarItemSelected(_ sender: Any) {
+        performSegue(withIdentifier: "showFilter", sender: self)
     }
 }

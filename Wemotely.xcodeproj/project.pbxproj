@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6A9D482D2B4674AEA6744CB4 /* Pods_Wemotely.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */; };
+		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
+		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
 		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
 		A5388421204AF732008253D7 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5388420204AF732008253D7 /* Job.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
@@ -41,6 +43,8 @@
 		4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wemotely.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.debug.xcconfig"; sourceTree = "<group>"; };
 		65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.release.xcconfig"; sourceTree = "<group>"; };
+		A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		A5388420204AF732008253D7 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,6 +120,8 @@
 				A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */,
 				A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */,
 				A538841E204AF241008253D7 /* JobsTableViewController.swift */,
+				A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */,
+				A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -387,7 +393,9 @@
 			files = (
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
+				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
+				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
 				A5388421204AF732008253D7 /* Job.swift in Sources */,
 			);

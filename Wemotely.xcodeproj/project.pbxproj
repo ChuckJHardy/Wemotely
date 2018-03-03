@@ -11,7 +11,7 @@
 		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
 		A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */; };
-		A57DDF1E204ACCEB0031D7DF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1D204ACCEB0031D7DF /* DetailViewController.swift */; };
+		A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */; };
 		A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF1F204ACCEB0031D7DF /* Main.storyboard */; };
 		A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF22204ACCEB0031D7DF /* Assets.xcassets */; };
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
@@ -44,7 +44,7 @@
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
-		A57DDF1D204ACCEB0031D7DF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
 		A57DDF20204ACCEB0031D7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A57DDF22204ACCEB0031D7DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A57DDF25204ACCEB0031D7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		A538841B204ACE10008253D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A57DDF1D204ACCEB0031D7DF /* DetailViewController.swift */,
+				A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */,
 				A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */,
 				A538841E204AF241008253D7 /* JobsTableViewController.swift */,
 			);
@@ -382,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57DDF1E204ACCEB0031D7DF /* DetailViewController.swift in Sources */,
+				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,

@@ -1,7 +1,7 @@
 import UIKit
 
 class DashboardTableViewController: UITableViewController {
-    var detailViewController: DetailViewController? = nil
+    var jobViewController: JobViewController? = nil
     var objects = [Any]()
 
     override func viewDidLoad() {
@@ -13,7 +13,7 @@ class DashboardTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            jobViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? JobViewController
         }
     }
 
@@ -29,7 +29,7 @@ class DashboardTableViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
+        objects.insert("Face", at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
         tableView.insertRows(at: [indexPath], with: .automatic)
     }
@@ -39,9 +39,9 @@ class DashboardTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
+                let object = objects[indexPath.row] as! String
+                let controller = (segue.destination as! UINavigationController).topViewController as! JobViewController
+                controller.jobRecord = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -61,7 +61,7 @@ class DashboardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
+        let object = objects[indexPath.row] as! String
         cell.textLabel!.text = object.description
         return cell
     }

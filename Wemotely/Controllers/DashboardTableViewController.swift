@@ -12,6 +12,14 @@ class DashboardTableViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            title: "Settings",
+            style: .plain,
+            target: self,
+            action: #selector(leftBarButtonItemSeleted(_:))
+        )
+        
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 
         if let split = splitViewController {
             let controllers = split.viewControllers
@@ -35,6 +43,7 @@ class DashboardTableViewController: UITableViewController {
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        } else if segue.identifier == "showSettings" {
         }
     }
 
@@ -67,5 +76,9 @@ class DashboardTableViewController: UITableViewController {
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
+    }
+    
+    @objc private func leftBarButtonItemSeleted(_ sender: Any) -> Void {
+        performSegue(withIdentifier: "showSettings", sender: nil)
     }
 }

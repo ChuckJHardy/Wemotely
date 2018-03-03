@@ -1,6 +1,6 @@
 import UIKit
 
-class MasterViewController: UITableViewController {
+class DashboardTableViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 

@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6A9D482D2B4674AEA6744CB4 /* Pods_Wemotely.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */; };
+		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
-		A57DDF1C204ACCEB0031D7DF /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* MasterViewController.swift */; };
+		A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */; };
 		A57DDF1E204ACCEB0031D7DF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1D204ACCEB0031D7DF /* DetailViewController.swift */; };
 		A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF1F204ACCEB0031D7DF /* Main.storyboard */; };
 		A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF22204ACCEB0031D7DF /* Assets.xcassets */; };
@@ -39,9 +40,10 @@
 		4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wemotely.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.debug.xcconfig"; sourceTree = "<group>"; };
 		65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.release.xcconfig"; sourceTree = "<group>"; };
+		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A57DDF1B204ACCEB0031D7DF /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
 		A57DDF1D204ACCEB0031D7DF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A57DDF20204ACCEB0031D7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A57DDF22204ACCEB0031D7DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,7 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				A57DDF1D204ACCEB0031D7DF /* DetailViewController.swift */,
-				A57DDF1B204ACCEB0031D7DF /* MasterViewController.swift */,
+				A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */,
+				A538841E204AF241008253D7 /* JobsTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -380,7 +383,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF1E204ACCEB0031D7DF /* DetailViewController.swift in Sources */,
-				A57DDF1C204ACCEB0031D7DF /* MasterViewController.swift in Sources */,
+				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
+				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

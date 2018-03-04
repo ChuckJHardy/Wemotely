@@ -11,4 +11,11 @@ extension XCUIApplication {
     func resetOrientation() {
         XCUIDevice.shared.orientation = .portrait
     }
+    
+    func runWithSupportedOrientations(block: () -> Void) {
+        for orientation in supportedOrientations {
+            XCUIDevice.shared.orientation = orientation
+            block()
+        }
+    }
 }

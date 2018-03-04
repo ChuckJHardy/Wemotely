@@ -25,49 +25,47 @@ class WemotelyUITests: XCTestCase {
     func testNavigatingToFilter() {
         app.launch()
         
-        for orientation in app.supportedOrientations {
-            XCUIDevice.shared.orientation = orientation
-            
-            XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on 'Dashboard' Screen")
-            
-            // Tap Toolbar 'Filter' Button
-            app.toolbars.buttons["Filter"].tap()
-            
-            XCTAssertTrue(app.isDisplayingFilter, "Failed to Segue to the 'Filter' Screen")
-            
-            assertToolbarHidden()
-            
-            // Tap Dashboard 'Back' Button
-            app.navigationBars["Filter"].buttons["Dashboard"].tap()
-            
-            XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
+        app.runWithSupportedOrientations {
+            startAndEndOnDashboard {
+                // Tap Toolbar 'Filter' Button
+                app.toolbars.buttons["Filter"].tap()
+                
+                XCTAssert(app.isDisplayingFilter)
+                
+                assertToolbarHidden()
+                
+                // Tap Dashboard 'Back' Button
+                app.navigationBars["Filter"].buttons["Dashboard"].tap()
+            }
         }
     }
     
     func testNavigatingToSettings() {
         app.launch()
         
-        for orientation in app.supportedOrientations {
-            XCUIDevice.shared.orientation = orientation
-            
-            XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
-            
-            // Tap Toolbar 'Settings' Button
-            app.toolbars.buttons["Settings"].tap()
-            
-            XCTAssertTrue(app.isDisplayingSettings, "Failed to Segue to the 'Settings' Screen")
-            
-            assertToolbarHidden()
-            
-            // Tap Dashboard 'Back' Button
-            app.navigationBars["Settings"].buttons["Dashboard"].tap()
-            
-            XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
+        app.runWithSupportedOrientations {
+            startAndEndOnDashboard {
+                // Tap Toolbar 'Settings' Button
+                app.toolbars.buttons["Settings"].tap()
+                
+                XCTAssert(app.isDisplayingSettings)
+                
+                assertToolbarHidden()
+                
+                // Tap Dashboard 'Back' Button
+                app.navigationBars["Settings"].buttons["Dashboard"].tap()
+            }
         }
     }
     
     private func assertToolbarHidden() {
         XCTAssertFalse(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button available")
         XCTAssertFalse(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button available")
+    }
+    
+    private func startAndEndOnDashboard(block: () -> Void) {
+        XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
+        block()
+        XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
     }
 }

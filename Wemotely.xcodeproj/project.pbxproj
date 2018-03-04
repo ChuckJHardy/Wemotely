@@ -7,140 +7,228 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A2B0054C92ED858F61D232B /* Pods_Wemotely.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B55FD443E559504889E5CE2 /* Pods_Wemotely.framework */; };
-		A5EC7C1020287BA1006EA3D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7C0F20287BA1006EA3D2 /* AppDelegate.swift */; };
-		A5EC7C1220287BA1006EA3D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EC7C1120287BA1006EA3D2 /* ViewController.swift */; };
-		A5EC7C1520287BA1006EA3D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC7C1320287BA1006EA3D2 /* Main.storyboard */; };
-		A5EC7C1720287BA1006EA3D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5EC7C1620287BA1006EA3D2 /* Assets.xcassets */; };
-		A5EC7C1A20287BA1006EA3D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5EC7C1820287BA1006EA3D2 /* LaunchScreen.storyboard */; };
+		6A9D482D2B4674AEA6744CB4 /* Pods_Wemotely.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */; };
+		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
+		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
+		A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */; };
+		A528FD4F204BF0C90020ABA9 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD4E204BF0C90020ABA9 /* Dashboard.swift */; };
+		A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */; };
+		A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */; };
+		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
+		A5388421204AF732008253D7 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5388420204AF732008253D7 /* Job.swift */; };
+		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
+		A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */; };
+		A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */; };
+		A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF1F204ACCEB0031D7DF /* Main.storyboard */; };
+		A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF22204ACCEB0031D7DF /* Assets.xcassets */; };
+		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
+		A57DDF31204ACCEC0031D7DF /* WemotelyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */; };
+		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A57DDF2D204ACCEC0031D7DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A57DDF0E204ACCEB0031D7DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A57DDF15204ACCEB0031D7DF;
+			remoteInfo = Wemotely;
+		};
+		A57DDF38204ACCEC0031D7DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A57DDF0E204ACCEB0031D7DF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A57DDF15204ACCEB0031D7DF;
+			remoteInfo = Wemotely;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		37F7EE0ECC30E74920A76A5A /* Pods-Wemotely.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.debug.xcconfig"; sourceTree = "<group>"; };
-		5B55FD443E559504889E5CE2 /* Pods_Wemotely.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wemotely.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5EC7C0C20287BA1006EA3D2 /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5EC7C0F20287BA1006EA3D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5EC7C1120287BA1006EA3D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A5EC7C1420287BA1006EA3D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A5EC7C1620287BA1006EA3D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A5EC7C1920287BA1006EA3D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A5EC7C1B20287BA1006EA3D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B6F8C3DEA0D2CBD2D4C01557 /* Pods-Wemotely.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.release.xcconfig"; sourceTree = "<group>"; };
+		4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wemotely.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.debug.xcconfig"; sourceTree = "<group>"; };
+		65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.release.xcconfig"; sourceTree = "<group>"; };
+		A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsTableViewController.swift; sourceTree = "<group>"; };
+		A528FD4E204BF0C90020ABA9 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Segues.swift"; sourceTree = "<group>"; };
+		A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Device.swift"; sourceTree = "<group>"; };
+		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
+		A5388420204AF732008253D7 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
+		A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewController.swift; sourceTree = "<group>"; };
+		A57DDF20204ACCEB0031D7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A57DDF22204ACCEB0031D7DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A57DDF25204ACCEB0031D7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A57DDF27204ACCEB0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57DDF2C204ACCEC0031D7DF /* WemotelyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WemotelyTests.swift; sourceTree = "<group>"; };
+		A57DDF32204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
+		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A5EC7C0920287BA1006EA3D2 /* Frameworks */ = {
+		A57DDF13204ACCEB0031D7DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A2B0054C92ED858F61D232B /* Pods_Wemotely.framework in Frameworks */,
+				6A9D482D2B4674AEA6744CB4 /* Pods_Wemotely.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57DDF29204ACCEC0031D7DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57DDF34204ACCEC0031D7DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0AF8224A77C4242B1DBD49F6 /* Frameworks */ = {
+		17D719296625CD460F494604 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5B55FD443E559504889E5CE2 /* Pods_Wemotely.framework */,
+				4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */,
+				65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		603A4DC1DFE7089361650F20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A5EC7C0320287BA1006EA3D2 = {
+		A528FD4B204B219D0020ABA9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A5EC7C0E20287BA1006EA3D2 /* Wemotely */,
-				A5EC7C0D20287BA1006EA3D2 /* Products */,
-				BCCCB47A1DBF715E38C4AA20 /* Pods */,
-				0AF8224A77C4242B1DBD49F6 /* Frameworks */,
+				A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */,
 			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		A5EC7C0D20287BA1006EA3D2 /* Products */ = {
+		A538841A204ACE03008253D7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A5EC7C0C20287BA1006EA3D2 /* Wemotely.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A5EC7C0E20287BA1006EA3D2 /* Wemotely */ = {
-			isa = PBXGroup;
-			children = (
-				A5EC7C2520287BD4006EA3D2 /* Services */,
-				A5EC7C2420287BD0006EA3D2 /* Models */,
-				A5EC7C2320287BCC006EA3D2 /* Views */,
-				A5EC7C2220287BC4006EA3D2 /* Support */,
-				A5EC7C2120287BBE006EA3D2 /* Controllers */,
-				A5EC7C1620287BA1006EA3D2 /* Assets.xcassets */,
-				A5EC7C1B20287BA1006EA3D2 /* Info.plist */,
-			);
-			path = Wemotely;
-			sourceTree = "<group>";
-		};
-		A5EC7C2120287BBE006EA3D2 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				A5EC7C1120287BA1006EA3D2 /* ViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A5EC7C2220287BC4006EA3D2 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				A5EC7C0F20287BA1006EA3D2 /* AppDelegate.swift */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		A5EC7C2320287BCC006EA3D2 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				A5EC7C1820287BA1006EA3D2 /* LaunchScreen.storyboard */,
-				A5EC7C1320287BA1006EA3D2 /* Main.storyboard */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		A5EC7C2420287BD0006EA3D2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
+				A5388420204AF732008253D7 /* Job.swift */,
+				A528FD4E204BF0C90020ABA9 /* Dashboard.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A5EC7C2520287BD4006EA3D2 /* Services */ = {
+		A538841B204ACE10008253D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A528FD4B204B219D0020ABA9 /* Settings */,
+				A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */,
+				A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */,
+				A538841E204AF241008253D7 /* JobsTableViewController.swift */,
+				A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */,
+				A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */,
 			);
-			path = Services;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		BCCCB47A1DBF715E38C4AA20 /* Pods */ = {
+		A538841C204ACE17008253D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				37F7EE0ECC30E74920A76A5A /* Pods-Wemotely.debug.xcconfig */,
-				B6F8C3DEA0D2CBD2D4C01557 /* Pods-Wemotely.release.xcconfig */,
+				A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */,
+				A57DDF1F204ACCEB0031D7DF /* Main.storyboard */,
 			);
-			name = Pods;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A538841D204ACE1C008253D7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A57DDF0D204ACCEB0031D7DF = {
+			isa = PBXGroup;
+			children = (
+				A57DDF18204ACCEB0031D7DF /* Wemotely */,
+				A57DDF2F204ACCEC0031D7DF /* WemotelyTests */,
+				A57DDF3A204ACCEC0031D7DF /* WemotelyUITests */,
+				A57DDF17204ACCEB0031D7DF /* Products */,
+				17D719296625CD460F494604 /* Pods */,
+				603A4DC1DFE7089361650F20 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A57DDF17204ACCEB0031D7DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A57DDF16204ACCEB0031D7DF /* Wemotely.app */,
+				A57DDF2C204ACCEC0031D7DF /* WemotelyTests.xctest */,
+				A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A57DDF18204ACCEB0031D7DF /* Wemotely */ = {
+			isa = PBXGroup;
+			children = (
+				A538841D204ACE1C008253D7 /* Support */,
+				A538841C204ACE17008253D7 /* Views */,
+				A538841B204ACE10008253D7 /* Controllers */,
+				A538841A204ACE03008253D7 /* Models */,
+				A57DDF22204ACCEB0031D7DF /* Assets.xcassets */,
+				A57DDF27204ACCEB0031D7DF /* Info.plist */,
+			);
+			path = Wemotely;
+			sourceTree = "<group>";
+		};
+		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */,
+				A57DDF32204ACCEC0031D7DF /* Info.plist */,
+			);
+			path = WemotelyTests;
+			sourceTree = "<group>";
+		};
+		A57DDF3A204ACCEC0031D7DF /* WemotelyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */,
+				A57DDF3D204ACCEC0031D7DF /* Info.plist */,
+				A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */,
+				A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */,
+			);
+			path = WemotelyUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A5EC7C0B20287BA1006EA3D2 /* Wemotely */ = {
+		A57DDF15204ACCEB0031D7DF /* Wemotely */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A5EC7C1E20287BA1006EA3D2 /* Build configuration list for PBXNativeTarget "Wemotely" */;
+			buildConfigurationList = A57DDF40204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "Wemotely" */;
 			buildPhases = (
-				11EBDBA05348C03485049E69 /* [CP] Check Pods Manifest.lock */,
-				A5EC7C0820287BA1006EA3D2 /* Sources */,
-				A5EC7C0920287BA1006EA3D2 /* Frameworks */,
-				A5EC7C0A20287BA1006EA3D2 /* Resources */,
-				69255622D0CA1C612B6EA6EE /* [CP] Embed Pods Frameworks */,
-				81EF653B901F3B38D3D9A167 /* [CP] Copy Pods Resources */,
+				FA512F3762F14F8C5F49345F /* [CP] Check Pods Manifest.lock */,
+				A57DDF12204ACCEB0031D7DF /* Sources */,
+				A57DDF13204ACCEB0031D7DF /* Frameworks */,
+				A57DDF14204ACCEB0031D7DF /* Resources */,
+				81E66B15B7B69DAE03BA5333 /* [CP] Embed Pods Frameworks */,
+				C59155F9F7E642B4C41200B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,26 +236,72 @@
 			);
 			name = Wemotely;
 			productName = Wemotely;
-			productReference = A5EC7C0C20287BA1006EA3D2 /* Wemotely.app */;
+			productReference = A57DDF16204ACCEB0031D7DF /* Wemotely.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A57DDF2B204ACCEC0031D7DF /* WemotelyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A57DDF43204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "WemotelyTests" */;
+			buildPhases = (
+				A57DDF28204ACCEC0031D7DF /* Sources */,
+				A57DDF29204ACCEC0031D7DF /* Frameworks */,
+				A57DDF2A204ACCEC0031D7DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A57DDF2E204ACCEC0031D7DF /* PBXTargetDependency */,
+			);
+			name = WemotelyTests;
+			productName = WemotelyTests;
+			productReference = A57DDF2C204ACCEC0031D7DF /* WemotelyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A57DDF36204ACCEC0031D7DF /* WemotelyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A57DDF46204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "WemotelyUITests" */;
+			buildPhases = (
+				A57DDF33204ACCEC0031D7DF /* Sources */,
+				A57DDF34204ACCEC0031D7DF /* Frameworks */,
+				A57DDF35204ACCEC0031D7DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A57DDF39204ACCEC0031D7DF /* PBXTargetDependency */,
+			);
+			name = WemotelyUITests;
+			productName = WemotelyUITests;
+			productReference = A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A5EC7C0420287BA1006EA3D2 /* Project object */ = {
+		A57DDF0E204ACCEB0031D7DF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Insert Coffee Limited";
 				TargetAttributes = {
-					A5EC7C0B20287BA1006EA3D2 = {
+					A57DDF15204ACCEB0031D7DF = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
+					A57DDF2B204ACCEC0031D7DF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A57DDF15204ACCEB0031D7DF;
+					};
+					A57DDF36204ACCEC0031D7DF = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A57DDF15204ACCEB0031D7DF;
+					};
 				};
 			};
-			buildConfigurationList = A5EC7C0720287BA1006EA3D2 /* Build configuration list for PBXProject "Wemotely" */;
+			buildConfigurationList = A57DDF11204ACCEB0031D7DF /* Build configuration list for PBXProject "Wemotely" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -175,49 +309,47 @@
 				en,
 				Base,
 			);
-			mainGroup = A5EC7C0320287BA1006EA3D2;
-			productRefGroup = A5EC7C0D20287BA1006EA3D2 /* Products */;
+			mainGroup = A57DDF0D204ACCEB0031D7DF;
+			productRefGroup = A57DDF17204ACCEB0031D7DF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A5EC7C0B20287BA1006EA3D2 /* Wemotely */,
+				A57DDF15204ACCEB0031D7DF /* Wemotely */,
+				A57DDF2B204ACCEC0031D7DF /* WemotelyTests */,
+				A57DDF36204ACCEC0031D7DF /* WemotelyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A5EC7C0A20287BA1006EA3D2 /* Resources */ = {
+		A57DDF14204ACCEB0031D7DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5EC7C1A20287BA1006EA3D2 /* LaunchScreen.storyboard in Resources */,
-				A5EC7C1720287BA1006EA3D2 /* Assets.xcassets in Resources */,
-				A5EC7C1520287BA1006EA3D2 /* Main.storyboard in Resources */,
+				A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */,
+				A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */,
+				A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57DDF2A204ACCEC0031D7DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57DDF35204ACCEC0031D7DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		11EBDBA05348C03485049E69 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Wemotely-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		69255622D0CA1C612B6EA6EE /* [CP] Embed Pods Frameworks */ = {
+		81E66B15B7B69DAE03BA5333 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,7 +371,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		81EF653B901F3B38D3D9A167 /* [CP] Copy Pods Resources */ = {
+		C59155F9F7E642B4C41200B0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -254,33 +386,89 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FA512F3762F14F8C5F49345F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wemotely-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A5EC7C0820287BA1006EA3D2 /* Sources */ = {
+		A57DDF12204ACCEB0031D7DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5EC7C1220287BA1006EA3D2 /* ViewController.swift in Sources */,
-				A5EC7C1020287BA1006EA3D2 /* AppDelegate.swift in Sources */,
+				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
+				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
+				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
+				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
+				A528FD4F204BF0C90020ABA9 /* Dashboard.swift in Sources */,
+				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
+				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
+				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
+				A5388421204AF732008253D7 /* Job.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57DDF28204ACCEC0031D7DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57DDF31204ACCEC0031D7DF /* WemotelyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A57DDF33204ACCEC0031D7DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */,
+				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
+				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A57DDF2E204ACCEC0031D7DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A57DDF15204ACCEB0031D7DF /* Wemotely */;
+			targetProxy = A57DDF2D204ACCEC0031D7DF /* PBXContainerItemProxy */;
+		};
+		A57DDF39204ACCEC0031D7DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A57DDF15204ACCEB0031D7DF /* Wemotely */;
+			targetProxy = A57DDF38204ACCEC0031D7DF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		A5EC7C1320287BA1006EA3D2 /* Main.storyboard */ = {
+		A57DDF1F204ACCEB0031D7DF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A5EC7C1420287BA1006EA3D2 /* Base */,
+				A57DDF20204ACCEB0031D7DF /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		A5EC7C1820287BA1006EA3D2 /* LaunchScreen.storyboard */ = {
+		A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A5EC7C1920287BA1006EA3D2 /* Base */,
+				A57DDF25204ACCEB0031D7DF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -288,7 +476,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A5EC7C1C20287BA1006EA3D2 /* Debug */ = {
+		A57DDF3E204ACCEC0031D7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -345,7 +533,7 @@
 			};
 			name = Debug;
 		};
-		A5EC7C1D20287BA1006EA3D2 /* Release */ = {
+		A57DDF3F204ACCEC0031D7DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -395,9 +583,9 @@
 			};
 			name = Release;
 		};
-		A5EC7C1F20287BA1006EA3D2 /* Debug */ = {
+		A57DDF41204ACCEC0031D7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 37F7EE0ECC30E74920A76A5A /* Pods-Wemotely.debug.xcconfig */;
+			baseConfigurationReference = 4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -411,9 +599,9 @@
 			};
 			name = Debug;
 		};
-		A5EC7C2020287BA1006EA3D2 /* Release */ = {
+		A57DDF42204ACCEC0031D7DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6F8C3DEA0D2CBD2D4C01557 /* Pods-Wemotely.release.xcconfig */;
+			baseConfigurationReference = 65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -427,28 +615,112 @@
 			};
 			name = Release;
 		};
+		A57DDF44204ACCEC0031D7DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PJ737FCUT;
+				INFOPLIST_FILE = WemotelyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wemotely.app/Wemotely";
+			};
+			name = Debug;
+		};
+		A57DDF45204ACCEC0031D7DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PJ737FCUT;
+				INFOPLIST_FILE = WemotelyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wemotely.app/Wemotely";
+			};
+			name = Release;
+		};
+		A57DDF47204ACCEC0031D7DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PJ737FCUT;
+				INFOPLIST_FILE = WemotelyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wemotely;
+			};
+			name = Debug;
+		};
+		A57DDF48204ACCEC0031D7DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4PJ737FCUT;
+				INFOPLIST_FILE = WemotelyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wemotely;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A5EC7C0720287BA1006EA3D2 /* Build configuration list for PBXProject "Wemotely" */ = {
+		A57DDF11204ACCEB0031D7DF /* Build configuration list for PBXProject "Wemotely" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A5EC7C1C20287BA1006EA3D2 /* Debug */,
-				A5EC7C1D20287BA1006EA3D2 /* Release */,
+				A57DDF3E204ACCEC0031D7DF /* Debug */,
+				A57DDF3F204ACCEC0031D7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A5EC7C1E20287BA1006EA3D2 /* Build configuration list for PBXNativeTarget "Wemotely" */ = {
+		A57DDF40204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "Wemotely" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A5EC7C1F20287BA1006EA3D2 /* Debug */,
-				A5EC7C2020287BA1006EA3D2 /* Release */,
+				A57DDF41204ACCEC0031D7DF /* Debug */,
+				A57DDF42204ACCEC0031D7DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A57DDF43204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "WemotelyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A57DDF44204ACCEC0031D7DF /* Debug */,
+				A57DDF45204ACCEC0031D7DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A57DDF46204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "WemotelyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A57DDF47204ACCEC0031D7DF /* Debug */,
+				A57DDF48204ACCEC0031D7DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A5EC7C0420287BA1006EA3D2 /* Project object */;
+	rootObject = A57DDF0E204ACCEB0031D7DF /* Project object */;
 }

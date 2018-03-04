@@ -2,11 +2,45 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    static var dashboard: [Dashboard] = [
+        Dashboard(
+            title: "Inbox",
+            jobs: [
+                Job(title: "Engineer 1"),
+                Job(title: "Manager 1"),
+                Job(title: "Astronaut 1")
+            ]
+        ),
+        Dashboard(
+            title: "Favourites",
+            jobs: [
+                Job(title: "Engineer 2")
+            ]
+        ),
+        Dashboard(
+            title: "Trash",
+            jobs: [
+                Job(title: "Manager 2")
+            ]
+        ),
+    ]
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        if CommandLine.arguments.contains("--uitesting") {
+            let defaultsName = Bundle.main.bundleIdentifier!
+            UserDefaults.standard.removePersistentDomain(forName: defaultsName)
+            // Clear Database
+        }
+        
         // Override point for customization after application launch.
+        let splitViewController = window!.rootViewController as! UISplitViewController
+        print("View Controllers Count = \(splitViewController.viewControllers.count)")
+        // let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
+        // navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        splitViewController.preferredDisplayMode = .allVisible
+        splitViewController.delegate = self
         return true
     }
 
@@ -30,5 +64,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+}
+
+extension AppDelegate: UISplitViewControllerDelegate {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
+        guard let topAsJobController = secondaryAsNavController.topViewController as? JobViewController else { return false }
+        if topAsJobController.jobRecord == nil {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+            return true
+        }
+        return false
     }
 }

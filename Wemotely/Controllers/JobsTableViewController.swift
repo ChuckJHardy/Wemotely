@@ -1,11 +1,3 @@
-//
-//  JobsTableViewController.swift
-//  Wemotely
-//
-//  Created by Chuck J Hardy on 03/03/2018.
-//  Copyright © 2018 Insert Coffee Limited. All rights reserved.
-//
-
 import UIKit
 
 class JobsTableViewController: UITableViewController {
@@ -15,12 +7,6 @@ class JobsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.accessibilityIdentifier = "jobsTableView"
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Segues

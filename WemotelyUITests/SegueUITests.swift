@@ -11,7 +11,7 @@ class SegueUITests: XCTestCase {
         app = XCUIApplication()
         app.resetOrientation()
 
-        // We send a command line argument to our app, to enable it to reset its state
+        // Enable it to reset its state
         app.launchArguments.append("--uitesting")
     }
     

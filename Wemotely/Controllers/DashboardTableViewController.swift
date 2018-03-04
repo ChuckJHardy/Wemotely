@@ -24,6 +24,10 @@ class DashboardTableViewController: UITableViewController {
         showToolbar()
         super.viewWillAppear(animated)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        hideToolbar()
+    }
 
     // MARK: - Segues
 
@@ -78,6 +82,10 @@ class DashboardTableViewController: UITableViewController {
         navigationController?.setToolbarHidden(false, animated: false)
     }
     
+    private func hideToolbar() {
+        navigationController?.setToolbarHidden(true, animated: false)
+    }
+    
     private func setupToolbar() {
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
@@ -99,7 +107,7 @@ class DashboardTableViewController: UITableViewController {
             action: #selector(settingsToolbarItemSelected(_:))
         )
         
-        // toolbarItems = [filterItem, spacer, settingsItem]
+        self.toolbarItems = [filterItem, spacer, settingsItem]
     }
     
     @objc private func settingsToolbarItemSelected(_ sender: Any) {

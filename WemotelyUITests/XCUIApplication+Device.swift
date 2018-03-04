@@ -8,6 +8,14 @@ extension XCUIApplication {
         ]
     }
     
+    func isPad() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+    }
+    
+    func isPhone() -> Bool {
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone
+    }
+    
     func resetOrientation() {
         XCUIDevice.shared.orientation = .portrait
     }

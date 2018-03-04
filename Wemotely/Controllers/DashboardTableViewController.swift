@@ -2,11 +2,6 @@ import UIKit
 
 class DashboardTableViewController: UITableViewController {
     var jobViewController: JobViewController? = nil
-    var objects: [Job] = [
-        Job(title: "Engineer"),
-        Job(title: "Manager"),
-        Job(title: "Astronaut")
-    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +29,13 @@ class DashboardTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case "showDetail"?:
+        case "showJobs"?:
             if let indexPath = tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! JobViewController
-                controller.jobRecord = object.title
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                let dashboardObject = AppDelegate.dashboard[indexPath.row]
+                let controller = segue.destination as! JobsTableViewController
+                // let controller = (segue.destination as! UINavigationController).topViewController as! JobsTableViewController
+                controller.dashboardObject = dashboardObject
+                // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         default:
@@ -54,13 +50,13 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return AppDelegate.dashboard.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dashboardCell", for: indexPath)
 
-        let object = objects[indexPath.row]
+        let object = AppDelegate.dashboard[indexPath.row]
         cell.textLabel!.text = object.title
         return cell
     }
@@ -71,7 +67,7 @@ class DashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            objects.remove(at: indexPath.row)
+            AppDelegate.dashboard.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -103,7 +99,7 @@ class DashboardTableViewController: UITableViewController {
             action: #selector(settingsToolbarItemSelected(_:))
         )
         
-        toolbarItems = [filterItem, spacer, settingsItem]
+        // toolbarItems = [filterItem, spacer, settingsItem]
     }
     
     @objc private func settingsToolbarItemSelected(_ sender: Any) {

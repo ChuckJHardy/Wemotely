@@ -5,8 +5,9 @@ class JobViewController: UIViewController {
     
     func configureView() {
         if let job = jobRecord {
+            self.title = job.title
             if let label = jobTitleDescriptionLabel {
-                label.text = job.description
+                label.text = job.title
             }
         }
     }
@@ -18,7 +19,7 @@ class JobViewController: UIViewController {
         configureView()
     }
 
-    var jobRecord: String? {
+    var jobRecord: Job? {
         didSet {
             configureView()
         }

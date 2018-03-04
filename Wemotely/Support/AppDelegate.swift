@@ -2,6 +2,29 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    static var dashboard: [Dashboard] = [
+        Dashboard(
+            title: "Inbox",
+            jobs: [
+                Job(title: "Engineer 1"),
+                Job(title: "Manager 1"),
+                Job(title: "Astronaut 1")
+            ]
+        ),
+        Dashboard(
+            title: "Favourites",
+            jobs: [
+                Job(title: "Engineer 2")
+            ]
+        ),
+        Dashboard(
+            title: "Trash",
+            jobs: [
+                Job(title: "Manager 2")
+            ]
+        ),
+    ]
+    
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

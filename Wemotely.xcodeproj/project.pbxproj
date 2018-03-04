@@ -12,6 +12,8 @@
 		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
 		A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */; };
 		A528FD4F204BF0C90020ABA9 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD4E204BF0C90020ABA9 /* Dashboard.swift */; };
+		A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */; };
+		A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */; };
 		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
 		A5388421204AF732008253D7 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5388420204AF732008253D7 /* Job.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
@@ -49,6 +51,8 @@
 		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsTableViewController.swift; sourceTree = "<group>"; };
 		A528FD4E204BF0C90020ABA9 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Segues.swift"; sourceTree = "<group>"; };
+		A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Device.swift"; sourceTree = "<group>"; };
 		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		A5388420204AF732008253D7 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +210,8 @@
 			children = (
 				A57DDF3B204ACCEC0031D7DF /* WemotelyUITests.swift */,
 				A57DDF3D204ACCEC0031D7DF /* Info.plist */,
+				A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */,
+				A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -430,6 +436,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF3C204ACCEC0031D7DF /* WemotelyUITests.swift in Sources */,
+				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
+				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

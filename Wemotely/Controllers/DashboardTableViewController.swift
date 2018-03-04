@@ -6,6 +6,8 @@ class DashboardTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.accessibilityIdentifier = "dashboardTableView"
+        
         setupToolbar()
         showToolbar()
         

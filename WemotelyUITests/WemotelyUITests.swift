@@ -22,6 +22,26 @@ class WemotelyUITests: XCTestCase {
     
     // MARK: - Tests
     
+    func testDetailViewExpandCollapse() {
+        app.launch()
+        
+        if app.isPad() {
+            XCTAssert(app.isDisplayingDashboard)
+            XCTAssert(app.isDisplayingJob)
+            
+            let jobNavigationBar = app.navigationBars["Job"]
+            jobNavigationBar.buttons["Switch to full screen mode"].tap()
+            
+            XCTAssertFalse(app.isDisplayingDashboard)
+            XCTAssert(app.isDisplayingJob)
+            
+            jobNavigationBar.buttons["Master"].tap()
+
+            XCTAssert(app.isDisplayingDashboard)
+            XCTAssert(app.isDisplayingJob)
+        }
+    }
+    
     func testNavigatingToFilter() {
         app.launch()
         
@@ -95,7 +115,7 @@ class WemotelyUITests: XCTestCase {
                 
                 // 'Job' Screen should be shown
                 if app.isPad() {
-                    XCTAssert(app.navigationBars["Job"].exists)
+                    XCTAssert(app.isDisplayingJob)
                 }
                 
                 assertToolbarShown()

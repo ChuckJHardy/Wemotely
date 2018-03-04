@@ -15,6 +15,8 @@ class JobViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.accessibilityIdentifier = "jobTableView"
+        
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         configureView()
     }

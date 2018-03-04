@@ -2,7 +2,7 @@ import XCTest
 
 extension XCUIApplication {
     var isDisplayingDashboard: Bool {
-        return tables["dashboardTableView"].exists
+        return tables["dashboardTableView"].isHittable
     }
     
     var isDisplayingFilter: Bool {
@@ -11,6 +11,10 @@ extension XCUIApplication {
     
     var isDisplayingSettings: Bool {
         return tables["settingsTableView"].exists
+    }
+    
+    var isDisplayingJob: Bool {
+        return otherElements["jobTableView"].exists
     }
     
     var isDisplayingJobs: Bool {

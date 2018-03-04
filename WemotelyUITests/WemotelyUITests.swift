@@ -1,36 +1,32 @@
-//
-//  WemotelyUITests.swift
-//  WemotelyUITests
-//
-//  Created by Chuck J Hardy on 03/03/2018.
-//  Copyright © 2018 Insert Coffee Limited. All rights reserved.
-//
-
 import XCTest
 
 class WemotelyUITests: XCTestCase {
+    let app = XCUIApplication()
         
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testNavigatingToFilter() {
+        XCTAssertTrue(app.navigationBars["Dashboard"].exists, "Failed to start on Dashboard Screen")
+        
+        // Tap Toolbar Filter Button
+        app.toolbars.buttons["Filter"].tap()
+        
+        XCTAssertTrue(app.navigationBars["Filter"].exists, "Failed to Segue to the Filter Screen")
+        
+        // Tap Dashboard Back Button
+        app.navigationBars["Filter"].buttons["Dashboard"].tap()
+        
+        XCTAssertTrue(app.navigationBars["Dashboard"].exists, "Failed to Segue back to Dashboard Screen")
     }
-    
 }

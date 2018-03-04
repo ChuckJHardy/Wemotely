@@ -1,6 +1,6 @@
 import XCTest
 
-class WemotelyUITests: XCTestCase {
+class SegueUITests: XCTestCase {
     var app: XCUIApplication!
         
     override func setUp() {

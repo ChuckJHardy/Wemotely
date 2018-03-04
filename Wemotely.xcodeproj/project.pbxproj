@@ -23,7 +23,7 @@
 		A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF22204ACCEB0031D7DF /* Assets.xcassets */; };
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* WemotelyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */; };
-		A57DDF3C204ACCEC0031D7DF /* WemotelyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* WemotelyUITests.swift */; };
+		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WemotelyTests.swift; sourceTree = "<group>"; };
 		A57DDF32204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A57DDF3B204ACCEC0031D7DF /* WemotelyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WemotelyUITests.swift; sourceTree = "<group>"; };
+		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +208,7 @@
 		A57DDF3A204ACCEC0031D7DF /* WemotelyUITests */ = {
 			isa = PBXGroup;
 			children = (
-				A57DDF3B204ACCEC0031D7DF /* WemotelyUITests.swift */,
+				A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */,
 				A57DDF3D204ACCEC0031D7DF /* Info.plist */,
 				A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */,
 				A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */,
@@ -435,7 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57DDF3C204ACCEC0031D7DF /* WemotelyUITests.swift in Sources */,
+				A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */,
 				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 			);

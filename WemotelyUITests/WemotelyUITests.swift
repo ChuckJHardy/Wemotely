@@ -28,17 +28,46 @@ class WemotelyUITests: XCTestCase {
         for orientation in app.supportedOrientations {
             XCUIDevice.shared.orientation = orientation
             
-            XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
+            XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on 'Dashboard' Screen")
             
-            // Tap Toolbar Filter Button
+            // Tap Toolbar 'Filter' Button
             app.toolbars.buttons["Filter"].tap()
             
-            XCTAssertTrue(app.isDisplayingFilter, "Failed to Segue to the Filter Screen")
+            XCTAssertTrue(app.isDisplayingFilter, "Failed to Segue to the 'Filter' Screen")
             
-            // Tap Dashboard Back Button
+            assertToolbarHidden()
+            
+            // Tap Dashboard 'Back' Button
             app.navigationBars["Filter"].buttons["Dashboard"].tap()
             
-            XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to Dashboard Screen")
+            XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
         }
+    }
+    
+    func testNavigatingToSettings() {
+        app.launch()
+        
+        for orientation in app.supportedOrientations {
+            XCUIDevice.shared.orientation = orientation
+            
+            XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
+            
+            // Tap Toolbar 'Settings' Button
+            app.toolbars.buttons["Settings"].tap()
+            
+            XCTAssertTrue(app.isDisplayingSettings, "Failed to Segue to the 'Settings' Screen")
+            
+            assertToolbarHidden()
+            
+            // Tap Dashboard 'Back' Button
+            app.navigationBars["Settings"].buttons["Dashboard"].tap()
+            
+            XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
+        }
+    }
+    
+    private func assertToolbarHidden() {
+        XCTAssertFalse(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button available")
+        XCTAssertFalse(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button available")
     }
 }

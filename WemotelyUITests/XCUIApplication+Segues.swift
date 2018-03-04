@@ -8,4 +8,8 @@ extension XCUIApplication {
     var isDisplayingFilter: Bool {
         return tables["filterTableView"].exists
     }
+    
+    var isDisplayingSettings: Bool {
+        return tables["settingsTableView"].exists
+    }
 }

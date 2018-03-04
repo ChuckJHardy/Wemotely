@@ -62,6 +62,47 @@ class WemotelyUITests: XCTestCase {
         }
     }
     
+    func testNavigatingToSettingsNavigationOptions() {
+        let settingsOption = "Notification Options"
+        
+        app.launch()
+        
+        app.runWithSupportedOrientations {
+            startAndEndOnDashboard {
+                // Tap Toolbar 'Settings' Button
+                app.toolbars.buttons["Settings"].tap()
+                
+                XCTAssert(app.isDisplayingSettings)
+                
+                assertToolbarHidden()
+            
+                app.tables["settingsTableView"].cells.staticTexts[settingsOption].tap()
+                
+                // iPad should still show list of Settings
+                if app.isPad() {
+                    XCTAssert(app.isDisplayingSettings)
+                } else {
+                    XCTAssertFalse(app.isDisplayingSettings)
+                }
+                
+                XCTAssert(app.navigationBars[settingsOption].exists)
+                
+                // Tap Dashboard 'Back' Button
+                if app.isPhone() {
+                    app.navigationBars[settingsOption].buttons["Settings"].tap()
+                }
+                app.navigationBars["Settings"].buttons["Dashboard"].tap()
+                
+                // 'Job' Screen should be shown
+                if app.isPad() {
+                    XCTAssert(app.navigationBars["Job"].exists)
+                }
+                
+                assertToolbarShown()
+            }
+        }
+    }
+    
     func testNavigatingToJobs() {
         app.launch()
         

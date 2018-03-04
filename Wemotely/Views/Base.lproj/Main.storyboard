@@ -199,7 +199,7 @@
         <!--Notifications-->
         <scene sceneID="wzy-79-NpQ">
             <objects>
-                <tableViewController title="Notifications" id="5cT-NN-FMf" sceneMemberID="viewController">
+                <tableViewController title="Notifications" id="5cT-NN-FMf" customClass="NotificationOptionsTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="MwX-PT-EjC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,10 +234,10 @@
             </objects>
             <point key="canvasLocation" x="2844" y="-613"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Notifications-->
         <scene sceneID="fWd-Vj-PxW">
             <objects>
-                <navigationController id="vWx-Rk-EJI" sceneMemberID="viewController">
+                <navigationController title="Notifications" id="vWx-Rk-EJI" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DoM-Uj-jA9">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -16,7 +16,7 @@ class DashboardTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
         
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 
         if let split = splitViewController {
             let controllers = split.viewControllers

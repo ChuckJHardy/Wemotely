@@ -14,6 +14,7 @@ class JobViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setToolbarHidden(true, animated: false)
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         configureView()
     }
 

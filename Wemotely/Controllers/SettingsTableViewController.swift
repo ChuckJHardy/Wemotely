@@ -7,6 +7,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        performSegue(withIdentifier: "reshowDetailView", sender: self)
+        if !(splitViewController?.isCollapsed)! {
+            performSegue(withIdentifier: "reshowDetailView", sender: self)
+        }
     }
 }

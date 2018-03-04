@@ -165,6 +165,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="reshowDetailView" id="qi4-nR-kWm"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="VVR-30-JWj" style="IBUITableViewCellStyleDefault" id="Smp-TD-9AL">
                                         <rect key="frame" x="0.0" y="199.5" width="375" height="44"/>
@@ -223,6 +226,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="5cT-NN-FMf" id="Vzv-ms-C9q"/>
                             <outlet property="delegate" destination="5cT-NN-FMf" id="CHK-ia-Ebb"/>
@@ -355,6 +359,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k7M-J3-SRf"/>
+        <segue reference="qi4-nR-kWm"/>
     </inferredMetricsTieBreakers>
 </document>

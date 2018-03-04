@@ -12,4 +12,8 @@ extension XCUIApplication {
     var isDisplayingSettings: Bool {
         return tables["settingsTableView"].exists
     }
+    
+    var isDisplayingJobs: Bool {
+        return tables["jobsTableView"].exists
+    }
 }

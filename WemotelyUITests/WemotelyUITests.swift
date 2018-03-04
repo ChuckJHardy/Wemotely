@@ -58,6 +58,24 @@ class WemotelyUITests: XCTestCase {
         }
     }
     
+    func testNavigatingToJobs() {
+        app.launch()
+        
+        app.runWithSupportedOrientations {
+            startAndEndOnDashboard {
+                // Tap first cell in 'Dashboard' table
+                app.tables["dashboardTableView"]/*@START_MENU_TOKEN@*/.cells.staticTexts["Inbox"]/*[[".cells.staticTexts[\"Inbox\"]",".staticTexts[\"Inbox\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
+                
+                XCTAssert(app.isDisplayingJobs)
+                
+                assertToolbarHidden()
+                
+                // Tap Dashboard 'Back' Button
+                app.navigationBars["Jobs"].buttons["Dashboard"].tap()
+            }
+        }
+    }
+    
     private func assertToolbarHidden() {
         XCTAssertFalse(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button available")
         XCTAssertFalse(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button available")

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A9D482D2B4674AEA6744CB4 /* Pods_Wemotely.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */; };
 		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
 		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
 		A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */; };
@@ -44,9 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wemotely.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.debug.xcconfig"; sourceTree = "<group>"; };
-		65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wemotely.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely.release.xcconfig"; sourceTree = "<group>"; };
 		A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsTableViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A9D482D2B4674AEA6744CB4 /* Pods_Wemotely.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,23 +92,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17D719296625CD460F494604 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */,
-				65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		603A4DC1DFE7089361650F20 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4A2947B41384121F4E3143A6 /* Pods_Wemotely.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A528FD4B204B219D0020ABA9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,8 +146,6 @@
 				A57DDF2F204ACCEC0031D7DF /* WemotelyTests */,
 				A57DDF3A204ACCEC0031D7DF /* WemotelyUITests */,
 				A57DDF17204ACCEB0031D7DF /* Products */,
-				17D719296625CD460F494604 /* Pods */,
-				603A4DC1DFE7089361650F20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,12 +199,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A57DDF40204ACCEC0031D7DF /* Build configuration list for PBXNativeTarget "Wemotely" */;
 			buildPhases = (
-				FA512F3762F14F8C5F49345F /* [CP] Check Pods Manifest.lock */,
 				A57DDF12204ACCEB0031D7DF /* Sources */,
 				A57DDF13204ACCEB0031D7DF /* Frameworks */,
 				A57DDF14204ACCEB0031D7DF /* Resources */,
-				81E66B15B7B69DAE03BA5333 /* [CP] Embed Pods Frameworks */,
-				C59155F9F7E642B4C41200B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,64 +320,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		81E66B15B7B69DAE03BA5333 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59155F9F7E642B4C41200B0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wemotely/Pods-Wemotely-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FA512F3762F14F8C5F49345F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Wemotely-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A57DDF12204ACCEB0031D7DF /* Sources */ = {
@@ -585,7 +500,6 @@
 		};
 		A57DDF41204ACCEC0031D7DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4FEA023235FF8AF7F73090DA /* Pods-Wemotely.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -601,7 +515,6 @@
 		};
 		A57DDF42204ACCEC0031D7DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65D7437FCE9A22E3D8DF3D37 /* Pods-Wemotely.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

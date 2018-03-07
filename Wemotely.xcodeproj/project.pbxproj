@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5159E24204FD6730056AF57 /* RealmSwift.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */; };
+		A5159E25204FD6730056AF57 /* Realm.framework.dSYM in Frameworks */ = {isa = PBXBuildFile; fileRef = A5159E23204FD6730056AF57 /* Realm.framework.dSYM */; };
+		A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5159E26204FD6E00056AF57 /* RealmProvider.swift */; };
 		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
 		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
 		A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */; };
@@ -21,7 +24,7 @@
 		A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF1F204ACCEB0031D7DF /* Main.storyboard */; };
 		A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF22204ACCEB0031D7DF /* Assets.xcassets */; };
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
-		A57DDF31204ACCEC0031D7DF /* WemotelyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */; };
+		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
 		A59727B1204FD21D00D5A917 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A59727B3204FD22100D5A917 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RealmSwift.framework.dSYM; path = Carthage/Build/iOS/RealmSwift.framework.dSYM; sourceTree = "<group>"; };
+		A5159E23204FD6730056AF57 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/iOS/Realm.framework.dSYM; sourceTree = "<group>"; };
+		A5159E26204FD6E00056AF57 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsTableViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +68,7 @@
 		A57DDF25204ACCEB0031D7DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A57DDF27204ACCEB0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57DDF2C204ACCEC0031D7DF /* WemotelyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WemotelyTests.swift; sourceTree = "<group>"; };
+		A57DDF30204ACCEC0031D7DF /* JobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTests.swift; sourceTree = "<group>"; };
 		A57DDF32204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
@@ -85,6 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5159E25204FD6730056AF57 /* Realm.framework.dSYM in Frameworks */,
+				A5159E24204FD6730056AF57 /* RealmSwift.framework.dSYM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
+				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -182,7 +191,7 @@
 		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
 			isa = PBXGroup;
 			children = (
-				A57DDF30204ACCEC0031D7DF /* WemotelyTests.swift */,
+				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
 				A57DDF32204ACCEC0031D7DF /* Info.plist */,
 			);
 			path = WemotelyTests;
@@ -202,6 +211,8 @@
 		A59727AF204FD21D00D5A917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5159E23204FD6730056AF57 /* Realm.framework.dSYM */,
+				A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */,
 				A59727B2204FD22100D5A917 /* Realm.framework */,
 				A59727B0204FD21D00D5A917 /* RealmSwift.framework */,
 			);
@@ -209,6 +220,16 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A5159E28204FD7B90056AF57 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		A57DDF15204ACCEB0031D7DF /* Wemotely */ = {
@@ -236,6 +257,7 @@
 			buildPhases = (
 				A57DDF28204ACCEC0031D7DF /* Sources */,
 				A57DDF29204ACCEC0031D7DF /* Frameworks */,
+				A5159E28204FD7B90056AF57 /* Headers */,
 				A57DDF2A204ACCEC0031D7DF /* Resources */,
 			);
 			buildRules = (
@@ -381,6 +403,7 @@
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
+				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
 				A528FD4F204BF0C90020ABA9 /* Dashboard.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
@@ -393,7 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A57DDF31204ACCEC0031D7DF /* WemotelyTests.swift in Sources */,
+				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

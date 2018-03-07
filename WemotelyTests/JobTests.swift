@@ -1,19 +1,16 @@
-//
-//  WemotelyTests.swift
-//  WemotelyTests
-//
-//  Created by Chuck J Hardy on 03/03/2018.
-//  Copyright © 2018 Insert Coffee Limited. All rights reserved.
-//
-
 import XCTest
 @testable import Wemotely
 
-class WemotelyTests: XCTestCase {
+class JobTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let realm = RealmProvider.realm()
+        
+        try! realm.write { () -> Void in
+            realm.deleteAll()
+        }
     }
     
     override func tearDown() {

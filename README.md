@@ -10,3 +10,16 @@
 $ brew install carthage
 $ carthage bootstrap
 ```
+
+### Troubleshooting
+
+#### Cleaning / Clearing
+
+To clean the build folder, hold down the `Option` key while opening the `Product` menu, then choose `Clean Build Folder…`.
+
+```
+$ rm -rf Carthage
+$ rm -rf ~/Library/Developer/Xcode/DerivedData
+$ carthage update
+```
+

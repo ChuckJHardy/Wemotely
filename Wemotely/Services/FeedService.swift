@@ -13,24 +13,39 @@ struct FeedService {
     }
     
     func updateWith(feed: RSSFeed) -> Account {
-        print("Feed: \(String(describing: feed.items?.count))")
-        
         for item in feed.items! {
-            let job = Job()
-            
-            let titleCaptures = item.title?.split(separator: ":")
-            let company = titleCaptures?.first?.trimmingCharacters(in: .whitespacesAndNewlines)
-            let jobTitle = titleCaptures?.last?.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            job.title = jobTitle!
-            job.company = company!
-            job.body = item.description!
-            job.pubDate = item.pubDate!
-            
-            account.jobs.append(job)
+            account.jobs.append(
+                BuildJob(record: item).build()
+            )
         }
         
         return account
+    }
+    
+    struct BuildJob {
+        let titleSeperator = Character(":")
+        let job = Job()
+        
+        var record: RSSFeedItem
+        
+        func build() -> Job {
+            let captures = titleCaptures()
+            
+            job.title = trim(str: captures?.last)!
+            job.company = trim(str: captures?.first)!
+            job.body = record.description!
+            job.pubDate = record.pubDate!
+            
+            return job
+        }
+        
+        private func titleCaptures() -> [String.SubSequence]? {
+            return record.title?.split(separator: titleSeperator)
+        }
+        
+        private func trim(str: String.SubSequence?) -> String? {
+            return str?.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
     }
 }
 

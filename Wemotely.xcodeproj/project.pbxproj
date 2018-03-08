@@ -32,6 +32,8 @@
 		A5F991032051B7DE005D7C42 /* FeedService+DAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedService+DAOTests.swift */; };
 		A5F991052051B801005D7C42 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991042051B801005D7C42 /* FeedService.swift */; };
 		A5F991082051BB4B005D7C42 /* FeedService+DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991072051BB4B005D7C42 /* FeedService+DAO.swift */; };
+		A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
+		A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,7 @@
 		A5F991022051B7DE005D7C42 /* FeedService+DAOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedService+DAOTests.swift"; sourceTree = "<group>"; };
 		A5F991042051B801005D7C42 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		A5F991072051BB4B005D7C42 /* FeedService+DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedService+DAO.swift"; sourceTree = "<group>"; };
+		A5F991092051BF0A005D7C42 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,7 @@
 			files = (
 				A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */,
+				A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +105,7 @@
 			files = (
 				A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */,
+				A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +226,7 @@
 		A59727AF204FD21D00D5A917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5F991092051BF0A005D7C42 /* FeedKit.framework */,
 				A5159E23204FD6730056AF57 /* Realm.framework.dSYM */,
 				A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */,
 				A59727B2204FD22100D5A917 /* Realm.framework */,
@@ -406,10 +412,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

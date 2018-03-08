@@ -1,7 +1,7 @@
 import UIKit
 
 class JobsTableViewController: UITableViewController {
-    var dashboardObject: Dashboard?
+    var accountObject: Account?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class JobsTableViewController: UITableViewController {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let controller = (segue.destination as! UINavigationController).topViewController as! JobViewController
                 
-                if let jobs = dashboardObject?.jobs {
+                if let jobs = accountObject?.jobs {
                     let object = jobs[indexPath.row]
                     controller.jobRecord = object
                 }
@@ -37,7 +37,7 @@ class JobsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let jobs = dashboardObject?.jobs {
+        if let jobs = accountObject?.jobs {
             return jobs.count
         } else {
             return 0
@@ -47,7 +47,7 @@ class JobsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "jobsCell", for: indexPath)
         
-        if let jobs = dashboardObject?.jobs {
+        if let jobs = accountObject?.jobs {
             let object = jobs[indexPath.row]
             cell.textLabel!.text = object.title
         }

@@ -11,7 +11,6 @@
 		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
 		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
 		A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */; };
-		A528FD4F204BF0C90020ABA9 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD4E204BF0C90020ABA9 /* Dashboard.swift */; };
 		A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */; };
 		A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */; };
 		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
@@ -56,7 +55,6 @@
 		A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsTableViewController.swift; sourceTree = "<group>"; };
-		A528FD4E204BF0C90020ABA9 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Segues.swift"; sourceTree = "<group>"; };
 		A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Device.swift"; sourceTree = "<group>"; };
 		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				A5388420204AF732008253D7 /* Job.swift */,
-				A528FD4E204BF0C90020ABA9 /* Dashboard.swift */,
 				A5F990F72051AF6D005D7C42 /* Account.swift */,
 			);
 			path = Models;
@@ -411,7 +408,6 @@
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
 				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
-				A528FD4F204BF0C90020ABA9 /* Dashboard.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,

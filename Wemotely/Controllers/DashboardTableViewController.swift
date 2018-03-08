@@ -37,10 +37,10 @@ class DashboardTableViewController: UITableViewController {
         switch segue.identifier {
         case "showJobs"?:
             if let indexPath = tableView.indexPathForSelectedRow {
-                let dashboardObject = AppDelegate.dashboard[indexPath.row]
+                let accountObject = AppDelegate.accounts[indexPath.row]
                 let controller = segue.destination as! JobsTableViewController
                 // let controller = (segue.destination as! UINavigationController).topViewController as! JobsTableViewController
-                controller.dashboardObject = dashboardObject
+                controller.accountObject = accountObject
                 // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
@@ -56,13 +56,13 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppDelegate.dashboard.count
+        return AppDelegate.accounts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dashboardCell", for: indexPath)
 
-        let object = AppDelegate.dashboard[indexPath.row]
+        let object = AppDelegate.accounts[indexPath.row]
         cell.textLabel!.text = object.title
         return cell
     }
@@ -73,7 +73,7 @@ class DashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            AppDelegate.dashboard.remove(at: indexPath.row)
+            AppDelegate.accounts.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

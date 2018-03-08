@@ -2,27 +2,33 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static var dashboard: [Dashboard] = [
-        Dashboard(
-            title: "Inbox",
-            jobs: [
-                Job(value: ["title": "Engineer 1"]),
-                Job(value: ["title": "Manager 1"]),
-                Job(value: ["title": "Astronaut 1"])
+    static var accounts: [Account] = [
+        Account(
+            value: [
+                "title": "Inbox",
+                "jobs": [
+                    Job(value: ["title": "Engineer 1"]),
+                    Job(value: ["title": "Manager 1"]),
+                    Job(value: ["title": "Astronaut 1"])
+                ]
             ]
         ),
-        Dashboard(
-            title: "Favourites",
-            jobs: [
-                Job(value: ["title": "Engineer 2"])
+        Account(
+            value: [
+                "title": "Favourites",
+                "jobs": [
+                    Job(value: ["title": "Engineer 2"])
+                ]
             ]
         ),
-        Dashboard(
-            title: "Trash",
-            jobs: [
-                Job(value: ["title": "Manager 2"])
+        Account(
+            value: [
+                "title": "Trash",
+                "jobs": [
+                    Job(value: ["title": "Manager 2"])
+                ]
             ]
-        ),
+        )
     ]
     
     var window: UIWindow?

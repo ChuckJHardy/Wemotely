@@ -29,11 +29,11 @@
 		A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5F990F82051AF6D005D7C42 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F72051AF6D005D7C42 /* Account.swift */; };
 		A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F92051AFEA005D7C42 /* AccountTests.swift */; };
-		A5F991032051B7DE005D7C42 /* FeedService+DAOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedService+DAOTests.swift */; };
+		A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */; };
 		A5F991052051B801005D7C42 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991042051B801005D7C42 /* FeedService.swift */; };
-		A5F991082051BB4B005D7C42 /* FeedService+DAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991072051BB4B005D7C42 /* FeedService+DAO.swift */; };
 		A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
 		A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
+		A5F9910F2051C5A8005D7C42 /* remote-programming-jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,10 +82,10 @@
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
-		A5F991022051B7DE005D7C42 /* FeedService+DAOTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedService+DAOTests.swift"; sourceTree = "<group>"; };
+		A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
 		A5F991042051B801005D7C42 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
-		A5F991072051BB4B005D7C42 /* FeedService+DAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedService+DAO.swift"; sourceTree = "<group>"; };
 		A5F991092051BF0A005D7C42 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
+		A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "remote-programming-jobs.xml"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +205,7 @@
 		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5F9910C2051C572005D7C42 /* Fixtures */,
 				A5F990FE2051B7AA005D7C42 /* Services */,
 				A5F990FD2051B79F005D7C42 /* Models */,
 				A57DDF32204ACCEC0031D7DF /* Info.plist */,
@@ -238,7 +239,6 @@
 		A5F990FB2051B757005D7C42 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A5F991072051BB4B005D7C42 /* FeedService+DAO.swift */,
 				A5F991042051B801005D7C42 /* FeedService.swift */,
 			);
 			path = Services;
@@ -256,9 +256,25 @@
 		A5F990FE2051B7AA005D7C42 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A5F991022051B7DE005D7C42 /* FeedService+DAOTests.swift */,
+				A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */,
+				A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A5F9910C2051C572005D7C42 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				A5F9910D2051C57E005D7C42 /* xml */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		A5F9910D2051C57E005D7C42 /* xml */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xml;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F9910F2051C5A8005D7C42 /* remote-programming-jobs.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +460,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5F991082051BB4B005D7C42 /* FeedService+DAO.swift in Sources */,
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
@@ -463,7 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
-				A5F991032051B7DE005D7C42 /* FeedService+DAOTests.swift in Sources */,
+				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

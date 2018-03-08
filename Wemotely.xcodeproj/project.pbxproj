@@ -28,6 +28,8 @@
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
+		A5F990F82051AF6D005D7C42 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F72051AF6D005D7C42 /* Account.swift */; };
+		A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F92051AFEA005D7C42 /* AccountTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 			children = (
 				A5388420204AF732008253D7 /* Job.swift */,
 				A528FD4E204BF0C90020ABA9 /* Dashboard.swift */,
+				A5F990F72051AF6D005D7C42 /* Account.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			children = (
 				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
 				A57DDF32204ACCEC0031D7DF /* Info.plist */,
+				A5F990F92051AFEA005D7C42 /* AccountTests.swift */,
 			);
 			path = WemotelyTests;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
+				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
@@ -417,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
+				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

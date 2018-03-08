@@ -577,6 +577,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4PJ737FCUT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -596,6 +597,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 4PJ737FCUT;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -626,6 +628,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Wemotely/**";
+				"SYSTEM_FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wemotely.app/Wemotely";
 			};
@@ -647,6 +651,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Wemotely/**";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wemotely.app/Wemotely";
 			};

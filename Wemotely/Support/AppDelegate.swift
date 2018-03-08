@@ -6,21 +6,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Dashboard(
             title: "Inbox",
             jobs: [
-                Job(title: "Engineer 1"),
-                Job(title: "Manager 1"),
-                Job(title: "Astronaut 1")
+                Job(value: ["title": "Engineer 1"]),
+                Job(value: ["title": "Manager 1"]),
+                Job(value: ["title": "Astronaut 1"])
             ]
         ),
         Dashboard(
             title: "Favourites",
             jobs: [
-                Job(title: "Engineer 2")
+                Job(value: ["title": "Engineer 2"])
             ]
         ),
         Dashboard(
             title: "Trash",
             jobs: [
-                Job(title: "Manager 2")
+                Job(value: ["title": "Manager 2"])
             ]
         ),
     ]

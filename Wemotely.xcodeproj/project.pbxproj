@@ -37,6 +37,7 @@
 		A5F991112052736C005D7C42 /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991102052736C005D7C42 /* Seed.swift */; };
 		A5F9911320527466005D7C42 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911220527466005D7C42 /* App.swift */; };
 		A5F9911520527705005D7C42 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911420527705005D7C42 /* AppTests.swift */; };
+		A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F99119205279B2005D7C42 /* SeedTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		A5F991102052736C005D7C42 /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
 		A5F9911220527466005D7C42 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A5F9911420527705005D7C42 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		A5F99119205279B2005D7C42 /* SeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5F99118205279A6005D7C42 /* Support */,
 				A5F9910C2051C572005D7C42 /* Fixtures */,
 				A5F990FE2051B7AA005D7C42 /* Services */,
 				A5F990FD2051B79F005D7C42 /* Models */,
@@ -284,6 +287,14 @@
 				A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */,
 			);
 			path = xml;
+			sourceTree = "<group>";
+		};
+		A5F99118205279A6005D7C42 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A5F99119205279B2005D7C42 /* SeedTests.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +503,7 @@
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
+				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

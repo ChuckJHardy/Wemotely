@@ -16,4 +16,11 @@ class Account: Object {
     override static func primaryKey() -> String? {
         return "urlKey"
     }
+
+    static func activeSorted(provider: Realm) -> Results<Account> {
+        return provider
+            .objects(Account.self)
+            .filter("active = %@", true)
+            .sorted(byKeyPath: "order")
+    }
 }

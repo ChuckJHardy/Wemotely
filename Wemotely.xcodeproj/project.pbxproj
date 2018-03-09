@@ -34,6 +34,9 @@
 		A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
 		A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
 		A5F9910F2051C5A8005D7C42 /* remote-programming-jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */; };
+		A5F991112052736C005D7C42 /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991102052736C005D7C42 /* Seed.swift */; };
+		A5F9911320527466005D7C42 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911220527466005D7C42 /* App.swift */; };
+		A5F9911520527705005D7C42 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911420527705005D7C42 /* AppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		A5F991042051B801005D7C42 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		A5F991092051BF0A005D7C42 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
 		A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "remote-programming-jobs.xml"; sourceTree = "<group>"; };
+		A5F991102052736C005D7C42 /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
+		A5F9911220527466005D7C42 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		A5F9911420527705005D7C42 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +138,7 @@
 			children = (
 				A5388420204AF732008253D7 /* Job.swift */,
 				A5F990F72051AF6D005D7C42 /* Account.swift */,
+				A5F9911220527466005D7C42 /* App.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,6 +170,7 @@
 			children = (
 				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
+				A5F991102052736C005D7C42 /* Seed.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 			children = (
 				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
 				A5F990F92051AFEA005D7C42 /* AccountTests.swift */,
+				A5F9911420527705005D7C42 /* AppTests.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,7 +265,6 @@
 		A5F990FE2051B7AA005D7C42 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */,
 				A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */,
 			);
 			path = Services;
@@ -273,6 +281,7 @@
 		A5F9910D2051C57E005D7C42 /* xml */ = {
 			isa = PBXGroup;
 			children = (
+				A5F9910E2051C5A8005D7C42 /* remote-programming-jobs.xml */,
 			);
 			path = xml;
 			sourceTree = "<group>";
@@ -460,8 +469,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F9911320527466005D7C42 /* App.swift in Sources */,
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
+				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
 				A5F991052051B801005D7C42 /* FeedService.swift in Sources */,
@@ -479,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
+				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 			);

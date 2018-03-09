@@ -3,7 +3,7 @@ import RealmSwift
 
 class RealmProvider {
     class func realm() -> Realm {
-        if let _ = NSClassFromString("XCTest") {
+        if NSClassFromString("XCTest") != nil {
             return try! Realm(
                 configuration: Realm.Configuration(
                     fileURL: nil,
@@ -16,7 +16,7 @@ class RealmProvider {
                 )
             )
         } else {
-            return try! Realm();
+            return try! Realm()
         }
     }
 }

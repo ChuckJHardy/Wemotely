@@ -4,11 +4,11 @@ import RealmSwift
 class Seed: NSObject {
     var realm: Realm
     var app: App!
-    
+
     init(realm: Realm = RealmProvider.realm()) {
         self.realm = realm
     }
-    
+
     enum Categories: String {
         case programming = "Programming"
         case customerSupport = "Customer Support"
@@ -17,27 +17,28 @@ class Seed: NSObject {
         case business = "Business/Management"
         case copywriting = "Copywriting"
     }
-    
+
     func call() {
         if let existingApp = realm.objects(App.self).first {
             app = existingApp
         } else {
             app = App()
         }
-        
+
         if !app.seeded {
             for account in accounts() {
                 app.accounts.append(account)
             }
-            
+
             app.seeded = true
-            
+
             try! realm.write {
                 realm.add(app, update: true)
             }
         }
     }
-    
+
+    // swiftlint:disable:next function_body_length
     func accounts() -> [Account] {
         return [
             Account(
@@ -104,4 +105,3 @@ class Seed: NSObject {
         ]
     }
 }
-

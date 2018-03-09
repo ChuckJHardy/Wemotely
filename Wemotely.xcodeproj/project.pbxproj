@@ -319,6 +319,7 @@
 				A57DDF14204ACCEB0031D7DF /* Resources */,
 				A59727B4204FD24400D5A917 /* ShellScript */,
 				A59727B5204FD35D00D5A917 /* ShellScript */,
+				A5F9911B20527E8A005D7C42 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -472,6 +473,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
+		};
+		A5F9911B20527E8A005D7C42 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 

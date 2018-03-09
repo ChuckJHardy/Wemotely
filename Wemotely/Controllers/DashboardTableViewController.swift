@@ -1,18 +1,18 @@
 import UIKit
 
 class DashboardTableViewController: UITableViewController {
-    var jobViewController: JobViewController? = nil
+    var jobViewController: JobViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.accessibilityIdentifier = "dashboardTableView"
-        
+
         setupToolbar()
         showToolbar()
-        
+
         navigationItem.leftBarButtonItem = editButtonItem
-        
+
         // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 
         if let split = splitViewController {
@@ -26,7 +26,7 @@ class DashboardTableViewController: UITableViewController {
         showToolbar()
         super.viewWillAppear(animated)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         hideToolbar()
     }
@@ -79,43 +79,43 @@ class DashboardTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-    
+
     private func showToolbar() {
         navigationController?.setToolbarHidden(false, animated: false)
     }
-    
+
     private func hideToolbar() {
         navigationController?.setToolbarHidden(true, animated: false)
     }
-    
+
     private func setupToolbar() {
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: self,
             action: nil
         )
-        
+
         let filterItem = UIBarButtonItem(
             title: "Filter",
             style: .plain,
             target: self,
             action: #selector(filterToolbarItemSelected(_:))
         )
-        
+
         let settingsItem = UIBarButtonItem(
             title: "Settings",
             style: .plain,
             target: self,
             action: #selector(settingsToolbarItemSelected(_:))
         )
-        
+
         self.toolbarItems = [filterItem, spacer, settingsItem]
     }
-    
+
     @objc private func settingsToolbarItemSelected(_ sender: Any) {
         performSegue(withIdentifier: "showSettings", sender: self)
     }
-    
+
     @objc private func filterToolbarItemSelected(_ sender: Any) {
         performSegue(withIdentifier: "showFilter", sender: self)
     }

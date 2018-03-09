@@ -7,7 +7,7 @@
 [Carthage Package Manager](https://github.com/Carthage/Carthage)
 
 ```
-$ brew install carthage
+$ brew install carthage swiftlint
 $ carthage bootstrap
 ```
 

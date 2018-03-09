@@ -2,167 +2,169 @@ import XCTest
 
 class SegueUITests: XCTestCase {
     var app: XCUIApplication!
-        
+
     override func setUp() {
         super.setUp()
-        
+
         continueAfterFailure = false
-        
+
         app = XCUIApplication()
         app.resetOrientation()
 
         // Enable it to reset its state
         app.launchArguments.append("--uitesting")
     }
-    
+
     override func tearDown() {
         super.tearDown()
         app.resetOrientation()
     }
-    
+
     // MARK: - Tests
-    
+
     func testDetailViewExpandCollapse() {
         app.launch()
-        
+
         if app.isPad() {
             XCTAssert(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)
-            
+
             let jobNavigationBar = app.navigationBars["Job"]
             jobNavigationBar.buttons["Switch to full screen mode"].tap()
-            
+
             XCTAssertFalse(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)
-            
+
             jobNavigationBar.buttons["Master"].tap()
 
             XCTAssert(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)
         }
     }
-    
+
     func testNavigatingToFilter() {
         app.launch()
-        
+
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap Toolbar 'Filter' Button
                 app.toolbars.buttons["Filter"].tap()
-                
+
                 XCTAssert(app.isDisplayingFilter)
-                
+
                 assertToolbarHidden()
-                
+
                 // Tap Dashboard 'Back' Button
                 app.navigationBars["Filter"].buttons["Dashboard"].tap()
-                
+
                 assertToolbarShown()
             }
         }
     }
-    
+
     func testNavigatingToSettings() {
         app.launch()
-        
+
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap Toolbar 'Settings' Button
                 app.toolbars.buttons["Settings"].tap()
-                
+
                 XCTAssert(app.isDisplayingSettings)
-                
+
                 assertToolbarHidden()
-                
+
                 // Tap Dashboard 'Back' Button
                 app.navigationBars["Settings"].buttons["Dashboard"].tap()
-                
+
                 assertToolbarShown()
             }
         }
     }
-    
+
     func testNavigatingToSettingsNavigationOptions() {
         let settingsOption = "Notification Options"
-        
+
         app.launch()
-        
+
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap Toolbar 'Settings' Button
                 app.toolbars.buttons["Settings"].tap()
-                
+
                 XCTAssert(app.isDisplayingSettings)
-                
+
                 assertToolbarHidden()
-            
+
                 app.tables["settingsTableView"].cells.staticTexts[settingsOption].tap()
-                
+
                 // iPad should still show list of Settings
                 if app.isPad() {
                     XCTAssert(app.isDisplayingSettings)
                 } else {
                     XCTAssertFalse(app.isDisplayingSettings)
                 }
-                
+
                 XCTAssert(app.navigationBars[settingsOption].exists)
-                
+
                 // Tap Dashboard 'Back' Button
                 if app.isPhone() {
                     app.navigationBars[settingsOption].buttons["Settings"].tap()
                 }
                 app.navigationBars["Settings"].buttons["Dashboard"].tap()
-                
+
                 // 'Job' Screen should be shown
                 if app.isPad() {
                     XCTAssert(app.isDisplayingJob)
                 }
-                
+
                 assertToolbarShown()
             }
         }
     }
-    
+
     func testNavigatingToJobs() {
         app.launch()
-        
+
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
+                // swiftlint:disable:next line_length
                 app.tables["dashboardTableView"]/*@START_MENU_TOKEN@*/.cells.staticTexts["Inbox"]/*[[".cells.staticTexts[\"Inbox\"]",".staticTexts[\"Inbox\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
-                
+
                 XCTAssert(app.isDisplayingJobs)
-                
+
                 assertToolbarHidden()
-                
+
                 // Tap Dashboard 'Back' Button
                 app.navigationBars["Jobs"].buttons["Dashboard"].tap()
-                
+
                 assertToolbarShown()
             }
         }
     }
-    
+
     func testSelectingAJob() {
         let jobTitle = "Engineer 1"
-        
+
         app.launch()
-        
+
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
+                // swiftlint:disable:next line_length
                 app.tables["dashboardTableView"]/*@START_MENU_TOKEN@*/.cells.staticTexts["Inbox"]/*[[".cells.staticTexts[\"Inbox\"]",".staticTexts[\"Inbox\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
                 app.tables["jobsTableView"].cells.staticTexts[jobTitle].tap()
-                
+
                 // iPad should still show list of Jobs
                 if app.isPad() {
                     XCTAssert(app.isDisplayingJobs)
                 }
-                
+
                 XCTAssert(app.navigationBars[jobTitle].exists)
-                
+
                 assertToolbarHidden()
-                
+
                 // Tap Dashboard 'Back' Button
                 if app.isPhone() {
                     app.navigationBars[jobTitle].buttons["Jobs"].tap()
@@ -173,22 +175,22 @@ class SegueUITests: XCTestCase {
                 if app.isPad() {
                     XCTAssert(app.navigationBars[jobTitle].exists)
                 }
-                
+
                 assertToolbarShown()
             }
         }
     }
-    
+
     private func assertToolbarHidden() {
         XCTAssertFalse(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button available")
         XCTAssertFalse(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button available")
     }
-    
+
     private func assertToolbarShown() {
         XCTAssertTrue(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button not available")
         XCTAssertTrue(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button not available")
     }
-    
+
     private func startAndEndOnDashboard(block: () -> Void) {
         XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
         block()

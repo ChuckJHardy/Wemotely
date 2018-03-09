@@ -23,6 +23,7 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
 		A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
@@ -38,6 +39,7 @@
 		A5F9911320527466005D7C42 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911220527466005D7C42 /* App.swift */; };
 		A5F9911520527705005D7C42 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911420527705005D7C42 /* AppTests.swift */; };
 		A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F99119205279B2005D7C42 /* SeedTests.swift */; };
+		A5F9911D2052850B005D7C42 /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,7 @@
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 		A5F9911220527466005D7C42 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		A5F9911420527705005D7C42 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		A5F99119205279B2005D7C42 /* SeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedTests.swift; sourceTree = "<group>"; };
+		A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,7 @@
 		A57DDF18204ACCEB0031D7DF /* Wemotely */ = {
 			isa = PBXGroup;
 			children = (
+				A5F9911E20528587005D7C42 /* Presenters */,
 				A5F990FB2051B757005D7C42 /* Services */,
 				A538841D204ACE1C008253D7 /* Support */,
 				A538841C204ACE17008253D7 /* Views */,
@@ -215,6 +220,7 @@
 		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5DF66EA20528F4500DA181C /* Presenters */,
 				A5F99118205279A6005D7C42 /* Support */,
 				A5F9910C2051C572005D7C42 /* Fixtures */,
 				A5F990FE2051B7AA005D7C42 /* Services */,
@@ -245,6 +251,14 @@
 				A59727B0204FD21D00D5A917 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5DF66EA20528F4500DA181C /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		A5F990FB2051B757005D7C42 /* Services */ = {
@@ -295,6 +309,14 @@
 				A5F99119205279B2005D7C42 /* SeedTests.swift */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		A5F9911E20528587005D7C42 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -506,6 +528,7 @@
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
+				A5F9911D2052850B005D7C42 /* DashboardPresenter.swift in Sources */,
 				A5388421204AF732008253D7 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -515,6 +538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
+				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
 				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
 				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,

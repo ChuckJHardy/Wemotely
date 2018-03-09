@@ -11,6 +11,14 @@ $ brew install carthage swiftlint
 $ carthage bootstrap
 ```
 
+### Useful Commands
+
+Linter Autocorrect
+
+```
+swiftlint autocorrect
+```
+
 ### Troubleshooting
 
 #### Cleaning / Clearing

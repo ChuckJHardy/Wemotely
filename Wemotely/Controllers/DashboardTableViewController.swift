@@ -1,7 +1,15 @@
 import UIKit
+import RealmSwift
 
 class DashboardTableViewController: UITableViewController {
+    let realm = RealmProvider.realm()
+
     var jobViewController: JobViewController?
+
+    var sections: [Section] {
+        let accounts = Account.activeSorted(provider: realm)
+        return DashboardPresenter(accounts: accounts).present()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

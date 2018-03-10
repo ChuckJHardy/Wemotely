@@ -5,10 +5,6 @@ import FeedKit
 struct FeedService {
     var account: Account
 
-    static func urlFrom(key: String) -> URL {
-        return URL(string: "https://weworkremotely.com/categories/\(key).rss")!
-    }
-
     func parser(url: URL) -> FeedParser? {
         return FeedParser(URL: url)
     }

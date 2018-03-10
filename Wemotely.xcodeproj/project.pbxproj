@@ -23,6 +23,7 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
 		A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
@@ -86,6 +87,7 @@
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
 				A5F991102052736C005D7C42 /* Seed.swift */,
+				A5B5B48D2053E4EA001806B6 /* URLProvider.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 			files = (
 				A5F9911320527466005D7C42 /* App.swift in Sources */,
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
+				A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
 				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,

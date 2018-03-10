@@ -13,14 +13,8 @@ class FeedServiceTests: XCTestCase {
         super.tearDown()
     }
 
-    func fileURL(_ name: String, type: String) -> URL {
-        let bundle = Bundle(for: Swift.type(of: self))
-        let filePath = bundle.path(forResource: name, ofType: type)!
-        return URL(fileURLWithPath: filePath)
-    }
-
     func testE2E() {
-        let url = fileURL("remote-programming-jobs", type: "xml")
+        let url = URLProvider(key: "remote-programming-jobs", parentClass: Swift.type(of: self)).url()
         let feedService = FeedService(account: Account())
 
         if let result = feedService.parser(url: url)?.parse() {

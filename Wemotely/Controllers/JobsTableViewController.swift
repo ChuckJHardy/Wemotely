@@ -65,7 +65,7 @@ class JobsTableViewController: UITableViewController {
         let feedService = FeedService(account: accountObject!)
 
         if let acc = accountObject {
-            let feedURL = FeedService.urlFrom(key: acc.urlKey!)
+            let feedURL = URLProvider(key: acc.urlKey!).url()
 
             feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
                 self.feed = result.rssFeed!

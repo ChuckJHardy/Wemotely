@@ -129,8 +129,7 @@ class SegueUITests: XCTestCase {
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
-                // swiftlint:disable:next line_length
-                app.tables["dashboardTableView"]/*@START_MENU_TOKEN@*/.cells.staticTexts["Inbox"]/*[[".cells.staticTexts[\"Inbox\"]",".staticTexts[\"Inbox\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
+                app.tables["dashboardTableView"].cells.staticTexts["Programming"].tap()
 
                 XCTAssert(app.isDisplayingJobs)
 
@@ -145,15 +144,14 @@ class SegueUITests: XCTestCase {
     }
 
     func testSelectingAJob() {
-        let jobTitle = "Engineer 1"
+        let jobTitle = "Full Stack Dev with Rails Focus"
 
         app.launch()
 
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
-                // swiftlint:disable:next line_length
-                app.tables["dashboardTableView"]/*@START_MENU_TOKEN@*/.cells.staticTexts["Inbox"]/*[[".cells.staticTexts[\"Inbox\"]",".staticTexts[\"Inbox\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
+                app.tables["dashboardTableView"].cells.staticTexts["Programming"].tap()
                 app.tables["jobsTableView"].cells.staticTexts[jobTitle].tap()
 
                 // iPad should still show list of Jobs

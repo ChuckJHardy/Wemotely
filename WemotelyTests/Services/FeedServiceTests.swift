@@ -14,7 +14,7 @@ class FeedServiceTests: XCTestCase {
     }
 
     func testE2E() {
-        let url = URLProvider(key: "remote-programming-jobs", parentClass: Swift.type(of: self)).url()
+        let url = URLProvider(key: "remote-programming-jobs").url()
         let feedService = FeedService(account: Account())
 
         if let result = feedService.parser(url: url)?.parse() {

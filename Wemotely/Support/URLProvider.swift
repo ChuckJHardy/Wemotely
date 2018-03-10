@@ -2,15 +2,13 @@ import Foundation
 
 class URLProvider {
     var key: String
-    var parentClass: AnyClass
 
-    init(key: String, parentClass: AnyClass = URLProvider.self) {
+    init(key: String) {
         self.key = key
-        self.parentClass = parentClass
     }
 
     func url() -> URL {
-        if NSClassFromString("XCTest") != nil {
+        if AppDelegate.isRunningTests() {
             return fileURL(key, type: "xml")
         } else {
             return URL(string: "https://weworkremotely.com/categories/\(key).rss")!
@@ -18,7 +16,7 @@ class URLProvider {
     }
 
     private func fileURL(_ name: String, type: String) -> URL {
-        let bundle = Bundle(for: parentClass)
+        let bundle = Bundle.main
         let filePath = bundle.path(forResource: name, ofType: type)
         return URL(fileURLWithPath: filePath!)
     }

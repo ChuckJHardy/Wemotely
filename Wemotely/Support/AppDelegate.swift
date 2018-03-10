@@ -1,15 +1,25 @@
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
+    static func isRunningTests() -> Bool {
+        return CommandLine.arguments.contains("--uitesting") || (NSClassFromString("XCTest") != nil)
+    }
+
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if CommandLine.arguments.contains("--uitesting") {
+        if AppDelegate.isRunningTests() {
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
-            // Clear Database
+
+            let realm = RealmProvider.realm()
+
+            try! realm.write { () -> Void in
+                realm.deleteAll()
+            }
         }
 
         // Override point for customization after application launch.

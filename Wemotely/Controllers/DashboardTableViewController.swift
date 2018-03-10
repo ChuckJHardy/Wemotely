@@ -6,8 +6,11 @@ class DashboardTableViewController: UITableViewController {
 
     var jobViewController: JobViewController?
 
+    var accounts: Results<Account> {
+        return Account.activeSorted(provider: realm)
+    }
+
     var sections: [Section] {
-        let accounts = Account.activeSorted(provider: realm)
         return DashboardPresenter(accounts: accounts).present()
     }
 
@@ -15,6 +18,8 @@ class DashboardTableViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.accessibilityIdentifier = "dashboardTableView"
+
+        Seed(realm: realm).call()
 
         setupToolbar()
         showToolbar()
@@ -45,8 +50,9 @@ class DashboardTableViewController: UITableViewController {
         switch segue.identifier {
         case "showJobs"?:
             if let indexPath = tableView.indexPathForSelectedRow {
-                let accountObject = AppDelegate.accounts[indexPath.row]
+                let accountObject = accounts[indexPath.row]
                 let controller = segue.destination as! JobsTableViewController
+
                 // let controller = (segue.destination as! UINavigationController).topViewController as! JobsTableViewController
                 controller.accountObject = accountObject
                 // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
@@ -64,13 +70,13 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppDelegate.accounts.count
+        return accounts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dashboardCell", for: indexPath)
 
-        let object = AppDelegate.accounts[indexPath.row]
+        let object = accounts[indexPath.row]
         cell.textLabel!.text = object.title
         return cell
     }
@@ -81,7 +87,9 @@ class DashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            AppDelegate.accounts.remove(at: indexPath.row)
+            try! realm.write {
+                realm.delete(accounts[indexPath.row])
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

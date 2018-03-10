@@ -1,4 +1,5 @@
 import Foundation
+import RealmSwift
 import FeedKit
 
 struct FeedService {
@@ -10,6 +11,12 @@ struct FeedService {
 
     func parser(url: URL) -> FeedParser? {
         return FeedParser(URL: url)
+    }
+
+    func save(realm: Realm, feed: RSSFeed) {
+        try! realm.write {
+            _ = updateWith(feed: feed)
+        }
     }
 
     func updateWith(feed: RSSFeed) -> Account {

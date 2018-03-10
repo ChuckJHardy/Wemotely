@@ -1,12 +1,18 @@
 import UIKit
+import FeedKit
 
 class JobsTableViewController: UITableViewController {
+    let realm = RealmProvider.realm()
+
+    var feed: RSSFeed!
     var accountObject: Account?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.accessibilityIdentifier = "jobsTableView"
+
+        loadJobs()
     }
 
     // MARK: - Segues
@@ -53,5 +59,21 @@ class JobsTableViewController: UITableViewController {
         }
 
         return cell
+    }
+
+    func loadJobs() {
+        let feedService = FeedService(account: accountObject!)
+
+        if let acc = accountObject {
+            let feedURL = FeedService.urlFrom(key: acc.urlKey!)
+
+            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+                self.feed = result.rssFeed!
+
+                DispatchQueue.main.async {
+                    feedService.save(realm: self.realm, feed: self.feed)
+                }
+            }
+        }
     }
 }

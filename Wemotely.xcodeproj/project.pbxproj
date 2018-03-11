@@ -26,6 +26,7 @@
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA28C20543C60009C56BA /* BaseTestCare.swift */; };
 		A5CAA294205534D4009C56BA /* jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA293205534D4009C56BA /* jobs.xml */; };
+		A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA29520553BFC009C56BA /* URLProviderTests.swift */; };
 		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
 		A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
@@ -91,6 +92,7 @@
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A5CAA28C20543C60009C56BA /* BaseTestCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCare.swift; sourceTree = "<group>"; };
 		A5CAA293205534D4009C56BA /* jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jobs.xml; sourceTree = "<group>"; };
+		A5CAA29520553BFC009C56BA /* URLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderTests.swift; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 			children = (
 				A5F99119205279B2005D7C42 /* SeedTests.swift */,
 				A5CAA28C20543C60009C56BA /* BaseTestCare.swift */,
+				A5CAA29520553BFC009C56BA /* URLProviderTests.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 			files = (
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
+				A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */,
 				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
 				A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */,
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,

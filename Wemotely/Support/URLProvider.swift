@@ -7,8 +7,8 @@ class URLProvider {
         self.key = key
     }
 
-    func url() -> URL {
-        if AppDelegate.isRunningTests() {
+    func url(isTesting: Bool = AppDelegate.isRunningTests()) -> URL {
+        if isTesting {
             return fileURL("jobs", type: "xml")
         } else {
             return URL(string: "https://weworkremotely.com/categories/\(key).rss")!

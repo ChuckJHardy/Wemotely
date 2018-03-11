@@ -2,9 +2,7 @@ import XCTest
 
 @testable import Wemotely
 
-class FeedServiceTests: XCTestCase {
-    let realm = RealmProvider.realm()
-
+class FeedServiceTests: BaseTestCase {
     override func setUp() {
         super.setUp()
     }
@@ -20,7 +18,7 @@ class FeedServiceTests: XCTestCase {
         if let result = feedService.parser(url: url)?.parse() {
             let account = feedService.updateWith(feed: result.rssFeed!)
 
-            XCTAssertEqual(account.jobs.count, 25)
+            XCTAssertEqual(account.jobs.count, 2)
 
             let firstJob = account.jobs.first
             XCTAssertEqual(firstJob?.title, "Full Stack Dev with Rails Focus")

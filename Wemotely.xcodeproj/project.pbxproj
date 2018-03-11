@@ -24,7 +24,8 @@
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
-		A5CAA27C2053F456009C56BA /* remote-programming-jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA27B2053F456009C56BA /* remote-programming-jobs.xml */; };
+		A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA28C20543C60009C56BA /* BaseTestCare.swift */; };
+		A5CAA294205534D4009C56BA /* jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA293205534D4009C56BA /* jobs.xml */; };
 		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
 		A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
@@ -88,7 +89,8 @@
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
-		A5CAA27B2053F456009C56BA /* remote-programming-jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "remote-programming-jobs.xml"; sourceTree = "<group>"; };
+		A5CAA28C20543C60009C56BA /* BaseTestCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCare.swift; sourceTree = "<group>"; };
+		A5CAA293205534D4009C56BA /* jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jobs.xml; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -176,7 +178,7 @@
 		A538841D204ACE1C008253D7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A5CAA2772053F412009C56BA /* Fixtures */,
+				A5CAA28E20552501009C56BA /* Fixtures */,
 				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
 				A5F991102052736C005D7C42 /* Seed.swift */,
@@ -256,20 +258,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A5CAA2772053F412009C56BA /* Fixtures */ = {
+		A5CAA28E20552501009C56BA /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
-				A5CAA2782053F418009C56BA /* xml */,
+				A5CAA293205534D4009C56BA /* jobs.xml */,
 			);
 			path = Fixtures;
-			sourceTree = "<group>";
-		};
-		A5CAA2782053F418009C56BA /* xml */ = {
-			isa = PBXGroup;
-			children = (
-				A5CAA27B2053F456009C56BA /* remote-programming-jobs.xml */,
-			);
-			path = xml;
 			sourceTree = "<group>";
 		};
 		A5DF66EA20528F4500DA181C /* Presenters */ = {
@@ -310,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F99119205279B2005D7C42 /* SeedTests.swift */,
+				A5CAA28C20543C60009C56BA /* BaseTestCare.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -444,7 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */,
-				A5CAA27C2053F456009C56BA /* remote-programming-jobs.xml in Resources */,
+				A5CAA294205534D4009C56BA /* jobs.xml in Resources */,
 				A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */,
 				A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */,
 			);
@@ -544,6 +539,7 @@
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
 				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
+				A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */,
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
 				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
@@ -798,6 +794,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Wemotely;
 			};
@@ -814,6 +811,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Wemotely;
 			};

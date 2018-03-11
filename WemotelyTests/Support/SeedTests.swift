@@ -2,15 +2,11 @@ import XCTest
 
 @testable import Wemotely
 
-class SeedTests: XCTestCase {
+class SeedTests: BaseTestCase {
     let realm = RealmProvider.realm()
 
     override func setUp() {
         super.setUp()
-
-        try! realm.write { () -> Void in
-            realm.deleteAll()
-        }
     }
 
     override func tearDown() {

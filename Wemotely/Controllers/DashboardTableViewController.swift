@@ -1,4 +1,5 @@
 import UIKit
+import FeedKit
 import RealmSwift
 
 class DashboardTableViewController: UITableViewController {
@@ -19,12 +20,13 @@ class DashboardTableViewController: UITableViewController {
 
         tableView.accessibilityIdentifier = "dashboardTableView"
 
-        Seed(realm: realm).call()
-
         setupToolbar()
         showToolbar()
 
         navigationItem.leftBarButtonItem = editButtonItem
+
+        Seed(realm: realm).call()
+        loadJobs()
 
         // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 
@@ -134,5 +136,24 @@ class DashboardTableViewController: UITableViewController {
 
     @objc private func filterToolbarItemSelected(_ sender: Any) {
         performSegue(withIdentifier: "showFilter", sender: self)
+    }
+
+    func loadJobs() {
+        let accounts = realm.objects(Account.self)
+
+        for account in accounts {
+            var feed: RSSFeed!
+            let feedService = FeedService(account: account)
+
+            let feedURL = URLProvider(key: account.urlKey!).url()
+
+            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+                feed = result.rssFeed!
+
+                DispatchQueue.main.async {
+                    feedService.save(realm: self.realm, feed: feed)
+                }
+            }
+        }
     }
 }

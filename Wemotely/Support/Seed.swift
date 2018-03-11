@@ -97,8 +97,7 @@ class Seed: NSObject {
                     "icon": "inbox",
                     "unreadCount": 0,
                     "active": true,
-                    "urlKey":
-                    "remote-copywriting-jobs",
+                    "urlKey": "remote-copywriting-jobs",
                     "order": 5
                 ]
             )

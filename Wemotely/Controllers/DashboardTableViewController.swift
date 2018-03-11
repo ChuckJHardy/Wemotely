@@ -1,23 +1,43 @@
 import UIKit
+import FeedKit
+import RealmSwift
 
 class DashboardTableViewController: UITableViewController {
-    var jobViewController: JobViewController? = nil
+    let realm = RealmProvider.realm()
+
+    var jobViewController: JobViewController?
+
+    var accounts: Results<Account> {
+        return Account.activeSorted(provider: realm)
+    }
+
+    var sections: [Section] {
+        return DashboardPresenter(accounts: accounts).present()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.accessibilityIdentifier = "dashboardTableView"
-        
+
         setupToolbar()
         showToolbar()
-        
+
         navigationItem.leftBarButtonItem = editButtonItem
-        
+
+        Seed(realm: realm).call()
+        loadJobs()
+
         // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
 
         if let split = splitViewController {
             let controllers = split.viewControllers
-            jobViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? JobViewController
+
+            guard let navigationController = controllers[controllers.count-1] as? UINavigationController else {
+                return
+            }
+
+            jobViewController = navigationController.topViewController as? JobViewController
         }
     }
 
@@ -26,7 +46,7 @@ class DashboardTableViewController: UITableViewController {
         showToolbar()
         super.viewWillAppear(animated)
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         hideToolbar()
     }
@@ -37,9 +57,17 @@ class DashboardTableViewController: UITableViewController {
         switch segue.identifier {
         case "showJobs"?:
             if let indexPath = tableView.indexPathForSelectedRow {
-                let accountObject = AppDelegate.accounts[indexPath.row]
-                let controller = segue.destination as! JobsTableViewController
-                // let controller = (segue.destination as! UINavigationController).topViewController as! JobsTableViewController
+                let accountObject = accounts[indexPath.row]
+
+                guard let controller = segue.destination as? JobsTableViewController else {
+                    return
+                }
+
+                // guard let navigationController = segue.destination as? UINavigationController else {
+                //     return
+                // }
+                // let controller = navigationController.topViewController as? JobsTableViewController
+
                 controller.accountObject = accountObject
                 // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -56,13 +84,13 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AppDelegate.accounts.count
+        return accounts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dashboardCell", for: indexPath)
 
-        let object = AppDelegate.accounts[indexPath.row]
+        let object = accounts[indexPath.row]
         cell.textLabel!.text = object.title
         return cell
     }
@@ -71,52 +99,81 @@ class DashboardTableViewController: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            AppDelegate.accounts.remove(at: indexPath.row)
+            do {
+                try realm.write {
+                    realm.delete(accounts[indexPath.row])
+                }
+            } catch let err {
+                print("Failed to delete account: \(err)")
+            }
+
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            // Create a new instance of the appropriate class,
+            // insert it into the array, and add a new row to the table view.
         }
     }
-    
+
     private func showToolbar() {
         navigationController?.setToolbarHidden(false, animated: false)
     }
-    
+
     private func hideToolbar() {
         navigationController?.setToolbarHidden(true, animated: false)
     }
-    
+
     private func setupToolbar() {
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: self,
             action: nil
         )
-        
+
         let filterItem = UIBarButtonItem(
             title: "Filter",
             style: .plain,
             target: self,
             action: #selector(filterToolbarItemSelected(_:))
         )
-        
+
         let settingsItem = UIBarButtonItem(
             title: "Settings",
             style: .plain,
             target: self,
             action: #selector(settingsToolbarItemSelected(_:))
         )
-        
+
         self.toolbarItems = [filterItem, spacer, settingsItem]
     }
-    
+
     @objc private func settingsToolbarItemSelected(_ sender: Any) {
         performSegue(withIdentifier: "showSettings", sender: self)
     }
-    
+
     @objc private func filterToolbarItemSelected(_ sender: Any) {
         performSegue(withIdentifier: "showFilter", sender: self)
+    }
+
+    func loadJobs() {
+        let accounts = realm.objects(Account.self)
+
+        for account in accounts {
+            var feed: RSSFeed!
+            let feedService = FeedService(account: account)
+
+            let feedURL = URLProvider(key: account.urlKey!).url()
+
+            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
+                feed = result.rssFeed!
+
+                DispatchQueue.main.async {
+                    feedService.save(realm: self.realm, feed: feed)
+                }
+            }
+        }
     }
 }

@@ -23,12 +23,26 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
+		A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA28C20543C60009C56BA /* BaseTestCare.swift */; };
+		A5CAA294205534D4009C56BA /* jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA293205534D4009C56BA /* jobs.xml */; };
+		A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA29520553BFC009C56BA /* URLProviderTests.swift */; };
+		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
 		A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5F990F82051AF6D005D7C42 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F72051AF6D005D7C42 /* Account.swift */; };
 		A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F92051AFEA005D7C42 /* AccountTests.swift */; };
+		A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */; };
+		A5F991052051B801005D7C42 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991042051B801005D7C42 /* FeedService.swift */; };
+		A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
+		A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5F991092051BF0A005D7C42 /* FeedKit.framework */; };
+		A5F991112052736C005D7C42 /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991102052736C005D7C42 /* Seed.swift */; };
+		A5F9911320527466005D7C42 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911220527466005D7C42 /* App.swift */; };
+		A5F9911520527705005D7C42 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911420527705005D7C42 /* AppTests.swift */; };
+		A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F99119205279B2005D7C42 /* SeedTests.swift */; };
+		A5F9911D2052850B005D7C42 /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +89,21 @@
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		A5CAA28C20543C60009C56BA /* BaseTestCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCare.swift; sourceTree = "<group>"; };
+		A5CAA293205534D4009C56BA /* jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jobs.xml; sourceTree = "<group>"; };
+		A5CAA29520553BFC009C56BA /* URLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderTests.swift; sourceTree = "<group>"; };
+		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
+		A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
+		A5F991042051B801005D7C42 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		A5F991092051BF0A005D7C42 /* FeedKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FeedKit.framework; path = Carthage/Build/iOS/FeedKit.framework; sourceTree = "<group>"; };
+		A5F991102052736C005D7C42 /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
+		A5F9911220527466005D7C42 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		A5F9911420527705005D7C42 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		A5F99119205279B2005D7C42 /* SeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedTests.swift; sourceTree = "<group>"; };
+		A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +113,7 @@
 			files = (
 				A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */,
+				A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +123,7 @@
 			files = (
 				A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */,
+				A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +150,7 @@
 			children = (
 				A5388420204AF732008253D7 /* Job.swift */,
 				A5F990F72051AF6D005D7C42 /* Account.swift */,
+				A5F9911220527466005D7C42 /* App.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -150,8 +180,11 @@
 		A538841D204ACE1C008253D7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A5CAA28E20552501009C56BA /* Fixtures */,
 				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
+				A5F991102052736C005D7C42 /* Seed.swift */,
+				A5B5B48D2053E4EA001806B6 /* URLProvider.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -180,6 +213,8 @@
 		A57DDF18204ACCEB0031D7DF /* Wemotely */ = {
 			isa = PBXGroup;
 			children = (
+				A5F9911E20528587005D7C42 /* Presenters */,
+				A5F990FB2051B757005D7C42 /* Services */,
 				A538841D204ACE1C008253D7 /* Support */,
 				A538841C204ACE17008253D7 /* Views */,
 				A538841B204ACE10008253D7 /* Controllers */,
@@ -193,9 +228,11 @@
 		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
 			isa = PBXGroup;
 			children = (
-				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
+				A5DF66EA20528F4500DA181C /* Presenters */,
+				A5F99118205279A6005D7C42 /* Support */,
+				A5F990FE2051B7AA005D7C42 /* Services */,
+				A5F990FD2051B79F005D7C42 /* Models */,
 				A57DDF32204ACCEC0031D7DF /* Info.plist */,
-				A5F990F92051AFEA005D7C42 /* AccountTests.swift */,
 			);
 			path = WemotelyTests;
 			sourceTree = "<group>";
@@ -214,12 +251,73 @@
 		A59727AF204FD21D00D5A917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5F991092051BF0A005D7C42 /* FeedKit.framework */,
 				A5159E23204FD6730056AF57 /* Realm.framework.dSYM */,
 				A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */,
 				A59727B2204FD22100D5A917 /* Realm.framework */,
 				A59727B0204FD21D00D5A917 /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A5CAA28E20552501009C56BA /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				A5CAA293205534D4009C56BA /* jobs.xml */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		A5DF66EA20528F4500DA181C /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */,
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
+		A5F990FB2051B757005D7C42 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A5F991042051B801005D7C42 /* FeedService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A5F990FD2051B79F005D7C42 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
+				A5F990F92051AFEA005D7C42 /* AccountTests.swift */,
+				A5F9911420527705005D7C42 /* AppTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A5F990FE2051B7AA005D7C42 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A5F99118205279A6005D7C42 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A5F99119205279B2005D7C42 /* SeedTests.swift */,
+				A5CAA28C20543C60009C56BA /* BaseTestCare.swift */,
+				A5CAA29520553BFC009C56BA /* URLProviderTests.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A5F9911E20528587005D7C42 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +342,7 @@
 				A57DDF14204ACCEB0031D7DF /* Resources */,
 				A59727B4204FD24400D5A917 /* ShellScript */,
 				A59727B5204FD35D00D5A917 /* ShellScript */,
+				A5F9911B20527E8A005D7C42 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -343,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */,
+				A5CAA294205534D4009C56BA /* jobs.xml in Resources */,
 				A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */,
 				A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */,
 			);
@@ -373,10 +473,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -395,6 +497,19 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings";
 		};
+		A5F9911B20527E8A005D7C42 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -402,15 +517,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F9911320527466005D7C42 /* App.swift in Sources */,
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
+				A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
+				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
+				A5F991052051B801005D7C42 /* FeedService.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
 				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
+				A5F9911D2052850B005D7C42 /* DashboardPresenter.swift in Sources */,
 				A5388421204AF732008253D7 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +540,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
+				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
+				A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */,
+				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
+				A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */,
+				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
+				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -672,6 +798,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Wemotely;
 			};
@@ -688,6 +815,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.insertcoffee.WemotelyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Wemotely;
 			};

@@ -2,15 +2,9 @@ import XCTest
 
 @testable import Wemotely
 
-class JobTests: XCTestCase {
+class JobTests: BaseTestCase {
     override func setUp() {
         super.setUp()
-        
-        let realm = RealmProvider.realm()
-        
-        try! realm.write { () -> Void in
-            realm.deleteAll()
-        }
     }
 
     override func tearDown() {
@@ -57,6 +51,7 @@ class JobTests: XCTestCase {
 
         XCTAssertEqual(realm.objects(Job.self).count, 0)
 
+        // swiftlint:disable:next force_try
         try! realm.write {
             realm.add(job, update: true)
         }

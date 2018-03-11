@@ -3,7 +3,8 @@ import RealmSwift
 
 class RealmProvider {
     class func realm() -> Realm {
-        if let _ = NSClassFromString("XCTest") {
+        if NSClassFromString("XCTest") != nil {
+            // swiftlint:disable:next force_try
             return try! Realm(
                 configuration: Realm.Configuration(
                     fileURL: nil,
@@ -16,7 +17,18 @@ class RealmProvider {
                 )
             )
         } else {
-            return try! Realm();
+            // swiftlint:disable:next force_try
+            return try! Realm()
+        }
+    }
+
+    class func deleteAll(realm: Realm) {
+        do {
+            try realm.write { () -> Void in
+                realm.deleteAll()
+            }
+        } catch let err {
+            print("Failed to Delete All Data: \(err)")
         }
     }
 }

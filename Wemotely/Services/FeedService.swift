@@ -10,9 +10,14 @@ struct FeedService {
     }
 
     func save(realm: Realm, feed: RSSFeed) {
-        try! realm.write {
-            updateWith(feed: feed)
+        do {
+            try realm.write {
+                updateWith(feed: feed)
+            }
+        } catch let err {
+            print("Failed to update FeedService: \(err)")
         }
+
     }
 
     private func updateWith(feed: RSSFeed) {

@@ -51,6 +51,7 @@ class JobTests: BaseTestCase {
 
         XCTAssertEqual(realm.objects(Job.self).count, 0)
 
+        // swiftlint:disable:next force_try
         try! realm.write {
             realm.add(job, update: true)
         }

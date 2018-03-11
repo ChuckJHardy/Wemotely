@@ -52,6 +52,7 @@ class AccountTests: BaseTestCase {
 
         XCTAssertEqual(realm.objects(Account.self).count, 0)
 
+        // swiftlint:disable:next force_try
         try! realm.write {
             realm.add(account, update: true)
         }
@@ -83,6 +84,7 @@ class AccountTests: BaseTestCase {
 
         XCTAssertEqual(realm.objects(Account.self).count, 0)
 
+        // swiftlint:disable:next force_try
         try! realm.write {
             realm.add(app)
         }

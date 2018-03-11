@@ -32,8 +32,12 @@ class Seed: NSObject {
 
             app.seeded = true
 
-            try! realm.write {
-                realm.add(app, update: true)
+            do {
+                try realm.write {
+                    realm.add(app, update: true)
+                }
+            } catch let err {
+                print("Failed to save Application: \(err)")
             }
         }
     }

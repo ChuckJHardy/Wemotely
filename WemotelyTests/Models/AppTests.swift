@@ -42,6 +42,7 @@ class AppTests: BaseTestCase {
 
         XCTAssertEqual(realm.objects(App.self).count, 0)
 
+        // swiftlint:disable:next force_try
         try! realm.write {
             realm.add(app, update: true)
         }

@@ -1,6 +1,5 @@
 excluded:
   - Carthage
 disabled_rules:
-  - force_try
   - force_cast
 line_length: 140

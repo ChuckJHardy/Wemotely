@@ -8,8 +8,6 @@ class BaseTestCase: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        try! realm.write { () -> Void in
-            realm.deleteAll()
-        }
+        RealmProvider.deleteAll(realm: realm)
     }
 }

@@ -89,9 +89,14 @@ class DashboardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            try! realm.write {
-                realm.delete(accounts[indexPath.row])
+            do {
+                try realm.write {
+                    realm.delete(accounts[indexPath.row])
+                }
+            } catch let err {
+                print("Failed to delete account: \(err)")
             }
+
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.

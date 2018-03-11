@@ -15,6 +15,7 @@ class SeedTests: BaseTestCase {
         let app = App()
         app.seeded = true
 
+        // swiftlint:disable:next force_try
         try! realm.write {
             realm.add(app, update: true)
         }

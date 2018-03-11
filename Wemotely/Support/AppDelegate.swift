@@ -3,6 +3,8 @@ import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    let realm = RealmProvider.realm()
+
     var window: UIWindow?
 
     static func isRunningTests() -> Bool {
@@ -14,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if AppDelegate.isRunningTests() {
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
-
-            let realm = RealmProvider.realm()
-
-            try! realm.write { () -> Void in
-                realm.deleteAll()
-            }
+            RealmProvider.deleteAll(realm: realm)
         }
 
         // Override point for customization after application launch.

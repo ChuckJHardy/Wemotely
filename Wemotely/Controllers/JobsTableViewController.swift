@@ -17,15 +17,19 @@ class JobsTableViewController: UITableViewController {
         switch segue.identifier {
         case "showJob"?:
             if let indexPath = tableView.indexPathForSelectedRow {
-                let controller = (segue.destination as! UINavigationController).topViewController as! JobViewController
-
-                if let jobs = accountObject?.jobs {
-                    let object = jobs[indexPath.row]
-                    controller.jobRecord = object
+                guard let navigationController = segue.destination as? UINavigationController else {
+                    return
                 }
 
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                if let controller = navigationController.topViewController as? JobViewController {
+                    if let jobs = accountObject?.jobs {
+                        let object = jobs[indexPath.row]
+                        controller.jobRecord = object
+                    }
+
+                    controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                    controller.navigationItem.leftItemsSupplementBackButton = true
+                }
             }
         default:
             print("Missing Preperation for Segue \(String(describing: segue.identifier))")

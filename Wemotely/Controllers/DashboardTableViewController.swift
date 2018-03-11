@@ -32,7 +32,12 @@ class DashboardTableViewController: UITableViewController {
 
         if let split = splitViewController {
             let controllers = split.viewControllers
-            jobViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? JobViewController
+
+            guard let navigationController = controllers[controllers.count-1] as? UINavigationController else {
+                return
+            }
+
+            jobViewController = navigationController.topViewController as? JobViewController
         }
     }
 
@@ -53,7 +58,10 @@ class DashboardTableViewController: UITableViewController {
         case "showJobs"?:
             if let indexPath = tableView.indexPathForSelectedRow {
                 let accountObject = accounts[indexPath.row]
-                let controller = segue.destination as! JobsTableViewController
+
+                guard let controller = segue.destination as? JobsTableViewController else {
+                    return
+                }
 
                 // let controller = (segue.destination as! UINavigationController).topViewController as! JobsTableViewController
                 controller.accountObject = accountObject

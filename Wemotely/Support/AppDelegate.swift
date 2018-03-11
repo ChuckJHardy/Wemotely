@@ -20,9 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         // Override point for customization after application launch.
-        let splitViewController = window!.rootViewController as! UISplitViewController
+        guard let splitViewController = window!.rootViewController as? UISplitViewController else {
+            return false
+        }
+
         splitViewController.preferredDisplayMode = .allVisible
         splitViewController.delegate = self
+
         return true
     }
 }

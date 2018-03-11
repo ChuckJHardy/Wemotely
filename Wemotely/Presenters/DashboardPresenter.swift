@@ -50,7 +50,14 @@ class DashboardPresenter: NSObject {
         var list: [Row] = []
 
         for account in accounts {
-            let row = Row(title: account.title, icon: "inbox", moveable: true, showTitleAsPrompt: false, accountUUID: account.uuid)
+            let row = Row(
+                title: account.title,
+                icon: "inbox",
+                moveable: true,
+                showTitleAsPrompt: false,
+                accountUUID: account.uuid
+            )
+
             list.append(row)
         }
 
@@ -65,10 +72,34 @@ class DashboardPresenter: NSObject {
                 heading: account.title,
                 showHeader: true,
                 rows: [
-                    Row(title: "Inbox", icon: "inbox", moveable: false, showTitleAsPrompt: true, accountUUID: account.uuid),
-                    Row(title: "Favourites", icon: "heart", moveable: false, showTitleAsPrompt: true, accountUUID: account.uuid),
-                    Row(title: "Unread", icon: "unread", moveable: false, showTitleAsPrompt: true, accountUUID: account.uuid),
-                    Row(title: "Trash", icon: "trash", moveable: false, showTitleAsPrompt: true, accountUUID: account.uuid)
+                    Row(
+                        title: "Inbox",
+                        icon: "inbox",
+                        moveable: false,
+                        showTitleAsPrompt: true,
+                        accountUUID: account.uuid
+                    ),
+                    Row(
+                        title: "Favourites",
+                        icon: "heart",
+                        moveable: false,
+                        showTitleAsPrompt: true,
+                        accountUUID: account.uuid
+                    ),
+                    Row(
+                        title: "Unread",
+                        icon: "unread",
+                        moveable: false,
+                        showTitleAsPrompt: true,
+                        accountUUID: account.uuid
+                    ),
+                    Row(
+                        title: "Trash",
+                        icon: "trash",
+                        moveable: false,
+                        showTitleAsPrompt: true,
+                        accountUUID: account.uuid
+                    )
                 ]
             )
 

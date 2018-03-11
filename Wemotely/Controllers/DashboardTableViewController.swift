@@ -63,7 +63,11 @@ class DashboardTableViewController: UITableViewController {
                     return
                 }
 
-                // let controller = (segue.destination as! UINavigationController).topViewController as! JobsTableViewController
+                // guard let navigationController = segue.destination as? UINavigationController else {
+                //     return
+                // }
+                // let controller = navigationController.topViewController as? JobsTableViewController
+
                 controller.accountObject = accountObject
                 // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
@@ -95,7 +99,9 @@ class DashboardTableViewController: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             do {
                 try realm.write {
@@ -107,7 +113,8 @@ class DashboardTableViewController: UITableViewController {
 
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+            // Create a new instance of the appropriate class,
+            // insert it into the array, and add a new row to the table view.
         }
     }
 

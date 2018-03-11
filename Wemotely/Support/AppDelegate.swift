@@ -36,9 +36,13 @@ extension AppDelegate: UISplitViewControllerDelegate {
                              collapseSecondary secondaryViewController: UIViewController,
                              onto primaryViewController: UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsJobController = secondaryAsNavController.topViewController as? JobViewController else { return false }
+        guard let topAsJobController = secondaryAsNavController.topViewController as? JobViewController else {
+            return false
+        }
+
         if topAsJobController.jobRecord == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+            // Return true to indicate that we have handled the collapse by doing nothing;
+            // the secondary controller will be discarded.
             return true
         }
         return false

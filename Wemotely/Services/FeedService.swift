@@ -11,18 +11,16 @@ struct FeedService {
 
     func save(realm: Realm, feed: RSSFeed) {
         try! realm.write {
-            _ = updateWith(feed: feed)
+            updateWith(feed: feed)
         }
     }
 
-    func updateWith(feed: RSSFeed) -> Account {
+    private func updateWith(feed: RSSFeed) {
         for item in feed.items! {
             account.jobs.append(
                 BuildJob(record: item).build()
             )
         }
-
-        return account
     }
 
     struct BuildJob {

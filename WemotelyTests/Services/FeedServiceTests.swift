@@ -12,11 +12,12 @@ class FeedServiceTests: BaseTestCase {
     }
 
     func testE2E() {
+        let account = Account()
         let url = URLProvider(key: "remote-programming-jobs").url()
-        let feedService = FeedService(account: Account())
+        let feedService = FeedService(account: account)
 
         if let result = feedService.parser(url: url)?.parse() {
-            let account = feedService.updateWith(feed: result.rssFeed!)
+            feedService.save(realm: realm, feed: result.rssFeed!)
 
             XCTAssertEqual(account.jobs.count, 2)
 

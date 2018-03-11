@@ -3,8 +3,6 @@ import XCTest
 @testable import Wemotely
 
 class SeedTests: BaseTestCase {
-    let realm = RealmProvider.realm()
-
     override func setUp() {
         super.setUp()
     }

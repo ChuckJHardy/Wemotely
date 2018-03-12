@@ -1,0 +1,4 @@
+#/bin/sh
+
+touch Wemotely/Support/Environment.generated.swift
+cp .env.example .env

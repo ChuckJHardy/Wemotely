@@ -4,10 +4,16 @@
 
 ### Installation
 
+Run Setup Script
+
+```
+$ ./bin/setup
+```
+
 [Carthage Package Manager](https://github.com/Carthage/Carthage)
 
 ```
-$ brew install carthage swiftlint
+$ brew install carthage swiftlint sourcery
 $ carthage bootstrap
 ```
 

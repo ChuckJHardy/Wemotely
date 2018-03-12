@@ -23,8 +23,6 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
-		A5960CBA205718D20060C71B /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
-		A5960CBB205719400060C71B /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
 		A5B713412056FB560054439C /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B713402056FB560054439C /* Environment.generated.swift */; };
@@ -36,6 +34,8 @@
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
+		A5E550772057253C00A43288 /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
+		A5E550782057255400A43288 /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
 		A5F990F82051AF6D005D7C42 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F72051AF6D005D7C42 /* Account.swift */; };
 		A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F92051AFEA005D7C42 /* AccountTests.swift */; };
 		A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */; };
@@ -118,10 +118,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E550772057253C00A43288 /* Bugsnag.framework in Frameworks */,
 				A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */,
 				A5F9910A2051BF0A005D7C42 /* FeedKit.framework in Frameworks */,
-				A5960CBA205718D20060C71B /* Bugsnag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,10 +129,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E550782057255400A43288 /* Bugsnag.framework in Frameworks */,
 				A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */,
 				A5F9910B2051BF16005D7C42 /* FeedKit.framework in Frameworks */,
-				A5960CBB205719400060C71B /* Bugsnag.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

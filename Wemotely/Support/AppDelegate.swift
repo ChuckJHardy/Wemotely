@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             RealmProvider.deleteAll(realm: realm)
         }
 
+        if let key = environment.bugSnagKey {
+            print("KEY = \(key)")
+        }
+
         // Override point for customization after application launch.
         guard let splitViewController = window!.rootViewController as? UISplitViewController else {
             return false

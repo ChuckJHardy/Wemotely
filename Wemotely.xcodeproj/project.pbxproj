@@ -524,7 +524,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#check if .env exists\nif [ -f ./.env ]\nthen\nsource ./.env\nfi\n\n#no `else` case needed if the CI works as expected\nsourcery --templates ./Wemotely --sources . --output ./Wemotely/Support --args bugSnagKey=$WEMOTELY_BUGSNAG_KEY\n";
+			shellScript = ./bin/environment;
 		};
 		A5F9911B20527E8A005D7C42 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

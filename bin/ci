@@ -1,3 +1,3 @@
 #/bin/sh
 
-touch Wemotely/Support/Environment.generated.swift
+cp bin/templates/Environment.generated.placeholder.swift Wemotely/Support/Environment.generated.swift

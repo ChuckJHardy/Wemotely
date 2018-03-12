@@ -1,0 +1,9 @@
+#/bin/sh
+
+if [ -f ./.env ]
+then
+source ./.env
+fi
+
+sourcery --templates ./Wemotely --sources . --output ./Wemotely/Support --args bugSnagKey=$WEMOTELY_BUGSNAG_KEY
+

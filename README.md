@@ -10,6 +10,13 @@ Run Setup Script
 $ ./bin/setup
 ```
 
+Update keys within `.env`
+
+```
+$ vim .env
+export WEMOTELY_BUGSNAG_KEY="REAL_KEY"
+```
+
 [Carthage Package Manager](https://github.com/Carthage/Carthage)
 
 ```

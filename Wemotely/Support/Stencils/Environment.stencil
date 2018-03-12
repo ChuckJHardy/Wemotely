@@ -1,0 +1,7 @@
+public struct Environment {
+    let bugSnagKey: String?
+}
+
+public let environment = Environment(
+    bugSnagKey: "{{ argument.bugSnagKey }}"
+)

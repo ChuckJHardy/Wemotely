@@ -1,4 +1,5 @@
 import UIKit
+import Bugsnag
 
 class JobsTableViewController: UITableViewController {
     let realm = RealmProvider.realm()

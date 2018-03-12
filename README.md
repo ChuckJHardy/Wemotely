@@ -21,7 +21,7 @@ export WEMOTELY_BUGSNAG_KEY="REAL_KEY"
 
 ```
 $ brew install carthage swiftlint sourcery
-$ carthage bootstrap
+$ carthage bootstrap --platform ios
 ```
 
 ### Useful Commands

@@ -1,4 +1,5 @@
 import UIKit
+import Bugsnag
 import RealmSwift
 
 @UIApplicationMain
@@ -17,10 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
             RealmProvider.deleteAll(realm: realm)
-        }
-
-        if let key = environment.bugSnagKey {
-            print("KEY = \(key)")
+        } else {
+            if let key = environment.bugSnagKey {
+                Bugsnag.start(withApiKey: key)
+            }
         }
 
         // Override point for customization after application launch.

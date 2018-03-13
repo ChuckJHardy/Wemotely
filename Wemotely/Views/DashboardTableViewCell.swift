@@ -6,5 +6,6 @@ class DashboardTableViewCell: UITableViewCell {
     func setup(row: Row) {
         textLabel?.text = row.title
         detailTextLabel?.text = "0"
+        imageView?.image = UIImage(named: row.icon)
     }
 }

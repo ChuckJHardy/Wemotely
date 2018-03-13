@@ -21,8 +21,6 @@ class DashboardTableViewController: UITableViewController {
         tableView.accessibilityIdentifier = "dashboardTableView"
 
         setupNavigationbar()
-        // REMOTE
-        showToolbar()
 
         Seed(realm: realm).call()
         loadJobs()
@@ -42,12 +40,7 @@ class DashboardTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        showToolbar()
         super.viewWillAppear(animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        hideToolbar()
     }
 
     // MARK: - Segues
@@ -115,14 +108,6 @@ class DashboardTableViewController: UITableViewController {
             // Create a new instance of the appropriate class,
             // insert it into the array, and add a new row to the table view.
         }
-    }
-
-    private func showToolbar() {
-        navigationController?.setToolbarHidden(false, animated: false)
-    }
-
-    private func hideToolbar() {
-        navigationController?.setToolbarHidden(true, animated: false)
     }
 
     private func setupNavigationbar() {

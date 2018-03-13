@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-856" y="-330"/>
         </scene>
-        <!--Filter-->
+        <!--Edit Dashboard-->
         <scene sceneID="Dc3-f4-Yac">
             <objects>
-                <tableViewController title="Filter" modalPresentationStyle="formSheet" id="QSP-fn-eQo" customClass="FilterTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Edit Dashboard" modalPresentationStyle="formSheet" id="QSP-fn-eQo" customClass="FilterTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gfo-h2-euh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

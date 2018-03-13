@@ -111,8 +111,8 @@ class DashboardTableViewController: UITableViewController {
     }
 
     private func setupNavigationbar() {
-        let filterItem = UIBarButtonItem(
-            title: "Filter",
+        let editItem = UIBarButtonItem(
+            title: "Edit",
             style: .plain,
             target: self,
             action: #selector(filterToolbarItemSelected(_:))
@@ -126,7 +126,7 @@ class DashboardTableViewController: UITableViewController {
         )
 
         navigationItem.leftBarButtonItem = settingsItem
-        navigationItem.rightBarButtonItem = filterItem
+        navigationItem.rightBarButtonItem = editItem
     }
 
     @objc private func settingsToolbarItemSelected(_ sender: Any) {

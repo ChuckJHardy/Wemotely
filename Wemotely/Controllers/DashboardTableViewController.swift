@@ -20,10 +20,9 @@ class DashboardTableViewController: UITableViewController {
 
         tableView.accessibilityIdentifier = "dashboardTableView"
 
-        setupToolbar()
+        setupNavigationbar()
+        // REMOTE
         showToolbar()
-
-        navigationItem.leftBarButtonItem = editButtonItem
 
         Seed(realm: realm).call()
         loadJobs()
@@ -126,13 +125,7 @@ class DashboardTableViewController: UITableViewController {
         navigationController?.setToolbarHidden(true, animated: false)
     }
 
-    private func setupToolbar() {
-        let spacer = UIBarButtonItem(
-            barButtonSystemItem: .flexibleSpace,
-            target: self,
-            action: nil
-        )
-
+    private func setupNavigationbar() {
         let filterItem = UIBarButtonItem(
             title: "Filter",
             style: .plain,
@@ -147,7 +140,8 @@ class DashboardTableViewController: UITableViewController {
             action: #selector(settingsToolbarItemSelected(_:))
         )
 
-        self.toolbarItems = [filterItem, spacer, settingsItem]
+        navigationItem.leftBarButtonItem = settingsItem
+        navigationItem.rightBarButtonItem = filterItem
     }
 
     @objc private func settingsToolbarItemSelected(_ sender: Any) {

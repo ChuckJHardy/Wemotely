@@ -5,8 +5,8 @@ extension XCUIApplication {
         return tables["dashboardTableView"].isHittable
     }
 
-    var isDisplayingFilter: Bool {
-        return tables["filterTableView"].exists
+    var isDisplayingEditDashboard: Bool {
+        return tables["editDashboardTableView"].exists
     }
 
     var isDisplayingSettings: Bool {

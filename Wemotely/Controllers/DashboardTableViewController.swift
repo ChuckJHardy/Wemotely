@@ -81,10 +81,14 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dashboardCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.identifier, for: indexPath)
 
-        let object = accounts[indexPath.row]
-        cell.textLabel!.text = object.title
+        if let dashboardCell = cell as? DashboardTableViewCell {
+            let object = accounts[indexPath.row]
+            dashboardCell.setupRow(title: object.title)
+            return dashboardCell
+        }
+
         return cell
     }
 

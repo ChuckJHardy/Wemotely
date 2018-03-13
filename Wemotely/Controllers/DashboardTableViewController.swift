@@ -108,6 +108,12 @@ class DashboardTableViewController: UITableViewController {
     }
 }
 
+extension DashboardTableViewController: DashboardEditTableViewControllerDelegate {
+    func didEdit() {
+        tableView.reloadData()
+    }
+}
+
 extension DashboardTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count

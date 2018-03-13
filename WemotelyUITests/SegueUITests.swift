@@ -42,22 +42,18 @@ class SegueUITests: XCTestCase {
         }
     }
 
-    func testNavigatingToFilter() {
+    func testNavigatingToEdit() {
         app.launch()
 
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
-                // Tap Toolbar 'Filter' Button
-                app.toolbars.buttons["Filter"].tap()
+                // Tap Navigation Bar 'Edit' Button
+                app.navigationBars["Dashboard"].buttons["Edit"].tap()
 
-                XCTAssert(app.isDisplayingFilter)
-
-                assertToolbarHidden()
+                XCTAssert(app.isDisplayingEditDashboard)
 
                 // Tap Dashboard 'Back' Button
-                app.navigationBars["Filter"].buttons["Dashboard"].tap()
-
-                assertToolbarShown()
+                app.navigationBars["Edit Dashboard"].buttons["Dashboard"].tap()
             }
         }
     }
@@ -67,17 +63,13 @@ class SegueUITests: XCTestCase {
 
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
-                // Tap Toolbar 'Settings' Button
-                app.toolbars.buttons["Settings"].tap()
+                // Tap Navigation Bar 'Settings' Button
+                app.navigationBars["Dashboard"].buttons["Settings"].tap()
 
                 XCTAssert(app.isDisplayingSettings)
 
-                assertToolbarHidden()
-
                 // Tap Dashboard 'Back' Button
                 app.navigationBars["Settings"].buttons["Dashboard"].tap()
-
-                assertToolbarShown()
             }
         }
     }
@@ -89,12 +81,10 @@ class SegueUITests: XCTestCase {
 
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
-                // Tap Toolbar 'Settings' Button
-                app.toolbars.buttons["Settings"].tap()
+                // Tap Navigation Bar 'Settings' Button
+                app.navigationBars["Dashboard"].buttons["Settings"].tap()
 
                 XCTAssert(app.isDisplayingSettings)
-
-                assertToolbarHidden()
 
                 app.tables["settingsTableView"].cells.staticTexts[settingsOption].tap()
 
@@ -117,8 +107,6 @@ class SegueUITests: XCTestCase {
                 if app.isPad() {
                     XCTAssert(app.isDisplayingJob)
                 }
-
-                assertToolbarShown()
             }
         }
     }
@@ -133,12 +121,8 @@ class SegueUITests: XCTestCase {
 
                 XCTAssert(app.isDisplayingJobs)
 
-                assertToolbarHidden()
-
                 // Tap Dashboard 'Back' Button
                 app.navigationBars["Jobs"].buttons["Dashboard"].tap()
-
-                assertToolbarShown()
             }
         }
     }
@@ -161,8 +145,6 @@ class SegueUITests: XCTestCase {
 
                 XCTAssert(app.navigationBars[jobTitle].exists)
 
-                assertToolbarHidden()
-
                 // Tap Dashboard 'Back' Button
                 if app.isPhone() {
                     app.navigationBars[jobTitle].buttons["Jobs"].tap()
@@ -173,20 +155,8 @@ class SegueUITests: XCTestCase {
                 if app.isPad() {
                     XCTAssert(app.navigationBars[jobTitle].exists)
                 }
-
-                assertToolbarShown()
             }
         }
-    }
-
-    private func assertToolbarHidden() {
-        XCTAssertFalse(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button available")
-        XCTAssertFalse(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button available")
-    }
-
-    private func assertToolbarShown() {
-        XCTAssertTrue(app.toolbars.buttons["Filter"].exists, "Toolbar 'Filter' Button not available")
-        XCTAssertTrue(app.toolbars.buttons["Settings"].exists, "Toolbar 'Settings' Button not available")
     }
 
     private func startAndEndOnDashboard(block: () -> Void) {

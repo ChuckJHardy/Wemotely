@@ -20,10 +20,7 @@ class DashboardTableViewController: UITableViewController {
 
         tableView.accessibilityIdentifier = "dashboardTableView"
 
-        setupToolbar()
-        showToolbar()
-
-        navigationItem.leftBarButtonItem = editButtonItem
+        setupNavigationbar()
 
         Seed(realm: realm).call()
         loadJobs()
@@ -42,13 +39,9 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        fixNavigationItemHighlightBug()
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-        showToolbar()
         super.viewWillAppear(animated)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        hideToolbar()
     }
 
     // MARK: - Segues
@@ -118,23 +111,15 @@ class DashboardTableViewController: UITableViewController {
         }
     }
 
-    private func showToolbar() {
-        navigationController?.setToolbarHidden(false, animated: false)
+    // https://stackoverflow.com/questions/47805224/uibarbuttonitem-will-be-always-highlight-when-i-click-it
+    private func fixNavigationItemHighlightBug() {
+        navigationController?.navigationBar.tintAdjustmentMode = .normal
+        navigationController?.navigationBar.tintAdjustmentMode = .automatic
     }
 
-    private func hideToolbar() {
-        navigationController?.setToolbarHidden(true, animated: false)
-    }
-
-    private func setupToolbar() {
-        let spacer = UIBarButtonItem(
-            barButtonSystemItem: .flexibleSpace,
-            target: self,
-            action: nil
-        )
-
-        let filterItem = UIBarButtonItem(
-            title: "Filter",
+    private func setupNavigationbar() {
+        let editItem = UIBarButtonItem(
+            title: "Edit",
             style: .plain,
             target: self,
             action: #selector(filterToolbarItemSelected(_:))
@@ -147,7 +132,8 @@ class DashboardTableViewController: UITableViewController {
             action: #selector(settingsToolbarItemSelected(_:))
         )
 
-        self.toolbarItems = [filterItem, spacer, settingsItem]
+        navigationItem.leftBarButtonItem = settingsItem
+        navigationItem.rightBarButtonItem = editItem
     }
 
     @objc private func settingsToolbarItemSelected(_ sender: Any) {

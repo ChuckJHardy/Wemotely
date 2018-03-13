@@ -26,16 +26,7 @@ class DashboardTableViewController: UITableViewController {
         loadJobs()
 
         // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-
-            guard let navigationController = controllers[controllers.count-1] as? UINavigationController else {
-                return
-            }
-
-            jobViewController = navigationController.topViewController as? JobViewController
-        }
+        handleSplitViewController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -44,74 +35,23 @@ class DashboardTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showJobs"?:
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let accountObject = accounts[indexPath.row]
-
-                guard let controller = segue.destination as? JobsTableViewController else {
-                    return
-                }
-
-                // guard let navigationController = segue.destination as? UINavigationController else {
-                //     return
-                // }
-                // let controller = navigationController.topViewController as? JobsTableViewController
-
-                controller.accountObject = accountObject
-                // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        default:
-            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
-        }
+    private func getRow(indexPath: IndexPath) -> Row {
+        return getSection(section: indexPath.section).rows[indexPath.row]
     }
 
-    // MARK: - Table View
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    private func getSection(section: Int) -> Section {
+        return sections[section]
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accounts.count
-    }
+    private func handleSplitViewController() {
+        if let split = splitViewController {
+            let controllers = split.viewControllers
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.identifier, for: indexPath)
-
-        if let dashboardCell = cell as? DashboardTableViewCell {
-            let object = accounts[indexPath.row]
-            dashboardCell.setupRow(title: object.title)
-            return dashboardCell
-        }
-
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    override func tableView(_ tableView: UITableView,
-                            commit editingStyle: UITableViewCellEditingStyle,
-                            forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            do {
-                try realm.write {
-                    realm.delete(accounts[indexPath.row])
-                }
-            } catch let err {
-                print("Failed to delete account: \(err)")
+            guard let navigationController = controllers[controllers.count-1] as? UINavigationController else {
+                return
             }
 
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class,
-            // insert it into the array, and add a new row to the table view.
+            jobViewController = navigationController.topViewController as? JobViewController
         }
     }
 
@@ -164,6 +104,64 @@ class DashboardTableViewController: UITableViewController {
                     feedService.save(realm: self.realm, feed: feed)
                 }
             }
+        }
+    }
+}
+
+extension DashboardTableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return getSection(section: section).rows.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.identifier, for: indexPath)
+
+        if let dashboardCell = cell as? DashboardTableViewCell {
+            let row = getRow(indexPath: indexPath)
+            dashboardCell.setup(row: row)
+            return dashboardCell
+        }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionRecord = getSection(section: section)
+
+        if sectionRecord.showHeader {
+            return sectionRecord.heading
+        }
+
+        return nil
+    }
+
+    // MARK: - Segues
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showJobs"?:
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let accountObject = accounts[indexPath.row]
+
+                guard let controller = segue.destination as? JobsTableViewController else {
+                    return
+                }
+
+                // guard let navigationController = segue.destination as? UINavigationController else {
+                //     return
+                // }
+                // let controller = navigationController.topViewController as? JobsTableViewController
+
+                controller.accountObject = accountObject
+                // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        default:
+            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
         }
     }
 }

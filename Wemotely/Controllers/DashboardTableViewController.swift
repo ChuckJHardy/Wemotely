@@ -39,6 +39,7 @@ class DashboardTableViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        fixNavigationItemHighlightBug()
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }
@@ -108,6 +109,12 @@ class DashboardTableViewController: UITableViewController {
             // Create a new instance of the appropriate class,
             // insert it into the array, and add a new row to the table view.
         }
+    }
+
+    // https://stackoverflow.com/questions/47805224/uibarbuttonitem-will-be-always-highlight-when-i-click-it
+    private func fixNavigationItemHighlightBug() {
+        navigationController?.navigationBar.tintAdjustmentMode = .normal
+        navigationController?.navigationBar.tintAdjustmentMode = .automatic
     }
 
     private func setupNavigationbar() {

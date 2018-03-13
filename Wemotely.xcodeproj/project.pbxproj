@@ -10,7 +10,7 @@
 		A50F1B512057D2EF00C73AF9 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */; };
 		A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5159E26204FD6E00056AF57 /* RealmProvider.swift */; };
 		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
-		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
+		A528FD48204B09FF0020ABA9 /* DashboardEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* DashboardEditTableViewController.swift */; };
 		A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */; };
 		A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */; };
 		A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */; };
@@ -24,6 +24,7 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A5963F75205843A10026BFE6 /* DashboardEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5963F74205843A10026BFE6 /* DashboardEditTableViewCell.swift */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
 		A5B713412056FB560054439C /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B713402056FB560054439C /* Environment.generated.swift */; };
@@ -73,7 +74,7 @@
 		A5159E23204FD6730056AF57 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/iOS/Realm.framework.dSYM; sourceTree = "<group>"; };
 		A5159E26204FD6E00056AF57 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
+		A528FD47204B09FF0020ABA9 /* DashboardEditTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEditTableViewController.swift; sourceTree = "<group>"; };
 		A528FD49204B21970020ABA9 /* NotificationOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationOptionsTableViewController.swift; sourceTree = "<group>"; };
 		A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Segues.swift"; sourceTree = "<group>"; };
 		A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Device.swift"; sourceTree = "<group>"; };
@@ -94,6 +95,7 @@
 		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5960CB9205718D20060C71B /* Bugsnag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bugsnag.framework; path = Carthage/Build/iOS/Bugsnag.framework; sourceTree = "<group>"; };
+		A5963F74205843A10026BFE6 /* DashboardEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEditTableViewCell.swift; sourceTree = "<group>"; };
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A59727B2204FD22100D5A917 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
@@ -174,7 +176,7 @@
 				A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */,
 				A538841E204AF241008253D7 /* JobsTableViewController.swift */,
 				A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */,
-				A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */,
+				A528FD47204B09FF0020ABA9 /* DashboardEditTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +187,7 @@
 				A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */,
 				A57DDF1F204ACCEB0031D7DF /* Main.storyboard */,
 				A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */,
+				A5963F74205843A10026BFE6 /* DashboardEditTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -565,12 +568,13 @@
 				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
+				A5963F75205843A10026BFE6 /* DashboardEditTableViewCell.swift in Sources */,
 				A5F991052051B801005D7C42 /* FeedService.swift in Sources */,
 				A5B713412056FB560054439C /* Environment.generated.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
 				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
-				A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */,
+				A528FD48204B09FF0020ABA9 /* DashboardEditTableViewController.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
 				A5F9911D2052850B005D7C42 /* DashboardPresenter.swift in Sources */,
 				A5388421204AF732008253D7 /* Job.swift in Sources */,

@@ -81,27 +81,43 @@
         <scene sceneID="Dc3-f4-Yac">
             <objects>
                 <tableViewController title="Edit Dashboard" modalPresentationStyle="formSheet" id="QSP-fn-eQo" customClass="DashboardEditTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gfo-h2-euh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gfo-h2-euh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="filterCell" textLabel="y3l-SW-Jq0" style="IBUITableViewCellStyleDefault" id="fe3-UO-SZN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="dashboardEditCell" rowHeight="44" id="O1m-DK-LaT" customClass="DashboardEditTableViewCell" customModule="Wemotely" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fe3-UO-SZN" id="rq7-d6-U00">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="O1m-DK-LaT" id="GRv-Wy-tWw">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="y3l-SW-Jq0">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fSE-U4-SDt">
+                                            <rect key="frame" x="310" y="6" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="stateSwitchValueChanged:" destination="O1m-DK-LaT" eventType="valueChanged" id="VEI-dz-iO9"/>
+                                            </connections>
+                                        </switch>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndY-3o-Btn" userLabel="Account Label">
+                                            <rect key="frame" x="16" y="11" width="63.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ndY-3o-Btn" secondAttribute="trailing" constant="20" symbolic="YES" id="D9w-bq-ypm"/>
+                                        <constraint firstItem="fSE-U4-SDt" firstAttribute="top" secondItem="GRv-Wy-tWw" secondAttribute="top" constant="6" id="DI9-aO-0aF"/>
+                                        <constraint firstItem="ndY-3o-Btn" firstAttribute="leading" secondItem="GRv-Wy-tWw" secondAttribute="leading" constant="16" id="Eho-8x-gyp"/>
+                                        <constraint firstAttribute="trailing" secondItem="fSE-U4-SDt" secondAttribute="trailing" constant="16" id="iZt-aC-k2G"/>
+                                        <constraint firstItem="ndY-3o-Btn" firstAttribute="top" secondItem="GRv-Wy-tWw" secondAttribute="top" constant="11" id="kme-2C-xuB"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="accountLabel" destination="ndY-3o-Btn" id="T6N-5J-MSa"/>
+                                    <outlet property="stateSwitch" destination="fSE-U4-SDt" id="Wmh-3j-JrL"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

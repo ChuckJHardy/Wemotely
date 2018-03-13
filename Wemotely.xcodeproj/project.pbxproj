@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50F1B512057D2EF00C73AF9 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */; };
 		A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5159E26204FD6E00056AF57 /* RealmProvider.swift */; };
 		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
 		A528FD48204B09FF0020ABA9 /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* FilterTableViewController.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
 		A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RealmSwift.framework.dSYM; path = Carthage/Build/iOS/RealmSwift.framework.dSYM; sourceTree = "<group>"; };
 		A5159E23204FD6730056AF57 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/iOS/Realm.framework.dSYM; sourceTree = "<group>"; };
 		A5159E26204FD6E00056AF57 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */,
 				A57DDF1F204ACCEB0031D7DF /* Main.storyboard */,
+				A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				A5F9911320527466005D7C42 /* App.swift in Sources */,
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
 				A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */,
+				A50F1B512057D2EF00C73AF9 /* DashboardTableViewCell.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
 				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,

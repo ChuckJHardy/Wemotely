@@ -117,7 +117,7 @@ class SegueUITests: XCTestCase {
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
-                app.tables["dashboardTableView"].cells.staticTexts["Programming"].tap()
+                app.tables["dashboardTableView"].cells.staticTexts["All Inboxes"].tap()
 
                 XCTAssert(app.isDisplayingJobs)
 
@@ -135,7 +135,7 @@ class SegueUITests: XCTestCase {
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
-                app.tables["dashboardTableView"].cells.staticTexts["Programming"].tap()
+                app.tables["dashboardTableView"].cells.staticTexts["All Inboxes"].tap()
                 app.tables["jobsTableView"].cells.staticTexts[jobTitle].tap()
 
                 // iPad should still show list of Jobs

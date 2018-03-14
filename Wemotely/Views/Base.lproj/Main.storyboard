@@ -316,7 +316,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Dashboard" id="Zdf-7t-Un8"/>
                     <connections>
-                        <segue destination="QSP-fn-eQo" kind="show" identifier="showFilter" id="1QS-ku-U5s"/>
+                        <segue destination="QSP-fn-eQo" kind="show" identifier="showDashboardEdit" id="1QS-ku-U5s"/>
                         <segue destination="eRk-o7-102" kind="show" identifier="showSettings" id="wem-Ri-8OI"/>
                     </connections>
                 </tableViewController>

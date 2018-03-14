@@ -61,7 +61,7 @@ extension DashboardEditTableViewController: DashboardEditTableViewCellDelegate {
         super.setEditing(editing, animated: animated)
 
         if editing {
-            editButtonItem.title = "Reorder"
+            editButtonItem.title = "Done"
             inEditingMode = true
         } else {
             editButtonItem.title = "Reorder"

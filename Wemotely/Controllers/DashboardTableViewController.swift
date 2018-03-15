@@ -85,7 +85,7 @@ class DashboardTableViewController: UITableViewController {
     }
 
     @objc private func filterToolbarItemSelected(_ sender: Any) {
-        performSegue(withIdentifier: "showFilter", sender: self)
+        performSegue(withIdentifier: "showDashboardEdit", sender: self)
     }
 
     func loadJobs() {
@@ -105,6 +105,12 @@ class DashboardTableViewController: UITableViewController {
                 }
             }
         }
+    }
+}
+
+extension DashboardTableViewController: DashboardEditTableViewControllerDelegate {
+    func didEdit() {
+        tableView.reloadData()
     }
 }
 
@@ -144,22 +150,20 @@ extension DashboardTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "showJobs"?:
+            guard let controller = segue.destination as? JobsTableViewController else {
+                return
+            }
+
             if let indexPath = tableView.indexPathForSelectedRow {
-                let accountObject = accounts[indexPath.row]
-
-                guard let controller = segue.destination as? JobsTableViewController else {
-                    return
-                }
-
-                // guard let navigationController = segue.destination as? UINavigationController else {
-                //     return
-                // }
-                // let controller = navigationController.topViewController as? JobsTableViewController
-
-                controller.accountObject = accountObject
-                // controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.accountObject = accounts[indexPath.row]
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
+        case "showDashboardEdit"?:
+            guard let controller = segue.destination as? DashboardEditTableViewController else {
+                return
+            }
+
+            controller.delegate = self
         default:
             print("Missing Preperation for Segue \(String(describing: segue.identifier))")
         }

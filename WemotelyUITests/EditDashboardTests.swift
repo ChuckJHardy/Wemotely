@@ -28,7 +28,7 @@ class EditDashboardTests: XCTestCase {
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
                 // Tap Navigation Bar 'Edit' Button
-                app.navigationBars["Dashboard"].buttons["Edit"].tap()
+                gotoDashboardEdit()
 
                 XCTAssert(app.isDisplayingEditDashboard)
 
@@ -52,7 +52,7 @@ class EditDashboardTests: XCTestCase {
                 })
 
                 // Tap Edit Dashboard 'Back' Button
-                app.navigationBars["Edit Dashboard"].buttons["Dashboard"].tap()
+                backToDashboard()
 
                 XCTAssert(app.isDisplayingDashboard)
             }
@@ -60,7 +60,63 @@ class EditDashboardTests: XCTestCase {
     }
 
     func testDisablingAccount() {
+        app.launch()
 
+        app.runWithSupportedOrientations {
+            startAndEndOnDashboard {
+                // Tap Navigation Bar 'Edit' Button
+                gotoDashboardEdit()
+
+                XCTAssert(app.isDisplayingEditDashboard)
+
+                // iPad should still show list of Jobs
+                if app.isPad() {
+                    XCTAssert(app.isDisplayingJob)
+                }
+
+                let editDashboardTable = app.tables["editDashboardTableView"]
+
+                app.forCell(in: editDashboardTable, run: { (index) in
+                    let cell = app.cellByIndex(table: editDashboardTable, index: index)
+                    let label = app.labelInCell(cell: cell)
+                    let switcher = app.switchInCell(cell: cell)
+
+                    XCTAssertTrue(app.isSwitchOn(switchElement: switcher))
+
+                    switcher.tap()
+
+                    backToDashboard()
+                    XCTAssert(app.isDisplayingDashboard)
+
+                    let dashboardTable = app.tables["dashboardTableView"]
+                    // Dashboard Account Cell is Hidden
+                    XCTAssertFalse(dashboardTable.cells.staticTexts[label].exists)
+                    // Dashboard Section is Hidden
+                    XCTAssertFalse(dashboardTable.otherElements.staticTexts[label].exists)
+
+                    // Tap Navigation Bar 'Edit' Button
+                    gotoDashboardEdit()
+                    XCTAssert(app.isDisplayingEditDashboard)
+
+                    switcher.tap()
+                    XCTAssertTrue(app.isSwitchOn(switchElement: switcher))
+
+                    backToDashboard()
+                    XCTAssert(app.isDisplayingDashboard)
+
+                    // Dashboard Account Cell is Shown
+                    XCTAssertTrue(dashboardTable.cells.staticTexts[label].exists)
+                    // Dashboard Section is Shown
+                    XCTAssertTrue(dashboardTable.otherElements.staticTexts[label].exists)
+
+                    gotoDashboardEdit()
+                    XCTAssert(app.isDisplayingEditDashboard)
+                })
+
+                backToDashboard()
+                XCTAssert(app.isDisplayingDashboard)
+            }
+        }
     }
 
     func testEnablingAccount() {
@@ -75,5 +131,13 @@ class EditDashboardTests: XCTestCase {
         XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
         block()
         XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
+    }
+
+    private func gotoDashboardEdit() {
+        app.navigationBars["Dashboard"].buttons["Edit"].tap()
+    }
+
+    private func backToDashboard() {
+        app.navigationBars["Edit Dashboard"].buttons["Dashboard"].tap()
     }
 }

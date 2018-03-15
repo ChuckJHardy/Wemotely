@@ -13,6 +13,10 @@ extension XCUIApplication {
         return cell.switches.element(boundBy: 0)
     }
 
+    func labelInCell(cell: XCUIElement) -> String {
+        return cell.staticTexts.element(boundBy: 0).label
+    }
+
     func forCell(in table: XCUIElement, run block: (_ index: Int) -> Void) {
         for index in 0..<table.cells.count {
             block(index)

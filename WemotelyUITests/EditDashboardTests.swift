@@ -41,22 +41,20 @@ class EditDashboardTests: XCTestCase {
 
                 XCTAssertEqual(table.cells.count, 6)
 
-                var elementLabels = [String]()
-                for i in 0..<table.cells.count {
-                    elementLabels.append(table.cells.element(boundBy: i).staticTexts.element(boundBy: 0).label)
-                }
+                for index in 0..<table.cells.count {
+                    let cell = app.cellByIndex(table: table, index: index)
+                    let switcher = app.switchInCell(cell: cell)
 
-                for label in elementLabels {
-                    let switcher = table.switches[label]
-
-                    XCTAssertTrue(switcher.value.debugDescription == "Optional(1)")
+                    XCTAssertTrue(app.isSwitchOn(switchElement: switcher))
                     switcher.tap()
-                    XCTAssertTrue(switcher.value.debugDescription == "Optional(0)")
+                    XCTAssertFalse(app.isSwitchOn(switchElement: switcher))
                     switcher.tap()
                 }
 
                 // Tap Edit Dashboard 'Back' Button
                 app.navigationBars["Edit Dashboard"].buttons["Dashboard"].tap()
+
+                XCTAssert(app.isDisplayingDashboard)
             }
         }
     }

@@ -22,52 +22,12 @@ class EditDashboardTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testDefaultState() {
+    func testAccountActivation() {
         app.launch()
 
         app.runWithSupportedOrientations {
             startAndEndOnDashboard {
-                // Tap Navigation Bar 'Edit' Button
                 gotoDashboardEdit()
-
-                XCTAssert(app.isDisplayingEditDashboard)
-
-                // iPad should still show list of Jobs
-                if app.isPad() {
-                    XCTAssert(app.isDisplayingJob)
-                }
-
-                let table = app.tables["editDashboardTableView"]
-
-                XCTAssertEqual(table.cells.count, 6)
-
-                app.forCell(in: table, run: { (index) in
-                    let cell = app.cellByIndex(table: table, index: index)
-                    let switcher = app.switchInCell(cell: cell)
-
-                    XCTAssertTrue(app.isSwitchOn(switchElement: switcher))
-                    switcher.tap()
-                    XCTAssertFalse(app.isSwitchOn(switchElement: switcher))
-                    switcher.tap()
-                })
-
-                // Tap Edit Dashboard 'Back' Button
-                backToDashboard()
-
-                XCTAssert(app.isDisplayingDashboard)
-            }
-        }
-    }
-
-    func testDisablingAccount() {
-        app.launch()
-
-        app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
-                // Tap Navigation Bar 'Edit' Button
-                gotoDashboardEdit()
-
-                XCTAssert(app.isDisplayingEditDashboard)
 
                 // iPad should still show list of Jobs
                 if app.isPad() {
@@ -86,7 +46,6 @@ class EditDashboardTests: XCTestCase {
                     switcher.tap()
 
                     backToDashboard()
-                    XCTAssert(app.isDisplayingDashboard)
 
                     let dashboardTable = app.tables["dashboardTableView"]
                     // Dashboard Account Cell is Hidden
@@ -94,15 +53,12 @@ class EditDashboardTests: XCTestCase {
                     // Dashboard Section is Hidden
                     XCTAssertFalse(dashboardTable.otherElements.staticTexts[label].exists)
 
-                    // Tap Navigation Bar 'Edit' Button
                     gotoDashboardEdit()
-                    XCTAssert(app.isDisplayingEditDashboard)
 
                     switcher.tap()
                     XCTAssertTrue(app.isSwitchOn(switchElement: switcher))
 
                     backToDashboard()
-                    XCTAssert(app.isDisplayingDashboard)
 
                     // Dashboard Account Cell is Shown
                     XCTAssertTrue(dashboardTable.cells.staticTexts[label].exists)
@@ -110,21 +66,55 @@ class EditDashboardTests: XCTestCase {
                     XCTAssertTrue(dashboardTable.otherElements.staticTexts[label].exists)
 
                     gotoDashboardEdit()
-                    XCTAssert(app.isDisplayingEditDashboard)
                 })
 
                 backToDashboard()
-                XCTAssert(app.isDisplayingDashboard)
             }
         }
     }
 
-    func testEnablingAccount() {
-
-    }
-
     func testOrderingAccounts() {
+        app.launch()
 
+        app.runWithSupportedOrientations {
+            startAndEndOnDashboard {
+                gotoDashboardEdit()
+
+                // iPad should still show list of Jobs
+                if app.isPad() {
+                    XCTAssert(app.isDisplayingJob)
+                }
+
+                let editDashboardTable = app.tables["editDashboardTableView"]
+
+                app.navigationBars["Edit Dashboard"].buttons["Reorder"].tap()
+
+                let programmingCell = editDashboardTable.buttons["Reorder Programming"]
+                let copywritingCell = editDashboardTable.buttons["Reorder Copywriting"]
+
+                XCTAssertLessThanOrEqual(programmingCell.frame.maxY, copywritingCell.frame.minY)
+
+                copywritingCell.press(forDuration: 0.5, thenDragTo: programmingCell)
+
+                XCTAssertLessThanOrEqual(copywritingCell.frame.maxY, programmingCell.frame.minY)
+
+                app.navigationBars["Edit Dashboard"].buttons["Done"].tap()
+
+                backToDashboard()
+
+                // Do Check on Dashboard
+
+                gotoDashboardEdit()
+
+                app.navigationBars["Edit Dashboard"].buttons["Reorder"].tap()
+
+                programmingCell.press(forDuration: 0.5, thenDragTo: copywritingCell)
+
+                XCTAssertLessThanOrEqual(programmingCell.frame.maxY, copywritingCell.frame.minY)
+
+                backToDashboard()
+            }
+        }
     }
 
     private func startAndEndOnDashboard(block: () -> Void) {
@@ -135,9 +125,11 @@ class EditDashboardTests: XCTestCase {
 
     private func gotoDashboardEdit() {
         app.navigationBars["Dashboard"].buttons["Edit"].tap()
+        XCTAssert(app.isDisplayingEditDashboard)
     }
 
     private func backToDashboard() {
         app.navigationBars["Edit Dashboard"].buttons["Dashboard"].tap()
+        XCTAssert(app.isDisplayingDashboard)
     }
 }

@@ -5,4 +5,3 @@ extension XCUIApplication {
         XCTAssertLessThanOrEqual(top.frame.maxY, bottom.frame.minY)
     }
 }
-

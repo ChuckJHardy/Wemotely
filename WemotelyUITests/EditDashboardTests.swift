@@ -108,6 +108,10 @@ class EditDashboardTests: XCTestCase {
                 let dashboardCopywritingCell = dashboardTable.cells.staticTexts["Copywriting"]
 
                 XCTAssertLessThanOrEqual(dashboardCopywritingCell.frame.maxY, dashboardProgrammingCell.frame.minY)
+                XCTAssertLessThanOrEqual(
+                    app.tables["dashboardTableView"].otherElements.staticTexts["Copywriting"].frame.maxY,
+                    app.tables["dashboardTableView"].otherElements.staticTexts["Programming"].frame.minY
+                )
 
                 gotoDashboardEdit()
 
@@ -120,6 +124,10 @@ class EditDashboardTests: XCTestCase {
                 backToDashboard()
 
                 XCTAssertLessThanOrEqual(dashboardProgrammingCell.frame.maxY, dashboardCopywritingCell.frame.minY)
+                XCTAssertLessThanOrEqual(
+                    app.tables["dashboardTableView"].otherElements.staticTexts["Programming"].frame.maxY,
+                    app.tables["dashboardTableView"].otherElements.staticTexts["Copywriting"].frame.minY
+                )
             }
         }
     }

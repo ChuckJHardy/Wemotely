@@ -10,6 +10,34 @@ class JobsTableViewController: UITableViewController {
 
         tableView.accessibilityIdentifier = "jobsTableView"
     }
+}
+
+extension JobsTableViewController {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let jobs = accountObject?.jobs {
+            return jobs.count
+        } else {
+            return 0
+        }
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.identifier, for: indexPath)
+
+        if let jobCell = cell as? JobsTableViewCell {
+            if let jobs = accountObject?.jobs {
+                jobCell.setup(job: jobs[indexPath.row])
+            }
+
+            return jobCell
+        }
+
+        return cell
+    }
 
     // MARK: - Segues
 
@@ -34,30 +62,5 @@ class JobsTableViewController: UITableViewController {
         default:
             print("Missing Preperation for Segue \(String(describing: segue.identifier))")
         }
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let jobs = accountObject?.jobs {
-            return jobs.count
-        } else {
-            return 0
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "jobsCell", for: indexPath)
-
-        if let jobs = accountObject?.jobs {
-            let object = jobs[indexPath.row]
-            cell.textLabel!.text = object.title
-        }
-
-        return cell
     }
 }

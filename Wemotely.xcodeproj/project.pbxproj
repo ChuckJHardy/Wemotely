@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A50F1B512057D2EF00C73AF9 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */; };
+		A51597002059CAEA0096C52C /* EditDashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51596FF2059CAEA0096C52C /* EditDashboardTests.swift */; };
 		A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5159E26204FD6E00056AF57 /* RealmProvider.swift */; };
 		A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD45204B075F0020ABA9 /* SettingsTableViewController.swift */; };
 		A528FD48204B09FF0020ABA9 /* DashboardEditTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD47204B09FF0020ABA9 /* DashboardEditTableViewController.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
+		A51596FF2059CAEA0096C52C /* EditDashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDashboardTests.swift; sourceTree = "<group>"; };
 		A5159E22204FD6730056AF57 /* RealmSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RealmSwift.framework.dSYM; path = Carthage/Build/iOS/RealmSwift.framework.dSYM; sourceTree = "<group>"; };
 		A5159E23204FD6730056AF57 /* Realm.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Realm.framework.dSYM; path = Carthage/Build/iOS/Realm.framework.dSYM; sourceTree = "<group>"; };
 		A5159E26204FD6E00056AF57 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				A57DDF3D204ACCEC0031D7DF /* Info.plist */,
 				A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */,
 				A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */,
+				A51596FF2059CAEA0096C52C /* EditDashboardTests.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A51597002059CAEA0096C52C /* EditDashboardTests.swift in Sources */,
 				A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */,
 				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,

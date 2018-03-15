@@ -41,7 +41,7 @@ class EditDashboardTests: XCTestCase {
 
                 XCTAssertEqual(table.cells.count, 6)
 
-                for index in 0..<table.cells.count {
+                app.forCell(in: table, run: { (index) in
                     let cell = app.cellByIndex(table: table, index: index)
                     let switcher = app.switchInCell(cell: cell)
 
@@ -49,7 +49,7 @@ class EditDashboardTests: XCTestCase {
                     switcher.tap()
                     XCTAssertFalse(app.isSwitchOn(switchElement: switcher))
                     switcher.tap()
-                }
+                })
 
                 // Tap Edit Dashboard 'Back' Button
                 app.navigationBars["Edit Dashboard"].buttons["Dashboard"].tap()

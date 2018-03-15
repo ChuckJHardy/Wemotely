@@ -86,19 +86,22 @@ class EditDashboardTests: XCTestCase {
                 }
 
                 let editDashboardTable = app.tables["editDashboardTableView"]
+                let navigationBar = app.navigationBars["Edit Dashboard"]
+                let reorderButton = navigationBar.buttons["Reorder"]
+                let reorderDoneButton = navigationBar.buttons["Done"]
 
-                app.navigationBars["Edit Dashboard"].buttons["Reorder"].tap()
+                reorderButton.tap()
 
                 let programmingCell = editDashboardTable.buttons["Reorder Programming"]
                 let copywritingCell = editDashboardTable.buttons["Reorder Copywriting"]
 
-                XCTAssertLessThanOrEqual(programmingCell.frame.maxY, copywritingCell.frame.minY)
+                app.assertOrder(top: programmingCell, bottom: copywritingCell)
 
                 copywritingCell.press(forDuration: 0.5, thenDragTo: programmingCell)
 
-                XCTAssertLessThanOrEqual(copywritingCell.frame.maxY, programmingCell.frame.minY)
+                app.assertOrder(top: copywritingCell, bottom: programmingCell)
 
-                app.navigationBars["Edit Dashboard"].buttons["Done"].tap()
+                reorderDoneButton.tap()
 
                 backToDashboard()
 
@@ -109,21 +112,21 @@ class EditDashboardTests: XCTestCase {
                 let dashboardCopywritingCell = dashboardTable.cells.staticTexts["Copywriting"]
                 let dashboardCopywritingSection = dashboardTable.otherElements.staticTexts["Copywriting"]
 
-                XCTAssertLessThanOrEqual(dashboardCopywritingCell.frame.maxY, dashboardProgrammingCell.frame.minY)
-                XCTAssertLessThanOrEqual(dashboardCopywritingSection.frame.maxY, dashboardProgrammingSection.frame.minY)
+                app.assertOrder(top: dashboardCopywritingCell, bottom: dashboardProgrammingCell)
+                app.assertOrder(top: dashboardCopywritingSection, bottom: dashboardProgrammingSection)
 
                 gotoDashboardEdit()
 
-                app.navigationBars["Edit Dashboard"].buttons["Reorder"].tap()
+                reorderButton.tap()
 
                 programmingCell.press(forDuration: 0.5, thenDragTo: copywritingCell)
 
-                XCTAssertLessThanOrEqual(programmingCell.frame.maxY, copywritingCell.frame.minY)
+                app.assertOrder(top: programmingCell, bottom: copywritingCell)
 
                 backToDashboard()
 
-                XCTAssertLessThanOrEqual(dashboardProgrammingCell.frame.maxY, dashboardCopywritingCell.frame.minY)
-                XCTAssertLessThanOrEqual(dashboardProgrammingSection.frame.maxY, dashboardCopywritingSection.frame.minY)
+                app.assertOrder(top: dashboardProgrammingCell, bottom: dashboardCopywritingCell)
+                app.assertOrder(top: dashboardProgrammingSection, bottom: dashboardCopywritingSection)
             }
         }
     }

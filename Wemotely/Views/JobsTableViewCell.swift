@@ -5,5 +5,6 @@ class JobsTableViewCell: UITableViewCell {
 
     func setup(job: Job) {
         textLabel?.text = job.title
+        detailTextLabel?.text = job.company
     }
 }

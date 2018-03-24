@@ -9,8 +9,7 @@ extension DashboardTableViewController {
             }
 
             if let indexPath = tableView.indexPathForSelectedRow {
-                controller.row = getRow(indexPath: indexPath)
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                controller.segueSetup(row: getRow(indexPath: indexPath))
             }
         case "showDashboardEdit"?:
             guard let controller = segue.destination as? DashboardEditTableViewController else {

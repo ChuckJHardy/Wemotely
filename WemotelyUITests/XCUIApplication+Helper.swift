@@ -9,6 +9,13 @@ extension XCUIApplication {
         return table.cells.element(boundBy: index)
     }
 
+    func cellByLabel(table: XCUIElement, label: String) -> XCUIElement {
+        return table
+            .children(matching: .cell)
+            .element(boundBy: 0)
+            .staticTexts[label]
+    }
+
     func switchInCell(cell: XCUIElement) -> XCUIElement {
         return cell.switches.element(boundBy: 0)
     }

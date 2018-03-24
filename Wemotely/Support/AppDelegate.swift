@@ -8,24 +8,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static func isRunningTests() -> Bool {
-        return CommandLine.arguments.contains("--uitesting") || (NSClassFromString("XCTest") != nil)
-    }
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if AppDelegate.isRunningTests() {
+        if Platform.isRunningTests() {
+            print("-> Tests are running")
+
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
+
             RealmProvider.deleteAll(realm: realm)
         } else {
             if let key = environment.bugSnagKey {
                 Bugsnag.start(withApiKey: key)
             }
-        }
 
-        if Platform.isSimulator {
-            print("-> NSHomeDirectory: \(NSHomeDirectory())")
+            if Platform.isSimulator {
+                print("-> NSHomeDirectory: \(NSHomeDirectory())")
+            }
         }
 
         // Override point for customization after application launch.

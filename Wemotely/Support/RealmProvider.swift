@@ -3,7 +3,7 @@ import RealmSwift
 
 class RealmProvider {
     class func realm() -> Realm {
-        if NSClassFromString("XCTest") != nil {
+        if Platform.isRunningTests() {
             // swiftlint:disable:next force_try
             return try! Realm(
                 configuration: Realm.Configuration(

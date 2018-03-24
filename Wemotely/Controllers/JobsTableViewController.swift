@@ -15,4 +15,10 @@ class JobsTableViewController: UITableViewController {
 
         tableView.accessibilityIdentifier = "jobsTableView"
     }
+
+    func segueSetup(row: Row) {
+        self.row = row
+        navigationItem.title = row.title
+        navigationItem.leftItemsSupplementBackButton = true
+    }
 }

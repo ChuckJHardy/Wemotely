@@ -7,7 +7,7 @@ class URLProvider {
         self.key = key
     }
 
-    func url(isTesting: Bool = AppDelegate.isRunningTests()) -> URL {
+    func url(isTesting: Bool = Platform.isRunningTests()) -> URL {
         if isTesting {
             return fileURL("jobs", type: "xml")
         } else {

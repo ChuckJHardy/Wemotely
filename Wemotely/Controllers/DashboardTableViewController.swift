@@ -55,6 +55,7 @@ class DashboardTableViewController: UITableViewController {
         }
     }
 
+    // TODO: Don't duplicate rows on load
     func loadJobs() {
         let accounts = realm.objects(Account.self)
 

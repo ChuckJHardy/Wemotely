@@ -46,6 +46,8 @@ extension Job {
             return account.jobs.sorted(byKeyPath: Job.defaultSortKey)
         }
 
-        return provider.objects(Job.self).sorted(byKeyPath: Job.defaultSortKey)
+        return provider.objects(Job.self)
+            .filter("account.active = %@", true)
+            .sorted(byKeyPath: Job.defaultSortKey)
     }
 }

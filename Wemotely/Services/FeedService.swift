@@ -23,7 +23,7 @@ struct FeedService {
     private func updateWith(feed: RSSFeed) {
         for item in feed.items! {
             account.jobs.append(
-                BuildJob(record: item).build()
+                BuildJob(record: item).build(linkedAccount: account)
             )
         }
     }
@@ -34,13 +34,14 @@ struct FeedService {
 
         var record: RSSFeedItem
 
-        func build() -> Job {
+        func build(linkedAccount: Account) -> Job {
             let captures = titleCaptures()
 
             job.title = trim(str: captures?.last)!
             job.company = trim(str: captures?.first)!
             job.body = record.description!
             job.pubDate = record.pubDate!
+            job.account = linkedAccount
 
             return job
         }

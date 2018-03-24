@@ -25,6 +25,7 @@ class FeedServiceTests: BaseTestCase {
             XCTAssertEqual(firstJob?.title, "Full Stack Dev with Rails Focus")
             XCTAssertEqual(firstJob?.company, "NuRelm, Inc.")
             XCTAssertEqual(firstJob?.body.count, 4826)
+            XCTAssertEqual(firstJob?.account?.uuid, account.uuid)
         }
     }
 }

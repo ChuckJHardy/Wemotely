@@ -1,9 +1,18 @@
 import UIKit
+import RealmSwift
 
 class JobsTableViewController: UITableViewController {
     let realm = RealmProvider.realm()
 
     var accountObject: Account?
+
+    var jobs: Results<Job>? {
+        if let account = accountObject {
+            return Job.unorganisedJobsByAccount(provider: realm, account: account)
+        } else {
+            return nil
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +27,7 @@ extension JobsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let jobs = accountObject?.jobs {
+        if let jobs = jobs {
             return jobs.count
         } else {
             return 0
@@ -29,7 +38,7 @@ extension JobsTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.identifier, for: indexPath)
 
         if let jobCell = cell as? JobsTableViewCell {
-            if let jobs = accountObject?.jobs {
+            if let jobs = jobs {
                 jobCell.setup(job: jobs[indexPath.row])
             }
 
@@ -45,7 +54,7 @@ extension JobsTableViewController {
     ) -> UISwipeActionsConfiguration? {
         // swiftlint:disable:next line_length
         let action = UIContextualAction(style: .normal, title: "Favourite") { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
-            if let jobs = self.accountObject?.jobs {
+            if let jobs = self.jobs {
                 let job = jobs[indexPath.row]
 
                 do {
@@ -56,7 +65,7 @@ extension JobsTableViewController {
                     print("Failed to Favourite Job: \(err)")
                 }
 
-                tableView.reloadData()
+                tableView.deleteRows(at: [indexPath], with: .fade)
 
                 success(true)
             }
@@ -80,7 +89,7 @@ extension JobsTableViewController {
                 }
 
                 if let controller = navigationController.topViewController as? JobViewController {
-                    if let jobs = accountObject?.jobs {
+                    if let jobs = jobs {
                         let object = jobs[indexPath.row]
                         controller.jobRecord = object
                     }

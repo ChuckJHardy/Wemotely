@@ -15,4 +15,8 @@ class Job: Object {
     override static func primaryKey() -> String? {
         return "uuid"
     }
+
+    static func unorganisedJobsByAccount(provider: Realm, account: Account) -> Results<Job> {
+        return account.jobs.filter("trash == %@ AND favourite == %@", false, false)
+    }
 }

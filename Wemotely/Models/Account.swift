@@ -17,6 +17,13 @@ class Account: Object {
         return "urlKey"
     }
 
+    static func byUUID(provider: Realm, uuid: String) -> Account? {
+        return provider
+            .objects(Account.self)
+            .filter("uuid = %@", uuid)
+            .last
+    }
+
     static func allSorted(provider: Realm) -> Results<Account> {
         return provider
             .objects(Account.self)

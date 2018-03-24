@@ -4,14 +4,10 @@ import RealmSwift
 class JobsTableViewController: UITableViewController {
     let realm = RealmProvider.realm()
 
-    var accountObject: Account?
+    var row: Row?
 
     var jobs: Results<Job>? {
-        if let account = accountObject {
-            return Job.unorganisedJobsByAccount(provider: realm, account: account)
-        } else {
-            return nil
-        }
+        return Job.byRowFilter(provider: realm, row: row)
     }
 
     override func viewDidLoad() {

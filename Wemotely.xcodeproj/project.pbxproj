@@ -28,6 +28,7 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A581C6192066929C007EC4B0 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C6182066929C007EC4B0 /* Filter.swift */; };
 		A5963F75205843A10026BFE6 /* DashboardEditTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5963F74205843A10026BFE6 /* DashboardEditTableViewCell.swift */; };
 		A5973AB8206669F3000E4625 /* JobsTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973AB7206669F3000E4625 /* JobsTableViewController+TableView.swift */; };
 		A5973ABA20666B09000E4625 /* JobsTableViewController+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973AB920666B09000E4625 /* JobsTableViewController+Segues.swift */; };
@@ -110,6 +111,7 @@
 		A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A581C6182066929C007EC4B0 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A5960CB9205718D20060C71B /* Bugsnag.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bugsnag.framework; path = Carthage/Build/iOS/Bugsnag.framework; sourceTree = "<group>"; };
 		A5963F74205843A10026BFE6 /* DashboardEditTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardEditTableViewCell.swift; sourceTree = "<group>"; };
 		A59727B0204FD21D00D5A917 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				A5388420204AF732008253D7 /* Job.swift */,
 				A5F990F72051AF6D005D7C42 /* Account.swift */,
 				A5F9911220527466005D7C42 /* App.swift */,
+				A581C6182066929C007EC4B0 /* Filter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
 				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
+				A581C6192066929C007EC4B0 /* Filter.swift in Sources */,
 				A528FD48204B09FF0020ABA9 /* DashboardEditTableViewController.swift in Sources */,
 				A5797F11205FA75100828E3B /* CustomColor.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,

@@ -1,25 +1,33 @@
 import UIKit
 
 extension DashboardTableViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showJobs"?:
-            guard let controller = segue.destination as? JobsTableViewController else {
-                return
-            }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
 
-            if let indexPath = tableView.indexPathForSelectedRow {
-                controller.accountObject = accounts[indexPath.row]
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        case "showDashboardEdit"?:
-            guard let controller = segue.destination as? DashboardEditTableViewController else {
-                return
-            }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return getSection(section: section).rows.count
+    }
 
-            controller.delegate = self
-        default:
-            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.identifier, for: indexPath)
+
+        if let dashboardCell = cell as? DashboardTableViewCell {
+            let row = getRow(indexPath: indexPath)
+            dashboardCell.setup(row: row)
+            return dashboardCell
         }
+
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionRecord = getSection(section: section)
+
+        if sectionRecord.showHeader {
+            return sectionRecord.heading
+        }
+
+        return nil
     }
 }

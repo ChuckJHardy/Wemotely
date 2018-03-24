@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        if Platform.isSimulator {
+            print("-> NSHomeDirectory: \(NSHomeDirectory())")
+        }
+
         // Override point for customization after application launch.
         guard let splitViewController = window!.rootViewController as? UISplitViewController else {
             return false

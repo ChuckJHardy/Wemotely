@@ -76,7 +76,7 @@ extension DashboardEditTableViewController: DashboardEditTableViewCellDelegate {
                 didEdit = true
             }
         } catch let err {
-            print("Failed to update Account active state: \(err)")
+            logger.error("Account state '\(requestedState)' failed to change", err)
         }
     }
 }

@@ -15,7 +15,7 @@ struct FeedService {
                 updateWith(feed: feed)
             }
         } catch let err {
-            print("Failed to update FeedService: \(err)")
+            logger.error("FeedService failed to update", err)
         }
 
     }

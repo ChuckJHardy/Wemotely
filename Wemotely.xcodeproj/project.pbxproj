@@ -28,6 +28,8 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A58180842066AC58006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
+		A58180852066AC7E006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A581C6192066929C007EC4B0 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C6182066929C007EC4B0 /* Filter.swift */; };
 		A581C61B206698F2007EC4B0 /* Job+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C61A206698F2007EC4B0 /* Job+Query.swift */; };
 		A581C62020669943007EC4B0 /* Account+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C61F20669943007EC4B0 /* Account+Query.swift */; };
@@ -113,6 +115,7 @@
 		A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A58180832066AC58006A62B8 /* Log.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Log.framework; path = Carthage/Build/iOS/Log.framework; sourceTree = "<group>"; };
 		A581C6182066929C007EC4B0 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A581C61A206698F2007EC4B0 /* Job+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+Query.swift"; sourceTree = "<group>"; };
 		A581C61F20669943007EC4B0 /* Account+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+Query.swift"; sourceTree = "<group>"; };
@@ -152,6 +155,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58180842066AC58006A62B8 /* Log.framework in Frameworks */,
 				A5E550772057253C00A43288 /* Bugsnag.framework in Frameworks */,
 				A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */,
@@ -163,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58180852066AC7E006A62B8 /* Log.framework in Frameworks */,
 				A5E550782057255400A43288 /* Bugsnag.framework in Frameworks */,
 				A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */,
@@ -314,6 +319,7 @@
 		A59727AF204FD21D00D5A917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A58180832066AC58006A62B8 /* Log.framework */,
 				A5960CB9205718D20060C71B /* Bugsnag.framework */,
 				A5F991092051BF0A005D7C42 /* FeedKit.framework */,
 				A5159E23204FD6730056AF57 /* Realm.framework.dSYM */,
@@ -596,12 +602,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Bugsnag.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Log.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/RealmSwift.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Bugsnag.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Log.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -18,7 +18,7 @@ extension DashboardTableViewController {
 
             controller.delegate = self
         default:
-            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
+            logger.warning("Missing Segue", segue.identifier!)
         }
     }
 }

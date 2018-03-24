@@ -58,7 +58,7 @@ extension DashboardEditTableViewController {
                 didEdit = true
             }
         } catch let err {
-            print("Failed to update Account order: \(err)")
+            logger.error("Account failed to change order", err)
         }
     }
 

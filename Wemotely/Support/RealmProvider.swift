@@ -28,7 +28,7 @@ class RealmProvider {
                 realm.deleteAll()
             }
         } catch let err {
-            print("Failed to Delete All Data: \(err)")
+            logger.error("Realm deleteAll Failed", err)
         }
     }
 }

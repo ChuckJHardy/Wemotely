@@ -71,7 +71,7 @@ extension JobsTableViewController {
                         job.trash = true
                     }
                 } catch let err {
-                    print("Failed to Delete Job: \(err)")
+                    logger.error("Job failed to delete", err)
                 }
 
                 tableView.deleteRows(at: [indexPath], with: .fade)

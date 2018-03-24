@@ -1,3 +1,4 @@
 github "bugsnag/bugsnag-cocoa" "v5.15.4"
+github "delba/Log" "v1.0"
 github "nmdias/FeedKit" "7.0.1"
 github "realm/realm-cocoa" "v3.3.0"

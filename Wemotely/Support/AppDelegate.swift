@@ -1,6 +1,9 @@
 import UIKit
+import Log
 import Bugsnag
 import RealmSwift
+
+let logger = Logger()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -11,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         if Platform.isRunningTests() {
-            print("-> Tests are running")
-
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
 
@@ -23,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 
             if Platform.isSimulator {
-                print("-> NSHomeDirectory: \(NSHomeDirectory())")
+                logger.info("NSHomeDirectory", NSHomeDirectory())
             }
         }
 

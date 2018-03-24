@@ -37,7 +37,7 @@ class Seed: NSObject {
                     realm.add(app, update: true)
                 }
             } catch let err {
-                print("Failed to save Application: \(err)")
+                logger.error("Application failed to save", err)
             }
         }
     }

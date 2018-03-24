@@ -19,7 +19,7 @@
 		A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */; };
 		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
 		A5388421204AF732008253D7 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5388420204AF732008253D7 /* Job.swift */; };
-		A5797F11205FA75100828E3B /* FlatColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5797F10205FA75100828E3B /* FlatColor.swift */; };
+		A5797F11205FA75100828E3B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5797F10205FA75100828E3B /* CustomColor.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
 		A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */; };
 		A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */; };
@@ -88,7 +88,7 @@
 		A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Device.swift"; sourceTree = "<group>"; };
 		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		A5388420204AF732008253D7 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
-		A5797F10205FA75100828E3B /* FlatColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatColor.swift; sourceTree = "<group>"; };
+		A5797F10205FA75100828E3B /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewController.swift; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
 				A5F991102052736C005D7C42 /* Seed.swift */,
 				A5B5B48D2053E4EA001806B6 /* URLProvider.swift */,
-				A5797F10205FA75100828E3B /* FlatColor.swift */,
+				A5797F10205FA75100828E3B /* CustomColor.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -591,7 +591,7 @@
 				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,
 				A528FD48204B09FF0020ABA9 /* DashboardEditTableViewController.swift in Sources */,
-				A5797F11205FA75100828E3B /* FlatColor.swift in Sources */,
+				A5797F11205FA75100828E3B /* CustomColor.swift in Sources */,
 				A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */,
 				A5F9911D2052850B005D7C42 /* DashboardPresenter.swift in Sources */,
 				A5388421204AF732008253D7 /* Job.swift in Sources */,

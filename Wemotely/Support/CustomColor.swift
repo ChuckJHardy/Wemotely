@@ -15,7 +15,19 @@ extension UIColor {
     }
 
     // swiftlint:disable nesting
-    struct FlatColor {
+    struct CustomColor {
+        // https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/
+        struct Apple {
+            static let Red = UIColor(red: 255 / 255, green: 59 / 255, blue: 48 / 255, alpha: 1)
+            static let Orange = UIColor(red: 255 / 255, green: 149 / 255, blue: 0 / 255, alpha: 1)
+            static let Yellow = UIColor(red: 255 / 255, green: 204 / 255, blue: 0 / 255, alpha: 1)
+            static let Green = UIColor(red: 76 / 255, green: 217 / 255, blue: 100 / 255, alpha: 1)
+            static let TealBlue = UIColor(red: 90 / 255, green: 200 / 255, blue: 250 / 255, alpha: 1)
+            static let Blue = UIColor(red: 0 / 255, green: 122 / 255, blue: 255 / 255, alpha: 1)
+            static let Purple = UIColor(red: 88 / 255, green: 86 / 255, blue: 214 / 255, alpha: 1)
+            static let Pink = UIColor(red: 255 / 255, green: 45 / 255, blue: 85 / 255, alpha: 1)
+        }
+
         struct Green {
             static let Fern = UIColor(netHex: 0x6ABB72)
             static let MountainMeadow = UIColor(netHex: 0x3ABB9D)

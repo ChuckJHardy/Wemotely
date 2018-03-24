@@ -4,7 +4,7 @@ extension JobsTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let jobs = jobs {
             return jobs.count
@@ -12,18 +12,18 @@ extension JobsTableViewController {
             return 0
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.identifier, for: indexPath)
-        
+
         if let jobCell = cell as? JobsTableViewCell {
             if let jobs = jobs {
                 jobCell.setup(job: jobs[indexPath.row])
             }
-            
+
             return jobCell
         }
-        
+
         return cell
     }
 

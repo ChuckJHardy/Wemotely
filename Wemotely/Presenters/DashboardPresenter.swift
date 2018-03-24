@@ -39,10 +39,34 @@ class DashboardPresenter: NSObject {
 
     private func mainSectionRows() -> [Row] {
         return [
-            Row(title: "All Inboxes", icon: "inboxes", moveable: true, showTitleAsPrompt: true, accountUUID: nil),
-            Row(title: "Favourites", icon: "heart", moveable: true, showTitleAsPrompt: true, accountUUID: nil),
-            Row(title: "Unread", icon: "unread", moveable: true, showTitleAsPrompt: true, accountUUID: nil),
-            Row(title: "Trash", icon: "trash", moveable: true, showTitleAsPrompt: true, accountUUID: nil)
+            Row(
+                title: "All Inboxes",
+                icon: "inboxes",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            ),
+            Row(
+                title: "Favourites",
+                icon: "heart",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            ),
+            Row(
+                title: "Unread",
+                icon: "unread",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            ),
+            Row(
+                title: "Trash",
+                icon: "trash",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            )
         ] + rowsFromAccounts()
     }
 

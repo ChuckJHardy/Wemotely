@@ -43,9 +43,9 @@ extension Job {
 
     private static func baseQueryObject(provider: Realm, accountUUID: String?) -> Results<Job> {
         if let uuid = accountUUID, let account = Account.byUUID(provider: provider, uuid: uuid) {
-            return account.jobs.filter("uuid != nil")
+            return account.jobs.sorted(byKeyPath: Job.defaultSortKey)
         }
 
-        return provider.objects(Job.self)
+        return provider.objects(Job.self).sorted(byKeyPath: Job.defaultSortKey)
     }
 }

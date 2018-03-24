@@ -2,6 +2,8 @@ import Foundation
 import RealmSwift
 
 class Job: Object {
+    static let defaultSortKey = "pubDate"
+
     @objc dynamic var uuid = NSUUID().uuidString
 
     @objc dynamic var title = "Null Title"

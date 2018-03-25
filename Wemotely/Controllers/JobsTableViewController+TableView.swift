@@ -43,6 +43,7 @@ extension JobsTableViewController {
                 do {
                     try self.realm.write {
                         job.favourite = !job.favourite
+                        job.trash = false
                         self.didEdit = true
                     }
 
@@ -67,28 +68,34 @@ extension JobsTableViewController {
         _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
         ) -> UISwipeActionsConfiguration? {
-        // swiftlint:disable:next line_length
-        let action = UIContextualAction(style: .destructive, title: "Delete") { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
-            if let jobs = self.jobs {
-                let job = jobs[indexPath.row]
+        var job: Job!
+        var title: String = "Delete"
 
+        if let jobs = self.jobs {
+            job = jobs[indexPath.row]
+            title = job.trash ? "Undelete" : title
+
+            // swiftlint:disable:next line_length
+            let action = UIContextualAction(style: .destructive, title: title) { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
                 do {
                     try self.realm.write {
-                        job.trash = true
+                        job.trash = !job.trash
+                        job.favourite = false
                         self.didEdit = true
                     }
+
+                    tableView.deleteRows(at: [indexPath], with: .fade)
                 } catch let err {
                     logger.error("Job failed to delete", err)
+                    success(false)
                 }
-
-                tableView.deleteRows(at: [indexPath], with: .fade)
 
                 success(true)
             }
 
-            success(false)
+            return UISwipeActionsConfiguration(actions: [action])
         }
 
-        return UISwipeActionsConfiguration(actions: [action])
+        return UISwipeActionsConfiguration(actions: [])
     }
 }

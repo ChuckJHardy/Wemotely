@@ -26,17 +26,17 @@ extension Job {
             .filter("trash == %@ AND favourite == %@", false, false)
     }
 
-    static func favourited(provider: Realm, accountUUID: String?) -> Results<Job> {
+    static func favourited(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("trash == %@ AND favourite == %@", false, true)
     }
 
-    static func unread(provider: Realm, accountUUID: String?) -> Results<Job> {
+    static func unread(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("read == %@", false)
     }
 
-    static func trashed(provider: Realm, accountUUID: String?) -> Results<Job> {
+    static func trashed(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("trash == %@", true)
     }

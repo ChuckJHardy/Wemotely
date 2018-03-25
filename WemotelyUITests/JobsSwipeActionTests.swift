@@ -51,7 +51,36 @@ class JobsSwipeActionTests: XCTestCase {
         }
     }
 
-    func testDashboardCounts() {
+    func testSwipeToFavourite() {
+        let accountName = "All Inboxes"
+        let jobTitle = "Front-End Engineer - CND Growth Team"
+
+        app.launch()
+
+        app.runWithSupportedOrientations {
+            app.startAndEndOnDashboard {
+                let dashboardTable = app.tables["dashboardTableView"]
+
+                // GoTo Account
+                dashboardTable.cells.staticTexts[accountName].tap()
+
+                XCTAssert(app.isDisplayingJobs)
+
+                let jobsTable = app.tables["jobsTableView"]
+                let jobsTableRowsCountBefore = jobsTable.cells.count
+
+                app.swipeAndFavourite(table: jobsTable, label: jobTitle)
+
+                // Cell should have been removed
+                XCTAssertEqual(jobsTable.cells.count, jobsTableRowsCountBefore - 1)
+
+                // Back to Dashboard
+                app.navigationBars[accountName].buttons["Dashboard"].tap()
+            }
+        }
+    }
+
+    func testDashboardTrashCounts() {
         let accountName = "All Inboxes"
         let jobTitle = "Front-End Engineer - CND Growth Team"
 
@@ -92,6 +121,51 @@ class JobsSwipeActionTests: XCTestCase {
 
                 // Go Back to Dashboard
                 app.navigationBars["Trash"].buttons["Dashboard"].tap()
+            }
+        }
+    }
+
+    func testDashboardFavouriteCounts() {
+        let accountName = "All Inboxes"
+        let jobTitle = "Front-End Engineer - CND Growth Team"
+
+        app.launch()
+
+        app.runWithSupportedOrientations {
+            app.startAndEndOnDashboard {
+                let dashboardTable = app.tables["dashboardTableView"]
+
+                // Record Counts
+                let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: 0)
+                let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: 1)
+
+                // GoTo Account
+                dashboardTable.cells.staticTexts[accountName].tap()
+
+                XCTAssert(app.isDisplayingJobs)
+
+                let jobsTable = app.tables["jobsTableView"]
+                XCTAssertEqual(jobsTable.cells.count, fromCountBefore)
+
+                app.swipeAndFavourite(table: jobsTable, label: jobTitle)
+
+                // Back to Dashboard
+                app.navigationBars[accountName].buttons["Dashboard"].tap()
+
+                // Check Counts
+                let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: 0)
+                let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: 1)
+
+                XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
+                XCTAssertEqual(toCountBefore + 1, toCountAfter)
+
+                // GoTo Favourite
+                app.cellByIndex(table: dashboardTable, index: 1).tap()
+                XCTAssertEqual(jobsTable.cells.count, toCountAfter)
+                XCTAssert(jobsTable.cells.staticTexts[jobTitle].exists)
+
+                // Go Back to Dashboard
+                app.navigationBars["Favourites"].buttons["Dashboard"].tap()
             }
         }
     }

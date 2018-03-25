@@ -21,22 +21,22 @@ extension Job {
         return nil
     }
 
-    static func unorganised(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
+    private static func unorganised(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("trash == %@ AND favourite == %@", false, false)
     }
 
-    static func favourited(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
+    private static func favourited(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("trash == %@ AND favourite == %@", false, true)
     }
 
-    static func unread(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
+    private static func unread(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("read == %@", false)
     }
 
-    static func trashed(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
+    private static func trashed(provider: Realm, accountUUID: String? = nil) -> Results<Job> {
         return baseQueryObject(provider: provider, accountUUID: accountUUID)
             .filter("trash == %@", true)
     }

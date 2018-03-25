@@ -7,7 +7,6 @@ class DashboardTableViewCell: UITableViewCell {
     func setup(provider: Realm, row: Row) {
         textLabel?.text = row.title
 
-        // TODO: Refresh dashboard table when changes occur
         if let jobs = Job.byRowFilter(provider: provider, row: row) {
             detailTextLabel?.text = "\(jobs.count)"
         }

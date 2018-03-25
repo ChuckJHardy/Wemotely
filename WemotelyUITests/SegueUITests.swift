@@ -131,7 +131,7 @@ class SegueUITests: XCTestCase {
 
     func testSelectingAJob() {
         let accountName = "All Inboxes"
-        let jobTitle = "Full Stack Dev with Rails Focus"
+        let jobTitle = "Front-End Engineer - CND Growth Team"
 
         app.launch()
 

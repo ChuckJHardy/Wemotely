@@ -8,6 +8,8 @@ extension DashboardTableViewController {
                 return
             }
 
+            controller.delegate = self
+
             if let indexPath = tableView.indexPathForSelectedRow {
                 controller.segueSetup(row: getRow(indexPath: indexPath))
             }

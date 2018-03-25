@@ -21,12 +21,10 @@ class DashboardTableViewController: UITableViewController {
         tableView.accessibilityIdentifier = "dashboardTableView"
 
         setupNavigationbar()
+        handleSplitViewController()
 
         Seed(realm: realm).call()
         loadJobs()
-
-        // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        handleSplitViewController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +53,6 @@ class DashboardTableViewController: UITableViewController {
         }
     }
 
-    // TODO: Don't duplicate rows on load
     func loadJobs() {
         let accounts = realm.objects(Account.self)
 
@@ -76,7 +73,7 @@ class DashboardTableViewController: UITableViewController {
     }
 }
 
-extension DashboardTableViewController: DashboardEditTableViewControllerDelegate {
+extension DashboardTableViewController: DashboardEditTableViewControllerDelegate, JobsTableViewControllerDelegate {
     func didEdit() {
         tableView.reloadData()
     }

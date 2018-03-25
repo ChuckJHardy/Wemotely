@@ -39,6 +39,7 @@ extension JobsTableViewController {
                 do {
                     try self.realm.write {
                         job.favourite = true
+                        self.didEdit = true
                     }
                 } catch let err {
                     print("Failed to Favourite Job: \(err)")
@@ -69,6 +70,7 @@ extension JobsTableViewController {
                 do {
                     try self.realm.write {
                         job.trash = true
+                        self.didEdit = true
                     }
                 } catch let err {
                     logger.error("Job failed to delete", err)

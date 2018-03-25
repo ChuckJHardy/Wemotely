@@ -31,31 +31,36 @@ extension JobsTableViewController {
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
         ) -> UISwipeActionsConfiguration? {
-        // swiftlint:disable:next line_length
-        let action = UIContextualAction(style: .normal, title: "Favourite") { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
-            if let jobs = self.jobs {
-                let job = jobs[indexPath.row]
+        var job: Job!
+        var title: String = "Favourite"
 
+        if let jobs = self.jobs {
+            job = jobs[indexPath.row]
+            title = job.favourite ? "Unfavourite" : title
+
+            // swiftlint:disable:next line_length
+            let action = UIContextualAction(style: .normal, title: title) { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
                 do {
                     try self.realm.write {
-                        job.favourite = true
+                        job.favourite = !job.favourite
                         self.didEdit = true
                     }
-                } catch let err {
-                    print("Failed to Favourite Job: \(err)")
-                }
 
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                } catch let err {
+                    logger.error("Job failed to favourite", err)
+                    success(false)
+                }
 
                 success(true)
             }
 
-            success(false)
+            action.backgroundColor = UIColor.CustomColor.Apple.Blue
+
+            return UISwipeActionsConfiguration(actions: [action])
         }
 
-        action.backgroundColor = UIColor.CustomColor.Apple.Blue
-
-        return UISwipeActionsConfiguration(actions: [action])
+        return UISwipeActionsConfiguration(actions: [])
     }
 
     override func tableView(

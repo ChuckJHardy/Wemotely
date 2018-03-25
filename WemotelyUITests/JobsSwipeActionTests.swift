@@ -40,9 +40,7 @@ class JobsSwipeActionTests: XCTestCase {
                 let jobsTable = app.tables["jobsTableView"]
                 let jobsTableRowsCountBefore = jobsTable.cells.count
 
-                let cell = app.cellByLabel(table: jobsTable, label: jobTitle)
-                cell.swipeLeft()
-                jobsTable.buttons["Delete"].tap()
+                app.swipeAndDelete(table: jobsTable, label: jobTitle)
 
                 // Cell should have been removed
                 XCTAssertEqual(jobsTable.cells.count, jobsTableRowsCountBefore - 1)
@@ -75,9 +73,7 @@ class JobsSwipeActionTests: XCTestCase {
                 let jobsTable = app.tables["jobsTableView"]
                 XCTAssertEqual(jobsTable.cells.count, fromCountBefore)
 
-                let cell = app.cellByLabel(table: jobsTable, label: jobTitle)
-                cell.swipeLeft()
-                jobsTable.buttons["Delete"].tap()
+                app.swipeAndDelete(table: jobsTable, label: jobTitle)
 
                 // Back to Dashboard
                 app.navigationBars[accountName].buttons["Dashboard"].tap()

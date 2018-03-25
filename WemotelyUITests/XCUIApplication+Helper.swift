@@ -25,6 +25,12 @@ extension XCUIApplication {
         )!
     }
 
+    func swipeAndDelete(table: XCUIElement, label: String) {
+        let cell = cellByLabel(table: table, label: label)
+        cell.swipeLeft()
+        table.buttons["Delete"].tap()
+    }
+
     func switchInCell(cell: XCUIElement) -> XCUIElement {
         return cell.switches.element(boundBy: 0)
     }

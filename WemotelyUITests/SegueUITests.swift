@@ -46,7 +46,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Edit' Button
                 app.navigationBars["Dashboard"].buttons["Edit"].tap()
 
@@ -62,7 +62,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Settings' Button
                 app.navigationBars["Dashboard"].buttons["Settings"].tap()
 
@@ -80,7 +80,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Settings' Button
                 app.navigationBars["Dashboard"].buttons["Settings"].tap()
 
@@ -117,7 +117,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
                 app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
 
@@ -136,7 +136,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
                 app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
                 app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
@@ -160,11 +160,5 @@ class SegueUITests: XCTestCase {
                 }
             }
         }
-    }
-
-    private func startAndEndOnDashboard(block: () -> Void) {
-        XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
-        block()
-        XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
     }
 }

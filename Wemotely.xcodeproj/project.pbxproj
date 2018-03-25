@@ -30,6 +30,7 @@
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
 		A58180842066AC58006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A58180852066AC7E006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
+		A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */; };
 		A581C6192066929C007EC4B0 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C6182066929C007EC4B0 /* Filter.swift */; };
 		A581C61B206698F2007EC4B0 /* Job+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C61A206698F2007EC4B0 /* Job+Query.swift */; };
 		A581C62020669943007EC4B0 /* Account+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C61F20669943007EC4B0 /* Account+Query.swift */; };
@@ -116,6 +117,7 @@
 		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A58180832066AC58006A62B8 /* Log.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Log.framework; path = Carthage/Build/iOS/Log.framework; sourceTree = "<group>"; };
+		A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsSwipeActionTests.swift; sourceTree = "<group>"; };
 		A581C6182066929C007EC4B0 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A581C61A206698F2007EC4B0 /* Job+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+Query.swift"; sourceTree = "<group>"; };
 		A581C61F20669943007EC4B0 /* Account+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+Query.swift"; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				A51596FF2059CAEA0096C52C /* EditDashboardTests.swift */,
 				A5159701205A641B0096C52C /* XCUIApplication+Helper.swift */,
 				A5159703205A7AB40096C52C /* XCUIApplication+Asserts.swift */,
+				A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 				A5159704205A7AB40096C52C /* XCUIApplication+Asserts.swift in Sources */,
+				A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

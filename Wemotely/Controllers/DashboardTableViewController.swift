@@ -67,6 +67,7 @@ class DashboardTableViewController: UITableViewController {
 
                 DispatchQueue.main.async {
                     feedService.save(realm: self.realm, feed: feed)
+                    self.tableView.reloadData()
                 }
             }
         }

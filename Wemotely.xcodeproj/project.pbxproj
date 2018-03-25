@@ -32,6 +32,7 @@
 		A58180852066AC7E006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */; };
 		A581808920680CC7006A62B8 /* Account+QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581808820680CC7006A62B8 /* Account+QueryTests.swift */; };
+		A581808B20680D7F006A62B8 /* Job+QueryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581808A20680D7F006A62B8 /* Job+QueryTests.swift */; };
 		A581C6192066929C007EC4B0 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C6182066929C007EC4B0 /* Filter.swift */; };
 		A581C61B206698F2007EC4B0 /* Job+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C61A206698F2007EC4B0 /* Job+Query.swift */; };
 		A581C62020669943007EC4B0 /* Account+Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = A581C61F20669943007EC4B0 /* Account+Query.swift */; };
@@ -120,6 +121,7 @@
 		A58180832066AC58006A62B8 /* Log.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Log.framework; path = Carthage/Build/iOS/Log.framework; sourceTree = "<group>"; };
 		A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsSwipeActionTests.swift; sourceTree = "<group>"; };
 		A581808820680CC7006A62B8 /* Account+QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+QueryTests.swift"; sourceTree = "<group>"; };
+		A581808A20680D7F006A62B8 /* Job+QueryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+QueryTests.swift"; sourceTree = "<group>"; };
 		A581C6182066929C007EC4B0 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		A581C61A206698F2007EC4B0 /* Job+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Job+Query.swift"; sourceTree = "<group>"; };
 		A581C61F20669943007EC4B0 /* Account+Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+Query.swift"; sourceTree = "<group>"; };
@@ -303,6 +305,24 @@
 			path = WemotelyUITests;
 			sourceTree = "<group>";
 		};
+		A581808C20680DA8006A62B8 /* Job */ = {
+			isa = PBXGroup;
+			children = (
+				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
+				A581808A20680D7F006A62B8 /* Job+QueryTests.swift */,
+			);
+			name = Job;
+			sourceTree = "<group>";
+		};
+		A581808D20680DAE006A62B8 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A5F990F92051AFEA005D7C42 /* AccountTests.swift */,
+				A581808820680CC7006A62B8 /* Account+QueryTests.swift */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 		A581C61D206698FD007EC4B0 /* Job */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,9 +437,8 @@
 		A5F990FD2051B79F005D7C42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A57DDF30204ACCEC0031D7DF /* JobTests.swift */,
-				A5F990F92051AFEA005D7C42 /* AccountTests.swift */,
-				A581808820680CC7006A62B8 /* Account+QueryTests.swift */,
+				A581808D20680DAE006A62B8 /* Account */,
+				A581808C20680DA8006A62B8 /* Job */,
 				A5F9911420527705005D7C42 /* AppTests.swift */,
 			);
 			path = Models;
@@ -704,6 +723,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A581808B20680D7F006A62B8 /* Job+QueryTests.swift in Sources */,
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
 				A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */,

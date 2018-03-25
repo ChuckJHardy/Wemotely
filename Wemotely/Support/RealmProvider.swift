@@ -3,7 +3,7 @@ import RealmSwift
 
 class RealmProvider {
     class func realm() -> Realm {
-        if NSClassFromString("XCTest") != nil {
+        if Platform.isRunningTests() {
             // swiftlint:disable:next force_try
             return try! Realm(
                 configuration: Realm.Configuration(
@@ -28,7 +28,7 @@ class RealmProvider {
                 realm.deleteAll()
             }
         } catch let err {
-            print("Failed to Delete All Data: \(err)")
+            logger.error("Realm deleteAll Failed", err)
         }
     }
 }

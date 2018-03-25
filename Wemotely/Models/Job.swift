@@ -2,6 +2,8 @@ import Foundation
 import RealmSwift
 
 class Job: Object {
+    static let defaultSortKey = "pubDate"
+
     @objc dynamic var uuid = NSUUID().uuidString
 
     @objc dynamic var title = "Null Title"
@@ -11,6 +13,9 @@ class Job: Object {
     @objc dynamic var trash = false
     @objc dynamic var favourite = false
     @objc dynamic var pubDate = Date()
+
+    // let accounts = LinkingObjects(fromType: Account.self, property: "jobs")
+    @objc dynamic var account: Account?
 
     override static func primaryKey() -> String? {
         return "uuid"

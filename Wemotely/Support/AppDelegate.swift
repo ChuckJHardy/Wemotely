@@ -1,6 +1,9 @@
 import UIKit
+import Log
 import Bugsnag
 import RealmSwift
+
+let logger = Logger()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -8,19 +11,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    static func isRunningTests() -> Bool {
-        return CommandLine.arguments.contains("--uitesting") || (NSClassFromString("XCTest") != nil)
-    }
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        if AppDelegate.isRunningTests() {
+        if Platform.isRunningTests() {
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
+
             RealmProvider.deleteAll(realm: realm)
         } else {
             if let key = environment.bugSnagKey {
                 Bugsnag.start(withApiKey: key)
+            }
+
+            if Platform.isSimulator {
+                logger.info("NSHomeDirectory", NSHomeDirectory())
             }
         }
 

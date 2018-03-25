@@ -21,12 +21,10 @@ class DashboardTableViewController: UITableViewController {
         tableView.accessibilityIdentifier = "dashboardTableView"
 
         setupNavigationbar()
+        handleSplitViewController()
 
         Seed(realm: realm).call()
         loadJobs()
-
-        // navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        handleSplitViewController()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -35,11 +33,11 @@ class DashboardTableViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    private func getRow(indexPath: IndexPath) -> Row {
+    func getRow(indexPath: IndexPath) -> Row {
         return getSection(section: indexPath.section).rows[indexPath.row]
     }
 
-    private func getSection(section: Int) -> Section {
+    func getSection(section: Int) -> Section {
         return sections[section]
     }
 
@@ -53,39 +51,6 @@ class DashboardTableViewController: UITableViewController {
 
             jobViewController = navigationController.topViewController as? JobViewController
         }
-    }
-
-    // https://stackoverflow.com/questions/47805224/uibarbuttonitem-will-be-always-highlight-when-i-click-it
-    private func fixNavigationItemHighlightBug() {
-        navigationController?.navigationBar.tintAdjustmentMode = .normal
-        navigationController?.navigationBar.tintAdjustmentMode = .automatic
-    }
-
-    private func setupNavigationbar() {
-        let editItem = UIBarButtonItem(
-            title: "Edit",
-            style: .plain,
-            target: self,
-            action: #selector(filterToolbarItemSelected(_:))
-        )
-
-        let settingsItem = UIBarButtonItem(
-            title: "Settings",
-            style: .plain,
-            target: self,
-            action: #selector(settingsToolbarItemSelected(_:))
-        )
-
-        navigationItem.leftBarButtonItem = settingsItem
-        navigationItem.rightBarButtonItem = editItem
-    }
-
-    @objc private func settingsToolbarItemSelected(_ sender: Any) {
-        performSegue(withIdentifier: "showSettings", sender: self)
-    }
-
-    @objc private func filterToolbarItemSelected(_ sender: Any) {
-        performSegue(withIdentifier: "showDashboardEdit", sender: self)
     }
 
     func loadJobs() {
@@ -102,70 +67,15 @@ class DashboardTableViewController: UITableViewController {
 
                 DispatchQueue.main.async {
                     feedService.save(realm: self.realm, feed: feed)
+                    self.tableView.reloadData()
                 }
             }
         }
     }
 }
 
-extension DashboardTableViewController: DashboardEditTableViewControllerDelegate {
+extension DashboardTableViewController: DashboardEditTableViewControllerDelegate, JobsTableViewControllerDelegate {
     func didEdit() {
         tableView.reloadData()
-    }
-}
-
-extension DashboardTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getSection(section: section).rows.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.identifier, for: indexPath)
-
-        if let dashboardCell = cell as? DashboardTableViewCell {
-            let row = getRow(indexPath: indexPath)
-            dashboardCell.setup(row: row)
-            return dashboardCell
-        }
-
-        return cell
-    }
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionRecord = getSection(section: section)
-
-        if sectionRecord.showHeader {
-            return sectionRecord.heading
-        }
-
-        return nil
-    }
-
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showJobs"?:
-            guard let controller = segue.destination as? JobsTableViewController else {
-                return
-            }
-
-            if let indexPath = tableView.indexPathForSelectedRow {
-                controller.accountObject = accounts[indexPath.row]
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        case "showDashboardEdit"?:
-            guard let controller = segue.destination as? DashboardEditTableViewController else {
-                return
-            }
-
-            controller.delegate = self
-        default:
-            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
-        }
     }
 }

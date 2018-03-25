@@ -9,6 +9,7 @@ struct Section {
 }
 
 struct Row {
+    var filter: Filter = Filter.unorganised
     var title: String = ""
     var icon: String = ""
     var moveable: Bool = false
@@ -39,10 +40,38 @@ class DashboardPresenter: NSObject {
 
     private func mainSectionRows() -> [Row] {
         return [
-            Row(title: "All Inboxes", icon: "inboxes", moveable: true, showTitleAsPrompt: true, accountUUID: nil),
-            Row(title: "Favourites", icon: "heart", moveable: true, showTitleAsPrompt: true, accountUUID: nil),
-            Row(title: "Unread", icon: "unread", moveable: true, showTitleAsPrompt: true, accountUUID: nil),
-            Row(title: "Trash", icon: "trash", moveable: true, showTitleAsPrompt: true, accountUUID: nil)
+            Row(
+                filter: Filter.unorganised,
+                title: Filter.unorganised.rawValue,
+                icon: "inboxes",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            ),
+            Row(
+                filter: Filter.favourites,
+                title: Filter.favourites.rawValue,
+                icon: "heart",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            ),
+            Row(
+                filter: Filter.unread,
+                title: Filter.unread.rawValue,
+                icon: "unread",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            ),
+            Row(
+                filter: Filter.trash,
+                title: Filter.trash.rawValue,
+                icon: "trash",
+                moveable: true,
+                showTitleAsPrompt: true,
+                accountUUID: nil
+            )
         ] + rowsFromAccounts()
     }
 
@@ -51,6 +80,7 @@ class DashboardPresenter: NSObject {
 
         for account in accounts {
             let row = Row(
+                filter: Filter.inbox,
                 title: account.title,
                 icon: "inbox",
                 moveable: true,
@@ -73,28 +103,32 @@ class DashboardPresenter: NSObject {
                 showHeader: true,
                 rows: [
                     Row(
-                        title: "Inbox",
+                        filter: Filter.inbox,
+                        title: Filter.inbox.rawValue,
                         icon: "inbox",
                         moveable: false,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     ),
                     Row(
-                        title: "Favourites",
+                        filter: Filter.favourites,
+                        title: Filter.favourites.rawValue,
                         icon: "heart",
                         moveable: false,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     ),
                     Row(
-                        title: "Unread",
+                        filter: Filter.unread,
+                        title: Filter.unread.rawValue,
                         icon: "unread",
                         moveable: false,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     ),
                     Row(
-                        title: "Trash",
+                        filter: Filter.trash,
+                        title: Filter.trash.rawValue,
                         icon: "trash",
                         moveable: false,
                         showTitleAsPrompt: true,

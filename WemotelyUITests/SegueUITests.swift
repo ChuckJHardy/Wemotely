@@ -46,7 +46,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Edit' Button
                 app.navigationBars["Dashboard"].buttons["Edit"].tap()
 
@@ -62,7 +62,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Settings' Button
                 app.navigationBars["Dashboard"].buttons["Settings"].tap()
 
@@ -80,7 +80,7 @@ class SegueUITests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Settings' Button
                 app.navigationBars["Dashboard"].buttons["Settings"].tap()
 
@@ -112,31 +112,34 @@ class SegueUITests: XCTestCase {
     }
 
     func testNavigatingToJobs() {
+        let accountName = "All Inboxes"
+
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
-                app.tables["dashboardTableView"].cells.staticTexts["All Inboxes"].tap()
+                app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
 
                 XCTAssert(app.isDisplayingJobs)
 
                 // Tap Dashboard 'Back' Button
-                app.navigationBars["Jobs"].buttons["Dashboard"].tap()
+                app.navigationBars[accountName].buttons["Dashboard"].tap()
             }
         }
     }
 
     func testSelectingAJob() {
-        let jobTitle = "Full Stack Dev with Rails Focus"
+        let accountName = "All Inboxes"
+        let jobTitle = "Front-End Engineer - CND Growth Team"
 
         app.launch()
 
         app.runWithSupportedOrientations {
-            startAndEndOnDashboard {
+            app.startAndEndOnDashboard {
                 // Tap first cell in 'Dashboard' table
-                app.tables["dashboardTableView"].cells.staticTexts["All Inboxes"].tap()
-                app.tables["jobsTableView"].cells.staticTexts[jobTitle].tap()
+                app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
+                app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
 
                 // iPad should still show list of Jobs
                 if app.isPad() {
@@ -147,9 +150,9 @@ class SegueUITests: XCTestCase {
 
                 // Tap Dashboard 'Back' Button
                 if app.isPhone() {
-                    app.navigationBars[jobTitle].buttons["Jobs"].tap()
+                    app.navigationBars[jobTitle].buttons[accountName].tap()
                 }
-                app.navigationBars["Jobs"].buttons["Dashboard"].tap()
+                app.navigationBars[accountName].buttons["Dashboard"].tap()
 
                 // Previously selected Job should sill be shown on iPad
                 if app.isPad() {
@@ -157,11 +160,5 @@ class SegueUITests: XCTestCase {
                 }
             }
         }
-    }
-
-    private func startAndEndOnDashboard(block: () -> Void) {
-        XCTAssertTrue(app.isDisplayingDashboard, "Failed to start on Dashboard Screen")
-        block()
-        XCTAssertTrue(app.isDisplayingDashboard, "Failed to Segue back to 'Dashboard' Screen")
     }
 }

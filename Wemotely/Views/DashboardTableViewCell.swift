@@ -1,11 +1,16 @@
 import UIKit
+import RealmSwift
 
 class DashboardTableViewCell: UITableViewCell {
     static var identifier: String = "dashboardCell"
 
-    func setup(row: Row) {
+    func setup(provider: Realm, row: Row) {
         textLabel?.text = row.title
-        detailTextLabel?.text = "0"
+
+        if let jobs = Job.byRowFilter(provider: provider, row: row) {
+            detailTextLabel?.text = "\(jobs.count)"
+        }
+
         imageView?.image = UIImage(named: row.icon)
     }
 }

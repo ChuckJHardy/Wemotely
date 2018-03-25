@@ -1,63 +1,38 @@
 import UIKit
+import RealmSwift
+
+protocol JobsTableViewControllerDelegate: class {
+    func didEdit()
+}
 
 class JobsTableViewController: UITableViewController {
     let realm = RealmProvider.realm()
 
-    var accountObject: Account?
+    weak var delegate: DashboardTableViewController?
+    var row: Row?
+    var didEdit: Bool = false
+
+    var jobs: Results<Job>? {
+        return Job.byRowFilter(provider: realm, row: row)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.accessibilityIdentifier = "jobsTableView"
+
+        didEdit = false
     }
 
-    // MARK: - Segues
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "showJob"?:
-            if let indexPath = tableView.indexPathForSelectedRow {
-                guard let navigationController = segue.destination as? UINavigationController else {
-                    return
-                }
-
-                if let controller = navigationController.topViewController as? JobViewController {
-                    if let jobs = accountObject?.jobs {
-                        let object = jobs[indexPath.row]
-                        controller.jobRecord = object
-                    }
-
-                    controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                    controller.navigationItem.leftItemsSupplementBackButton = true
-                }
-            }
-        default:
-            print("Missing Preperation for Segue \(String(describing: segue.identifier))")
+    override func viewWillDisappear(_ animated: Bool) {
+        if didEdit {
+            delegate?.didEdit()
         }
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let jobs = accountObject?.jobs {
-            return jobs.count
-        } else {
-            return 0
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "jobsCell", for: indexPath)
-
-        if let jobs = accountObject?.jobs {
-            let object = jobs[indexPath.row]
-            cell.textLabel!.text = object.title
-        }
-
-        return cell
+    func segueSetup(row: Row) {
+        self.row = row
+        navigationItem.title = row.title
+        navigationItem.leftItemsSupplementBackButton = true
     }
 }

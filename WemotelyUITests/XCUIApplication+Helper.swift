@@ -31,6 +31,12 @@ extension XCUIApplication {
         table.buttons["Delete"].tap()
     }
 
+    func swipeAndUndelete(table: XCUIElement, label: String) {
+        let cell = cellByLabel(table: table, label: label)
+        cell.swipeLeft()
+        table.buttons["Undelete"].tap()
+    }
+
     func swipeAndFavourite(table: XCUIElement, label: String) {
         let cell = cellByLabel(table: table, label: label)
         cell.swipeRight()

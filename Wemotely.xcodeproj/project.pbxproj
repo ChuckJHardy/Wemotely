@@ -44,6 +44,7 @@
 		A5973AC02066708D000E4625 /* DashboardTableViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973ABF2066708D000E4625 /* DashboardTableViewController+Navigation.swift */; };
 		A5973AC7206671FC000E4625 /* DashboardEditTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973AC6206671FC000E4625 /* DashboardEditTableViewController+TableView.swift */; };
 		A5973ACC206673CE000E4625 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973ACB206673CE000E4625 /* Platform.swift */; };
+		A5A863E32068E2DE0007AC30 /* job.html in Resources */ = {isa = PBXBuildFile; fileRef = A5A863E22068E2DE0007AC30 /* job.html */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
 		A5B713412056FB560054439C /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B713402056FB560054439C /* Environment.generated.swift */; };
@@ -136,6 +137,7 @@
 		A5973ABF2066708D000E4625 /* DashboardTableViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardTableViewController+Navigation.swift"; sourceTree = "<group>"; };
 		A5973AC6206671FC000E4625 /* DashboardEditTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardEditTableViewController+TableView.swift"; sourceTree = "<group>"; };
 		A5973ACB206673CE000E4625 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		A5A863E22068E2DE0007AC30 /* job.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = job.html; sourceTree = "<group>"; };
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A5B7133D2056F89C0054439C /* Environment.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.stencil; sourceTree = "<group>"; };
 		A5B713402056FB560054439C /* Environment.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.generated.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				A5CAA293205534D4009C56BA /* jobs.xml */,
+				A5A863E22068E2DE0007AC30 /* job.html */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			files = (
 				A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */,
 				A5B7133E2056F89C0054439C /* Environment.stencil in Resources */,
+				A5A863E32068E2DE0007AC30 /* job.html in Resources */,
 				A5CAA294205534D4009C56BA /* jobs.xml in Resources */,
 				A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */,
 				A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */,

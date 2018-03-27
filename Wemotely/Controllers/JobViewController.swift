@@ -12,8 +12,6 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         view.accessibilityIdentifier = "jobTableView"
 
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-
         webView.allowsLinkPreview = false
 
         if let job = jobRecord {
@@ -51,6 +49,11 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         }
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+    }
+
     override func loadView() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
@@ -76,5 +79,17 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         } else {
             decisionHandler(.allow)
         }
+    }
+
+    func setupSegue(job: Job) {
+        jobRecord = job
+
+        if let split = splitViewController {
+            navigationItem.leftItemsSupplementBackButton = true
+            navigationItem.leftBarButtonItem = split.displayModeButtonItem
+        }
+
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
     }
 }

@@ -14,6 +14,8 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         webView.allowsLinkPreview = false
 
+        setupToolbar()
+
         if let job = jobRecord {
             self.title = job.company
             self.navigationItem.prompt = job.title
@@ -79,6 +81,41 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         } else {
             decisionHandler(.allow)
         }
+    }
+
+    private func setupToolbar() {
+        let spacer = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: self,
+            action: nil
+        )
+
+        let favouriteAction = UIBarButtonItem(
+            image: UIImage(named: "heart"),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+
+        let deleteAction = UIBarButtonItem(
+            image: UIImage(named: "trash"),
+            style: .plain,
+            target: self,
+            action: nil
+        )
+
+        let safariAction = UIBarButtonItem(
+            title: "Open in Safari",
+            style: .plain,
+            target: self,
+            action: #selector(openInSafari(_:))
+        )
+
+        self.toolbarItems = [favouriteAction, spacer, deleteAction, spacer, safariAction]
+    }
+
+    @objc private func openInSafari(_ sender: Any) {
+
     }
 
     func setupSegue(job: Job) {

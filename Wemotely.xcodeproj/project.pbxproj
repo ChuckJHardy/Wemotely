@@ -44,6 +44,11 @@
 		A5973AC02066708D000E4625 /* DashboardTableViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973ABF2066708D000E4625 /* DashboardTableViewController+Navigation.swift */; };
 		A5973AC7206671FC000E4625 /* DashboardEditTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973AC6206671FC000E4625 /* DashboardEditTableViewController+TableView.swift */; };
 		A5973ACC206673CE000E4625 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5973ACB206673CE000E4625 /* Platform.swift */; };
+		A59F67A8206E3DC4006C6E6E /* job.css in Resources */ = {isa = PBXBuildFile; fileRef = A59F67A7206E3DC4006C6E6E /* job.css */; };
+		A59F67AA206E3DE1006C6E6E /* FileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67A9206E3DE1006C6E6E /* FileLoader.swift */; };
+		A59F67AC206E429B006C6E6E /* JobViewController+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67AB206E429B006C6E6E /* JobViewController+Segues.swift */; };
+		A59F67AE206E42D2006C6E6E /* JobViewController+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67AD206E42D2006C6E6E /* JobViewController+Toolbar.swift */; };
+		A59F67B0206E431A006C6E6E /* JobViewController+WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67AF206E431A006C6E6E /* JobViewController+WebView.swift */; };
 		A5A863E32068E2DE0007AC30 /* job.html in Resources */ = {isa = PBXBuildFile; fileRef = A5A863E22068E2DE0007AC30 /* job.html */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
@@ -137,6 +142,11 @@
 		A5973ABF2066708D000E4625 /* DashboardTableViewController+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardTableViewController+Navigation.swift"; sourceTree = "<group>"; };
 		A5973AC6206671FC000E4625 /* DashboardEditTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DashboardEditTableViewController+TableView.swift"; sourceTree = "<group>"; };
 		A5973ACB206673CE000E4625 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		A59F67A7206E3DC4006C6E6E /* job.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = job.css; sourceTree = "<group>"; };
+		A59F67A9206E3DE1006C6E6E /* FileLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLoader.swift; sourceTree = "<group>"; };
+		A59F67AB206E429B006C6E6E /* JobViewController+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobViewController+Segues.swift"; sourceTree = "<group>"; };
+		A59F67AD206E42D2006C6E6E /* JobViewController+Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobViewController+Toolbar.swift"; sourceTree = "<group>"; };
+		A59F67AF206E431A006C6E6E /* JobViewController+WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobViewController+WebView.swift"; sourceTree = "<group>"; };
 		A5A863E22068E2DE0007AC30 /* job.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = job.html; sourceTree = "<group>"; };
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A5B7133D2056F89C0054439C /* Environment.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.stencil; sourceTree = "<group>"; };
@@ -231,6 +241,8 @@
 		A538841D204ACE1C008253D7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				A59F67A9206E3DE1006C6E6E /* FileLoader.swift */,
+				A59F67A6206E3DA4006C6E6E /* Styles */,
 				A5B713402056FB560054439C /* Environment.generated.swift */,
 				A5B7133C2056F8180054439C /* Stencils */,
 				A5CAA28E20552501009C56BA /* Fixtures */,
@@ -391,6 +403,9 @@
 			isa = PBXGroup;
 			children = (
 				A57DDF1D204ACCEB0031D7DF /* JobViewController.swift */,
+				A59F67AB206E429B006C6E6E /* JobViewController+Segues.swift */,
+				A59F67AD206E42D2006C6E6E /* JobViewController+Toolbar.swift */,
+				A59F67AF206E431A006C6E6E /* JobViewController+WebView.swift */,
 			);
 			name = Job;
 			sourceTree = "<group>";
@@ -402,6 +417,14 @@
 				A5973AC6206671FC000E4625 /* DashboardEditTableViewController+TableView.swift */,
 			);
 			name = DashboardEdit;
+			sourceTree = "<group>";
+		};
+		A59F67A6206E3DA4006C6E6E /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A59F67A7206E3DC4006C6E6E /* job.css */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		A5B7133C2056F8180054439C /* Stencils */ = {
@@ -601,6 +624,7 @@
 				A5CAA294205534D4009C56BA /* jobs.xml in Resources */,
 				A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */,
 				A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */,
+				A59F67A8206E3DC4006C6E6E /* job.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,8 +722,11 @@
 				A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */,
 				A50F1B512057D2EF00C73AF9 /* DashboardTableViewCell.swift in Sources */,
 				A5973ABA20666B09000E4625 /* JobsTableViewController+Segues.swift in Sources */,
+				A59F67B0206E431A006C6E6E /* JobViewController+WebView.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
+				A59F67AE206E42D2006C6E6E /* JobViewController+Toolbar.swift in Sources */,
 				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
+				A59F67AC206E429B006C6E6E /* JobViewController+Segues.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
 				A5973ACC206673CE000E4625 /* Platform.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
@@ -708,6 +735,7 @@
 				A5973ABE20666FCF000E4625 /* DashboardTableViewController+TableView.swift in Sources */,
 				A5F991052051B801005D7C42 /* FeedService.swift in Sources */,
 				A5973AC02066708D000E4625 /* DashboardTableViewController+Navigation.swift in Sources */,
+				A59F67AA206E3DE1006C6E6E /* FileLoader.swift in Sources */,
 				A5B713412056FB560054439C /* Environment.generated.swift in Sources */,
 				A5973AC7206671FC000E4625 /* DashboardEditTableViewController+TableView.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,

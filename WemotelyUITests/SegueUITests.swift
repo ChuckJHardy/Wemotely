@@ -131,6 +131,7 @@ class SegueUITests: XCTestCase {
 
     func testSelectingAJob() {
         let accountName = "All Inboxes"
+        let companyName = "Car Next Door"
         let jobTitle = "Front-End Engineer - CND Growth Team"
 
         app.launch()
@@ -146,17 +147,20 @@ class SegueUITests: XCTestCase {
                     XCTAssert(app.isDisplayingJobs)
                 }
 
-                XCTAssert(app.navigationBars[jobTitle].exists)
+                // Company name shown in Navigation Bar
+                XCTAssert(app.navigationBars[companyName].exists)
+                // Job title shown in Navigation Bar as prompt
+                XCTAssert(app.navigationBars[companyName].staticTexts[jobTitle].exists)
 
                 // Tap Dashboard 'Back' Button
                 if app.isPhone() {
-                    app.navigationBars[jobTitle].buttons[accountName].tap()
+                    app.navigationBars[companyName].buttons[accountName].tap()
                 }
                 app.navigationBars[accountName].buttons["Dashboard"].tap()
 
                 // Previously selected Job should sill be shown on iPad
                 if app.isPad() {
-                    XCTAssert(app.navigationBars[jobTitle].exists)
+                    XCTAssert(app.navigationBars[companyName].exists)
                 }
             }
         }

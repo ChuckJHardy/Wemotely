@@ -49,6 +49,7 @@
 		A59F67AC206E429B006C6E6E /* JobViewController+Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67AB206E429B006C6E6E /* JobViewController+Segues.swift */; };
 		A59F67AE206E42D2006C6E6E /* JobViewController+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67AD206E42D2006C6E6E /* JobViewController+Toolbar.swift */; };
 		A59F67B0206E431A006C6E6E /* JobViewController+WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67AF206E431A006C6E6E /* JobViewController+WebView.swift */; };
+		A59F67B2206E5299006C6E6E /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67B1206E5299006C6E6E /* JobTests.swift */; };
 		A5A863E32068E2DE0007AC30 /* job.html in Resources */ = {isa = PBXBuildFile; fileRef = A5A863E22068E2DE0007AC30 /* job.html */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
@@ -147,6 +148,7 @@
 		A59F67AB206E429B006C6E6E /* JobViewController+Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobViewController+Segues.swift"; sourceTree = "<group>"; };
 		A59F67AD206E42D2006C6E6E /* JobViewController+Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobViewController+Toolbar.swift"; sourceTree = "<group>"; };
 		A59F67AF206E431A006C6E6E /* JobViewController+WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobViewController+WebView.swift"; sourceTree = "<group>"; };
+		A59F67B1206E5299006C6E6E /* JobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTests.swift; sourceTree = "<group>"; };
 		A5A863E22068E2DE0007AC30 /* job.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = job.html; sourceTree = "<group>"; };
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A5B7133D2056F89C0054439C /* Environment.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.stencil; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 				A5159701205A641B0096C52C /* XCUIApplication+Helper.swift */,
 				A5159703205A7AB40096C52C /* XCUIApplication+Asserts.swift */,
 				A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */,
+				A59F67B1206E5299006C6E6E /* JobTests.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 				A5159704205A7AB40096C52C /* XCUIApplication+Asserts.swift in Sources */,
 				A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */,
+				A59F67B2206E5299006C6E6E /* JobTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

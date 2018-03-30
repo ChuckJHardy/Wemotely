@@ -30,12 +30,34 @@ class JobTests: XCTestCase {
         app.launch()
 
         app.runWithSupportedOrientations {
-            gotoJob()
+            app.startAndEndOnDashboard {
+                gotoJob()
 
-            app.assertNavigationTitle(app: app, title: companyName)
-            app.assertNavigationPrompt(app: app, title: companyName, prompt: jobTitle)
+                app.assertNavigationTitle(app: app, title: companyName)
+                app.assertNavigationPrompt(app: app, title: companyName, prompt: jobTitle)
 
-            backToDashboard()
+                backToDashboard()
+            }
+        }
+    }
+
+    func testFavouritingJob() {
+        app.launch()
+
+        app.runWithSupportedOrientations {
+            app.startAndEndOnDashboard {
+                // Check Dashboard Fav Count
+
+                gotoJob()
+
+                // Check Icon State
+                // Tap Fav
+                // Check Icon State Changed
+
+                backToDashboard()
+
+                // Check Dashboard Fav Count After
+            }
         }
     }
 
@@ -50,7 +72,5 @@ class JobTests: XCTestCase {
             app.navigationBars[companyName].buttons[accountName].tap()
         }
         app.navigationBars[accountName].buttons["Dashboard"].tap()
-
-        XCTAssert(app.isDisplayingDashboard)
     }
 }

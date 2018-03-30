@@ -1,7 +1,9 @@
 import UIKit
 
 extension JobViewController {
-    func setupToolbar() {
+    func setupToolbar(job: Job) {
+        let favouriteIcon = job.favourite ? "heart" : "unheart"
+
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: self,
@@ -9,10 +11,10 @@ extension JobViewController {
         )
 
         let favouriteAction = UIBarButtonItem(
-            image: UIImage(named: "heart"),
+            image: UIImage(named: favouriteIcon),
             style: .plain,
             target: self,
-            action: #selector(favouriteJob(_:))
+            action: #selector(toggleFavourite(_:))
         )
 
         let deleteAction = UIBarButtonItem(
@@ -29,11 +31,28 @@ extension JobViewController {
             action: #selector(openInSafari(_:))
         )
 
-        self.toolbarItems = [safariAction, spacer, deleteAction, favouriteAction]
+        self.toolbarItems = [
+            safariAction,
+            spacer,
+            deleteAction,
+            favouriteAction
+        ]
     }
 
-    @objc private func favouriteJob(_ sender: Any) {
-        logger.info("-> favouriteJob tapped")
+    @objc private func toggleFavourite(_ sender: Any) {
+        logger.info("-> toggleFavourite tapped")
+
+        if let job = jobRecord {
+            do {
+                try self.realm.write {
+                    job.favourite = !job.favourite
+                }
+            } catch let err {
+                logger.error("Failed to toggle favourite for Job", err)
+            }
+
+            setupToolbar(job: job)
+        }
     }
 
     @objc private func deleteJob(_ sender: Any) {

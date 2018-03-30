@@ -4,6 +4,8 @@ import WebKit
 class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var jobTitleDescriptionLabel: UILabel!
 
+    let realm = RealmProvider.realm()
+
     var webView: WKWebView!
     var jobRecord: Job!
 
@@ -15,7 +17,7 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         webView.allowsLinkPreview = false
 
         if let job = jobRecord {
-            setupToolbar()
+            setupToolbar(job: job)
 
             self.title = job.company
             self.navigationItem.prompt = job.title
@@ -24,8 +26,8 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         }
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
-    }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationItem.largeTitleDisplayMode = .always
+//    }
 }

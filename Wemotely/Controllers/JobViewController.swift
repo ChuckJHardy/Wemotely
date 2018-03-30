@@ -29,6 +29,8 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setToolbarHidden(true, animated: false)
+
         if didChangeJob {
             delegate?.didChangeJob()
         }

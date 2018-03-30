@@ -37,6 +37,8 @@ extension JobViewController {
             deleteAction,
             favouriteAction
         ]
+
+        navigationController?.setToolbarHidden(false, animated: true)
     }
 
     @objc private func toggleFavourite(_ sender: Any) {

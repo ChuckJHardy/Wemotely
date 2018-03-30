@@ -4,7 +4,7 @@ import UIKit
 struct Platform {
     static let isSimulator: Bool = {
         var isSim = false
-        #if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+        #if targetEnvironment(simulator)
             isSim = true
         #endif
         return isSim

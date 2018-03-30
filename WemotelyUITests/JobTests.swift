@@ -31,46 +31,80 @@ class JobTests: XCTestCase {
 
         app.runWithSupportedOrientations {
             app.startAndEndOnDashboard {
+                gotoJobs()
                 gotoJob()
 
                 app.assertNavigationTitle(app: app, title: companyName)
                 app.assertNavigationPrompt(app: app, title: companyName, prompt: jobTitle)
 
+                backToJobs()
                 backToDashboard()
             }
         }
     }
 
     func testFavouritingJob() {
+        let account = (name: "Favourites", index: 1)
+        let icon = (labelBefore: "unheart", labelAfter: "heart", index: 2)
+
         app.launch()
 
         app.runWithSupportedOrientations {
             app.startAndEndOnDashboard {
-                // Check Dashboard Fav Count
+                let dashboardTable = app.tables["dashboardTableView"]
+
+                // Record counts before changes
+                let favouriteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
+
+                gotoJobs()
+
+                // Record counts before changes
+                let jobsTable = app.tables["jobsTableView"]
+                let jobsTableCellCountBefore = jobsTable.cells.count
 
                 gotoJob()
 
                 // Check Icon State
-                // Tap Fav
+                let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+                XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
+
+                // Tap favourite icon
+                favouriteIcon.tap()
+
                 // Check Icon State Changed
+                XCTAssertEqual(favouriteIcon.label, icon.labelAfter)
+
+                backToJobs()
+
+                // Cell should have been removed
+                XCTAssertEqual(jobsTable.cells.count, jobsTableCellCountBefore - 1)
 
                 backToDashboard()
 
-                // Check Dashboard Fav Count After
+                // Check favourites count increase
+                let favouriteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
+                XCTAssertEqual(favouriteCountBefore + 1, favouriteCountAfter)
             }
         }
     }
 
-    private func gotoJob() {
+    private func gotoJobs() {
         app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
+        XCTAssert(app.isDisplayingJobs)
+    }
+
+    private func gotoJob() {
         app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
         XCTAssert(app.isDisplayingJob)
     }
 
-    private func backToDashboard() {
+    private func backToJobs() {
         if app.isPhone() {
             app.navigationBars[companyName].buttons[accountName].tap()
         }
+    }
+
+    private func backToDashboard() {
         app.navigationBars[accountName].buttons["Dashboard"].tap()
     }
 }

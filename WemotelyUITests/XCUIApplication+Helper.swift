@@ -62,4 +62,12 @@ extension XCUIApplication {
             block(index)
         }
     }
+
+    func iconInToolbar(toolbar: XCUIElement, position: Int = 0) -> XCUIElement {
+        return toolbar
+            .children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .button)
+            .element(boundBy: position)
+    }
 }

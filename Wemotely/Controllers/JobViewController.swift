@@ -14,19 +14,18 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         webView.allowsLinkPreview = false
 
-        setupToolbar()
-
         if let job = jobRecord {
+            setupToolbar()
+
             self.title = job.company
             self.navigationItem.prompt = job.title
             let body = """
 <style>
   #container {
-    width: 95%;
     margin: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.5em;
-    line-height: 1.5em;
+    font-size: 40px;
+    line-height: 1.5;
   }
 
   #container img {
@@ -94,14 +93,14 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
             image: UIImage(named: "heart"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(favouriteJob(_:))
         )
 
         let deleteAction = UIBarButtonItem(
             image: UIImage(named: "trash"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(deleteJob(_:))
         )
 
         let safariAction = UIBarButtonItem(
@@ -111,11 +110,19 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
             action: #selector(openInSafari(_:))
         )
 
-        self.toolbarItems = [favouriteAction, spacer, deleteAction, spacer, safariAction]
+        self.toolbarItems = [safariAction, spacer, deleteAction, favouriteAction]
+    }
+
+    @objc private func favouriteJob(_ sender: Any) {
+        logger.info("-> favouriteJob tapped")
+    }
+
+    @objc private func deleteJob(_ sender: Any) {
+        logger.info("-> deleteJob tapped")
     }
 
     @objc private func openInSafari(_ sender: Any) {
-
+        logger.info("-> openInSafari tapped")
     }
 
     func setupSegue(job: Job) {

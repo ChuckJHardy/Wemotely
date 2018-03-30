@@ -1,11 +1,17 @@
 import UIKit
 import WebKit
 
+protocol JobViewControllerDelegate: class {
+    func didChangeJob()
+}
+
 class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var jobTitleDescriptionLabel: UILabel!
 
     let realm = RealmProvider.realm()
 
+    weak var delegate: JobsTableViewController?
+    var didChangeJob: Bool = false
     var webView: WKWebView!
     var jobRecord: Job!
 
@@ -14,20 +20,17 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         view.accessibilityIdentifier = "jobTableView"
 
+        didChangeJob = false
         webView.allowsLinkPreview = false
 
         if let job = jobRecord {
-            setupToolbar(job: job)
-
-            self.title = job.company
-            self.navigationItem.prompt = job.title
-
             loadContent(job: job)
         }
     }
 
-//    override func viewWillDisappear(_ animated: Bool) {
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationItem.largeTitleDisplayMode = .always
-//    }
+    override func viewWillDisappear(_ animated: Bool) {
+        if didChangeJob {
+            delegate?.didChangeJob()
+        }
+    }
 }

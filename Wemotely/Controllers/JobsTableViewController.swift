@@ -36,3 +36,10 @@ class JobsTableViewController: UITableViewController {
         navigationItem.leftItemsSupplementBackButton = true
     }
 }
+
+extension JobsTableViewController: JobViewControllerDelegate {
+    func didChangeJob() {
+        didEdit = true
+        tableView.reloadData()
+    }
+}

@@ -12,6 +12,7 @@ extension JobsTableViewController {
                 if let controller = navigationController.topViewController as? JobViewController {
                     if let jobs = jobs {
                         controller.setupSegue(job: jobs[indexPath.row])
+                        controller.delegate = self
                     }
                 }
             }

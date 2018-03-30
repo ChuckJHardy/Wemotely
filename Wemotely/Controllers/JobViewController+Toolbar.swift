@@ -46,6 +46,7 @@ extension JobViewController {
             do {
                 try self.realm.write {
                     job.favourite = !job.favourite
+                    didChangeJob = true
                 }
             } catch let err {
                 logger.error("Failed to toggle favourite for Job", err)

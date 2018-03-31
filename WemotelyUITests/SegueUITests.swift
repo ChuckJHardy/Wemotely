@@ -136,32 +136,30 @@ class SegueUITests: XCTestCase {
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                // Tap first cell in 'Dashboard' table
-                app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
-                app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
+        app.startAndEndOnDashboard {
+            // Tap first cell in 'Dashboard' table
+            app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
+            app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
 
-                // iPad should still show list of Jobs
-                if app.isPad() {
-                    XCTAssert(app.isDisplayingJobs)
-                }
+            // iPad should still show list of Jobs
+            if app.isPad() {
+                XCTAssert(app.isDisplayingJobs)
+            }
 
-                // Company name shown in Navigation Bar
+            // Company name shown in Navigation Bar
+            XCTAssert(app.navigationBars[companyName].exists)
+            // Job title shown in Navigation Bar as prompt
+            XCTAssert(app.navigationBars[companyName].staticTexts[jobTitle].exists)
+
+            // Tap Dashboard 'Back' Button
+            if app.isPhone() {
+                app.navigationBars[companyName].buttons[accountName].tap()
+            }
+            app.navigationBars[accountName].buttons["Dashboard"].tap()
+
+            // Previously selected Job should sill be shown on iPad
+            if app.isPad() {
                 XCTAssert(app.navigationBars[companyName].exists)
-                // Job title shown in Navigation Bar as prompt
-                XCTAssert(app.navigationBars[companyName].staticTexts[jobTitle].exists)
-
-                // Tap Dashboard 'Back' Button
-                if app.isPhone() {
-                    app.navigationBars[companyName].buttons[accountName].tap()
-                }
-                app.navigationBars[accountName].buttons["Dashboard"].tap()
-
-                // Previously selected Job should sill be shown on iPad
-                if app.isPad() {
-                    XCTAssert(app.navigationBars[companyName].exists)
-                }
             }
         }
     }

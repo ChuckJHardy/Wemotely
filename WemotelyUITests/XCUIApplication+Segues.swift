@@ -25,6 +25,10 @@ extension XCUIApplication {
         return self.navigationBars["Favourites"].exists
     }
 
+    var isDisplayingTrash: Bool {
+        return self.navigationBars["Trash"].exists
+    }
+
     func startAndEndOnDashboard(block: () -> Void) {
         XCTAssertTrue(isDisplayingDashboard, "Failed to start on Dashboard Screen")
         block()

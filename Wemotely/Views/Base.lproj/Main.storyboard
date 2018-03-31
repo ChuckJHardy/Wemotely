@@ -54,7 +54,7 @@
                         <viewLayoutGuide key="safeArea" id="VUw-jc-0yf"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" prompt="..." largeTitleDisplayMode="never" id="mOI-FS-AaM"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="jobTitleDescriptionLabel" destination="0XM-y9-sOw" id="0Wm-aH-e1N"/>
                     </connections>

@@ -3,6 +3,7 @@ import UIKit
 extension JobViewController {
     func setupToolbar(job: Job) {
         let favouriteIcon = job.favourite ? "heart" : "unheart"
+        let deleteText = job.trash ? "Undelete" : "Delete"
 
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
@@ -18,14 +19,14 @@ extension JobViewController {
         )
 
         let deleteAction = UIBarButtonItem(
-            image: UIImage(named: "trash"),
+            title: deleteText,
             style: .plain,
             target: self,
-            action: #selector(deleteJob(_:))
+            action: #selector(toggleDeleteJob(_:))
         )
 
         let safariAction = UIBarButtonItem(
-            title: "Open in Safari",
+            title: "Open",
             style: .plain,
             target: self,
             action: #selector(openInSafari(_:))
@@ -34,20 +35,37 @@ extension JobViewController {
         self.toolbarItems = [
             safariAction,
             spacer,
-            deleteAction,
-            favouriteAction
+            favouriteAction,
+            spacer,
+            deleteAction
         ]
 
         navigationController?.setToolbarHidden(false, animated: true)
     }
 
     @objc private func toggleFavourite(_ sender: Any) {
-        logger.info("-> toggleFavourite tapped")
+        toggle(name: "delete") { (job) in
+            job.favourite = !job.favourite
+        }
+    }
 
-        if let job = jobRecord {
+    @objc private func toggleDeleteJob(_ sender: Any) {
+        toggle(name: "delete") { (job) in
+            job.trash = !job.trash
+        }
+    }
+
+    @objc private func openInSafari(_ sender: Any) {
+        logger.info("-> openInSafari tapped")
+    }
+
+    private func toggle(name: String, block: (_ job: Job) -> Void) {
+        logger.info("-> \(name) tapped")
+
+        if let job = self.jobRecord {
             do {
                 try self.realm.write {
-                    job.favourite = !job.favourite
+                    block(job)
 
                     if splitViewController == nil {
                         didChangeJob = true
@@ -56,18 +74,10 @@ extension JobViewController {
                     }
                 }
             } catch let err {
-                logger.error("Failed to toggle favourite for Job", err)
+                logger.error("Failed to toggle action \(name) for Job", err)
             }
 
             setupToolbar(job: job)
         }
-    }
-
-    @objc private func deleteJob(_ sender: Any) {
-        logger.info("-> deleteJob tapped")
-    }
-
-    @objc private func openInSafari(_ sender: Any) {
-        logger.info("-> openInSafari tapped")
     }
 }

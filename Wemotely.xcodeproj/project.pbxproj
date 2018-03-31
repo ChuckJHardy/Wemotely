@@ -58,6 +58,8 @@
 		A5CAA28D20543C60009C56BA /* BaseTestCare.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA28C20543C60009C56BA /* BaseTestCare.swift */; };
 		A5CAA294205534D4009C56BA /* jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA293205534D4009C56BA /* jobs.xml */; };
 		A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA29520553BFC009C56BA /* URLProviderTests.swift */; };
+		A5D6753A207004E6004C3A0B /* SwiftHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D67539207004E6004C3A0B /* SwiftHash.framework */; };
+		A5D6753B2070051A004C3A0B /* SwiftHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D67539207004E6004C3A0B /* SwiftHash.framework */; };
 		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
 		A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B2204FD22100D5A917 /* Realm.framework */; };
 		A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
@@ -157,6 +159,7 @@
 		A5CAA28C20543C60009C56BA /* BaseTestCare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCare.swift; sourceTree = "<group>"; };
 		A5CAA293205534D4009C56BA /* jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jobs.xml; sourceTree = "<group>"; };
 		A5CAA29520553BFC009C56BA /* URLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderTests.swift; sourceTree = "<group>"; };
+		A5D67539207004E6004C3A0B /* SwiftHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHash.framework; path = Carthage/Build/iOS/SwiftHash.framework; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A58180842066AC58006A62B8 /* Log.framework in Frameworks */,
+				A5D6753A207004E6004C3A0B /* SwiftHash.framework in Frameworks */,
 				A5E550772057253C00A43288 /* Bugsnag.framework in Frameworks */,
 				A5DF7ECD204FE05E0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */,
@@ -188,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A58180852066AC7E006A62B8 /* Log.framework in Frameworks */,
+				A5D6753B2070051A004C3A0B /* SwiftHash.framework in Frameworks */,
 				A5E550782057255400A43288 /* Bugsnag.framework in Frameworks */,
 				A5DF7ECB204FE04A0073F4D5 /* Realm.framework in Frameworks */,
 				A5DF7ECC204FE04A0073F4D5 /* RealmSwift.framework in Frameworks */,
@@ -361,6 +366,7 @@
 		A59727AF204FD21D00D5A917 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A5D67539207004E6004C3A0B /* SwiftHash.framework */,
 				A58180832066AC58006A62B8 /* Log.framework */,
 				A5960CB9205718D20060C71B /* Bugsnag.framework */,
 				A5F991092051BF0A005D7C42 /* FeedKit.framework */,
@@ -659,6 +665,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/FeedKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Bugsnag.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Log.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftHash.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Realm.framework",
@@ -666,6 +673,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/FeedKit.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Bugsnag.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Log.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftHash.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

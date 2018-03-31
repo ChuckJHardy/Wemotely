@@ -57,6 +57,8 @@ extension JobViewController {
 
     @objc private func openInSafari(_ sender: Any) {
         logger.info("-> openInSafari tapped")
+
+        // UIApplication.shared.open(url)
     }
 
     private func toggle(name: String, block: (_ job: Job) -> Void) {

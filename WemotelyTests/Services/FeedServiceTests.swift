@@ -1,4 +1,5 @@
 import XCTest
+import SwiftHash
 
 @testable import Wemotely
 
@@ -22,10 +23,18 @@ class FeedServiceTests: BaseTestCase {
             XCTAssertEqual(account.jobs.count, 2)
 
             let firstJob = account.jobs.first
+            XCTAssertEqual(firstJob?.account?.uuid, account.uuid)
             XCTAssertEqual(firstJob?.title, "Full Stack Dev with Rails Focus")
             XCTAssertEqual(firstJob?.company, "NuRelm, Inc.")
             XCTAssertEqual(firstJob?.body.count, 4826)
-            XCTAssertEqual(firstJob?.account?.uuid, account.uuid)
+            XCTAssertEqual(
+                firstJob?.guid,
+                MD5("https://weworkremotely.com/remote-jobs/nurelm-inc-full-stack-dev-with-rails-focus")
+            )
+            XCTAssertEqual(
+                firstJob?.link,
+                "https://weworkremotely.com/remote-jobs/nurelm-inc-full-stack-dev-with-rails-focus"
+            )
         }
     }
 }

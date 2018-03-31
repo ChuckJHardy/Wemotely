@@ -20,6 +20,11 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
         view.accessibilityIdentifier = "jobTableView"
 
+        if let split = splitViewController {
+            navigationItem.leftItemsSupplementBackButton = true
+            navigationItem.leftBarButtonItem = split.displayModeButtonItem
+        }
+
         didChangeJob = false
         webView.allowsLinkPreview = false
 

@@ -243,17 +243,17 @@
 		A538841D204ACE1C008253D7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				A59F67A9206E3DE1006C6E6E /* FileLoader.swift */,
-				A59F67A6206E3DA4006C6E6E /* Styles */,
-				A5B713402056FB560054439C /* Environment.generated.swift */,
-				A5B7133C2056F8180054439C /* Stencils */,
-				A5CAA28E20552501009C56BA /* Fixtures */,
 				A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */,
+				A5797F10205FA75100828E3B /* CustomColor.swift */,
+				A5B713402056FB560054439C /* Environment.generated.swift */,
+				A59F67A9206E3DE1006C6E6E /* FileLoader.swift */,
+				A5973ACB206673CE000E4625 /* Platform.swift */,
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
 				A5F991102052736C005D7C42 /* Seed.swift */,
 				A5B5B48D2053E4EA001806B6 /* URLProvider.swift */,
-				A5797F10205FA75100828E3B /* CustomColor.swift */,
-				A5973ACB206673CE000E4625 /* Platform.swift */,
+				A5CAA28E20552501009C56BA /* Fixtures */,
+				A5B7133C2056F8180054439C /* Stencils */,
+				A59F67A6206E3DA4006C6E6E /* Styles */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -282,14 +282,14 @@
 		A57DDF18204ACCEB0031D7DF /* Wemotely */ = {
 			isa = PBXGroup;
 			children = (
+				A57DDF27204ACCEB0031D7DF /* Info.plist */,
+				A57DDF22204ACCEB0031D7DF /* Assets.xcassets */,
+				A538841B204ACE10008253D7 /* Controllers */,
+				A538841A204ACE03008253D7 /* Models */,
 				A5F9911E20528587005D7C42 /* Presenters */,
 				A5F990FB2051B757005D7C42 /* Services */,
 				A538841D204ACE1C008253D7 /* Support */,
 				A538841C204ACE17008253D7 /* Views */,
-				A538841B204ACE10008253D7 /* Controllers */,
-				A538841A204ACE03008253D7 /* Models */,
-				A57DDF22204ACCEB0031D7DF /* Assets.xcassets */,
-				A57DDF27204ACCEB0031D7DF /* Info.plist */,
 			);
 			path = Wemotely;
 			sourceTree = "<group>";

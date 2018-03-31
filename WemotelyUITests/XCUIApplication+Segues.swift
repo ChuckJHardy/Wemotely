@@ -21,6 +21,10 @@ extension XCUIApplication {
         return tables["jobsTableView"].exists
     }
 
+    var isDisplayingFavourites: Bool {
+        return self.navigationBars["Favourites"].exists
+    }
+
     func startAndEndOnDashboard(block: () -> Void) {
         XCTAssertTrue(isDisplayingDashboard, "Failed to start on Dashboard Screen")
         block()

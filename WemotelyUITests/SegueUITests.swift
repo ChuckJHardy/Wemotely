@@ -29,7 +29,7 @@ class SegueUITests: XCTestCase {
             XCTAssert(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)
 
-            let jobNavigationBar = app.navigationBars["Job"]
+            let jobNavigationBar = app.navigationBars["Wemotely.JobView"]
             jobNavigationBar.buttons["Switch to full screen mode"].tap()
 
             XCTAssertFalse(app.isDisplayingDashboard)

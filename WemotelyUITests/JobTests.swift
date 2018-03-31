@@ -60,7 +60,7 @@ class JobTests: XCTestCase {
 
                 // Record counts before changes
                 let jobsTable = app.tables["jobsTableView"]
-                let jobsTableCellCountBefore = jobsTable.cells.count
+                let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
                 gotoJob()
 
@@ -77,7 +77,7 @@ class JobTests: XCTestCase {
                 backToJobs()
 
                 // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, jobsTableCellCountBefore - 1)
+                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
 
                 backToDashboard()
 
@@ -105,19 +105,19 @@ class JobTests: XCTestCase {
 
                 // Record counts before changes
                 let jobsTable = app.tables["jobsTableView"]
-                let jobsTableCellCountBefore = jobsTable.cells.count
+                let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
                 // Favourite Job using Swipe action
                 app.swipeAndFavourite(table: jobsTable, label: jobTitle)
 
                 // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, jobsTableCellCountBefore - 1)
+                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
 
                 backToDashboard()
                 gotoFavourites()
 
                 // Record counts before changes
-                let favouritesJobsTableCellCountBefore = jobsTable.cells.count
+                let favouritesJobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
                 gotoJob()
 
@@ -134,14 +134,14 @@ class JobTests: XCTestCase {
                 backToFavourites()
 
                 // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, favouritesJobsTableCellCountBefore - 1)
+                XCTAssertEqual(app.countCellsInTable(table: jobsTable), favouritesJobsTableCellCountBefore - 1)
 
                 // Back to Dashboard
                 app.navigationBars["Favourites"].buttons["Dashboard"].tap()
                 gotoJobs()
 
                 // Cell should have returned
-                XCTAssertEqual(jobsTable.cells.count, jobsTableCellCountBefore)
+                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore)
 
                 backToDashboard()
 
@@ -179,15 +179,18 @@ class JobTests: XCTestCase {
         if app.isPhone() {
             app.navigationBars[companyName].buttons["Favourites"].tap()
         }
+        XCTAssert(app.isDisplayingFavourites)
     }
 
     private func backToJobs() {
         if app.isPhone() {
             app.navigationBars[companyName].buttons[accountName].tap()
         }
+        XCTAssert(app.isDisplayingJobs)
     }
 
     private func backToDashboard() {
         app.navigationBars[accountName].buttons["Dashboard"].tap()
+        XCTAssert(app.isDisplayingDashboard)
     }
 }

@@ -16,6 +16,11 @@ extension XCUIApplication {
             .staticTexts[label]
     }
 
+    func countCellsInTable(table: XCUIElement) -> Int {
+        table.swipeUp() // Fix: Ensure all cells are dequeued before getting the count
+        return table.cells.count
+    }
+
     func countInDashboardCell(table: XCUIElement, position: Int = 0) -> Int {
         return Int(
             labelInCell(
@@ -58,7 +63,7 @@ extension XCUIApplication {
     }
 
     func forCell(in table: XCUIElement, run block: (_ index: Int) -> Void) {
-        for index in 0..<table.cells.count {
+        for index in 0..<self.countCellsInTable(table: table) {
             block(index)
         }
     }

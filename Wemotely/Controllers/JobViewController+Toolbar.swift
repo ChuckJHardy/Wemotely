@@ -48,7 +48,12 @@ extension JobViewController {
             do {
                 try self.realm.write {
                     job.favourite = !job.favourite
-                    didChangeJob = true
+
+                    if splitViewController == nil {
+                        didChangeJob = true
+                    } else {
+                        delegate?.didChangeJob()
+                    }
                 }
             } catch let err {
                 logger.error("Failed to toggle favourite for Job", err)

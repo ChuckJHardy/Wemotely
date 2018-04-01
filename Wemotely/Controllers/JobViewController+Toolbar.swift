@@ -56,8 +56,6 @@ extension JobViewController {
     }
 
     @objc private func openInSafari(_ sender: Any) {
-        logger.info("-> openInSafari tapped")
-
         if let job = self.jobRecord, let link = job.link {
             let url = URL(string: link)
             UIApplication.shared.open(url!)
@@ -65,8 +63,6 @@ extension JobViewController {
     }
 
     private func toggle(name: String, block: (_ job: Job) -> Void) {
-        logger.info("-> \(name) tapped")
-
         if let job = self.jobRecord {
             do {
                 try self.realm.write {

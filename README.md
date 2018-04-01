@@ -32,6 +32,10 @@ Linter Autocorrect
 swiftlint autocorrect
 ```
 
+### Resources
+
+* [App Icon Generator](http://appicon.co)
+
 ### Troubleshooting
 
 #### Cleaning / Clearing

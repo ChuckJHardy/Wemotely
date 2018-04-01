@@ -1,0 +1,8 @@
+#/bin/sh
+
+time xcodebuild -scheme "Wemotely" \
+-destination 'platform=iOS Simulator,OS=11.3,name=iPad Air 2' \
+-destination 'platform=iOS Simulator,OS=11.3,name=iPhone X' \
+-destination 'platform=iOS Simulator,OS=11.3,name=iPhone 7' \
+-destination 'platform=iOS Simulator,OS=11.3,name=iPhone SE' \
+build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO

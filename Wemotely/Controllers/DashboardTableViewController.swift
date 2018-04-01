@@ -24,12 +24,17 @@ class DashboardTableViewController: UITableViewController {
         handleSplitViewController()
 
         Seed(realm: realm).call()
-        loadJobs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         fixNavigationItemHighlightBug()
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        loadJobs()
+        tableView.reloadData()
         super.viewWillAppear(animated)
     }
 

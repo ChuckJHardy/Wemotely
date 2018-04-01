@@ -261,6 +261,29 @@ class JobTests: XCTestCase {
         }
     }
 
+    func testOpen() {
+        app.launch()
+
+        app.startAndEndOnDashboard {
+            gotoJobs()
+            gotoJob()
+
+            XCTAssertTrue(app.isDisplayingJob)
+
+            // Tap open icon
+            let openIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: 0)
+            openIcon.tap()
+
+            XCTAssertFalse(app.isDisplayingJob)
+
+            app.activate()
+            XCTAssertTrue(app.isDisplayingJob)
+
+            backToJobs()
+            backToDashboard()
+        }
+    }
+
     private func gotoJobs() {
         app.cellByLabel(table: app.tables["dashboardTableView"], label: accountName).tap()
         XCTAssert(app.isDisplayingJobs)

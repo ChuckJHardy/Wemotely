@@ -16,6 +16,12 @@ extension XCUIApplication {
             .staticTexts[label]
     }
 
+    func countCellsInTable(table: XCUIElement) -> Int {
+        table.swipeUp() // Fix: Ensure all cells are dequeued before getting the count
+        table.swipeDown()
+        return table.cells.count
+    }
+
     func countInDashboardCell(table: XCUIElement, position: Int = 0) -> Int {
         return Int(
             labelInCell(
@@ -58,8 +64,16 @@ extension XCUIApplication {
     }
 
     func forCell(in table: XCUIElement, run block: (_ index: Int) -> Void) {
-        for index in 0..<table.cells.count {
+        for index in 0..<self.countCellsInTable(table: table) {
             block(index)
         }
+    }
+
+    func iconInToolbar(toolbar: XCUIElement, position: Int = 0) -> XCUIElement {
+        return toolbar
+            .children(matching: .other)
+            .element.children(matching: .other)
+            .element.children(matching: .button)
+            .element(boundBy: position)
     }
 }

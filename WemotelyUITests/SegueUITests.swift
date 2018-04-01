@@ -29,7 +29,7 @@ class SegueUITests: XCTestCase {
             XCTAssert(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)
 
-            let jobNavigationBar = app.navigationBars["Job"]
+            let jobNavigationBar = app.navigationBars["Wemotely.JobView"]
             jobNavigationBar.buttons["Switch to full screen mode"].tap()
 
             XCTAssertFalse(app.isDisplayingDashboard)
@@ -131,33 +131,35 @@ class SegueUITests: XCTestCase {
 
     func testSelectingAJob() {
         let accountName = "All Inboxes"
+        let companyName = "Car Next Door"
         let jobTitle = "Front-End Engineer - CND Growth Team"
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                // Tap first cell in 'Dashboard' table
-                app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
-                app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
+        app.startAndEndOnDashboard {
+            // Tap first cell in 'Dashboard' table
+            app.tables["dashboardTableView"].cells.staticTexts[accountName].tap()
+            app.cellByLabel(table: app.tables["jobsTableView"], label: jobTitle).tap()
 
-                // iPad should still show list of Jobs
-                if app.isPad() {
-                    XCTAssert(app.isDisplayingJobs)
-                }
+            // iPad should still show list of Jobs
+            if app.isPad() {
+                XCTAssert(app.isDisplayingJobs)
+            }
 
-                XCTAssert(app.navigationBars[jobTitle].exists)
+            // Company name shown in Navigation Bar
+            XCTAssert(app.navigationBars[companyName].exists)
+            // Job title shown in Navigation Bar as prompt
+            XCTAssert(app.navigationBars[companyName].staticTexts[jobTitle].exists)
 
-                // Tap Dashboard 'Back' Button
-                if app.isPhone() {
-                    app.navigationBars[jobTitle].buttons[accountName].tap()
-                }
-                app.navigationBars[accountName].buttons["Dashboard"].tap()
+            // Tap Dashboard 'Back' Button
+            if app.isPhone() {
+                app.navigationBars[companyName].buttons[accountName].tap()
+            }
+            app.navigationBars[accountName].buttons["Dashboard"].tap()
 
-                // Previously selected Job should sill be shown on iPad
-                if app.isPad() {
-                    XCTAssert(app.navigationBars[jobTitle].exists)
-                }
+            // Previously selected Job should sill be shown on iPad
+            if app.isPad() {
+                XCTAssert(app.navigationBars[companyName].exists)
             }
         }
     }

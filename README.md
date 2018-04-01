@@ -21,7 +21,7 @@ export WEMOTELY_BUGSNAG_KEY="REAL_KEY"
 
 ```
 $ brew install carthage swiftlint sourcery
-$ carthage bootstrap --platform ios
+$ carthage bootstrap --platform ios --no-use-binaries
 ```
 
 ### Useful Commands
@@ -41,6 +41,6 @@ To clean the build folder, hold down the `Option` key while opening the `Product
 ```
 $ rm -rf Carthage
 $ rm -rf ~/Library/Developer/Xcode/DerivedData
-$ carthage update
+$ carthage update --platform ios; carthage build --platform ios
 ```
 

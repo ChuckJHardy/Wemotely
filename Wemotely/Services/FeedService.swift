@@ -37,13 +37,15 @@ struct FeedService {
         func build(linkedAccount: Account) -> Job {
             let captures = titleCaptures()
 
-            job.title = trim(str: captures?.last)!
-            job.company = trim(str: captures?.first)!
-            job.body = record.description!
-            job.pubDate = record.pubDate!
-            job.account = linkedAccount
-
-            return job
+            return Job([
+                "guid": record.guid?.value! as Any,
+                "title": trim(str: captures?.last)!,
+                "company": trim(str: captures?.first)!,
+                "body": record.description!,
+                "link": record.link!,
+                "pubDate": record.pubDate!,
+                "account": linkedAccount
+            ])
         }
 
         private func titleCaptures() -> [String.SubSequence]? {

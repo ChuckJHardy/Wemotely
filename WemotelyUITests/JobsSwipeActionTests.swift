@@ -25,214 +25,206 @@ class JobsSwipeActionTests: XCTestCase {
     // MARK: - Tests
 
     func testSwipeToDelete() {
-        let from = (name: "All Inboxes", index: 0)
-        let to = (name: "Trash", index: 3)
+        let fromAccount = (name: "All Inboxes", index: 0)
+        let toAccount = (name: "Trash", index: 3)
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Record counts before changes
-                let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts before changes
+            let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Tap "from" row
-                app.cellByIndex(table: dashboardTable, index: from.index).tap()
-                XCTAssert(app.isDisplayingJobs)
+            // Tap "from" row
+            app.cellByIndex(table: dashboardTable, index: fromAccount.index).tap()
+            XCTAssert(app.isDisplayingJobs)
 
-                // Check number of rows in table match dashboard row count
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableRowsCountBefore = jobsTable.cells.count
-                XCTAssertEqual(jobsTable.cells.count, fromCountBefore)
+            // Check number of rows in table match dashboard row count
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableRowsCountBefore = app.countCellsInTable(table: jobsTable)
+            XCTAssertEqual(jobsTableRowsCountBefore, fromCountBefore)
 
-                // Delete Job
-                app.swipeAndDelete(table: jobsTable, label: jobTitle)
+            // Delete Job
+            app.swipeAndDelete(table: jobsTable, label: jobTitle)
 
-                // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, jobsTableRowsCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableRowsCountBefore - 1)
 
-                // Back to Dashboard
-                app.navigationBars[from.name].buttons["Dashboard"].tap()
-                XCTAssert(app.isDisplayingDashboard)
+            // Back to Dashboard
+            app.navigationBars[fromAccount.name].buttons["Dashboard"].tap()
+            XCTAssert(app.isDisplayingDashboard)
 
-                // Record counts after changes
-                let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts after changes
+            let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Checks counts match changes
-                XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
-                XCTAssertEqual(toCountBefore + 1, toCountAfter)
+            // Checks counts match changes
+            XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
+            XCTAssertEqual(toCountBefore + 1, toCountAfter)
 
-                // Tap "to" row
-                app.cellByIndex(table: dashboardTable, index: to.index).tap()
+            // Tap "to" row
+            app.cellByIndex(table: dashboardTable, index: toAccount.index).tap()
 
-                // Check number of rows in table match dashboard row count
-                XCTAssertEqual(jobsTable.cells.count, toCountAfter)
+            // Check number of rows in table match dashboard row count
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), toCountAfter)
 
-                // Check change row is the same
-                XCTAssert(jobsTable.cells.staticTexts[jobTitle].exists)
+            // Check change row is the same
+            XCTAssert(jobsTable.cells.staticTexts[jobTitle].exists)
 
-                // Back to Dashboard
-                app.navigationBars[to.name].buttons["Dashboard"].tap()
-                XCTAssert(app.isDisplayingDashboard)
-            }
+            // Back to Dashboard
+            app.navigationBars[toAccount.name].buttons["Dashboard"].tap()
+            XCTAssert(app.isDisplayingDashboard)
         }
     }
 
     func testSwipeToFavourite() {
-        let from = (name: "All Inboxes", index: 0)
-        let to = (name: "Favourites", index: 1)
+        let fromAccount = (name: "All Inboxes", index: 0)
+        let toAccount = (name: "Favourites", index: 1)
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Record counts before changes
-                let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts before changes
+            let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Tap "from" row
-                app.cellByIndex(table: dashboardTable, index: from.index).tap()
-                XCTAssert(app.isDisplayingJobs)
+            // Tap "from" row
+            app.cellByIndex(table: dashboardTable, index: fromAccount.index).tap()
+            XCTAssert(app.isDisplayingJobs)
 
-                // Check number of rows in table match dashboard row count
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableRowsCountBefore = jobsTable.cells.count
-                XCTAssertEqual(jobsTable.cells.count, fromCountBefore)
+            // Check number of rows in table match dashboard row count
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableRowsCountBefore = app.countCellsInTable(table: jobsTable)
+            XCTAssertEqual(jobsTableRowsCountBefore, fromCountBefore)
 
-                // Favourite Job
-                app.swipeAndFavourite(table: jobsTable, label: jobTitle)
+            // Favourite Job
+            app.swipeAndFavourite(table: jobsTable, label: jobTitle)
 
-                // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, jobsTableRowsCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableRowsCountBefore - 1)
 
-                // Back to Dashboard
-                app.navigationBars[from.name].buttons["Dashboard"].tap()
-                XCTAssert(app.isDisplayingDashboard)
+            // Back to Dashboard
+            app.navigationBars[fromAccount.name].buttons["Dashboard"].tap()
+            XCTAssert(app.isDisplayingDashboard)
 
-                // Record counts after changes
-                let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts after changes
+            let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Checks counts match changes
-                XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
-                XCTAssertEqual(toCountBefore + 1, toCountAfter)
+            // Checks counts match changes
+            XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
+            XCTAssertEqual(toCountBefore + 1, toCountAfter)
 
-                // Tap "to" row
-                app.cellByIndex(table: dashboardTable, index: to.index).tap()
+            // Tap "to" row
+            app.cellByIndex(table: dashboardTable, index: toAccount.index).tap()
 
-                // Check number of rows in table match dashboard row count
-                XCTAssertEqual(jobsTable.cells.count, toCountAfter)
+            // Check number of rows in table match dashboard row count
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), toCountAfter)
 
-                // Check change row is the same
-                XCTAssert(jobsTable.cells.staticTexts[jobTitle].exists)
+            // Check change row is the same
+            XCTAssert(jobsTable.cells.staticTexts[jobTitle].exists)
 
-                // Back to Dashboard
-                app.navigationBars[to.name].buttons["Dashboard"].tap()
-                XCTAssert(app.isDisplayingDashboard)
-            }
+            // Back to Dashboard
+            app.navigationBars[toAccount.name].buttons["Dashboard"].tap()
+            XCTAssert(app.isDisplayingDashboard)
         }
     }
 
     func testSwipeToUndelete() {
-        let from = (name: "Trash", index: 3)
-        let to = (name: "All Inboxes", index: 0)
+        let fromAccount = (name: "Trash", index: 3)
+        let toAccount = (name: "All Inboxes", index: 0)
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Delete Job
-                app.cellByIndex(table: dashboardTable, index: to.index).tap()
-                app.swipeAndDelete(table: app.tables["jobsTableView"], label: jobTitle)
-                app.navigationBars[to.name].buttons["Dashboard"].tap()
+            // Delete Job
+            app.cellByIndex(table: dashboardTable, index: toAccount.index).tap()
+            app.swipeAndDelete(table: app.tables["jobsTableView"], label: jobTitle)
+            app.navigationBars[toAccount.name].buttons["Dashboard"].tap()
 
-                // Record counts before changes
-                let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts before changes
+            let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Tap "from" row
-                app.cellByIndex(table: dashboardTable, index: from.index).tap()
-                XCTAssert(app.isDisplayingJobs)
+            // Tap "from" row
+            app.cellByIndex(table: dashboardTable, index: fromAccount.index).tap()
+            XCTAssert(app.isDisplayingJobs)
 
-                // Check number of rows in table match dashboard row count
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableRowsCountBefore = jobsTable.cells.count
-                XCTAssertEqual(jobsTable.cells.count, fromCountBefore)
+            // Check number of rows in table match dashboard row count
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableRowsCountBefore = app.countCellsInTable(table: jobsTable)
+            XCTAssertEqual(jobsTableRowsCountBefore, fromCountBefore)
 
-                // Unfavourite Job
-                app.swipeAndUndelete(table: jobsTable, label: jobTitle)
+            // Unfavourite Job
+            app.swipeAndUndelete(table: jobsTable, label: jobTitle)
 
-                // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, jobsTableRowsCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableRowsCountBefore - 1)
 
-                // Back to Dashboard
-                app.navigationBars[from.name].buttons["Dashboard"].tap()
-                XCTAssert(app.isDisplayingDashboard)
+            // Back to Dashboard
+            app.navigationBars[fromAccount.name].buttons["Dashboard"].tap()
+            XCTAssert(app.isDisplayingDashboard)
 
-                // Record counts after changes
-                let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts after changes
+            let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Checks counts match changes
-                XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
-                XCTAssertEqual(toCountBefore + 1, toCountAfter)
-            }
+            // Checks counts match changes
+            XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
+            XCTAssertEqual(toCountBefore + 1, toCountAfter)
         }
     }
 
     func testSwipeToUnfavourite() {
-        let from = (name: "Favourites", index: 1)
-        let to = (name: "All Inboxes", index: 0)
+        let fromAccount = (name: "Favourites", index: 1)
+        let toAccount = (name: "All Inboxes", index: 0)
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Favourite Job
-                app.cellByIndex(table: dashboardTable, index: to.index).tap()
-                app.swipeAndFavourite(table: app.tables["jobsTableView"], label: jobTitle)
-                app.navigationBars[to.name].buttons["Dashboard"].tap()
+            // Favourite Job
+            app.cellByIndex(table: dashboardTable, index: toAccount.index).tap()
+            app.swipeAndFavourite(table: app.tables["jobsTableView"], label: jobTitle)
+            app.navigationBars[toAccount.name].buttons["Dashboard"].tap()
 
-                // Record counts before changes
-                let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts before changes
+            let fromCountBefore = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountBefore = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Tap "from" row
-                app.cellByIndex(table: dashboardTable, index: from.index).tap()
-                XCTAssert(app.isDisplayingJobs)
+            // Tap "from" row
+            app.cellByIndex(table: dashboardTable, index: fromAccount.index).tap()
+            XCTAssert(app.isDisplayingJobs)
 
-                // Check number of rows in table match dashboard row count
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableRowsCountBefore = jobsTable.cells.count
-                XCTAssertEqual(jobsTable.cells.count, fromCountBefore)
+            // Check number of rows in table match dashboard row count
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableRowsCountBefore = app.countCellsInTable(table: jobsTable)
+            XCTAssertEqual(jobsTableRowsCountBefore, fromCountBefore)
 
-                // Unfavourite Job
-                app.swipeAndUnfavourite(table: jobsTable, label: jobTitle)
+            // Unfavourite Job
+            app.swipeAndUnfavourite(table: jobsTable, label: jobTitle)
 
-                // Cell should have been removed
-                XCTAssertEqual(jobsTable.cells.count, jobsTableRowsCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableRowsCountBefore - 1)
 
-                // Back to Dashboard
-                app.navigationBars[from.name].buttons["Dashboard"].tap()
-                XCTAssert(app.isDisplayingDashboard)
+            // Back to Dashboard
+            app.navigationBars[fromAccount.name].buttons["Dashboard"].tap()
+            XCTAssert(app.isDisplayingDashboard)
 
-                // Record counts after changes
-                let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: from.index)
-                let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: to.index)
+            // Record counts after changes
+            let fromCountAfter = app.countInDashboardCell(table: dashboardTable, position: fromAccount.index)
+            let toCountAfter = app.countInDashboardCell(table: dashboardTable, position: toAccount.index)
 
-                // Checks counts match changes
-                XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
-                XCTAssertEqual(toCountBefore + 1, toCountAfter)
-            }
+            // Checks counts match changes
+            XCTAssertEqual(fromCountBefore - 1, fromCountAfter)
+            XCTAssertEqual(toCountBefore + 1, toCountAfter)
         }
     }
 }

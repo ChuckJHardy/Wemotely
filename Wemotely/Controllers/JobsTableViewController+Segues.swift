@@ -11,12 +11,9 @@ extension JobsTableViewController {
 
                 if let controller = navigationController.topViewController as? JobViewController {
                     if let jobs = jobs {
-                        let object = jobs[indexPath.row]
-                        controller.jobRecord = object
+                        controller.setupSegue(job: jobs[indexPath.row])
+                        controller.delegate = self
                     }
-
-                    controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                    controller.navigationItem.leftItemsSupplementBackButton = true
                 }
             }
         default:

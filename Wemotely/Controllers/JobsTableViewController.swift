@@ -1,5 +1,4 @@
 import UIKit
-import FeedKit
 import RealmSwift
 
 protocol JobsTableViewControllerDelegate: class {
@@ -13,6 +12,7 @@ class JobsTableViewController: UITableViewController {
 
     weak var delegate: DashboardTableViewController?
     var row: Row?
+    var accounts: Results<Account>?
     var didEdit: Bool = false
 
     var jobs: Results<Job>? {
@@ -26,28 +26,7 @@ class JobsTableViewController: UITableViewController {
 
         didEdit = false
 
-        tableView.refreshControl = refresher
-        // Add Last Updated
-        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh jobs")
-        refresher.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
-    }
-
-    @objc private func refreshJobs(_ sender: Any) {
-        logger.info("-> Refreshing Job Data")
-
-        var accounts: Results<Account>? {
-            // Only Refresh Accounts that we want: Refreshable
-            if let accountUUID = row?.accountUUID {
-                return Account.allByUUID(provider: realm, uuid: accountUUID)
-            } else {
-                return Account.activeSorted(provider: realm)
-            }
-        }
-
-        GetJobsService(privider: realm, accounts: accounts).call {
-            self.refresher.endRefreshing()
-            self.tableView.reloadData()
-        }
+        setupRefreshControl()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

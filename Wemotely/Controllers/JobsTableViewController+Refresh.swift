@@ -21,10 +21,12 @@ extension JobsTableViewController {
                 logger.error("Failed to update account lastUpdated", err)
             }
 
-            self.setRefreshTitle(accountUUID: account.uuid)
-
-            self.tableView.reloadData()
-            self.refresher.endRefreshing()
+            UIView.animate(withDuration: 0.5, animations: {
+                self.refresher.endRefreshing()
+            }, completion: { _ in
+                self.tableView.reloadData()
+                self.setRefreshTitle(accountUUID: account.uuid)
+            })
         }
     }
 

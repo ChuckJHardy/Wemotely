@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="7bK-jq-Zjz" kind="relationship" relationship="rootViewController" id="tsl-Nk-0bq"/>
+                        <segue destination="MXR-hJ-Plr" kind="relationship" relationship="rootViewController" id="CgK-uN-Xvm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8fS-aE-onr" sceneMemberID="firstResponder"/>
@@ -270,60 +270,6 @@
             </objects>
             <point key="canvasLocation" x="2066" y="-613"/>
         </scene>
-        <!--Dashboard-->
-        <scene sceneID="smW-Zh-WAh">
-            <objects>
-                <tableViewController title="Dashboard" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="DashboardTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dashboardCell" textLabel="Arm-wq-HPj" detailTextLabel="ig7-T5-4MZ" style="IBUITableViewCellStyleValue1" id="WCw-Qf-5nD" customClass="DashboardTableViewCell" customModule="Wemotely" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ig7-T5-4MZ">
-                                            <rect key="frame" x="296" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="rLB-DV-Bnn" kind="show" identifier="showJobs" id="v5l-gc-PLJ"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="7bK-jq-Zjz" id="Gho-Na-rnu"/>
-                            <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Dashboard" id="Zdf-7t-Un8"/>
-                    <connections>
-                        <segue destination="QSP-fn-eQo" kind="show" identifier="showDashboardEdit" id="1QS-ku-U5s"/>
-                        <segue destination="eRk-o7-102" kind="show" identifier="showSettings" id="wem-Ri-8OI"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="708" y="-1398"/>
-        </scene>
         <!--Jobs-->
         <scene sceneID="bCi-xY-VeE">
             <objects>
@@ -370,6 +316,85 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxF-bQ-Bd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1479" y="-1398"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="Tvg-pf-opu">
+            <objects>
+                <viewController id="MXR-hJ-Plr" customClass="DashboardTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ido-kD-rkw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="o65-Ee-m7Z">
+                                <rect key="frame" x="177" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Time, Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-Rd-Eza">
+                                <rect key="frame" x="0.0" y="323" width="375" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-5T-YUZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dashboardCell" textLabel="Izi-hU-IUv" detailTextLabel="6e7-jJ-hvR" style="IBUITableViewCellStyleValue1" id="Yr0-VC-bN0" customClass="DashboardTableViewCell" customModule="Wemotely" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yr0-VC-bN0" id="gT6-Q6-is5">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Izi-hU-IUv">
+                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6e7-jJ-hvR">
+                                                    <rect key="frame" x="296" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="rLB-DV-Bnn" kind="show" identifier="showJobs" id="s5l-SH-vZO"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FRk-5T-YUZ" firstAttribute="trailing" secondItem="ido-kD-rkw" secondAttribute="trailing" id="309-ym-7EU"/>
+                            <constraint firstItem="FRk-5T-YUZ" firstAttribute="top" secondItem="ido-kD-rkw" secondAttribute="top" id="4gb-Qh-5O1"/>
+                            <constraint firstItem="FRk-5T-YUZ" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" id="DcY-lZ-2Iz"/>
+                            <constraint firstAttribute="bottom" secondItem="qJ4-Rd-Eza" secondAttribute="bottom" constant="323" id="L5h-On-kM2"/>
+                            <constraint firstItem="qJ4-Rd-Eza" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" id="LRm-6A-viT"/>
+                            <constraint firstAttribute="trailing" secondItem="o65-Ee-m7Z" secondAttribute="trailing" constant="178" id="VoK-aU-6J7"/>
+                            <constraint firstItem="qJ4-Rd-Eza" firstAttribute="top" secondItem="o65-Ee-m7Z" secondAttribute="bottom" constant="13" id="X6F-b5-qA4"/>
+                            <constraint firstItem="qJ4-Rd-Eza" firstAttribute="trailing" secondItem="ido-kD-rkw" secondAttribute="trailing" id="ZM0-Fq-tLF"/>
+                            <constraint firstItem="FRk-5T-YUZ" firstAttribute="bottom" secondItem="ido-kD-rkw" secondAttribute="bottom" id="fuR-SF-ycz"/>
+                            <constraint firstItem="o65-Ee-m7Z" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" constant="177" id="l2o-XP-oC9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Dashboard" id="mSr-O3-0Jr"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="o65-Ee-m7Z" id="Cms-Pz-NDd"/>
+                        <outlet property="loadingMessageLabel" destination="qJ4-Rd-Eza" id="qhi-3s-L8W"/>
+                        <outlet property="tableView" destination="FRk-5T-YUZ" id="0XO-Hs-tn0"/>
+                        <segue destination="QSP-fn-eQo" kind="show" identifier="showDashboardEdit" id="Z4P-Eh-8Zb"/>
+                        <segue destination="eRk-o7-102" kind="show" identifier="showSettings" id="XPj-0e-tXj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zVg-Tj-hv6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="-1398.3508245877063"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">

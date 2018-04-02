@@ -6,13 +6,13 @@ extension JobsTableViewController {
             findAccountsToRefresh(row: row)
 
             tableView.refreshControl = refresher
-            setRefreshTitle(accountUUID: row.accountUUID)
+            self.setRefreshMessage(accountUUID: row.accountUUID)
             refresher.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
         }
     }
 
     @objc private func refreshJobs(_ sender: Any) {
-        GetJobsService(privider: realm, accounts: accounts).call { (account) in
+        GetJobsService(privider: realm, accounts: accounts).call(perAccount: { (account) in
             do {
                 try self.realm.write {
                     account.lastUpdated = Date()
@@ -20,27 +20,32 @@ extension JobsTableViewController {
             } catch let err {
                 logger.error("Failed to update account lastUpdated", err)
             }
-
+        }, completion: {
             UIView.animate(withDuration: 0.5, animations: {
                 self.refresher.endRefreshing()
             }, completion: { _ in
                 self.tableView.reloadData()
-                self.setRefreshTitle(accountUUID: account.uuid)
+                self.setRefreshMessage()
             })
-        }
+        })
     }
 
-    private func setRefreshTitle(accountUUID: String?) {
-        let account = Account.byUUID(provider: realm, uuid: accountUUID!)
-        refresher.attributedTitle = NSAttributedString(string: refreshMessage(account: account))
+    private func setRefreshMessage(accountUUID: String? = nil) {
+        refresher.attributedTitle = NSAttributedString(string: refreshMessage(accountUUID: accountUUID))
     }
 
-    private func refreshMessage(account: Account?) -> String {
-        if let account = account, let date = account.lastUpdated {
-            return "Last updated \(formatDate(date: date))"
-        } else {
-            return "Pull to refresh"
+    private func refreshMessage(accountUUID: String?) -> String {
+        var message = "Pull to refresh"
+
+        if let uuid = accountUUID {
+            let account = Account.byUUID(provider: realm, uuid: uuid)
+
+            if let date = account?.lastUpdated {
+                message = "Last updated \(formatDate(date: date))"
+            }
         }
+
+        return message
     }
 
     private func formatDate(date: Date) -> String {

@@ -18,7 +18,7 @@ class Seed: NSObject {
         case copywriting = "Copywriting"
     }
 
-    func call() {
+    func call(before: () -> Void, after: () -> Void, ensure: () -> Void) {
         if let existingApp = realm.objects(App.self).first {
             app = existingApp
         } else {
@@ -26,6 +26,8 @@ class Seed: NSObject {
         }
 
         if !app.seeded {
+            before()
+
             for account in accounts() {
                 app.accounts.append(account)
             }
@@ -39,7 +41,11 @@ class Seed: NSObject {
             } catch let err {
                 logger.error("Application failed to save", err)
             }
+
+            after()
         }
+
+        ensure()
     }
 
     // swiftlint:disable:next function_body_length

@@ -36,7 +36,7 @@ class JobsTableViewController: UITableViewController {
         logger.info("-> Refreshing Job Data")
 
         var accounts: Results<Account>? {
-            // Only Refresh Accounts that we want
+            // Only Refresh Accounts that we want: Refreshable
             if let accountUUID = row?.accountUUID {
                 return Account.allByUUID(provider: realm, uuid: accountUUID)
             } else {
@@ -44,25 +44,9 @@ class JobsTableViewController: UITableViewController {
             }
         }
 
-        // Move to helper function
-        for account in accounts! {
-            var feed: RSSFeed!
-            let feedService = FeedService(account: account)
-
-            let feedURL = URLProvider(key: account.urlKey!).url()
-
-            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-                feed = result.rssFeed!
-
-                DispatchQueue.main.async {
-                    feedService.save(realm: self.realm, feed: feed)
-
-                    logger.info("-> Refreshed Job Data: \(String(describing: feed.items?.count))")
-
-                    self.refresher.endRefreshing()
-                    self.tableView.reloadData()
-                }
-            }
+        GetJobsService(privider: realm, accounts: accounts).call {
+            self.refresher.endRefreshing()
+            self.tableView.reloadData()
         }
     }
 

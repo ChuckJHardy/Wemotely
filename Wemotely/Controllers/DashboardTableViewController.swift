@@ -59,23 +59,7 @@ class DashboardTableViewController: UITableViewController {
     }
 
     func loadJobs() {
-        let accounts = realm.objects(Account.self)
-
-        for account in accounts {
-            var feed: RSSFeed!
-            let feedService = FeedService(account: account)
-
-            let feedURL = URLProvider(key: account.urlKey!).url()
-
-            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-                feed = result.rssFeed!
-
-                DispatchQueue.main.async {
-                    feedService.save(realm: self.realm, feed: feed)
-                    self.tableView.reloadData()
-                }
-            }
-        }
+        logger.info("-> Should Load Jobs on First Load")
     }
 }
 

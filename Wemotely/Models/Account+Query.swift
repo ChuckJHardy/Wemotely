@@ -3,10 +3,13 @@ import RealmSwift
 
 extension Account {
     static func byUUID(provider: Realm, uuid: String) -> Account? {
+        return allByUUID(provider: provider, uuid: uuid)?.last
+    }
+
+    static func allByUUID(provider: Realm, uuid: String) -> Results<Account>? {
         return provider
             .objects(Account.self)
             .filter("uuid = %@", uuid)
-            .last
     }
 
     static func allSorted(provider: Realm) -> Results<Account> {

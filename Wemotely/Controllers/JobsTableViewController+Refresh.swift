@@ -1,5 +1,4 @@
 import UIKit
-import FeedKit
 
 extension JobsTableViewController {
     func setupRefreshControl() {
@@ -7,19 +6,47 @@ extension JobsTableViewController {
             findAccountsToRefresh(row: row)
 
             tableView.refreshControl = refresher
-            // Add Last Updated
-            refresher.attributedTitle = NSAttributedString(string: "Pull to refresh jobs")
+            setRefreshTitle(accountUUID: row.accountUUID)
             refresher.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
         }
     }
 
     @objc private func refreshJobs(_ sender: Any) {
-        logger.info("-> Refreshing Job Data")
+        GetJobsService(privider: realm, accounts: accounts).call { (account) in
+            do {
+                try self.realm.write {
+                    account.lastUpdated = Date()
+                }
+            } catch let err {
+                logger.error("Failed to update account lastUpdated", err)
+            }
 
-        GetJobsService(privider: realm, accounts: accounts).call {
-            self.refresher.endRefreshing()
+            self.setRefreshTitle(accountUUID: account.uuid)
+
             self.tableView.reloadData()
+            self.refresher.endRefreshing()
         }
+    }
+
+    private func setRefreshTitle(accountUUID: String?) {
+        let account = Account.byUUID(provider: realm, uuid: accountUUID!)
+        refresher.attributedTitle = NSAttributedString(string: refreshMessage(account: account))
+    }
+
+    private func refreshMessage(account: Account?) -> String {
+        if let account = account, let date = account.lastUpdated {
+            return "Last updated \(formatDate(date: date))"
+        } else {
+            return "Pull to refresh"
+        }
+    }
+
+    private func formatDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US")
+        return dateFormatter.string(from: date)
     }
 
     private func findAccountsToRefresh(row: Row) {

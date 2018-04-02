@@ -6,7 +6,7 @@ struct GetJobsService {
     var privider: Realm!
     var accounts: Results<Account>?
 
-    func call(block: @escaping () -> Void) {
+    func call(block: @escaping (_ account: Account) -> Void) {
         for account in accounts! {
             var feed: RSSFeed!
             let feedService = FeedService(account: account)
@@ -21,7 +21,7 @@ struct GetJobsService {
 
                     logger.info("-> Refreshed Job Data: \(String(describing: feed.items?.count))")
 
-                    block()
+                    block(account)
                 }
             }
         }

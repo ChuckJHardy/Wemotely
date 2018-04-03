@@ -12,7 +12,13 @@ class DashboardPresenterTests: BaseTestCase {
     }
 
     func testE2E() {
-        Seed(realm: realm).call()
+        Seed(realm: realm).call(before: {
+            // Nothing
+        }, after: {
+            // Nothing
+        }, skipped: {
+            // Nothing
+        })
 
         let accounts = Account.activeSorted(provider: realm)
         let sections = DashboardPresenter(accounts: accounts).present()

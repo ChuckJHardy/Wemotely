@@ -17,4 +17,8 @@ class Account: Object {
     override static func primaryKey() -> String? {
         return "urlKey"
     }
+
+    override static func indexedProperties() -> [String] {
+        return ["uuid"]
+    }
 }

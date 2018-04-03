@@ -20,14 +20,26 @@ class SeedTests: BaseTestCase {
             realm.add(app, update: true)
         }
 
-        Seed(realm: realm).call()
+        Seed(realm: realm).call(before: {
+            // Nothing
+        }, after: {
+            // Nothing
+        }, skipped: {
+            // Nothing
+        })
 
         XCTAssertEqual(realm.objects(App.self).count, 1)
         XCTAssertEqual(realm.objects(App.self).first?.accounts.count, 0)
     }
 
     func testUnseeded() {
-        Seed().call()
+        Seed(realm: realm).call(before: {
+            // Nothing
+        }, after: {
+            // Nothing
+        }, skipped: {
+            // Nothing
+        })
 
         XCTAssertEqual(realm.objects(App.self).count, 1)
         XCTAssertEqual(realm.objects(App.self).first?.accounts.count, 6)

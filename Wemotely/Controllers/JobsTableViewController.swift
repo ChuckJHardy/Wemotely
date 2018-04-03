@@ -12,7 +12,6 @@ class JobsTableViewController: UITableViewController {
 
     weak var delegate: DashboardTableViewController?
     var row: Row?
-    var accounts: Results<Account>?
     var didEdit: Bool = false
 
     var jobs: Results<Job>? {

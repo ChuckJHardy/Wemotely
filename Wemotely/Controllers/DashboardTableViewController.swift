@@ -43,34 +43,19 @@ class DashboardTableViewController: UIViewController, UITableViewDataSource, UIT
         super.viewDidAppear(animated)
 
         Seed(realm: realm).call(before: {
-            logger.info("-> Seed.before")
             self.tableView.isHidden = true
             self.loadingMessageLabel.isHidden = false
             self.loadingIndicator.isHidden = false
             self.loadingIndicator.startAnimating()
         }, after: {
-            logger.info("-> Seed.after")
-            let accounts = Account.activeSorted(provider: realm)
-
-            GetJobsService(privider: self.realm, accounts: accounts).call(perAccount: { (account) in
-                do {
-                    try self.realm.write {
-                        account.lastUpdated = Date()
-                    }
-                } catch let err {
-                    logger.error("Failed to update account lastUpdated", err)
-                }
-            }, completion: {
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.loadingMessageLabel.isHidden = true
-                    self.loadingIndicator.isHidden = true
-                    self.loadingIndicator.stopAnimating()
-                }, completion: { _ in
-                    logger.info("-> Seed.completion")
-                    self.tableView.reloadData()
-                })
+            GetJobsService(accounts: accounts).call(completion: {
+                self.tableView.reloadData()
+                self.loadingMessageLabel.isHidden = true
+                self.loadingIndicator.isHidden = true
+                self.tableView.isHidden = false
+                self.loadingIndicator.stopAnimating()
             })
-        }, ensure: {
+        }, skipped: {
             self.tableView.isHidden = false
         })
     }

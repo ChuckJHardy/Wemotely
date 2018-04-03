@@ -3,29 +3,34 @@ import RealmSwift
 import FeedKit
 
 struct GetJobsService {
-    var privider: Realm!
-    var accounts: Results<Account>?
+    var accounts: Results<Account>!
 
-    func call(perAccount: @escaping (_ account: Account) -> Void, completion: () -> Void) {
-        for account in accounts! {
-            var feed: RSSFeed!
-            let feedService = FeedService(account: account)
+    func call(completion: @escaping () -> Void) {
+        let uuids = generateThreadSafeAccounts()
 
-            let feedURL = URLProvider(key: account.urlKey!).url()
+        DispatchQueue.global(qos: .background).async {
+            logger.info(uuids)
 
-            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-                feed = result.rssFeed!
+            let threadProvider = RealmProvider.realm()
+            let threadSafeAccounts = Account.byUUID(provider: threadProvider, uuids: uuids)
 
-                DispatchQueue.main.async {
-                    feedService.save(realm: self.privider, feed: feed)
-
-                    logger.info("-> Refreshed Job Data: \(String(describing: feed.items?.count))")
-
-                    perAccount(account)
+            for account in threadSafeAccounts! {
+                let feedService = FeedService(account: account)
+                let feedURL = URLProvider(key: account.urlKey!).url()
+                if let result = feedService.parser(url: feedURL)?.parse() {
+                    feedService.save(realm: threadProvider, feed: result.rssFeed!)
                 }
             }
-        }
 
-        completion()
+            DispatchQueue.main.async {
+                completion()
+            }
+        }
+    }
+
+    func generateThreadSafeAccounts() -> [String] {
+        var uuids: [String] = []
+        for account in accounts { uuids.append(account.uuid) }
+        return uuids
     }
 }

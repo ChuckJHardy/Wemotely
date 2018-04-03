@@ -26,6 +26,8 @@ struct FeedService {
                 BuildJob(record: item).build(linkedAccount: account)
             )
         }
+
+        account.lastUpdated = Date()
     }
 
     struct BuildJob {

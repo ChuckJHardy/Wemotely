@@ -18,14 +18,16 @@ class Seed: NSObject {
         case copywriting = "Copywriting"
     }
 
-    func call(before: () -> Void, after: () -> Void, ensure: () -> Void) {
+    func call(before: () -> Void, after: () -> Void, skipped: () -> Void) {
         if let existingApp = realm.objects(App.self).first {
             app = existingApp
         } else {
             app = App()
         }
 
-        if !app.seeded {
+        if app.seeded {
+            skipped()
+        } else {
             before()
 
             for account in accounts() {
@@ -44,8 +46,6 @@ class Seed: NSObject {
 
             after()
         }
-
-        ensure()
     }
 
     // swiftlint:disable:next function_body_length

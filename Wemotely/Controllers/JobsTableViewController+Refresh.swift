@@ -1,10 +1,10 @@
 import UIKit
+import RealmSwift
+import FeedKit
 
 extension JobsTableViewController {
     func setupRefreshControl() {
         if let row = row, row.refreshable {
-            findAccountsToRefresh(row: row)
-
             tableView.refreshControl = refresher
             self.setRefreshMessage(accountUUID: row.accountUUID)
             refresher.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
@@ -12,21 +12,11 @@ extension JobsTableViewController {
     }
 
     @objc private func refreshJobs(_ sender: Any) {
-        GetJobsService(privider: realm, accounts: accounts).call(perAccount: { (account) in
-            do {
-                try self.realm.write {
-                    account.lastUpdated = Date()
-                }
-            } catch let err {
-                logger.error("Failed to update account lastUpdated", err)
-            }
-        }, completion: {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.refresher.endRefreshing()
-            }, completion: { _ in
-                self.tableView.reloadData()
-                self.setRefreshMessage()
-            })
+        let accounts = Account.refreshable(provider: realm, uuid: row?.accountUUID)
+
+        GetJobsService(accounts: accounts).call(completion: {
+            self.tableView.reloadData()
+            self.refresher.endRefreshing()
         })
     }
 
@@ -54,13 +44,5 @@ extension JobsTableViewController {
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US")
         return dateFormatter.string(from: date)
-    }
-
-    private func findAccountsToRefresh(row: Row) {
-        if let accountUUID = row.accountUUID {
-            accounts = Account.allByUUID(provider: realm, uuid: accountUUID)
-        } else {
-            accounts = Account.activeSorted(provider: realm)
-        }
     }
 }

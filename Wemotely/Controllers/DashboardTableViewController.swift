@@ -48,7 +48,7 @@ class DashboardTableViewController: UIViewController, UITableViewDataSource, UIT
             self.loadingIndicator.isHidden = false
             self.loadingIndicator.startAnimating()
         }, after: {
-            GetJobsService(accounts: accounts).call(completion: {
+            GetJobsService(accounts: accounts).call(completion: { _ in
                 self.tableView.reloadData()
                 self.loadingMessageLabel.isHidden = true
                 self.loadingIndicator.isHidden = true

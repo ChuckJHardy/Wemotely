@@ -5,7 +5,7 @@ import FeedKit
 struct GetJobsService {
     var accounts: Results<Account>!
 
-    func call(completion: @escaping () -> Void) {
+    func call(completion: @escaping (_ uuids: [String]) -> Void) {
         let uuids = generateThreadSafeAccounts()
 
         DispatchQueue.global(qos: .background).async {
@@ -23,7 +23,7 @@ struct GetJobsService {
             }
 
             DispatchQueue.main.async {
-                completion()
+                completion(uuids)
             }
         }
     }

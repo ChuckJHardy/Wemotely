@@ -6,7 +6,10 @@ extension JobsTableViewController {
     func setupRefreshControl() {
         if let row = row, row.refreshable {
             tableView.refreshControl = refresher
-            self.setRefreshMessage(accountUUID: row.accountUUID)
+
+            let accounts = Account.refreshable(provider: realm, uuid: row.accountUUID)
+            setRefreshMessage(account: accounts?.first)
+
             refresher.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
         }
     }
@@ -14,28 +17,23 @@ extension JobsTableViewController {
     @objc private func refreshJobs(_ sender: Any) {
         let accounts = Account.refreshable(provider: realm, uuid: row?.accountUUID)
 
-        GetJobsService(accounts: accounts).call(completion: {
+        GetJobsService(accounts: accounts).call(completion: { (uuids) in
+            let accounts = Account.byUUID(provider: self.realm, uuids: uuids)
+
+            self.setRefreshMessage(account: accounts?.first)
             self.tableView.reloadData()
             self.refresher.endRefreshing()
         })
     }
 
-    private func setRefreshMessage(accountUUID: String? = nil) {
-        refresher.attributedTitle = NSAttributedString(string: refreshMessage(accountUUID: accountUUID))
-    }
-
-    private func refreshMessage(accountUUID: String?) -> String {
+    private func setRefreshMessage(account: Account?) {
         var message = "Pull to refresh"
 
-        if let uuid = accountUUID {
-            let account = Account.byUUID(provider: realm, uuid: uuid)
-
-            if let date = account?.lastUpdated {
-                message = "Last updated \(formatDate(date: date))"
-            }
+        if let date = account?.lastUpdated {
+            message = "Last updated \(formatDate(date: date))"
         }
 
-        return message
+        refresher.attributedTitle = NSAttributedString(string: message)
     }
 
     private func formatDate(date: Date) -> String {

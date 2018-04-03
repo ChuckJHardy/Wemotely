@@ -21,6 +21,7 @@
 		A5388421204AF732008253D7 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5388420204AF732008253D7 /* Job.swift */; };
 		A5564F182073894600F75E28 /* JobsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5564F172073894600F75E28 /* JobsTableViewControllerTests.swift */; };
 		A5564F1C2073971000F75E28 /* TestFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5564F1B2073971000F75E28 /* TestFixtures.swift */; };
+		A5564F2120739FDF00F75E28 /* DashboardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5564F2020739FDF00F75E28 /* DashboardTableViewControllerTests.swift */; };
 		A5797F11205FA75100828E3B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5797F10205FA75100828E3B /* CustomColor.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
 		A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */; };
@@ -117,6 +118,7 @@
 		A5388420204AF732008253D7 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A5564F172073894600F75E28 /* JobsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewControllerTests.swift; sourceTree = "<group>"; };
 		A5564F1B2073971000F75E28 /* TestFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFixtures.swift; sourceTree = "<group>"; };
+		A5564F2020739FDF00F75E28 /* DashboardTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTableViewControllerTests.swift; sourceTree = "<group>"; };
 		A5797F10205FA75100828E3B /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		A5564F152073891800F75E28 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A5564F1F20739FD200F75E28 /* Dashboard */,
 				A5564F162073892500F75E28 /* Jobs */,
 			);
 			path = Controllers;
@@ -283,6 +286,14 @@
 				A5564F172073894600F75E28 /* JobsTableViewControllerTests.swift */,
 			);
 			name = Jobs;
+			sourceTree = "<group>";
+		};
+		A5564F1F20739FD200F75E28 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A5564F2020739FDF00F75E28 /* DashboardTableViewControllerTests.swift */,
+			);
+			name = Dashboard;
 			sourceTree = "<group>";
 		};
 		A57DDF0D204ACCEB0031D7DF = {
@@ -804,6 +815,7 @@
 				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 				A5564F1C2073971000F75E28 /* TestFixtures.swift in Sources */,
+				A5564F2120739FDF00F75E28 /* DashboardTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

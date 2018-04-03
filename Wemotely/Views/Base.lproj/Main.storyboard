@@ -320,7 +320,7 @@
         <!--Dashboard-->
         <scene sceneID="Tvg-pf-opu">
             <objects>
-                <viewController id="MXR-hJ-Plr" customClass="DashboardTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardTableViewController" id="MXR-hJ-Plr" customClass="DashboardTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ido-kD-rkw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

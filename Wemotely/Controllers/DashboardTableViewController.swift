@@ -3,7 +3,7 @@ import FeedKit
 import RealmSwift
 
 class DashboardTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    let realm = RealmProvider.realm()
+    var realm = RealmProvider.realm()
 
     var jobViewController: JobViewController?
 

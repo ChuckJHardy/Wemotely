@@ -19,6 +19,8 @@
 		A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */; };
 		A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A538841E204AF241008253D7 /* JobsTableViewController.swift */; };
 		A5388421204AF732008253D7 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5388420204AF732008253D7 /* Job.swift */; };
+		A5564F182073894600F75E28 /* JobsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5564F172073894600F75E28 /* JobsTableViewControllerTests.swift */; };
+		A5564F1C2073971000F75E28 /* TestFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5564F1B2073971000F75E28 /* TestFixtures.swift */; };
 		A5797F11205FA75100828E3B /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5797F10205FA75100828E3B /* CustomColor.swift */; };
 		A57DDF1A204ACCEB0031D7DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */; };
 		A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF1B204ACCEB0031D7DF /* DashboardTableViewController.swift */; };
@@ -113,6 +115,8 @@
 		A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Device.swift"; sourceTree = "<group>"; };
 		A538841E204AF241008253D7 /* JobsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewController.swift; sourceTree = "<group>"; };
 		A5388420204AF732008253D7 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		A5564F172073894600F75E28 /* JobsTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewControllerTests.swift; sourceTree = "<group>"; };
+		A5564F1B2073971000F75E28 /* TestFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFixtures.swift; sourceTree = "<group>"; };
 		A5797F10205FA75100828E3B /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		A57DDF16204ACCEB0031D7DF /* Wemotely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wemotely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF19204ACCEB0031D7DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +269,22 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		A5564F152073891800F75E28 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A5564F162073892500F75E28 /* Jobs */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A5564F162073892500F75E28 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				A5564F172073894600F75E28 /* JobsTableViewControllerTests.swift */,
+			);
+			name = Jobs;
+			sourceTree = "<group>";
+		};
 		A57DDF0D204ACCEB0031D7DF = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +324,7 @@
 		A57DDF2F204ACCEC0031D7DF /* WemotelyTests */ = {
 			isa = PBXGroup;
 			children = (
+				A5564F152073891800F75E28 /* Controllers */,
 				A5DF66EA20528F4500DA181C /* Presenters */,
 				A5F99118205279A6005D7C42 /* Support */,
 				A5F990FE2051B7AA005D7C42 /* Services */,
@@ -496,6 +517,7 @@
 				A5F99119205279B2005D7C42 /* SeedTests.swift */,
 				A5CAA28C20543C60009C56BA /* BaseTestCare.swift */,
 				A5CAA29520553BFC009C56BA /* URLProviderTests.swift */,
+				A5564F1B2073971000F75E28 /* TestFixtures.swift */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -770,6 +792,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5564F182073894600F75E28 /* JobsTableViewControllerTests.swift in Sources */,
 				A581808B20680D7F006A62B8 /* Job+QueryTests.swift in Sources */,
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
@@ -780,6 +803,7 @@
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
 				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
+				A5564F1C2073971000F75E28 /* TestFixtures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -273,7 +273,7 @@
         <!--Jobs-->
         <scene sceneID="bCi-xY-VeE">
             <objects>
-                <tableViewController title="Jobs" id="rLB-DV-Bnn" customClass="JobsTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="JobsTableViewController" title="Jobs" id="rLB-DV-Bnn" customClass="JobsTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f1f-ND-63J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -382,6 +382,7 @@
                             <constraint firstItem="FRk-5T-YUZ" firstAttribute="bottom" secondItem="ido-kD-rkw" secondAttribute="bottom" id="fuR-SF-ycz"/>
                             <constraint firstItem="o65-Ee-m7Z" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" constant="177" id="l2o-XP-oC9"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="IfG-TM-zx6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="mSr-O3-0Jr"/>
                     <connections>
@@ -417,6 +418,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Tll-UG-LXB"/>
+        <segue reference="SHA-8I-5oa"/>
     </inferredMetricsTieBreakers>
 </document>

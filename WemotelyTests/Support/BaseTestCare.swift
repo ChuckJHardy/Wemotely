@@ -7,7 +7,15 @@ class BaseTestCase: XCTestCase {
 
     override func setUp() {
         super.setUp()
+        deleteAll()
+    }
 
+    override func tearDown() {
+        deleteAll()
+        super.tearDown()
+    }
+
+    private func deleteAll() {
         RealmProvider.deleteAll(realm: realm)
     }
 }

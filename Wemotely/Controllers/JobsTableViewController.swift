@@ -6,7 +6,7 @@ protocol JobsTableViewControllerDelegate: class {
 }
 
 class JobsTableViewController: UITableViewController {
-    let realm = RealmProvider.realm()
+    var realm = RealmProvider.realm()
 
     internal let refresher = UIRefreshControl()
 

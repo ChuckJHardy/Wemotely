@@ -25,7 +25,10 @@ class DashboardTableViewController: UIViewController, UITableViewDataSource, UIT
         tableView.delegate = self
         tableView.dataSource = self
         tableView.insetsContentViewsToSafeArea = true
+
         tableView.accessibilityIdentifier = "dashboardTableView"
+        loadingMessageLabel.accessibilityIdentifier = "loadingMessage"
+        loadingIndicator.accessibilityIdentifier = "loadingIndicator"
 
         self.tableView.isHidden = true
 

@@ -26,4 +26,9 @@ extension XCUIApplication {
             block()
         }
     }
+
+    func delayBackgroundProcessBy(duration: String = "0") {
+        self.launchArguments.append("--uitesting-set-delay")
+        self.launchArguments.append(duration)
+    }
 }

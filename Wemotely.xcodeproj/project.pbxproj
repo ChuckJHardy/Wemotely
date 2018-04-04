@@ -71,6 +71,7 @@
 		A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5E550772057253C00A43288 /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
 		A5E550782057255400A43288 /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
+		A5ECE9B22075277800B43459 /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ECE9B12075277800B43459 /* DashboardTests.swift */; };
 		A5F990F82051AF6D005D7C42 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F72051AF6D005D7C42 /* Account.swift */; };
 		A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F92051AFEA005D7C42 /* AccountTests.swift */; };
 		A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */; };
@@ -169,6 +170,7 @@
 		A5CAA29520553BFC009C56BA /* URLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderTests.swift; sourceTree = "<group>"; };
 		A5D67539207004E6004C3A0B /* SwiftHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHash.framework; path = Carthage/Build/iOS/SwiftHash.framework; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
+		A5ECE9B12075277800B43459 /* DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTests.swift; sourceTree = "<group>"; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
 		A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceTests.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				A5159703205A7AB40096C52C /* XCUIApplication+Asserts.swift */,
 				A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */,
 				A59F67B1206E5299006C6E6E /* JobTests.swift */,
+				A5ECE9B12075277800B43459 /* DashboardTests.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				A51597002059CAEA0096C52C /* EditDashboardTests.swift in Sources */,
 				A5159702205A641B0096C52C /* XCUIApplication+Helper.swift in Sources */,
 				A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */,
+				A5ECE9B22075277800B43459 /* DashboardTests.swift in Sources */,
 				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 				A5159704205A7AB40096C52C /* XCUIApplication+Asserts.swift in Sources */,

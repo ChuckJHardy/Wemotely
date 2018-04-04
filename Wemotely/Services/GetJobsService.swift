@@ -22,6 +22,8 @@ struct GetJobsService {
                 }
             }
 
+            Platform.delayBackgroundProcessBy()
+
             DispatchQueue.main.async {
                 completion(uuids)
             }

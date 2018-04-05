@@ -22,7 +22,7 @@ class JobsRefreshTests: XCTestCase {
 
     // MARK: - Tests
 
-    func testSwipeToDelete() {
+    func testPullToRefresh() {
         let account = (name: "All Inboxes", index: 0)
 
         app.launch()

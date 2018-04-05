@@ -325,15 +325,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="o65-Ee-m7Z">
-                                <rect key="frame" x="177" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Time, Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-Rd-Eza">
-                                <rect key="frame" x="0.0" y="323" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7c-Io-yph">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Time, Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-Rd-Eza">
+                                        <rect key="frame" x="0.0" y="239" width="375" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="o65-Ee-m7Z">
+                                        <rect key="frame" x="177" y="211" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-5T-YUZ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -374,20 +382,18 @@
                             <constraint firstItem="FRk-5T-YUZ" firstAttribute="trailing" secondItem="ido-kD-rkw" secondAttribute="trailing" id="309-ym-7EU"/>
                             <constraint firstItem="FRk-5T-YUZ" firstAttribute="top" secondItem="ido-kD-rkw" secondAttribute="top" id="4gb-Qh-5O1"/>
                             <constraint firstItem="FRk-5T-YUZ" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" id="DcY-lZ-2Iz"/>
-                            <constraint firstAttribute="bottom" secondItem="qJ4-Rd-Eza" secondAttribute="bottom" constant="323" id="L5h-On-kM2"/>
-                            <constraint firstItem="qJ4-Rd-Eza" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" id="LRm-6A-viT"/>
-                            <constraint firstAttribute="trailing" secondItem="o65-Ee-m7Z" secondAttribute="trailing" constant="178" id="VoK-aU-6J7"/>
-                            <constraint firstItem="qJ4-Rd-Eza" firstAttribute="top" secondItem="o65-Ee-m7Z" secondAttribute="bottom" constant="13" id="X6F-b5-qA4"/>
-                            <constraint firstItem="qJ4-Rd-Eza" firstAttribute="trailing" secondItem="ido-kD-rkw" secondAttribute="trailing" id="ZM0-Fq-tLF"/>
+                            <constraint firstItem="x7c-Io-yph" firstAttribute="bottom" secondItem="FRk-5T-YUZ" secondAttribute="bottom" id="IhQ-SY-Ljm"/>
+                            <constraint firstItem="x7c-Io-yph" firstAttribute="trailing" secondItem="FRk-5T-YUZ" secondAttribute="trailing" id="QDG-kU-ndk"/>
+                            <constraint firstItem="x7c-Io-yph" firstAttribute="leading" secondItem="FRk-5T-YUZ" secondAttribute="leading" id="Rlx-Mp-muJ"/>
                             <constraint firstItem="FRk-5T-YUZ" firstAttribute="bottom" secondItem="ido-kD-rkw" secondAttribute="bottom" id="fuR-SF-ycz"/>
-                            <constraint firstItem="o65-Ee-m7Z" firstAttribute="leading" secondItem="ido-kD-rkw" secondAttribute="leading" constant="177" id="l2o-XP-oC9"/>
+                            <constraint firstItem="x7c-Io-yph" firstAttribute="top" secondItem="IfG-TM-zx6" secondAttribute="top" id="qaC-ec-zXE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IfG-TM-zx6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Dashboard" id="mSr-O3-0Jr"/>
                     <connections>
                         <outlet property="loadingIndicator" destination="o65-Ee-m7Z" id="Cms-Pz-NDd"/>
-                        <outlet property="loadingMessageLabel" destination="qJ4-Rd-Eza" id="qhi-3s-L8W"/>
+                        <outlet property="loadingMessageLabel" destination="qJ4-Rd-Eza" id="Krq-TY-ysg"/>
                         <outlet property="tableView" destination="FRk-5T-YUZ" id="0XO-Hs-tn0"/>
                         <segue destination="QSP-fn-eQo" kind="show" identifier="showDashboardEdit" id="Z4P-Eh-8Zb"/>
                         <segue destination="eRk-o7-102" kind="show" identifier="showSettings" id="XPj-0e-tXj"/>

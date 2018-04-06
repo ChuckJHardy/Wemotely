@@ -1,32 +1,83 @@
 import XCTest
+import RealmSwift
 
 @testable import Wemotely
 
 class AccountQueryTests: BaseTestCase {
-    override func setUp() {
-        super.setUp()
+    func testByUUIDReturningAccount() {
+        XCTAssertEqual(realm.objects(Account.self).count, 0)
+
+        let account1 = TestFixtures.Accounts.simple("A")
+        let account2 = TestFixtures.Accounts.simple("B")
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+        }
+
+        XCTAssertEqual(realm.objects(Account.self).count, 2)
+
+        let sut = Account.byUUID(provider: realm, uuid: account1.uuid)
+
+        XCTAssertEqual(sut?.uuid, account1.uuid)
     }
 
-    override func tearDown() {
-        super.tearDown()
+    func testByUUIDReturningAccounts() {
+        XCTAssertEqual(realm.objects(Account.self).count, 0)
+
+        let account1 = TestFixtures.Accounts.simple("A")
+        let account2 = TestFixtures.Accounts.simple("B")
+        let account3 = TestFixtures.Accounts.simple("C")
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+            app.accounts.append(account3)
+        }
+
+        XCTAssertEqual(realm.objects(Account.self).count, 3)
+
+        let sut = Account.byUUID(provider: realm, uuids: [account1.uuid, account2.uuid])
+
+        XCTAssertEqual(sut?.first?.uuid, account1.uuid)
+        XCTAssertEqual(sut?.last?.uuid, account2.uuid)
+        XCTAssertFalse((sut?.contains(account3))!)
+    }
+
+    func testRefreshable() {
+        XCTAssertEqual(realm.objects(Account.self).count, 0)
+
+        let account1 = TestFixtures.Accounts.simple("A")
+        let account2 = TestFixtures.Accounts.simple("B")
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+        }
+
+        XCTAssertEqual(realm.objects(Account.self).count, 2)
+
+        let sut = Account.refreshable(provider: realm, uuid: account1.uuid)
+
+        XCTAssertEqual(sut?.count, 1)
+        XCTAssertEqual(sut?.first?.uuid, account1.uuid)
+    }
+
+    func testRefreshableWithoutUUID() {
+        activeSortedShared(sut: Account.refreshable(provider: realm)!)
     }
 
     func testAllSorted() {
-        let app = App()
-
-        let account1 = Account(value: ["urlKey": "A", "active": true, "order": 2])
-        let account2 = Account(value: ["urlKey": "B", "active": true, "order": 1])
-        let account3 = Account(value: ["urlKey": "C", "active": false, "order": 3])
-
-        app.accounts.append(account1)
-        app.accounts.append(account2)
-        app.accounts.append(account3)
-
         XCTAssertEqual(realm.objects(Account.self).count, 0)
 
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        let account1 = TestFixtures.Accounts.simple("A", active: true, order: 2)
+        let account2 = TestFixtures.Accounts.simple("B", active: true, order: 1)
+        let account3 = TestFixtures.Accounts.simple("C", active: false, order: 3)
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+            app.accounts.append(account3)
         }
 
         XCTAssertEqual(realm.objects(Account.self).count, 3)
@@ -39,29 +90,39 @@ class AccountQueryTests: BaseTestCase {
     }
 
     func testActiveSorted() {
-        let app = App()
+        activeSortedShared(sut: Account.activeSorted(provider: realm))
+    }
 
-        let account1 = Account(value: ["urlKey": "A", "active": true, "order": 2])
-        let account2 = Account(value: ["urlKey": "B", "active": true, "order": 1])
-        let account3 = Account(value: ["urlKey": "C", "active": false, "order": 3])
-
-        app.accounts.append(account1)
-        app.accounts.append(account2)
-        app.accounts.append(account3)
-
+    private func activeSortedShared(sut: Results<Account>) {
         XCTAssertEqual(realm.objects(Account.self).count, 0)
 
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        let account1 = TestFixtures.Accounts.simple("A", active: true, order: 2)
+        let account2 = TestFixtures.Accounts.simple("B", active: true, order: 1)
+        let account3 = TestFixtures.Accounts.simple("C", active: false, order: 3)
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+            app.accounts.append(account3)
         }
 
         XCTAssertEqual(realm.objects(Account.self).count, 3)
-
-        let sut = Account.activeSorted(provider: realm)
-
         XCTAssertEqual(sut.count, 2)
         XCTAssertEqual(sut.first, account2)
         XCTAssertEqual(sut.last, account1)
+    }
+
+    private func saveApp(bulder: (_ app: App) -> Void) {
+        let app = App()
+
+        bulder(app)
+
+        do {
+            try realm.write {
+                realm.add(app)
+            }
+        } catch let err {
+            logger.error("Failed to Save App", err)
+        }
     }
 }

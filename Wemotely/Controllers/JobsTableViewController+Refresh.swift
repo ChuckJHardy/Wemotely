@@ -7,7 +7,7 @@ extension JobsTableViewController {
         if let row = row, row.refreshable {
             tableView.refreshControl = refresher
 
-            let accounts = Account.refreshable(provider: realm, uuid: row.accountUUID)
+            let accounts = Account.refreshable(provider: realmProvider, uuid: row.accountUUID)
             setRefreshMessage(account: accounts?.first)
 
             refresher.addTarget(self, action: #selector(refreshJobs(_:)), for: .valueChanged)
@@ -15,10 +15,10 @@ extension JobsTableViewController {
     }
 
     @objc private func refreshJobs(_ sender: Any) {
-        let accounts = Account.refreshable(provider: realm, uuid: row?.accountUUID)
+        let accounts = Account.refreshable(provider: realmProvider, uuid: row?.accountUUID)
 
         GetJobsService(accounts: accounts).call(completion: { (uuids) in
-            let accounts = Account.byUUID(provider: self.realm, uuids: uuids)
+            let accounts = Account.byUUID(provider: realmProvider, uuids: uuids)
 
             self.setRefreshMessage(account: accounts?.first)
             self.tableView.reloadData()

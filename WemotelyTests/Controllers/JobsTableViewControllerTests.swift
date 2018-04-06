@@ -70,7 +70,6 @@ class JobsTableViewControllerTests: BaseTestCase {
             withIdentifier: "JobsTableViewController"
             ) as? JobsTableViewController {
             tableViewController = controller
-            tableViewController.realm = realm
             tableViewController.segueSetup(row: row)
             _ = tableViewController.view
         }

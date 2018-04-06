@@ -3,8 +3,6 @@ import FeedKit
 import RealmSwift
 
 class DashboardTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var realm = RealmProvider.realm()
-
     var jobViewController: JobViewController?
 
     @IBOutlet weak var tableView: UITableView!
@@ -12,7 +10,7 @@ class DashboardTableViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     var accounts: Results<Account> {
-        return Account.activeSorted(provider: realm)
+        return Account.activeSorted(provider: realmProvider)
     }
 
     var sections: [Section] {
@@ -45,7 +43,7 @@ class DashboardTableViewController: UIViewController, UITableViewDataSource, UIT
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        Seed(realm: realm).call(before: {
+        Seed(realm: realmProvider).call(before: {
             self.tableView.isHidden = true
             self.loadingMessageLabel.isHidden = false
             self.loadingIndicator.isHidden = false

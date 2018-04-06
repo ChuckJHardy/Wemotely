@@ -50,7 +50,6 @@ class DashboardTableViewControllerTests: BaseTestCase {
             withIdentifier: "DashboardTableViewController"
             ) as? DashboardTableViewController {
             tableViewController = controller
-            tableViewController.realm = realm
             _ = tableViewController.view
         }
     }

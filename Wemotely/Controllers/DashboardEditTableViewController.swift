@@ -6,11 +6,9 @@ protocol DashboardEditTableViewControllerDelegate: class {
 }
 
 class DashboardEditTableViewController: UITableViewController {
-    let realm = RealmProvider.realm()
-
     weak var delegate: DashboardTableViewController?
     var accounts: Results<Account> {
-        return Account.allSorted(provider: realm)
+        return Account.allSorted(provider: realmProvider)
     }
 
     var didEdit: Bool = false {
@@ -71,7 +69,7 @@ extension DashboardEditTableViewController: DashboardEditTableViewCellDelegate {
 
     func didTapSettingStateChange(requestedState: Bool, for account: Account) {
         do {
-            try realm.write { () -> Void in
+            try realmProvider.write { () -> Void in
                 account.active = requestedState
                 didEdit = true
             }

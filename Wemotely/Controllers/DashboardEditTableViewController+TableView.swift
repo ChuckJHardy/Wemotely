@@ -35,7 +35,7 @@ extension DashboardEditTableViewController {
                             to destinationIndexPath: IndexPath) {
 
         do {
-            try realm.write {
+            try realmProvider.write {
                 let sourceObject = accounts[sourceIndexPath.row]
                 let destinationObject = accounts[destinationIndexPath.row]
 

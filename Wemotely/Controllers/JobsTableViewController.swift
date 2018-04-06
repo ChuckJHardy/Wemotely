@@ -6,8 +6,6 @@ protocol JobsTableViewControllerDelegate: class {
 }
 
 class JobsTableViewController: UITableViewController {
-    var realm = RealmProvider.realm()
-
     internal let refresher = UIRefreshControl()
 
     weak var delegate: DashboardTableViewController?
@@ -15,7 +13,7 @@ class JobsTableViewController: UITableViewController {
     var didEdit: Bool = false
 
     var jobs: Results<Job>? {
-        return Job.byRowFilter(provider: realm, row: row)
+        return Job.byRowFilter(provider: realmProvider, row: row)
     }
 
     override func viewDidLoad() {

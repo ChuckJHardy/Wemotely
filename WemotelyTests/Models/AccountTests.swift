@@ -21,6 +21,7 @@ class AccountTests: BaseTestCase {
         XCTAssertEqual(account.urlKey, nil)
         XCTAssertEqual(account.order, 0)
         XCTAssertEqual(account.jobs.count, 0)
+        XCTAssertEqual(account.lastUpdated, nil)
     }
 
     func testUUID() {
@@ -35,8 +36,13 @@ class AccountTests: BaseTestCase {
         XCTAssertEqual(Account.primaryKey(), "urlKey")
     }
 
+    func testIndexedProperties() {
+        XCTAssertEqual(Account.indexedProperties(), ["uuid"])
+    }
+
     func testCreatingAccount() {
         let account = Account()
+        let testDate = Date(timeInterval: 1000, since: Date())
 
         account.title = "Test Title"
         account.icon = "Test Icon"
@@ -44,6 +50,7 @@ class AccountTests: BaseTestCase {
         account.active = false
         account.urlKey = "test_url_key"
         account.order = 22
+        account.lastUpdated = testDate
 
         account.jobs.append(Job())
         account.jobs.append(Job())
@@ -65,6 +72,7 @@ class AccountTests: BaseTestCase {
         XCTAssertEqual(findAccount?.active, false)
         XCTAssertEqual(findAccount?.urlKey, "test_url_key")
         XCTAssertEqual(findAccount?.order, 22)
+        XCTAssertEqual(findAccount?.lastUpdated, testDate)
         XCTAssertEqual(findAccount?.jobs.count, 2)
     }
 }

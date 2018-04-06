@@ -138,6 +138,7 @@ class SegueUITests: BaseUITestCase {
 
             // Previously selected Job should sill be shown on iPad
             if app.isPad() {
+                print(app.navigationBars)
                 XCTAssert(app.navigationBars[companyName].exists)
             }
         }

@@ -34,6 +34,7 @@
 		A580E1DB2077828A00569B34 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1DA2077828A00569B34 /* BaseTestCase.swift */; };
 		A580E1DE2077858900569B34 /* JobsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1DD2077858900569B34 /* JobsPresenter.swift */; };
 		A580E1E0207786F600569B34 /* JobsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1DF207786F600569B34 /* JobsPresenterTests.swift */; };
+		A580E1E220778D5400569B34 /* GetJobsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1E120778D5400569B34 /* GetJobsServiceTests.swift */; };
 		A58180842066AC58006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A58180852066AC7E006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */; };
@@ -142,6 +143,7 @@
 		A580E1DA2077828A00569B34 /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		A580E1DD2077858900569B34 /* JobsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsPresenter.swift; sourceTree = "<group>"; };
 		A580E1DF207786F600569B34 /* JobsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsPresenterTests.swift; sourceTree = "<group>"; };
+		A580E1E120778D5400569B34 /* GetJobsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJobsServiceTests.swift; sourceTree = "<group>"; };
 		A58180832066AC58006A62B8 /* Log.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Log.framework; path = Carthage/Build/iOS/Log.framework; sourceTree = "<group>"; };
 		A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsSwipeActionTests.swift; sourceTree = "<group>"; };
 		A581808820680CC7006A62B8 /* Account+QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+QueryTests.swift"; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */,
+				A580E1E120778D5400569B34 /* GetJobsServiceTests.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -840,6 +843,7 @@
 				A580E1E0207786F600569B34 /* JobsPresenterTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 				A5564F1C2073971000F75E28 /* TestFixtures.swift in Sources */,
+				A580E1E220778D5400569B34 /* GetJobsServiceTests.swift in Sources */,
 				A5564F2120739FDF00F75E28 /* DashboardTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

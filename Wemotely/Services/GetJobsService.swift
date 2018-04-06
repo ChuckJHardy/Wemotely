@@ -9,8 +9,6 @@ struct GetJobsService {
         let uuids = generateThreadSafeAccounts()
 
         DispatchQueue.global(qos: .background).async {
-            logger.info(uuids)
-
             let threadProvider = RealmProvider.realm()
             let threadSafeAccounts = Account.byUUID(provider: threadProvider, uuids: uuids)
 
@@ -31,8 +29,6 @@ struct GetJobsService {
     }
 
     func generateThreadSafeAccounts() -> [String] {
-        var uuids: [String] = []
-        for account in accounts { uuids.append(account.uuid) }
-        return uuids
+        return accounts.map { $0.uuid }
     }
 }

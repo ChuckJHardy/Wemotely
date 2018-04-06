@@ -20,6 +20,7 @@ extension JobsTableViewController {
         GetJobsService(accounts: accounts).call(completion: { (uuids) in
             let accounts = Account.byUUID(provider: realmProvider, uuids: uuids)
 
+            self.didEdit = true
             self.setRefreshMessage(account: accounts?.first)
             self.tableView.reloadData()
             self.refresher.endRefreshing()

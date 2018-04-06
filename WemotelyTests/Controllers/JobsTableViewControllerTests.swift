@@ -5,6 +5,9 @@ import XCTest
 class JobsTableViewControllerTests: BaseTestCase {
     var tableViewController: JobsTableViewController!
 
+    var row: Row!
+    let account = Account()
+
     override func setUp() {
         super.setUp()
     }
@@ -26,6 +29,92 @@ class JobsTableViewControllerTests: BaseTestCase {
     func testDefaultDidEditValue() {
         setup(row: TestFixtures.Rows.standardRow)
         XCTAssertFalse(tableViewController.didEdit)
+    }
+
+    // MARK: - Tableview Datasource
+
+    func testTableViewNumberOfSections() {
+        setup(row: TestFixtures.Rows.refreshableRow)
+        let sectionsCount = tableViewController.numberOfSections(in: tableViewController.tableView)
+        XCTAssertEqual(sectionsCount, 1)
+    }
+
+    func testTableViewRowCount() {
+        setup(row: TestFixtures.Rows.refreshableRow, job: TestFixtures.Jobs.unorganised(account: account))
+        let cellsCount = tableViewController.tableView(tableViewController.tableView, numberOfRowsInSection: 0)
+        XCTAssertEqual(cellsCount, 1)
+    }
+
+    func testTableViewWithoutJobsRowCount() {
+        setup(row: TestFixtures.Rows.refreshableRow)
+        let cellsCount = tableViewController.tableView(tableViewController.tableView, numberOfRowsInSection: 0)
+        XCTAssertEqual(cellsCount, 0)
+    }
+
+    func testTableViewCellForRowAt() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.refreshableRow, job: job)
+        let cell = tableViewController.tableView(tableViewController.tableView, cellForRowAt: indexPath)
+
+        XCTAssertEqual(cell.textLabel?.text, job.title)
+        XCTAssertEqual(cell.detailTextLabel?.text, job.company)
+    }
+
+    func testTableViewLeadingSwipeActionsConfigurationForRowAt() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.refreshableRow, job: job)
+
+        let config = tableViewController.tableView(
+            tableViewController.tableView,
+            leadingSwipeActionsConfigurationForRowAt: indexPath
+        )
+
+        XCTAssertEqual(config?.actions.count, 1)
+        XCTAssertEqual(config?.actions.first?.title, "Favourite")
+    }
+
+    func testTableViewLeadingSwipeActionsConfigurationForRowAtForFavouritedJob() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.favourited(account: account)
+        setup(row: TestFixtures.Rows.favouritedRow, job: job)
+
+        let config = tableViewController.tableView(
+            tableViewController.tableView,
+            leadingSwipeActionsConfigurationForRowAt: indexPath
+        )
+
+        XCTAssertEqual(config?.actions.count, 1)
+        XCTAssertEqual(config?.actions.first?.title, "Unfavourite")
+    }
+
+    func testTableViewTrailingSwipeActionsConfigurationForRowAt() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.standardRow, job: job)
+
+        let config = tableViewController.tableView(
+            tableViewController.tableView,
+            trailingSwipeActionsConfigurationForRowAt: indexPath
+        )
+
+        XCTAssertEqual(config?.actions.count, 1)
+        XCTAssertEqual(config?.actions.first?.title, "Delete")
+    }
+
+    func testTableViewTrailingSwipeActionsConfigurationForRowAtDeletedJob() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.trashed(account: account)
+        setup(row: TestFixtures.Rows.trashedRow, job: job)
+
+        let config = tableViewController.tableView(
+            tableViewController.tableView,
+            trailingSwipeActionsConfigurationForRowAt: indexPath
+        )
+
+        XCTAssertEqual(config?.actions.count, 1)
+        XCTAssertEqual(config?.actions.first?.title, "Undelete")
     }
 
     // MARK: - Seque Setup
@@ -63,8 +152,17 @@ class JobsTableViewControllerTests: BaseTestCase {
         )
     }
 
-    private func setup(row: Row) {
+    internal func setup(row: Row, job: Job? = nil) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+
+        if let job = job {
+            account.jobs.append(job)
+
+            // swiftlint:disable:next force_try
+            try! realm.write {
+                realm.add(account, update: true)
+            }
+        }
 
         if let controller = storyboard.instantiateViewController(
             withIdentifier: "JobsTableViewController"

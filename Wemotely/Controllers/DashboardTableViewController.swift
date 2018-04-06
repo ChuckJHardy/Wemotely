@@ -20,15 +20,24 @@ class DashboardTableViewController: UITableViewController {
 
         setupNavigationbar()
         handleSplitViewController()
-
-        Seed(realm: realmProvider).call()
-        loadJobs()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         fixNavigationItemHighlightBug()
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        Seed(provider: realmProvider).call(before: {
+            // Nothing yet
+        }, after: {
+            loadJobs()
+        }, skipped: {
+            // Nothing yet
+        })
     }
 
     func getRow(indexPath: IndexPath) -> Row {

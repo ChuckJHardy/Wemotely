@@ -1,13 +1,8 @@
 import Foundation
 import RealmSwift
 
-class Seed: NSObject {
-    var realm: Realm
-    var app: App!
-
-    init(realm: Realm) {
-        self.realm = realm
-    }
+struct Seed {
+    var provider: Realm
 
     enum Categories: String {
         case programming = "Programming"
@@ -18,14 +13,20 @@ class Seed: NSObject {
         case copywriting = "Copywriting"
     }
 
-    func call() {
-        if let existingApp = realm.objects(App.self).first {
+    func call(before: () -> Void, after: () -> Void, skipped: () -> Void) {
+        var app: App!
+
+        if let existingApp = provider.objects(App.self).first {
             app = existingApp
         } else {
             app = App()
         }
 
-        if !app.seeded {
+        if app.seeded {
+            skipped()
+        } else {
+            before()
+
             for account in accounts() {
                 app.accounts.append(account)
             }
@@ -33,12 +34,14 @@ class Seed: NSObject {
             app.seeded = true
 
             do {
-                try realm.write {
-                    realm.add(app, update: true)
+                try provider.write {
+                    provider.add(app, update: true)
                 }
             } catch let err {
                 logger.error("Application failed to save", err)
             }
+
+            after()
         }
     }
 

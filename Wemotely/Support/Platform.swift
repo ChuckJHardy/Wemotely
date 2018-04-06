@@ -14,8 +14,8 @@ struct Platform {
         return CommandLine.arguments.contains("--uitesting") || (NSClassFromString("XCTest") != nil)
     }
 
-    static func delayBackgroundProcessBy() {
-        var delay = UInt32(0)
+    static func delayBackgroundProcessBy(override: UInt32 = 0) {
+        var delay = override
 
         if let index = CommandLine.arguments.index(of: "--uitesting-set-delay") {
             let value = CommandLine.arguments[index + 1]

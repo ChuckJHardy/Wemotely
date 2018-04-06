@@ -1,35 +1,51 @@
-//
-//  GetJobsServiceTests.swift
-//  WemotelyTests
-//
-//  Created by Chuck J Hardy on 06/04/2018.
-//  Copyright © 2018 Insert Coffee Limited. All rights reserved.
-//
-
 import XCTest
+import RealmSwift
 
-class GetJobsServiceTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+@testable import Wemotely
+
+class GetJobsServiceTests: BaseTestCase {
+    var completionUUIDs: [String]!
+
+    func testE2E() {
+        let account1 = Account(value: ["urlKey": "A"])
+        let account2 = Account(value: ["urlKey": "B"])
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+        }
+
+        let account1PreviousCount = account1.jobs.count
+        let account2PreviousCount = account2.jobs.count
+
+        let accounts = realmProvider.objects(Account.self)
+        let service = GetJobsService(accounts: accounts)
+
+        let exp = expectation(description: "Completion")
+
+        service.call { (uuids) in
+            self.completionUUIDs = uuids
+            exp.fulfill()
+        }
+
+        waitForExpectations(timeout: 10)
+
+        XCTAssertEqual(completionUUIDs, [account1.uuid, account2.uuid])
+        XCTAssertLessThan(account1PreviousCount, account1.jobs.count)
+        XCTAssertLessThan(account2PreviousCount, account2.jobs.count)
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+
+    private func saveApp(bulder: (_ app: App) -> Void) {
+        let app = App()
+
+        bulder(app)
+
+        do {
+            try realm.write {
+                realm.add(app)
+            }
+        } catch let err {
+            logger.error("Failed to Save App", err)
         }
     }
-    
 }

@@ -4,16 +4,9 @@ import XCTest
 
 // swiftlint:disable:next type_body_length
 class JobQueryTests: BaseTestCase {
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testUnorganisedForSingleAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let account = Account()
 
         let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 1000)])
@@ -21,28 +14,15 @@ class JobQueryTests: BaseTestCase {
         job1.account = account
         job2.account = account
 
-        account.jobs.append(job1)
-        account.jobs.append(job2)
-        app.accounts.append(account)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            account.jobs.append(job1)
+            account.jobs.append(job2)
+            app.accounts.append(account)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 2)
 
-        let row = Row(
-            filter: Filter.unorganised,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: account.uuid
-        )
-
+        let row = TestFixtures.Rows.unorganisedRow(accountUUID: account.uuid)
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 2)
             XCTAssertEqual(sut.first, job2)
@@ -51,7 +31,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnorganisedForAllAccounts() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
@@ -62,30 +43,17 @@ class JobQueryTests: BaseTestCase {
         job2.account = activeAccount
         job3.account = inactiveAccount
 
-        activeAccount.jobs.append(job1)
-        activeAccount.jobs.append(job2)
-        inactiveAccount.jobs.append(job3)
-        app.accounts.append(activeAccount)
-        app.accounts.append(inactiveAccount)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            activeAccount.jobs.append(job1)
+            activeAccount.jobs.append(job2)
+            inactiveAccount.jobs.append(job3)
+            app.accounts.append(activeAccount)
+            app.accounts.append(inactiveAccount)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 3)
 
-        let row = Row(
-            filter: Filter.unorganised,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: nil
-        )
-
+        let row = TestFixtures.Rows.unorganisedRow()
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 2)
             XCTAssertEqual(sut.first, job2)
@@ -94,7 +62,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testInboxForSingleAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let account = Account()
 
         let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 1000)])
@@ -102,28 +71,15 @@ class JobQueryTests: BaseTestCase {
         job1.account = account
         job2.account = account
 
-        account.jobs.append(job1)
-        account.jobs.append(job2)
-        app.accounts.append(account)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            account.jobs.append(job1)
+            account.jobs.append(job2)
+            app.accounts.append(account)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 2)
 
-        let row = Row(
-            filter: Filter.inbox,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: account.uuid
-        )
-
+        let row = TestFixtures.Rows.standardRow(accountUUID: account.uuid)
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 2)
             XCTAssertEqual(sut.first, job2)
@@ -132,7 +88,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testfavouritedForSingleAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let account = Account()
 
         let job1 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: 1000)])
@@ -146,31 +103,18 @@ class JobQueryTests: BaseTestCase {
         job4.account = account
         job5.account = account
 
-        account.jobs.append(job1)
-        account.jobs.append(job2)
-        account.jobs.append(job3)
-        account.jobs.append(job4)
-        account.jobs.append(job5)
-        app.accounts.append(account)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            account.jobs.append(job1)
+            account.jobs.append(job2)
+            account.jobs.append(job3)
+            account.jobs.append(job4)
+            account.jobs.append(job5)
+            app.accounts.append(account)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 5)
 
-        let row = Row(
-            filter: Filter.favourites,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: account.uuid
-        )
-
+        let row = TestFixtures.Rows.favouritedRow(accountUUID: account.uuid)
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 2)
             XCTAssertEqual(sut.first, job2)
@@ -179,7 +123,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testfavouritedForAllAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
@@ -194,32 +139,19 @@ class JobQueryTests: BaseTestCase {
         job4.account = activeAccount
         job5.account = activeAccount
 
-        activeAccount.jobs.append(job1)
-        activeAccount.jobs.append(job2)
-        inactiveAccount.jobs.append(job3)
-        activeAccount.jobs.append(job4)
-        activeAccount.jobs.append(job5)
-        app.accounts.append(activeAccount)
-        app.accounts.append(inactiveAccount)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            activeAccount.jobs.append(job1)
+            activeAccount.jobs.append(job2)
+            inactiveAccount.jobs.append(job3)
+            activeAccount.jobs.append(job4)
+            activeAccount.jobs.append(job5)
+            app.accounts.append(activeAccount)
+            app.accounts.append(inactiveAccount)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 5)
 
-        let row = Row(
-            filter: Filter.favourites,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: nil
-        )
-
+        let row = TestFixtures.Rows.favouritedRow()
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 2)
             XCTAssertEqual(sut.first, job2)
@@ -228,7 +160,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnreadForSingleAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let account = Account()
 
         let job1 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: 1000)])
@@ -242,31 +175,18 @@ class JobQueryTests: BaseTestCase {
         job4.account = account
         job5.account = account
 
-        account.jobs.append(job1)
-        account.jobs.append(job2)
-        account.jobs.append(job3)
-        account.jobs.append(job4)
-        account.jobs.append(job5)
-        app.accounts.append(account)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            account.jobs.append(job1)
+            account.jobs.append(job2)
+            account.jobs.append(job3)
+            account.jobs.append(job4)
+            account.jobs.append(job5)
+            app.accounts.append(account)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 5)
 
-        let row = Row(
-            filter: Filter.unread,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: account.uuid
-        )
-
+        let row = TestFixtures.Rows.unreadRow(accountUUID: account.uuid)
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 4)
             XCTAssertEqual(sut.first, job2)
@@ -275,7 +195,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnreadForAllAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
@@ -290,32 +211,19 @@ class JobQueryTests: BaseTestCase {
         job4.account = inactiveAccount
         job5.account = activeAccount
 
-        activeAccount.jobs.append(job1)
-        activeAccount.jobs.append(job2)
-        activeAccount.jobs.append(job3)
-        inactiveAccount.jobs.append(job4)
-        activeAccount.jobs.append(job5)
-        app.accounts.append(activeAccount)
-        app.accounts.append(inactiveAccount)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            activeAccount.jobs.append(job1)
+            activeAccount.jobs.append(job2)
+            activeAccount.jobs.append(job3)
+            inactiveAccount.jobs.append(job4)
+            activeAccount.jobs.append(job5)
+            app.accounts.append(activeAccount)
+            app.accounts.append(inactiveAccount)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 5)
 
-        let row = Row(
-            filter: Filter.unread,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: nil
-        )
-
+        let row = TestFixtures.Rows.unreadRow()
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 3)
             XCTAssertEqual(sut.first, job2)
@@ -324,7 +232,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testTrashedForSingleAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let account = Account()
 
         let job1 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: 1000)])
@@ -338,31 +247,18 @@ class JobQueryTests: BaseTestCase {
         job4.account = account
         job5.account = account
 
-        account.jobs.append(job1)
-        account.jobs.append(job2)
-        account.jobs.append(job3)
-        account.jobs.append(job4)
-        account.jobs.append(job5)
-        app.accounts.append(account)
-
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            account.jobs.append(job1)
+            account.jobs.append(job2)
+            account.jobs.append(job3)
+            account.jobs.append(job4)
+            account.jobs.append(job5)
+            app.accounts.append(account)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 5)
 
-        let row = Row(
-            filter: Filter.trash,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: account.uuid
-        )
-
+        let row = TestFixtures.Rows.trashedRow(accountUUID: account.uuid)
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 4)
             XCTAssertEqual(sut.first, job2)
@@ -371,7 +267,8 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testTrashedForAllAccount() {
-        let app = App()
+        XCTAssertEqual(realm.objects(Job.self).count, 0)
+
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
@@ -380,6 +277,7 @@ class JobQueryTests: BaseTestCase {
         let job3 = Job(value: ["trash": true, "read": true, "pubDate": Date(timeIntervalSinceNow: 10)])
         let job4 = Job(value: ["trash": true, "favourite": true, "pubDate": Date(timeIntervalSinceNow: 100)])
         let job5 = Job(value: ["trash": false, "read": false])
+
         job1.account = activeAccount
         job2.account = activeAccount
         job3.account = activeAccount
@@ -391,32 +289,33 @@ class JobQueryTests: BaseTestCase {
         activeAccount.jobs.append(job3)
         inactiveAccount.jobs.append(job4)
         activeAccount.jobs.append(job5)
-        app.accounts.append(activeAccount)
-        app.accounts.append(inactiveAccount)
 
-        XCTAssertEqual(realm.objects(Job.self).count, 0)
-
-        // swiftlint:disable:next force_try
-        try! realm.write {
-            realm.add(app)
+        saveApp { (app) in
+            app.accounts.append(activeAccount)
+            app.accounts.append(inactiveAccount)
         }
 
         XCTAssertEqual(realm.objects(Job.self).count, 5)
 
-        let row = Row(
-            filter: Filter.trash,
-            title: "",
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: false,
-            accountUUID: nil
-        )
-
+        let row = TestFixtures.Rows.trashedRow()
         if let sut = Job.byRowFilter(provider: realm, row: row) {
             XCTAssertEqual(sut.count, 3)
             XCTAssertEqual(sut.first, job2)
             XCTAssertEqual(sut.last, job1)
         }
     }
-    // swiftlint:disable:next file_length
+
+    private func saveApp(bulder: (_ app: App) -> Void) {
+        let app = App()
+
+        bulder(app)
+
+        do {
+            try realm.write {
+                realm.add(app)
+            }
+        } catch let err {
+            logger.error("Failed to Save App", err)
+        }
+    }
 }

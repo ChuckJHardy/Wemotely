@@ -4,41 +4,77 @@ import XCTest
 
 struct TestFixtures {
     struct Rows {
-        static let standardRow = Row(
-            filter: Filter.inbox,
-            title: Filter.inbox.rawValue,
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: true,
-            accountUUID: nil
-        )
+        static func standardRow(accountUUID: String? = nil) -> Row {
+            return Row(
+                filter: Filter.inbox,
+                title: Filter.inbox.rawValue,
+                icon: "",
+                moveable: false,
+                refreshable: true,
+                showTitleAsPrompt: true,
+                accountUUID: accountUUID
+            )
+        }
 
-        static let favouritedRow = Row(
-            filter: Filter.favourites,
-            title: Filter.favourites.rawValue,
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: true,
-            accountUUID: nil
-        )
+        static func unorganisedRow(accountUUID: String? = nil) -> Row {
+            return Row(
+                filter: Filter.unorganised,
+                title: Filter.unorganised.rawValue,
+                icon: "",
+                moveable: false,
+                refreshable: true,
+                showTitleAsPrompt: true,
+                accountUUID: accountUUID
+            )
+        }
 
-        static let trashedRow = Row(
-            filter: Filter.trash,
-            title: Filter.trash.rawValue,
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: true,
-            accountUUID: nil
-        )
+        static func favouritedRow(accountUUID: String? = nil) -> Row {
+            return Row(
+                filter: Filter.favourites,
+                title: Filter.favourites.rawValue,
+                icon: "",
+                moveable: false,
+                refreshable: false,
+                showTitleAsPrompt: true,
+                accountUUID: accountUUID
+            )
+        }
 
-        static let refreshableRow = Row(
-            filter: Filter.inbox,
-            title: Filter.inbox.rawValue,
-            icon: "",
-            moveable: false,
-            showTitleAsPrompt: true,
-            accountUUID: nil
-        )
+        static func unreadRow(accountUUID: String? = nil) -> Row {
+            return Row(
+                filter: Filter.unread,
+                title: Filter.unread.rawValue,
+                icon: "",
+                moveable: false,
+                refreshable: false,
+                showTitleAsPrompt: true,
+                accountUUID: accountUUID
+            )
+        }
+
+        static func trashedRow(accountUUID: String? = nil) -> Row {
+            return Row(
+                filter: Filter.trash,
+                title: Filter.trash.rawValue,
+                icon: "",
+                moveable: false,
+                refreshable: false,
+                showTitleAsPrompt: true,
+                accountUUID: accountUUID
+            )
+        }
+
+        static func refreshableRow(accountUUID: String? = nil) -> Row {
+            return Row(
+                filter: Filter.inbox,
+                title: Filter.inbox.rawValue,
+                icon: "",
+                moveable: false,
+                refreshable: true,
+                showTitleAsPrompt: true,
+                accountUUID: accountUUID
+            )
+        }
     }
 
     struct Accounts {

@@ -41,7 +41,7 @@ extension JobsTableViewController {
             // swiftlint:disable:next line_length
             let action = UIContextualAction(style: .normal, title: title) { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
                 do {
-                    try self.realm.write {
+                    try realmProvider.write {
                         job.favourite = !job.favourite
                         job.trash = false
                         self.didEdit = true
@@ -78,7 +78,7 @@ extension JobsTableViewController {
             // swiftlint:disable:next line_length
             let action = UIContextualAction(style: .destructive, title: title) { (_ context: UIContextualAction, _ view: UIView, success: (Bool) -> Void) in
                 do {
-                    try self.realm.write {
+                    try realmProvider.write {
                         job.trash = !job.trash
                         job.favourite = false
                         self.didEdit = true

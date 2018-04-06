@@ -6,14 +6,14 @@ protocol JobsTableViewControllerDelegate: class {
 }
 
 class JobsTableViewController: UITableViewController {
-    let realm = RealmProvider.realm()
+    internal let refresher = UIRefreshControl()
 
     weak var delegate: DashboardTableViewController?
     var row: Row?
     var didEdit: Bool = false
 
     var jobs: Results<Job>? {
-        return Job.byRowFilter(provider: realm, row: row)
+        return Job.byRowFilter(provider: realmProvider, row: row)
     }
 
     override func viewDidLoad() {
@@ -22,6 +22,8 @@ class JobsTableViewController: UITableViewController {
         tableView.accessibilityIdentifier = "jobsTableView"
 
         didEdit = false
+
+        setupRefreshControl()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

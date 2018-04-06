@@ -18,14 +18,18 @@ class Seed: NSObject {
         case copywriting = "Copywriting"
     }
 
-    func call() {
+    func call(before: () -> Void, after: () -> Void, skipped: () -> Void) {
         if let existingApp = realm.objects(App.self).first {
             app = existingApp
         } else {
             app = App()
         }
 
-        if !app.seeded {
+        if app.seeded {
+            skipped()
+        } else {
+            before()
+
             for account in accounts() {
                 app.accounts.append(account)
             }
@@ -39,6 +43,8 @@ class Seed: NSObject {
             } catch let err {
                 logger.error("Application failed to save", err)
             }
+
+            after()
         }
     }
 

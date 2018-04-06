@@ -40,6 +40,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: account.uuid
         )
@@ -84,6 +85,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: nil
         )
@@ -123,6 +125,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: account.uuid
         )
@@ -171,6 +174,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: account.uuid
         )
@@ -221,6 +225,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: nil
         )
@@ -269,6 +274,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: account.uuid
         )
@@ -319,6 +325,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: nil
         )
@@ -367,6 +374,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: account.uuid
         )
@@ -417,6 +425,7 @@ class JobQueryTests: BaseTestCase {
             title: "",
             icon: "",
             moveable: false,
+            refreshable: false,
             showTitleAsPrompt: false,
             accountUUID: nil
         )

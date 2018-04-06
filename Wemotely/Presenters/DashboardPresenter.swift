@@ -13,6 +13,7 @@ struct Row {
     var title: String = ""
     var icon: String = ""
     var moveable: Bool = false
+    var refreshable: Bool = false
     var showTitleAsPrompt: Bool = false
     var accountUUID: String?
 }
@@ -45,6 +46,7 @@ class DashboardPresenter: NSObject {
                 title: Filter.unorganised.rawValue,
                 icon: "inboxes",
                 moveable: true,
+                refreshable: true,
                 showTitleAsPrompt: true,
                 accountUUID: nil
             ),
@@ -53,6 +55,7 @@ class DashboardPresenter: NSObject {
                 title: Filter.favourites.rawValue,
                 icon: "heart",
                 moveable: true,
+                refreshable: false,
                 showTitleAsPrompt: true,
                 accountUUID: nil
             ),
@@ -61,6 +64,7 @@ class DashboardPresenter: NSObject {
                 title: Filter.unread.rawValue,
                 icon: "unread",
                 moveable: true,
+                refreshable: true,
                 showTitleAsPrompt: true,
                 accountUUID: nil
             ),
@@ -69,6 +73,7 @@ class DashboardPresenter: NSObject {
                 title: Filter.trash.rawValue,
                 icon: "trash",
                 moveable: true,
+                refreshable: false,
                 showTitleAsPrompt: true,
                 accountUUID: nil
             )
@@ -84,6 +89,7 @@ class DashboardPresenter: NSObject {
                 title: account.title,
                 icon: "inbox",
                 moveable: true,
+                refreshable: true,
                 showTitleAsPrompt: false,
                 accountUUID: account.uuid
             )
@@ -107,6 +113,7 @@ class DashboardPresenter: NSObject {
                         title: Filter.inbox.rawValue,
                         icon: "inbox",
                         moveable: false,
+                        refreshable: true,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     ),
@@ -115,6 +122,7 @@ class DashboardPresenter: NSObject {
                         title: Filter.favourites.rawValue,
                         icon: "heart",
                         moveable: false,
+                        refreshable: false,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     ),
@@ -123,6 +131,7 @@ class DashboardPresenter: NSObject {
                         title: Filter.unread.rawValue,
                         icon: "unread",
                         moveable: false,
+                        refreshable: true,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     ),
@@ -131,6 +140,7 @@ class DashboardPresenter: NSObject {
                         title: Filter.trash.rawValue,
                         icon: "trash",
                         moveable: false,
+                        refreshable: false,
                         showTitleAsPrompt: true,
                         accountUUID: account.uuid
                     )

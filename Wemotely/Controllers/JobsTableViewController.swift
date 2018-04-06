@@ -6,14 +6,12 @@ protocol JobsTableViewControllerDelegate: class {
 }
 
 class JobsTableViewController: UITableViewController {
-    let realm = RealmProvider.realm()
-
     weak var delegate: DashboardTableViewController?
     var row: Row?
     var didEdit: Bool = false
 
     var jobs: Results<Job>? {
-        return Job.byRowFilter(provider: realm, row: row)
+        return Job.byRowFilter(provider: realmProvider, row: row)
     }
 
     override func viewDidLoad() {

@@ -12,7 +12,6 @@ class AccountQueryTests: BaseTestCase {
     }
 
     func testAllSorted() {
-        let realm = RealmProvider.realm()
         let app = App()
 
         let account1 = Account(value: ["urlKey": "A", "active": true, "order": 2])
@@ -40,7 +39,6 @@ class AccountQueryTests: BaseTestCase {
     }
 
     func testActiveSorted() {
-        let realm = RealmProvider.realm()
         let app = App()
 
         let account1 = Account(value: ["urlKey": "A", "active": true, "order": 2])

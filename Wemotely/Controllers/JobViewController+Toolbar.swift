@@ -65,7 +65,7 @@ extension JobViewController {
     private func toggle(name: String, block: (_ job: Job) -> Void) {
         if let job = self.jobRecord {
             do {
-                try self.realm.write {
+                try realmProvider.write {
                     block(job)
 
                     if splitViewController == nil {

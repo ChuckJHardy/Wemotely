@@ -3,12 +3,10 @@ import FeedKit
 import RealmSwift
 
 class DashboardTableViewController: UITableViewController {
-    let realm = RealmProvider.realm()
-
     var jobViewController: JobViewController?
 
     var accounts: Results<Account> {
-        return Account.activeSorted(provider: realm)
+        return Account.activeSorted(provider: realmProvider)
     }
 
     var sections: [Section] {
@@ -23,7 +21,7 @@ class DashboardTableViewController: UITableViewController {
         setupNavigationbar()
         handleSplitViewController()
 
-        Seed(realm: realm).call()
+        Seed(realm: realmProvider).call()
         loadJobs()
     }
 
@@ -54,7 +52,7 @@ class DashboardTableViewController: UITableViewController {
     }
 
     func loadJobs() {
-        let accounts = realm.objects(Account.self)
+        let accounts = realmProvider.objects(Account.self)
 
         for account in accounts {
             var feed: RSSFeed!
@@ -66,7 +64,7 @@ class DashboardTableViewController: UITableViewController {
                 feed = result.rssFeed!
 
                 DispatchQueue.main.async {
-                    feedService.save(realm: self.realm, feed: feed)
+                    feedService.save(realm: realmProvider, feed: feed)
                     self.tableView.reloadData()
                 }
             }

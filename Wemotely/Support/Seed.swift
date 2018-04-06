@@ -5,7 +5,7 @@ class Seed: NSObject {
     var realm: Realm
     var app: App!
 
-    init(realm: Realm = RealmProvider.realm()) {
+    init(realm: Realm) {
         self.realm = realm
     }
 

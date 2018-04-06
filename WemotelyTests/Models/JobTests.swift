@@ -50,8 +50,6 @@ class JobTests: BaseTestCase {
     }
 
     func testCreatingJob() {
-        let realm = RealmProvider.realm()
-
         let testDate = Date(timeInterval: 1000, since: Date())
         let job = Job([
             "guid": "https://example.com/guid",

@@ -13,7 +13,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnorganisedForSingleAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let account = Account()
 
@@ -52,7 +51,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnorganisedForAllAccounts() {
-        let realm = RealmProvider.realm()
         let app = App()
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
@@ -96,7 +94,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testInboxForSingleAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let account = Account()
 
@@ -135,7 +132,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testfavouritedForSingleAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let account = Account()
 
@@ -183,7 +179,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testfavouritedForAllAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
@@ -233,7 +228,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnreadForSingleAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let account = Account()
 
@@ -281,7 +275,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testUnreadForAllAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
@@ -331,7 +324,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testTrashedForSingleAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let account = Account()
 
@@ -379,7 +371,6 @@ class JobQueryTests: BaseTestCase {
     }
 
     func testTrashedForAllAccount() {
-        let realm = RealmProvider.realm()
         let app = App()
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])

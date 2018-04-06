@@ -31,8 +31,6 @@ class AppTests: BaseTestCase {
     }
 
     func testCreatingAccount() {
-        let realm = RealmProvider.realm()
-
         let app = App()
 
         app.seeded = true

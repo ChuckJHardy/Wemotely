@@ -36,8 +36,6 @@ class AccountTests: BaseTestCase {
     }
 
     func testCreatingAccount() {
-        let realm = RealmProvider.realm()
-
         let account = Account()
 
         account.title = "Test Title"

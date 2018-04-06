@@ -28,20 +28,7 @@ extension JobsTableViewController {
     }
 
     private func setRefreshMessage(account: Account?) {
-        var message = "Pull to refresh"
-
-        if let date = account?.lastUpdated {
-            message = "Last updated \(formatDate(date: date))"
-        }
-
+        let message = JobsPresenter().pullToRefreshMessage(date: account?.lastUpdated)
         refresher.attributedTitle = NSAttributedString(string: message)
-    }
-
-    private func formatDate(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        dateFormatter.locale = Locale(identifier: "en_US")
-        return dateFormatter.string(from: date)
     }
 }

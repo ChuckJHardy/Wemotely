@@ -31,6 +31,9 @@
 		A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */; };
 		A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF30204ACCEC0031D7DF /* JobTests.swift */; };
 		A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */; };
+		A580E1DB2077828A00569B34 /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1DA2077828A00569B34 /* BaseTestCase.swift */; };
+		A580E1DE2077858900569B34 /* JobsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1DD2077858900569B34 /* JobsPresenter.swift */; };
+		A580E1E0207786F600569B34 /* JobsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A580E1DF207786F600569B34 /* JobsPresenterTests.swift */; };
 		A58180842066AC58006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A58180852066AC7E006A62B8 /* Log.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58180832066AC58006A62B8 /* Log.framework */; };
 		A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */; };
@@ -136,6 +139,9 @@
 		A57DDF37204ACCEC0031D7DF /* WemotelyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WemotelyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueUITests.swift; sourceTree = "<group>"; };
 		A57DDF3D204ACCEC0031D7DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A580E1DA2077828A00569B34 /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
+		A580E1DD2077858900569B34 /* JobsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsPresenter.swift; sourceTree = "<group>"; };
+		A580E1DF207786F600569B34 /* JobsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsPresenterTests.swift; sourceTree = "<group>"; };
 		A58180832066AC58006A62B8 /* Log.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Log.framework; path = Carthage/Build/iOS/Log.framework; sourceTree = "<group>"; };
 		A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsSwipeActionTests.swift; sourceTree = "<group>"; };
 		A581808820680CC7006A62B8 /* Account+QueryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Account+QueryTests.swift"; sourceTree = "<group>"; };
@@ -352,19 +358,28 @@
 		A57DDF3A204ACCEC0031D7DF /* WemotelyUITests */ = {
 			isa = PBXGroup;
 			children = (
+				A580E1DC207782A200569B34 /* Support */,
 				A57DDF3B204ACCEC0031D7DF /* SegueUITests.swift */,
 				A57DDF3D204ACCEC0031D7DF /* Info.plist */,
-				A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */,
-				A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */,
 				A51596FF2059CAEA0096C52C /* EditDashboardTests.swift */,
-				A5159701205A641B0096C52C /* XCUIApplication+Helper.swift */,
-				A5159703205A7AB40096C52C /* XCUIApplication+Asserts.swift */,
 				A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */,
 				A59F67B1206E5299006C6E6E /* JobTests.swift */,
 				A5ECE9B12075277800B43459 /* DashboardTests.swift */,
 				A5ECE9B32075346C00B43459 /* JobsRefreshTests.swift */,
 			);
 			path = WemotelyUITests;
+			sourceTree = "<group>";
+		};
+		A580E1DC207782A200569B34 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A5159703205A7AB40096C52C /* XCUIApplication+Asserts.swift */,
+				A5159701205A641B0096C52C /* XCUIApplication+Helper.swift */,
+				A528FD52204C108A0020ABA9 /* XCUIApplication+Device.swift */,
+				A528FD50204C05CD0020ABA9 /* XCUIApplication+Segues.swift */,
+				A580E1DA2077828A00569B34 /* BaseTestCase.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		A581808C20680DA8006A62B8 /* Job */ = {
@@ -497,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */,
+				A580E1DF207786F600569B34 /* JobsPresenterTests.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -543,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F9911C2052850B005D7C42 /* DashboardPresenter.swift */,
+				A580E1DD2077858900569B34 /* JobsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -777,6 +794,7 @@
 				A59F67B0206E431A006C6E6E /* JobViewController+WebView.swift in Sources */,
 				A5F990F82051AF6D005D7C42 /* Account.swift in Sources */,
 				A59F67AE206E42D2006C6E6E /* JobViewController+Toolbar.swift in Sources */,
+				A580E1DE2077858900569B34 /* JobsPresenter.swift in Sources */,
 				A5F991112052736C005D7C42 /* Seed.swift in Sources */,
 				A59F67AC206E429B006C6E6E /* JobViewController+Segues.swift in Sources */,
 				A528FD4A204B21970020ABA9 /* NotificationOptionsTableViewController.swift in Sources */,
@@ -819,6 +837,7 @@
 				A581808920680CC7006A62B8 /* Account+QueryTests.swift in Sources */,
 				A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */,
 				A5F9911A205279B2005D7C42 /* SeedTests.swift in Sources */,
+				A580E1E0207786F600569B34 /* JobsPresenterTests.swift in Sources */,
 				A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */,
 				A5564F1C2073971000F75E28 /* TestFixtures.swift in Sources */,
 				A5564F2120739FDF00F75E28 /* DashboardTableViewControllerTests.swift in Sources */,
@@ -836,6 +855,7 @@
 				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 				A5159704205A7AB40096C52C /* XCUIApplication+Asserts.swift in Sources */,
+				A580E1DB2077828A00569B34 /* BaseTestCase.swift in Sources */,
 				A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */,
 				A59F67B2206E5299006C6E6E /* JobTests.swift in Sources */,
 				A5ECE9B42075346C00B43459 /* JobsRefreshTests.swift in Sources */,

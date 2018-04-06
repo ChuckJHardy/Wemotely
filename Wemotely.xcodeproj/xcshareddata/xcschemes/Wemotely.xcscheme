@@ -53,6 +53,11 @@
                BlueprintName = "WemotelyUITests"
                ReferencedContainer = "container:Wemotely.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "BaseTestCase">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

@@ -1,25 +1,14 @@
 import XCTest
 
-class JobsSwipeActionTests: XCTestCase {
-    var app: XCUIApplication!
-
+class JobsSwipeActionTests: BaseTestCase {
     let jobTitle = "Front-End Engineer - CND Growth Team"
 
     override func setUp() {
         super.setUp()
-
-        continueAfterFailure = false
-
-        app = XCUIApplication()
-        app.resetOrientation()
-
-        // Enable it to reset its state
-        app.launchArguments.append("--uitesting")
     }
 
     override func tearDown() {
         super.tearDown()
-        app.resetOrientation()
     }
 
     // MARK: - Tests

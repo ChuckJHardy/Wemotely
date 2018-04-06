@@ -1,23 +1,12 @@
 import XCTest
 
-class SegueUITests: XCTestCase {
-    var app: XCUIApplication!
-
+class SegueUITests: BaseTestCase {
     override func setUp() {
         super.setUp()
-
-        continueAfterFailure = false
-
-        app = XCUIApplication()
-        app.resetOrientation()
-
-        // Enable it to reset its state
-        app.launchArguments.append("--uitesting")
     }
 
     override func tearDown() {
         super.tearDown()
-        app.resetOrientation()
     }
 
     // MARK: - Tests

@@ -6,6 +6,7 @@ protocol JobsTableViewControllerDelegate: class {
 }
 
 class JobsTableViewController: UITableViewController {
+    internal let refresher = UIRefreshControl()
     weak var delegate: DashboardTableViewController?
     var row: Row?
     var didEdit: Bool = false
@@ -20,6 +21,8 @@ class JobsTableViewController: UITableViewController {
         tableView.accessibilityIdentifier = "jobsTableView"
 
         didEdit = false
+
+        setupRefreshControl()
     }
 
     override func viewWillDisappear(_ animated: Bool) {

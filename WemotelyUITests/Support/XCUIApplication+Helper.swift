@@ -76,4 +76,10 @@ extension XCUIApplication {
             .element.children(matching: .button)
             .element(boundBy: position)
     }
+
+    func pullToRefresh(cell: XCUIElement, threshold: Int = 10) {
+        let startPosition = cell.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0))
+        let endPosition = cell.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: threshold))
+        startPosition.press(forDuration: 0, thenDragTo: endPosition)
+    }
 }

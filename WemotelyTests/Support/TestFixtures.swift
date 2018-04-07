@@ -63,18 +63,6 @@ struct TestFixtures {
                 accountUUID: accountUUID
             )
         }
-
-        static func refreshableRow(accountUUID: String? = nil) -> Row {
-            return Row(
-                filter: Filter.inbox,
-                title: Filter.inbox.rawValue,
-                icon: "",
-                moveable: false,
-                refreshable: true,
-                showTitleAsPrompt: true,
-                accountUUID: accountUUID
-            )
-        }
     }
 
     struct Accounts {

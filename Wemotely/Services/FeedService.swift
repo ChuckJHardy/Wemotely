@@ -4,6 +4,7 @@ import FeedKit
 
 struct FeedService {
     var account: Account
+    var updatedAt: Date
 
     func parser(url: URL) -> FeedParser? {
         return FeedParser(URL: url)
@@ -26,6 +27,8 @@ struct FeedService {
                 BuildJob(record: item).build(linkedAccount: account)
             )
         }
+
+        account.lastUpdated = updatedAt
     }
 
     struct BuildJob {

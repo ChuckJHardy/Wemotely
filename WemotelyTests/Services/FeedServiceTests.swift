@@ -15,7 +15,10 @@ class FeedServiceTests: BaseTestCase {
     func testE2E() {
         let account = Account()
         let url = URLProvider(key: "remote-programming-jobs").url()
-        let feedService = FeedService(account: account)
+        let testDate = Date(timeInterval: 1000, since: Date())
+        let feedService = FeedService(account: account, updatedAt: testDate)
+
+        XCTAssertNil(account.lastUpdated)
 
         if let result = feedService.parser(url: url)?.parse() {
             feedService.save(realm: realm, feed: result.rssFeed!)
@@ -35,6 +38,8 @@ class FeedServiceTests: BaseTestCase {
                 firstJob?.link,
                 "https://weworkremotely.com/remote-jobs/nurelm-inc-full-stack-dev-with-rails-focus"
             )
+
+            XCTAssertEqual(account.lastUpdated, testDate)
         }
     }
 }

@@ -14,7 +14,7 @@ extension DashboardTableViewController {
 
         if let dashboardCell = cell as? DashboardTableViewCell {
             let row = getRow(indexPath: indexPath)
-            dashboardCell.setup(provider: realm, row: row)
+            dashboardCell.setup(provider: realmProvider, row: row)
             return dashboardCell
         }
 

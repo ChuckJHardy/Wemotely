@@ -6,14 +6,17 @@ protocol JobsTableViewControllerDelegate: class {
 }
 
 class JobsTableViewController: UITableViewController {
-    let realm = RealmProvider.realm()
-
+    internal let refresher = UIRefreshControl()
     weak var delegate: DashboardTableViewController?
     var row: Row?
     var didEdit: Bool = false
 
     var jobs: Results<Job>? {
-        return Job.byRowFilter(provider: realm, row: row)
+        return Job.byRowFilter(provider: realmProvider, row: row)
+    }
+
+    var accounts: Results<Account>? {
+        return Account.refreshable(provider: realmProvider, uuid: row?.accountUUID)
     }
 
     override func viewDidLoad() {
@@ -22,9 +25,17 @@ class JobsTableViewController: UITableViewController {
         tableView.accessibilityIdentifier = "jobsTableView"
 
         didEdit = false
+
+        setupRefreshControl()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        updateNavigationPromptFromAccounts()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        preferLargeTitles()
+
         if didEdit {
             delegate?.didEdit()
         }
@@ -34,6 +45,23 @@ class JobsTableViewController: UITableViewController {
         self.row = row
         navigationItem.title = row.title
         navigationItem.leftItemsSupplementBackButton = true
+        preferSmallTitles()
+    }
+
+    private func preferSmallTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
+    }
+
+    private func preferLargeTitles() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+    }
+
+    internal func runWhenRefreshable(block: (_ row: Row) -> Void) {
+        if let row = row, row.refreshable {
+            block(row)
+        }
     }
 }
 

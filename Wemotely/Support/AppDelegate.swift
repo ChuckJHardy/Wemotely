@@ -4,11 +4,10 @@ import Bugsnag
 import RealmSwift
 
 let logger = Logger()
+let realmProvider = RealmProvider.realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    let realm = RealmProvider.realm()
-
     var window: UIWindow?
 
     func application(_ application: UIApplication,
@@ -17,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let defaultsName = Bundle.main.bundleIdentifier!
             UserDefaults.standard.removePersistentDomain(forName: defaultsName)
 
-            RealmProvider.deleteAll(realm: realm)
+            RealmProvider.deleteAll(realm: realmProvider)
         } else {
             if let key = environment.bugSnagKey {
                 Bugsnag.start(withApiKey: key)

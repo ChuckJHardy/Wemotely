@@ -8,8 +8,6 @@ protocol JobViewControllerDelegate: class {
 class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     @IBOutlet weak var jobTitleDescriptionLabel: UILabel!
 
-    let realm = RealmProvider.realm()
-
     weak var delegate: JobsTableViewController?
     var didChangeJob: Bool = false
     var webView: WKWebView!

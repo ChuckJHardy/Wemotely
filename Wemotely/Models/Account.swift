@@ -10,10 +10,15 @@ class Account: Object {
     @objc dynamic var active: Bool = true
     @objc dynamic var urlKey: String?
     @objc dynamic var order: Int = 0
+    @objc dynamic var lastUpdated: Date?
 
     let jobs = List<Job>()
 
     override static func primaryKey() -> String? {
         return "urlKey"
+    }
+
+    override static func indexedProperties() -> [String] {
+        return ["uuid"]
     }
 }

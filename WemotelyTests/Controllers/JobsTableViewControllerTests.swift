@@ -144,6 +144,35 @@ class JobsTableViewControllerTests: BaseTestCase {
         )
     }
 
+    // MARK: - Navigation Prompts
+
+    func testTableViewNavigationPromptWithAccountLastUpdated() {
+        let testDate = Date(timeInterval: 1000, since: Date())
+        let job = TestFixtures.Jobs.unorganised(account: account)
+
+        account.lastUpdated = testDate
+        setup(row: TestFixtures.Rows.standardRow(), job: job)
+        tableViewController.viewWillAppear(false)
+        XCTAssertEqual(
+            tableViewController.navigationItem.prompt,
+            "Updated 16 minutes ago"
+        )
+    }
+
+    func testTableViewNavigationPromptWithAccount() {
+        let job = TestFixtures.Jobs.unorganised(account: account)
+
+        setup(row: TestFixtures.Rows.standardRow(), job: job)
+        tableViewController.viewWillAppear(false)
+        XCTAssertNil(tableViewController.navigationItem.prompt)
+    }
+
+    func testTableViewNavigationPromptWithoutAccount() {
+        setup(row: TestFixtures.Rows.standardRow())
+        tableViewController.viewWillAppear(false)
+        XCTAssertNil(tableViewController.navigationItem.prompt)
+    }
+
     internal func setup(row: Row, job: Job? = nil) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 

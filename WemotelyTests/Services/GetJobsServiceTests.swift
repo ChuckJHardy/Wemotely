@@ -4,7 +4,7 @@ import RealmSwift
 @testable import Wemotely
 
 class GetJobsServiceTests: BaseTestCase {
-    var completionUUIDs: [String]!
+    var updatedAt: Date!
 
     func testE2E() {
         let account1 = Account(value: ["urlKey": "A"])
@@ -23,14 +23,16 @@ class GetJobsServiceTests: BaseTestCase {
 
         let exp = expectation(description: "Completion")
 
-        service.call { (uuids) in
-            self.completionUUIDs = uuids
+        service.call { (updatedAt) in
+            self.updatedAt = updatedAt
             exp.fulfill()
         }
 
         waitForExpectations(timeout: 10)
 
-        XCTAssertEqual(completionUUIDs, [account1.uuid, account2.uuid])
+        XCTAssertNotNil(updatedAt)
+        XCTAssertEqual(account1.lastUpdated, updatedAt)
+        XCTAssertEqual(account2.lastUpdated, updatedAt)
         XCTAssertLessThan(account1PreviousCount, account1.jobs.count)
         XCTAssertLessThan(account2PreviousCount, account2.jobs.count)
     }

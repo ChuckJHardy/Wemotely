@@ -65,7 +65,7 @@ class DashboardTableViewController: UITableViewController {
 
         for account in accounts {
             var feed: RSSFeed!
-            let feedService = FeedService(account: account)
+            let feedService = FeedService(account: account, updatedAt: Date())
 
             let feedURL = URLProvider(key: account.urlKey!).url()
 

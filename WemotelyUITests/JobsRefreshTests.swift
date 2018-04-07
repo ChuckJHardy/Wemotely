@@ -1,7 +1,7 @@
 import XCTest
 
 class JobsRefreshTests: BaseUITestCase {
-    let delay = 3
+    let delay = 7
 
     func testPullToRefresh() {
         let account = (name: "All Inboxes", index: 0)
@@ -20,10 +20,16 @@ class JobsRefreshTests: BaseUITestCase {
         // Check number of rows in table match dashboard row count
         let jobsTable = app.tables["jobsTableView"]
         let jobsTableRowsCountBefore = app.countCellsInTable(table: jobsTable)
+        let promptBefore = app.navigationBars[account.name].staticTexts.firstMatch.label
 
         // Pull to Refresh
         let cell = app.cellByIndex(table: jobsTable, index: 0)
         app.pullToRefresh(cell: cell)
+
+        // Navigation prompt updates each appearance of view
+        let prompt = app.navigationBars[account.name].staticTexts.firstMatch.label
+        XCTAssertTrue(prompt.contains("Updated"))
+        XCTAssertNotEqual(promptBefore, prompt)
 
         // Amount of rows should increase
         let jobsTableRowsCountAfter = app.countCellsInTable(table: jobsTable)

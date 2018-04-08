@@ -32,4 +32,12 @@ extension Account {
             .filter("active = %@", true)
             .sorted(byKeyPath: "order")
     }
+
+    static func oldest(provider: Realm, accounts: Results<Account>?) -> Account? {
+        let sortedAccounts = accounts?.sorted { (account, other) -> Bool in
+            account.lastUpdated! < other.lastUpdated!
+        }
+
+        return sortedAccounts?.first
+    }
 }

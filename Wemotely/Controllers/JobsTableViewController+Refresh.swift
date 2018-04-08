@@ -23,7 +23,9 @@ extension JobsTableViewController {
     internal func updateNavigationPromptFromAccounts(other: ((_ row: Row) -> Void)? = nil) {
         runWhenRefreshable { (row) in
             if let block = other { block(row) }
-            if let account = accounts?.first, let lastUpdated = account.lastUpdated {
+
+            let oldestAccount = Account.oldest(provider: realmProvider, accounts: accounts)
+            if let account = oldestAccount, let lastUpdated = account.lastUpdated {
                 navigationItem.prompt = JobsPresenter().navigationPrompt(date: lastUpdated)
             }
         }

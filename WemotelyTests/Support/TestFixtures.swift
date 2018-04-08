@@ -73,6 +73,13 @@ struct TestFixtures {
                 "order": order
             ])
         }
+
+        static func updated(_ key: String = "A", updatedAt: Date = Date()) -> Account {
+            return Account(value: [
+                "urlKey": key,
+                "lastUpdated": updatedAt
+            ])
+        }
     }
 
     struct Jobs {

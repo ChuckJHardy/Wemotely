@@ -93,6 +93,27 @@ class AccountQueryTests: BaseTestCase {
         activeSortedShared(sut: Account.activeSorted(provider: realm))
     }
 
+    func testOldest() {
+        XCTAssertEqual(realm.objects(Account.self).count, 0)
+
+        let account1 = TestFixtures.Accounts.updated("A", updatedAt: Date(timeInterval: -3000, since: Date()))
+        let account2 = TestFixtures.Accounts.updated("B", updatedAt: Date(timeInterval: -2000, since: Date()))
+        let account3 = TestFixtures.Accounts.updated("C", updatedAt: Date(timeInterval: -1000, since: Date()))
+
+        saveApp { (app) in
+            app.accounts.append(account1)
+            app.accounts.append(account2)
+            app.accounts.append(account3)
+        }
+
+        let accounts = realm.objects(Account.self)
+        XCTAssertEqual(accounts.count, 3)
+
+        let sut = Account.oldest(provider: realm, accounts: accounts)
+
+        XCTAssertEqual(sut, account1)
+    }
+
     private func activeSortedShared(sut: Results<Account>) {
         XCTAssertEqual(realm.objects(Account.self).count, 0)
 

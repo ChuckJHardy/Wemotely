@@ -253,6 +253,7 @@ class JobTests: BaseUITestCase {
             let openIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: 0)
             openIcon.tap()
 
+            sleep(10)
             XCTAssertFalse(app.isDisplayingJob)
 
             app.activate()

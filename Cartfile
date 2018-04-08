@@ -3,3 +3,4 @@ github "nmdias/FeedKit" >= 7.0.1
 github "bugsnag/bugsnag-cocoa" >= 5.15.4
 github "delba/Log" >= 1.0
 github "onmyway133/SwiftHash" >= 2.0.1
+github "HamzaGhazouani/HGPlaceholders" >= 0.3.0

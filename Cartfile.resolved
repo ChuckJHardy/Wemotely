@@ -1,3 +1,4 @@
+github "HamzaGhazouani/HGPlaceholders" "0.3.0"
 github "bugsnag/bugsnag-cocoa" "v5.15.4"
 github "delba/Log" "v1.0"
 github "nmdias/FeedKit" "7.0.1"

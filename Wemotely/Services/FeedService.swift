@@ -18,10 +18,14 @@ struct FeedService {
         } catch let err {
             logger.error("FeedService failed to update", err)
         }
-
     }
 
     private func updateWith(feed: RSSFeed) {
+        guard !account.isInvalidated else {
+            logger.error("-> Account Invalidated")
+            return
+        }
+
         for item in feed.items! {
             account.jobs.append(
                 BuildJob(record: item).build(linkedAccount: account)

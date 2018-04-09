@@ -76,6 +76,8 @@
 		A5DF7ECE204FE05E0073F4D5 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A59727B0204FD21D00D5A917 /* RealmSwift.framework */; };
 		A5E550772057253C00A43288 /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
 		A5E550782057255400A43288 /* Bugsnag.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5960CB9205718D20060C71B /* Bugsnag.framework */; };
+		A5F5485F207A6239001FEFD2 /* LoadingEmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5F5485E207A6239001FEFD2 /* LoadingEmptyStateView.xib */; };
+		A5F54861207A627D001FEFD2 /* LoadingEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F54860207A627D001FEFD2 /* LoadingEmptyStateView.swift */; };
 		A5F990F82051AF6D005D7C42 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F72051AF6D005D7C42 /* Account.swift */; };
 		A5F990FA2051AFEA005D7C42 /* AccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F990F92051AFEA005D7C42 /* AccountTests.swift */; };
 		A5F991032051B7DE005D7C42 /* FeedServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F991022051B7DE005D7C42 /* FeedServiceTests.swift */; };
@@ -179,6 +181,8 @@
 		A5CAA29520553BFC009C56BA /* URLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderTests.swift; sourceTree = "<group>"; };
 		A5D67539207004E6004C3A0B /* SwiftHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHash.framework; path = Carthage/Build/iOS/SwiftHash.framework; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
+		A5F5485E207A6239001FEFD2 /* LoadingEmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingEmptyStateView.xib; sourceTree = "<group>"; };
+		A5F54860207A627D001FEFD2 /* LoadingEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingEmptyStateView.swift; sourceTree = "<group>"; };
 		A5F73A73207A1BB8000DA714 /* Scratch.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Scratch.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A5F990F72051AF6D005D7C42 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		A5F990F92051AFEA005D7C42 /* AccountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTests.swift; sourceTree = "<group>"; };
@@ -257,9 +261,11 @@
 			children = (
 				A57DDF24204ACCEB0031D7DF /* LaunchScreen.storyboard */,
 				A57DDF1F204ACCEB0031D7DF /* Main.storyboard */,
+				A5F5485E207A6239001FEFD2 /* LoadingEmptyStateView.xib */,
 				A50F1B502057D2EF00C73AF9 /* DashboardTableViewCell.swift */,
 				A5963F74205843A10026BFE6 /* DashboardEditTableViewCell.swift */,
 				A5BF6F8A205B216C0066DE7C /* JobsTableViewCell.swift */,
+				A5F54860207A627D001FEFD2 /* LoadingEmptyStateView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */,
 				A5B7133E2056F89C0054439C /* Environment.stencil in Resources */,
 				A5CAA294205534D4009C56BA /* jobs.xml in Resources */,
+				A5F5485F207A6239001FEFD2 /* LoadingEmptyStateView.xib in Resources */,
 				A57DDF23204ACCEB0031D7DF /* Assets.xcassets in Resources */,
 				A57DDF21204ACCEB0031D7DF /* Main.storyboard in Resources */,
 				A59F67A8206E3DC4006C6E6E /* job.css in Resources */,
@@ -805,6 +812,7 @@
 				A5B713412056FB560054439C /* Environment.generated.swift in Sources */,
 				A5973AC7206671FC000E4625 /* DashboardEditTableViewController+TableView.swift in Sources */,
 				A528FD46204B075F0020ABA9 /* SettingsTableViewController.swift in Sources */,
+				A5F54861207A627D001FEFD2 /* LoadingEmptyStateView.swift in Sources */,
 				A580E2022078DFE700569B34 /* JobsPresenter.swift in Sources */,
 				A5159E27204FD6E00056AF57 /* RealmProvider.swift in Sources */,
 				A57DDF1C204ACCEB0031D7DF /* DashboardTableViewController.swift in Sources */,

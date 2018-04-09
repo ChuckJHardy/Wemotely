@@ -10,8 +10,12 @@ extension DashboardTableViewController {
 
             controller.delegate = self
 
-            if let indexPath = tableView.indexPathForSelectedRow {
-                controller.segueSetup(row: getRow(indexPath: indexPath))
+            guard let indexPath = tableView.indexPathForSelectedRow else {
+                return
+            }
+
+            if let row = getRow(indexPath: indexPath) {
+                controller.segueSetup(row: row)
             }
         case "showDashboardEdit"?:
             guard let controller = segue.destination as? DashboardEditTableViewController else {

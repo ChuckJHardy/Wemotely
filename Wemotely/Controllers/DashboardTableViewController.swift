@@ -50,12 +50,20 @@ class DashboardTableViewController: UITableViewController {
         })
     }
 
-    func getRow(indexPath: IndexPath) -> Row {
-        return getSection(section: indexPath.section).rows[indexPath.row]
+    func getRow(indexPath: IndexPath) -> Row? {
+        if let section = getSection(section: indexPath.section) {
+            return section.rows[indexPath.row]
+        }
+
+        return nil
     }
 
-    func getSection(section: Int) -> Section {
-        return sections[section]
+    func getSection(section: Int) -> Section? {
+        if sections.isEmpty {
+            return nil
+        } else {
+            return sections[section]
+        }
     }
 
     private func handleSplitViewController() {

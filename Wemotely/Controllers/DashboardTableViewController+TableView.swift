@@ -6,14 +6,21 @@ extension DashboardTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getSection(section: section).rows.count
+        if let account = getSection(section: section) {
+            return account.rows.count
+        }
+
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTableViewCell.identifier, for: indexPath)
 
-        if let dashboardCell = cell as? DashboardTableViewCell {
-            let row = getRow(indexPath: indexPath)
+        guard let dashboardCell = cell as? DashboardTableViewCell else {
+            return cell
+        }
+
+        if let row = getRow(indexPath: indexPath) {
             dashboardCell.setup(provider: realmProvider, row: row)
             return dashboardCell
         }
@@ -22,10 +29,12 @@ extension DashboardTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionRecord = getSection(section: section)
+        guard let account = getSection(section: section) else {
+            return nil
+        }
 
-        if sectionRecord.showHeader {
-            return sectionRecord.heading
+        if account.showHeader {
+            return account.heading
         }
 
         return nil

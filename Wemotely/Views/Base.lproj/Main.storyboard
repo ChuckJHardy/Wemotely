@@ -273,7 +273,7 @@
         <!--Dashboard-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="Dashboard" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="DashboardTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="DashboardTableView" title="Dashboard" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="DashboardTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

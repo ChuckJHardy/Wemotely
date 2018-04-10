@@ -14,6 +14,11 @@ struct GetJobsService {
             let threadSafeAccounts = Account.byUUID(provider: threadProvider, uuids: uuids)
 
             for account in threadSafeAccounts! {
+                guard !account.isInvalidated else {
+                    logger.error("-> Account Invalidated")
+                    continue
+                }
+
                 let feedService = FeedService(account: account, updatedAt: updatedAt)
                 let feedURL = URLProvider(key: account.urlKey!).url()
                 if let result = feedService.parser(url: feedURL)?.parse() {

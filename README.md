@@ -1,6 +1,8 @@
 ## Wemotely
 
 [![Build Status](https://www.bitrise.io/app/d6336a05ac3d18e8/status.svg?token=NbiHC7raPaifR6JzVza_fA)](https://www.bitrise.io/app/d6336a05ac3d18e8)
+[![License](https://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg?style=flat)](https://github.com/ChuckJHardy/Wemotely/blob/master/LICENSE)
+[![Platform](https://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://github.com/ChuckJHardy/Wemotely)
 
 ### Installation
 

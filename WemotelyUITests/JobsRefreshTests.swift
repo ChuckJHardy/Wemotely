@@ -1,7 +1,7 @@
 import XCTest
 
 class JobsRefreshTests: BaseUITestCase {
-    let delay = 7
+    let delay = 3
 
     func testPullToRefresh() {
         let account = (name: "All Inboxes", index: 0)
@@ -11,7 +11,7 @@ class JobsRefreshTests: BaseUITestCase {
         app.launch()
 
         let dashboardTable = app.tables["dashboardTableView"]
-        XCTAssertTrue(dashboardTable.waitForExistence(timeout: TimeInterval(10)))
+        XCTAssertTrue(dashboardTable.waitForExistence(timeout: TimeInterval(20)))
 
         // Tap "from" row
         app.cellByIndex(table: dashboardTable, index: account.index).tap()

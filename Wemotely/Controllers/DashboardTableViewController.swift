@@ -4,13 +4,18 @@ import RealmSwift
 
 class DashboardTableViewController: UITableViewController {
     var jobViewController: JobViewController?
+    var loadingView: LoadingEmptyStateView = LoadingEmptyStateView()
 
     var accounts: Results<Account> {
         return Account.activeSorted(provider: realmProvider)
     }
 
     var sections: [Section] {
-        return DashboardPresenter(accounts: accounts).present()
+        if accounts.count > 0 {
+            return DashboardPresenter(accounts: accounts).present()
+        }
+
+        return []
     }
 
     override func viewDidLoad() {
@@ -20,6 +25,8 @@ class DashboardTableViewController: UITableViewController {
 
         setupNavigationbar()
         handleSplitViewController()
+
+        loadingView.show(tableView: tableView)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,20 +39,31 @@ class DashboardTableViewController: UITableViewController {
         super.viewDidAppear(animated)
 
         Seed(provider: realmProvider).call(before: {
-            // Nothing yet
+            self.loadingView.show(tableView: self.tableView)
         }, after: {
-            loadJobs()
+            GetJobsService(accounts: accounts).call(completion: { _ in
+                self.tableView.reloadData()
+                self.loadingView.hide(tableView: self.tableView)
+            })
         }, skipped: {
-            // Nothing yet
+            self.loadingView.hide(tableView: self.tableView)
         })
     }
 
-    func getRow(indexPath: IndexPath) -> Row {
-        return getSection(section: indexPath.section).rows[indexPath.row]
+    func getRow(indexPath: IndexPath) -> Row? {
+        if let section = getSection(section: indexPath.section) {
+            return section.rows[indexPath.row]
+        }
+
+        return nil
     }
 
-    func getSection(section: Int) -> Section {
-        return sections[section]
+    func getSection(section: Int) -> Section? {
+        if sections.isEmpty {
+            return nil
+        } else {
+            return sections[section]
+        }
     }
 
     private func handleSplitViewController() {
@@ -57,26 +75,6 @@ class DashboardTableViewController: UITableViewController {
             }
 
             jobViewController = navigationController.topViewController as? JobViewController
-        }
-    }
-
-    func loadJobs() {
-        let accounts = realmProvider.objects(Account.self)
-
-        for account in accounts {
-            var feed: RSSFeed!
-            let feedService = FeedService(account: account, updatedAt: Date())
-
-            let feedURL = URLProvider(key: account.urlKey!).url()
-
-            feedService.parser(url: feedURL)?.parseAsync(queue: DispatchQueue.global(qos: .userInitiated)) { (result) in
-                feed = result.rssFeed!
-
-                DispatchQueue.main.async {
-                    feedService.save(realm: realmProvider, feed: feed)
-                    self.tableView.reloadData()
-                }
-            }
         }
     }
 }

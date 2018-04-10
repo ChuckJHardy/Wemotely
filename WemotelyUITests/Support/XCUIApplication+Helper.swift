@@ -19,6 +19,10 @@ extension XCUIApplication {
     func countCellsInTable(table: XCUIElement) -> Int {
         table.swipeUp() // Fix: Ensure all cells are dequeued before getting the count
         table.swipeDown()
+        return simpleCountCellsInTable(table: table)
+    }
+
+    func simpleCountCellsInTable(table: XCUIElement) -> Int {
         return table.cells.count
     }
 

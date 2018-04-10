@@ -62,6 +62,7 @@
 		A59F67B2206E5299006C6E6E /* JobTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59F67B1206E5299006C6E6E /* JobTests.swift */; };
 		A5AFC4FB207BE5D500ED689D /* DashboardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AFC4FA207BE5D500ED689D /* DashboardTableViewControllerTests.swift */; };
 		A5AFC4FE207BEB5000ED689D /* LoadingEmptyStateViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AFC4FD207BEB5000ED689D /* LoadingEmptyStateViewTests.swift */; };
+		A5AFC500207C8B2B00ED689D /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AFC4FF207C8B2B00ED689D /* DashboardTests.swift */; };
 		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
 		A5B713412056FB560054439C /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B713402056FB560054439C /* Environment.generated.swift */; };
@@ -176,6 +177,7 @@
 		A59F67B1206E5299006C6E6E /* JobTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTests.swift; sourceTree = "<group>"; };
 		A5AFC4FA207BE5D500ED689D /* DashboardTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewControllerTests.swift; sourceTree = "<group>"; };
 		A5AFC4FD207BEB5000ED689D /* LoadingEmptyStateViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingEmptyStateViewTests.swift; sourceTree = "<group>"; };
+		A5AFC4FF207C8B2B00ED689D /* DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTests.swift; sourceTree = "<group>"; };
 		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
 		A5B7133D2056F89C0054439C /* Environment.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.stencil; sourceTree = "<group>"; };
 		A5B713402056FB560054439C /* Environment.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.generated.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 				A58180862067EEBA006A62B8 /* JobsSwipeActionTests.swift */,
 				A59F67B1206E5299006C6E6E /* JobTests.swift */,
 				A580E1FC2078B84300569B34 /* JobsRefreshTests.swift */,
+				A5AFC4FF207C8B2B00ED689D /* DashboardTests.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -872,6 +875,7 @@
 				A57DDF3C204ACCEC0031D7DF /* SegueUITests.swift in Sources */,
 				A528FD53204C108A0020ABA9 /* XCUIApplication+Device.swift in Sources */,
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
+				A5AFC500207C8B2B00ED689D /* DashboardTests.swift in Sources */,
 				A5159704205A7AB40096C52C /* XCUIApplication+Asserts.swift in Sources */,
 				A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */,
 				A59F67B2206E5299006C6E6E /* JobTests.swift in Sources */,

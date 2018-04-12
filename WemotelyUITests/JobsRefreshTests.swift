@@ -11,10 +11,11 @@ class JobsRefreshTests: BaseUITestCase {
         app.launch()
 
         let dashboardTable = app.tables["dashboardTableView"]
-        XCTAssertTrue(dashboardTable.waitForExistence(timeout: TimeInterval(20)))
+        let dashboardCell = app.cellByIndex(table: dashboardTable, index: account.index)
+        XCTAssertTrue(dashboardCell.waitForExistence(timeout: TimeInterval(20)))
 
         // Tap "from" row
-        app.cellByIndex(table: dashboardTable, index: account.index).tap()
+        dashboardCell.tap()
         XCTAssert(app.isDisplayingJobs)
 
         // Check number of rows in table match dashboard row count

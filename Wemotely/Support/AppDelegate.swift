@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        // Fetch data once an hour when app has not been terminated.
+        UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
+
         // Override point for customization after application launch.
         guard let splitViewController = window!.rootViewController as? UISplitViewController else {
             return false
@@ -36,6 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         splitViewController.delegate = self
 
         return true
+    }
+
+    func application(_ application: UIApplication,
+                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        let accounts = Account.activeSorted(provider: realmProvider)
+
+        GetJobsService(accounts: accounts).call(completion: { _ in
+            completionHandler(.newData)
+        })
+        completionHandler(.noData)
     }
 }
 

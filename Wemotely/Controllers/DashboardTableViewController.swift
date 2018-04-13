@@ -42,8 +42,7 @@ class DashboardTableViewController: UITableViewController {
             self.loadingView.show(tableView: self.tableView)
         }, after: {
             GetJobsService(accounts: accounts).call(completion: { _ in
-                self.tableView.reloadData()
-                self.loadingView.hide(tableView: self.tableView)
+                self.handleDataUpdate()
             })
         }, skipped: {
             self.loadingView.hide(tableView: self.tableView)
@@ -64,6 +63,11 @@ class DashboardTableViewController: UITableViewController {
         } else {
             return sections[section]
         }
+    }
+
+    func handleDataUpdate() {
+        self.tableView.reloadData()
+        self.loadingView.hide(tableView: self.tableView)
     }
 
     private func handleSplitViewController() {

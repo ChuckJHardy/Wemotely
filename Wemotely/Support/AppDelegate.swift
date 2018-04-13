@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
-        // Fetch data once an hour when app has not been terminated.
-        UIApplication.shared.setMinimumBackgroundFetchInterval(3600)
+        // Fetch data once every 12 hours when app has not been terminated.
+        UIApplication.shared.setMinimumBackgroundFetchInterval(43200)
 
         // Override point for customization after application launch.
         guard let splitViewController = window!.rootViewController as? UISplitViewController else {
@@ -43,11 +43,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        let accounts = Account.activeSorted(provider: realmProvider)
+        guard let splitViewController = window!.rootViewController as? UISplitViewController else {
+            completionHandler(.failed)
+            return
+        }
 
-        GetJobsService(accounts: accounts).call(completion: { _ in
-            completionHandler(.newData)
-        })
+        for viewController in splitViewController.viewControllers {
+            guard let navController = viewController as? UINavigationController else {
+                continue
+            }
+
+            if let controller = navController.topViewController as? DashboardTableViewController {
+                let accounts = Account.activeSorted(provider: realmProvider)
+
+                Seed(provider: realmProvider).call(before: {}, after: {}, skipped: {
+                    GetJobsService(accounts: accounts).call(completion: { _ in
+                        controller.handleDataUpdate()
+                        completionHandler(.newData)
+                    })
+                })
+            }
+        }
+
         completionHandler(.noData)
     }
 }

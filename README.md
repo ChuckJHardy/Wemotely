@@ -3,6 +3,10 @@
 [![License](https://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg?style=flat)](https://github.com/ChuckJHardy/Wemotely/blob/master/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://github.com/ChuckJHardy/Wemotely)
 
+![Dashboard](./Resources/Readme/dashboard.jpeg)
+![Jobs](./Resources/Readme/jobs.jpeg)
+![Job](./Resources/Readme/job.jpeg)
+
 ### Installation
 
 Run Setup Script

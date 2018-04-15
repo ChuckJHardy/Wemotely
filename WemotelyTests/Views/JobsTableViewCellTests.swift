@@ -49,10 +49,7 @@ class JobsTableViewCellTests: BaseTestCase {
 
         setup(row: TestFixtures.Rows.standardRow(), job: job)
 
-        let image = tableViewCell?.stateImageView.image
-        let expectedImage = UIImage(named: "unread-indicator-blank", in: Bundle.main, compatibleWith: nil)
-
-        XCTAssertEqual(UIImagePNGRepresentation(image!), UIImagePNGRepresentation(expectedImage!))
+        XCTAssertNil(tableViewCell?.stateImageView.image)
     }
 
     internal func setup(row: Row, job: Job? = nil) {

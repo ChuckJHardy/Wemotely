@@ -84,4 +84,12 @@ class JobTests: BaseTestCase {
         XCTAssertEqual(findJob?.favourite, true)
         XCTAssertEqual(findJob?.pubDate, testDate)
     }
+
+    func testMarkAsRead() {
+        let job = Job()
+
+        XCTAssertFalse(job.read)
+        Job.markAsRead(provider: realm, job: job)
+        XCTAssertTrue(job.read)
+    }
 }

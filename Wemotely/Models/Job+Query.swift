@@ -43,11 +43,13 @@ extension Job {
 
     private static func baseQueryObject(provider: Realm, accountUUID: String?) -> Results<Job> {
         if let uuid = accountUUID, let account = Account.byUUID(provider: provider, uuid: uuid) {
-            return account.jobs.sorted(byKeyPath: Job.defaultSortKey)
+            return account
+                .jobs
+                .sorted(byKeyPath: Job.defaultSortKey, ascending: false)
         }
 
         return provider.objects(Job.self)
             .filter("account.active = %@", true)
-            .sorted(byKeyPath: Job.defaultSortKey)
+            .sorted(byKeyPath: Job.defaultSortKey, ascending: false)
     }
 }

@@ -9,13 +9,18 @@ class JobsTableViewCell: UITableViewCell {
     @IBOutlet weak var stateImageView: UIImageView!
 
     func setup(job: Job) {
+        stateImageView.accessibilityIdentifier = "stateImageView"
+        stateImageView.isAccessibilityElement = true
+
         jobTitle?.text = job.title
         jobSubtitle?.text = job.company
         jobDescription?.text = JobPresenter().publishedAt(date: job.pubDate)
 
         if job.read {
-            stateImageView?.image = UIImage(named: "unread-indicator-blank")
+            stateImageView.isHidden = true
+            stateImageView?.image = nil
         } else {
+            stateImageView.isHidden = false
             stateImageView?.image = UIImage(named: "unread-indicator")
         }
     }

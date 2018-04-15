@@ -22,6 +22,25 @@ class JobTests: BaseUITestCase {
         }
     }
 
+    func testReadUnreadState() {
+        app.launch()
+
+        gotoJobs()
+
+        let jobsTable = app.tables["jobsTableView"]
+        let cell = app.cellByIndex(table: jobsTable, index: 0)
+        let image = cell.images["stateImageView"]
+
+        // Cell should have a unread icon
+        XCTAssertTrue(image.exists)
+
+        gotoJob()
+        backToJobs()
+
+        // Cell should have no unread icon
+        XCTAssertFalse(image.exists)
+    }
+
     func testFavouritingJob() {
         let account = (name: "Favourites", index: 1)
         let icon = (labelBefore: "unheart", labelAfter: "heart", index: 1)

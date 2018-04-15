@@ -33,4 +33,16 @@ class Job: Object {
     override static func indexedProperties() -> [String] {
         return ["guid"]
     }
+
+    static func markAsRead(provider: Realm, job: Job?) {
+        if let job = job {
+            do {
+                try provider.write {
+                    job.read = true
+                }
+            } catch let err {
+                logger.error("Unable to mark job as read", err)
+            }
+        }
+    }
 }

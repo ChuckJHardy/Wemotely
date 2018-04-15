@@ -43,7 +43,7 @@ class SegueUITests: BaseUITestCase {
         app.runWithSupportedOrientations {
             app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Settings' Button
-                app.navigationBars["Dashboard"].buttons["Settings"].tap()
+                app.navigationBars["Dashboard"].buttons["settings"].tap()
 
                 XCTAssert(app.isDisplayingSettings)
 
@@ -61,7 +61,7 @@ class SegueUITests: BaseUITestCase {
         app.runWithSupportedOrientations {
             app.startAndEndOnDashboard {
                 // Tap Navigation Bar 'Settings' Button
-                app.navigationBars["Dashboard"].buttons["Settings"].tap()
+                app.navigationBars["Dashboard"].buttons["settings"].tap()
 
                 XCTAssert(app.isDisplayingSettings)
 

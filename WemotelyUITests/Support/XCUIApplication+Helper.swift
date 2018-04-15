@@ -14,6 +14,7 @@ extension XCUIApplication {
             .children(matching: .cell)
             .element(boundBy: 0)
             .staticTexts[label]
+            .firstMatch
     }
 
     func countCellsInTable(table: XCUIElement) -> Int {

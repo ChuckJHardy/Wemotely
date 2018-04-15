@@ -9,8 +9,8 @@ class JobQueryTests: BaseTestCase {
 
         let account = Account()
 
-        let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 10)])
+        let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -10)])
         job1.account = account
         job2.account = account
 
@@ -36,9 +36,9 @@ class JobQueryTests: BaseTestCase {
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
-        let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 100)])
-        let job3 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 10)])
+        let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -100)])
+        let job3 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -10)])
         job1.account = activeAccount
         job2.account = activeAccount
         job3.account = inactiveAccount
@@ -66,8 +66,8 @@ class JobQueryTests: BaseTestCase {
 
         let account = Account()
 
-        let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["pubDate": Date(timeIntervalSinceNow: 10)])
+        let job1 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["pubDate": Date(timeIntervalSinceNow: -10)])
         job1.account = account
         job2.account = account
 
@@ -92,8 +92,8 @@ class JobQueryTests: BaseTestCase {
 
         let account = Account()
 
-        let job1 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: 10)])
+        let job1 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: -10)])
         let job3 = Job(value: ["favourite": true, "trash": true])
         let job4 = Job(value: ["favourite": false, "trash": true])
         let job5 = Job(value: ["favourite": false, "trash": false])
@@ -128,9 +128,9 @@ class JobQueryTests: BaseTestCase {
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
-        let job1 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: 10)])
-        let job3 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: 10)])
+        let job1 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: -10)])
+        let job3 = Job(value: ["favourite": true, "pubDate": Date(timeIntervalSinceNow: -10)])
         let job4 = Job(value: ["favourite": false, "trash": true])
         let job5 = Job(value: ["favourite": false, "trash": false])
         job1.account = activeAccount
@@ -164,10 +164,10 @@ class JobQueryTests: BaseTestCase {
 
         let account = Account()
 
-        let job1 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: 1)])
-        let job3 = Job(value: ["read": false, "trash": true, "pubDate": Date(timeIntervalSinceNow: 10)])
-        let job4 = Job(value: ["read": false, "favourite": true, "pubDate": Date(timeIntervalSinceNow: 100)])
+        let job1 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: -1)])
+        let job3 = Job(value: ["read": false, "trash": true, "pubDate": Date(timeIntervalSinceNow: -10)])
+        let job4 = Job(value: ["read": false, "favourite": true, "pubDate": Date(timeIntervalSinceNow: -100)])
         let job5 = Job(value: ["read": true, "trash": false])
         job1.account = account
         job2.account = account
@@ -200,10 +200,10 @@ class JobQueryTests: BaseTestCase {
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
-        let job1 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: 1)])
-        let job3 = Job(value: ["read": false, "trash": true, "pubDate": Date(timeIntervalSinceNow: 10)])
-        let job4 = Job(value: ["read": false, "favourite": true, "pubDate": Date(timeIntervalSinceNow: 100)])
+        let job1 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["read": false, "pubDate": Date(timeIntervalSinceNow: -1)])
+        let job3 = Job(value: ["read": false, "trash": true, "pubDate": Date(timeIntervalSinceNow: -10)])
+        let job4 = Job(value: ["read": false, "favourite": true, "pubDate": Date(timeIntervalSinceNow: -100)])
         let job5 = Job(value: ["read": true, "trash": false])
         job1.account = activeAccount
         job2.account = activeAccount
@@ -236,10 +236,10 @@ class JobQueryTests: BaseTestCase {
 
         let account = Account()
 
-        let job1 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: 1)])
-        let job3 = Job(value: ["trash": true, "read": true, "pubDate": Date(timeIntervalSinceNow: 10)])
-        let job4 = Job(value: ["trash": true, "favourite": true, "pubDate": Date(timeIntervalSinceNow: 100)])
+        let job1 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: -1)])
+        let job3 = Job(value: ["trash": true, "read": true, "pubDate": Date(timeIntervalSinceNow: -10)])
+        let job4 = Job(value: ["trash": true, "favourite": true, "pubDate": Date(timeIntervalSinceNow: -100)])
         let job5 = Job(value: ["trash": false, "read": false])
         job1.account = account
         job2.account = account
@@ -272,10 +272,10 @@ class JobQueryTests: BaseTestCase {
         let activeAccount = Account(value: ["urlKey": "A", "active": true])
         let inactiveAccount = Account(value: ["urlKey": "B", "active": false])
 
-        let job1 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: 1000)])
-        let job2 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: 1)])
-        let job3 = Job(value: ["trash": true, "read": true, "pubDate": Date(timeIntervalSinceNow: 10)])
-        let job4 = Job(value: ["trash": true, "favourite": true, "pubDate": Date(timeIntervalSinceNow: 100)])
+        let job1 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: -1000)])
+        let job2 = Job(value: ["trash": true, "pubDate": Date(timeIntervalSinceNow: -1)])
+        let job3 = Job(value: ["trash": true, "read": true, "pubDate": Date(timeIntervalSinceNow: -10)])
+        let job4 = Job(value: ["trash": true, "favourite": true, "pubDate": Date(timeIntervalSinceNow: -100)])
         let job5 = Job(value: ["trash": false, "read": false])
 
         job1.account = activeAccount

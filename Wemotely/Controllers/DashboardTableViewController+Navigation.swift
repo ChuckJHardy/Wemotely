@@ -16,7 +16,7 @@ extension DashboardTableViewController {
         )
 
         let settingsItem = UIBarButtonItem(
-            title: "Settings",
+            image: UIImage(named: "settings"),
             style: .plain,
             target: self,
             action: #selector(settingsToolbarItemSelected(_:))

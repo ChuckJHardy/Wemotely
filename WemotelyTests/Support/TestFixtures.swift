@@ -127,5 +127,20 @@ struct TestFixtures {
                 "account": account!
             ])
         }
+
+        static func read(account: Account? = nil) -> Job {
+            return Job([
+                "guid": "https://example.com",
+                "title": "Test Title",
+                "company": "Test Company",
+                "body": "<h1>Test Body</h1>",
+                "link": "https://example.com/test_link",
+                "read": true,
+                "trash": false,
+                "favourite": false,
+                "pubDate": Date(),
+                "account": account!
+            ])
+        }
     }
 }

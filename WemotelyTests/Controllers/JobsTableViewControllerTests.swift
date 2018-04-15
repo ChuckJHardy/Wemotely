@@ -47,10 +47,11 @@ class JobsTableViewControllerTests: BaseTestCase {
         let indexPath = IndexPath(row: 0, section: 0)
         let job = TestFixtures.Jobs.unorganised(account: account)
         setup(row: TestFixtures.Rows.standardRow(), job: job)
-        let cell = tableViewController.tableView(tableViewController.tableView, cellForRowAt: indexPath)
+        let cell = tableViewController.tableView(
+            tableViewController.tableView, cellForRowAt: indexPath
+        ) as? JobsTableViewCell
 
-        XCTAssertEqual(cell.textLabel?.text, job.title)
-        XCTAssertEqual(cell.detailTextLabel?.text, job.company)
+        XCTAssertEqual(cell?.jobTitle.text, job.title)
     }
 
     func testTableViewLeadingSwipeActionsConfigurationForRowAt() {

@@ -27,6 +27,13 @@ extension JobsTableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let jobs = jobs {
+            Job.markAsRead(provider: realmProvider, job: jobs[indexPath.row])
+            didChangeJob()
+        }
+    }
+
     override func tableView(
         _ tableView: UITableView,
         leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath

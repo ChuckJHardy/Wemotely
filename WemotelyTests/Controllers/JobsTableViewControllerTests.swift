@@ -54,6 +54,21 @@ class JobsTableViewControllerTests: BaseTestCase {
         XCTAssertEqual(cell?.jobTitle.text, job.title)
     }
 
+    func testTableViewDidSelectRowAt() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.unorganised(account: account)
+
+        setup(row: TestFixtures.Rows.standardRow(), job: job)
+
+        XCTAssertFalse(job.read)
+        XCTAssertFalse(tableViewController.didEdit)
+
+        tableViewController.tableView(tableViewController.tableView, didSelectRowAt: indexPath)
+
+        XCTAssertTrue(job.read)
+        XCTAssertTrue(tableViewController.didEdit)
+    }
+
     func testTableViewLeadingSwipeActionsConfigurationForRowAt() {
         let indexPath = IndexPath(row: 0, section: 0)
         let job = TestFixtures.Jobs.unorganised(account: account)

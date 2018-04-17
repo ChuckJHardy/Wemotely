@@ -26,14 +26,6 @@ class JobTests: BaseTestCase {
         XCTAssertEqual(job.pubDate.timeIntervalSince1970, Date().timeIntervalSince1970, accuracy: 100)
     }
 
-    func testUUID() {
-        let job1 = Job()
-        let job2 = Job()
-
-        XCTAssertEqual(job1.uuid.count, NSUUID().uuidString.count)
-        XCTAssertNotEqual(job1.uuid, job2.uuid)
-    }
-
     func testGUID() {
         let url = "https://example.com"
         let job1 = Job(["guid": url])
@@ -42,7 +34,7 @@ class JobTests: BaseTestCase {
     }
 
     func testPrimaryKey() {
-        XCTAssertEqual(Job.primaryKey(), "uuid")
+        XCTAssertEqual(Job.primaryKey(), "guid")
     }
 
     func testIndexedProperties() {

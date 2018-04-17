@@ -5,7 +5,6 @@ import SwiftHash
 class Job: Object {
     static let defaultSortKey = "pubDate"
 
-    @objc dynamic var uuid = NSUUID().uuidString
     @objc dynamic var guid: String = ""
 
     @objc dynamic var title = "Null Title"
@@ -27,7 +26,7 @@ class Job: Object {
     }
 
     override static func primaryKey() -> String? {
-        return "uuid"
+        return "guid"
     }
 
     override static func indexedProperties() -> [String] {

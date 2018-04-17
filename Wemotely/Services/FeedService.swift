@@ -3,6 +3,7 @@ import RealmSwift
 import FeedKit
 
 struct FeedService {
+    var provider: Realm
     var account: Account
     var updatedAt: Date
 
@@ -10,9 +11,9 @@ struct FeedService {
         return FeedParser(URL: url)
     }
 
-    func save(realm: Realm, feed: RSSFeed) {
+    func save(feed: RSSFeed) {
         do {
-            try realm.write {
+            try provider.write {
                 updateWith(feed: feed)
             }
         } catch let err {
@@ -27,9 +28,12 @@ struct FeedService {
         }
 
         for item in feed.items! {
-            account.jobs.append(
-                BuildJob(record: item).build(linkedAccount: account)
-            )
+            let newJob = BuildJob(record: item).build(linkedAccount: account)
+            let existingJob = provider.object(ofType: Job.self, forPrimaryKey: newJob.guid)
+
+            if existingJob == nil {
+                account.jobs.append(newJob)
+            }
         }
 
         account.lastUpdated = updatedAt

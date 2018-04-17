@@ -47,42 +47,40 @@ class JobTests: BaseUITestCase {
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Record counts before changes
-                let favouriteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            // Record counts before changes
+            let favouriteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
 
-                gotoJobs()
+            gotoJobs()
 
-                // Record counts before changes
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
+            // Record counts before changes
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
-                gotoJob()
+            gotoJob()
 
-                // Check Icon State
-                let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
-                XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
+            // Check Icon State
+            let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
 
-                // Tap favourite icon
-                favouriteIcon.tap()
+            // Tap favourite icon
+            favouriteIcon.tap()
 
-                // Check Icon State Changed
-                XCTAssertEqual(favouriteIcon.label, icon.labelAfter)
+            // Check Icon State Changed
+            XCTAssertEqual(favouriteIcon.label, icon.labelAfter)
 
-                backToJobs()
+            backToJobs()
 
-                // Cell should have been removed
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
 
-                backToDashboard()
+            backToDashboard()
 
-                // Check favourites count increase
-                let favouriteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
-                XCTAssertEqual(favouriteCountBefore + 1, favouriteCountAfter)
-            }
+            // Check favourites count increase
+            let favouriteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            XCTAssertEqual(favouriteCountBefore + 1, favouriteCountAfter)
         }
     }
 
@@ -92,61 +90,59 @@ class JobTests: BaseUITestCase {
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Record counts before changes
-                let favouriteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            // Record counts before changes
+            let favouriteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
 
-                gotoJobs()
+            gotoJobs()
 
-                // Record counts before changes
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
+            // Record counts before changes
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
-                // Favourite Job using Swipe action
-                app.swipeAndFavourite(table: jobsTable, label: jobTitle)
+            // Favourite Job using Swipe action
+            app.swipeAndFavourite(table: jobsTable, label: jobTitle)
 
-                // Cell should have been removed
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
 
-                backToDashboard()
-                gotoFavourites()
+            backToDashboard()
+            gotoFavourites()
 
-                // Record counts before changes
-                let favouritesJobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
+            // Record counts before changes
+            let favouritesJobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
-                gotoJob()
+            gotoJob()
 
-                // Check Icon State
-                let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
-                XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
+            // Check Icon State
+            let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
 
-                // Tap favourite icon
-                favouriteIcon.tap()
+            // Tap favourite icon
+            favouriteIcon.tap()
 
-                // Check Icon State Changed
-                XCTAssertEqual(favouriteIcon.label, icon.labelAfter)
+            // Check Icon State Changed
+            XCTAssertEqual(favouriteIcon.label, icon.labelAfter)
 
-                backToFavourites()
+            backToFavourites()
 
-                // Cell should have been removed
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), favouritesJobsTableCellCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), favouritesJobsTableCellCountBefore - 1)
 
-                // Back to Dashboard
-                app.navigationBars["Favourites"].buttons["Dashboard"].tap()
-                gotoJobs()
+            // Back to Dashboard
+            app.navigationBars["Favourites"].buttons["Dashboard"].tap()
+            gotoJobs()
 
-                // Cell should have returned
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore)
+            // Cell should have returned
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore)
 
-                backToDashboard()
+            backToDashboard()
 
-                // Check favourites count unchanged
-                let favouriteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
-                XCTAssertEqual(favouriteCountBefore, favouriteCountAfter)
-            }
+            // Check favourites count unchanged
+            let favouriteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            XCTAssertEqual(favouriteCountBefore, favouriteCountAfter)
         }
     }
 
@@ -156,42 +152,40 @@ class JobTests: BaseUITestCase {
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Record counts before changes
-                let deleteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            // Record counts before changes
+            let deleteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
 
-                gotoJobs()
+            gotoJobs()
 
-                // Record counts before changes
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
+            // Record counts before changes
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
-                gotoJob()
+            gotoJob()
 
-                // Check Icon State
-                let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
-                XCTAssertEqual(deleteIcon.label, icon.labelBefore)
+            // Check Icon State
+            let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            XCTAssertEqual(deleteIcon.label, icon.labelBefore)
 
-                // Tap delete icon
-                deleteIcon.tap()
+            // Tap delete icon
+            deleteIcon.tap()
 
-                // Check Icon State Changed
-                XCTAssertEqual(deleteIcon.label, icon.labelAfter)
+            // Check Icon State Changed
+            XCTAssertEqual(deleteIcon.label, icon.labelAfter)
 
-                backToJobs()
+            backToJobs()
 
-                // Cell should have been removed
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
 
-                backToDashboard()
+            backToDashboard()
 
-                // Check trash count increase
-                let deleteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
-                XCTAssertEqual(deleteCountBefore + 1, deleteCountAfter)
-            }
+            // Check trash count increase
+            let deleteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            XCTAssertEqual(deleteCountBefore + 1, deleteCountAfter)
         }
     }
 
@@ -201,61 +195,59 @@ class JobTests: BaseUITestCase {
 
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                let dashboardTable = app.tables["dashboardTableView"]
+        app.startAndEndOnDashboard {
+            let dashboardTable = app.tables["dashboardTableView"]
 
-                // Record counts before changes
-                let deleteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            // Record counts before changes
+            let deleteCountBefore = app.countInDashboardCell(table: dashboardTable, position: account.index)
 
-                gotoJobs()
+            gotoJobs()
 
-                // Record counts before changes
-                let jobsTable = app.tables["jobsTableView"]
-                let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
+            // Record counts before changes
+            let jobsTable = app.tables["jobsTableView"]
+            let jobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
-                // Delete Job using Swipe action
-                app.swipeAndDelete(table: jobsTable, label: jobTitle)
+            // Delete Job using Swipe action
+            app.swipeAndDelete(table: jobsTable, label: jobTitle)
 
-                // Cell should have been removed
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
 
-                backToDashboard()
-                gotoTrash()
+            backToDashboard()
+            gotoTrash()
 
-                // Record counts before changes
-                let deleteJobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
+            // Record counts before changes
+            let deleteJobsTableCellCountBefore = app.countCellsInTable(table: jobsTable)
 
-                gotoJob()
+            gotoJob()
 
-                // Check Icon State
-                let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
-                XCTAssertEqual(deleteIcon.label, icon.labelBefore)
+            // Check Icon State
+            let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            XCTAssertEqual(deleteIcon.label, icon.labelBefore)
 
-                // Tap delete icon
-                deleteIcon.tap()
+            // Tap delete icon
+            deleteIcon.tap()
 
-                // Check Icon State Changed
-                XCTAssertEqual(deleteIcon.label, icon.labelAfter)
+            // Check Icon State Changed
+            XCTAssertEqual(deleteIcon.label, icon.labelAfter)
 
-                backToTrash()
+            backToTrash()
 
-                // Cell should have been removed
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), deleteJobsTableCellCountBefore - 1)
+            // Cell should have been removed
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), deleteJobsTableCellCountBefore - 1)
 
-                // Back to Dashboard
-                app.navigationBars["Trash"].buttons["Dashboard"].tap()
-                gotoJobs()
+            // Back to Dashboard
+            app.navigationBars["Trash"].buttons["Dashboard"].tap()
+            gotoJobs()
 
-                // Cell should have returned
-                XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore)
+            // Cell should have returned
+            XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore)
 
-                backToDashboard()
+            backToDashboard()
 
-                // Check trash count unchanged
-                let deleteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
-                XCTAssertEqual(deleteCountBefore, deleteCountAfter)
-            }
+            // Check trash count unchanged
+            let deleteCountAfter = app.countInDashboardCell(table: dashboardTable, position: account.index)
+            XCTAssertEqual(deleteCountBefore, deleteCountAfter)
         }
     }
 

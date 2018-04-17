@@ -35,7 +35,11 @@ extension Account {
 
     static func oldest(provider: Realm, accounts: Results<Account>?) -> Account? {
         let sortedAccounts = accounts?.sorted { (account, other) -> Bool in
-            account.lastUpdated! < other.lastUpdated!
+            if let left = account.lastUpdated, let right = other.lastUpdated {
+                return left < right
+            }
+
+            return false
         }
 
         return sortedAccounts?.first

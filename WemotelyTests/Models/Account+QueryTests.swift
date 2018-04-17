@@ -99,15 +99,17 @@ class AccountQueryTests: BaseTestCase {
         let account1 = TestFixtures.Accounts.updated("A", updatedAt: Date(timeInterval: -3000, since: Date()))
         let account2 = TestFixtures.Accounts.updated("B", updatedAt: Date(timeInterval: -2000, since: Date()))
         let account3 = TestFixtures.Accounts.updated("C", updatedAt: Date(timeInterval: -1000, since: Date()))
+        let account4 = TestFixtures.Accounts.simple("D")
 
         saveApp { (app) in
             app.accounts.append(account1)
             app.accounts.append(account2)
             app.accounts.append(account3)
+            app.accounts.append(account4)
         }
 
         let accounts = realm.objects(Account.self)
-        XCTAssertEqual(accounts.count, 3)
+        XCTAssertEqual(accounts.count, 4)
 
         let sut = Account.oldest(provider: realm, accounts: accounts)
 

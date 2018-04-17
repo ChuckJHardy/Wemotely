@@ -19,10 +19,15 @@ struct GetJobsService {
                     continue
                 }
 
-                let feedService = FeedService(account: account, updatedAt: updatedAt)
-                let feedURL = URLProvider(key: account.urlKey!).url()
+                let feedURL = URLProviderFactory().build(key: account.urlKey!)
+                let feedService = FeedService(
+                    provider: threadProvider,
+                    account: account,
+                    updatedAt: updatedAt
+                )
+
                 if let result = feedService.parser(url: feedURL)?.parse() {
-                    feedService.save(realm: threadProvider, feed: result.rssFeed!)
+                    feedService.save(feed: result.rssFeed!)
                 }
             }
 

@@ -68,13 +68,14 @@
 		A5AFC4FB207BE5D500ED689D /* DashboardTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AFC4FA207BE5D500ED689D /* DashboardTableViewControllerTests.swift */; };
 		A5AFC4FE207BEB5000ED689D /* LoadingEmptyStateViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AFC4FD207BEB5000ED689D /* LoadingEmptyStateViewTests.swift */; };
 		A5AFC500207C8B2B00ED689D /* DashboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AFC4FF207C8B2B00ED689D /* DashboardTests.swift */; };
-		A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProvider.swift */; };
+		A5B362572085D2E8007D45BB /* jobs-other.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5B362562085D2E8007D45BB /* jobs-other.xml */; };
+		A5B5B48E2053E4EA001806B6 /* URLProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B5B48D2053E4EA001806B6 /* URLProviderFactory.swift */; };
 		A5B7133E2056F89C0054439C /* Environment.stencil in Resources */ = {isa = PBXBuildFile; fileRef = A5B7133D2056F89C0054439C /* Environment.stencil */; };
 		A5B713412056FB560054439C /* Environment.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B713402056FB560054439C /* Environment.generated.swift */; };
 		A5BF6F8B205B216C0066DE7C /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5BF6F8A205B216C0066DE7C /* JobsTableViewCell.swift */; };
 		A5CAA28D20543C60009C56BA /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA28C20543C60009C56BA /* BaseTestCase.swift */; };
 		A5CAA294205534D4009C56BA /* jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA293205534D4009C56BA /* jobs.xml */; };
-		A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA29520553BFC009C56BA /* URLProviderTests.swift */; };
+		A5CAA29620553BFC009C56BA /* URLProviderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA29520553BFC009C56BA /* URLProviderFactoryTests.swift */; };
 		A5D6753A207004E6004C3A0B /* SwiftHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D67539207004E6004C3A0B /* SwiftHash.framework */; };
 		A5D6753B2070051A004C3A0B /* SwiftHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D67539207004E6004C3A0B /* SwiftHash.framework */; };
 		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
@@ -188,13 +189,14 @@
 		A5AFC4FA207BE5D500ED689D /* DashboardTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewControllerTests.swift; sourceTree = "<group>"; };
 		A5AFC4FD207BEB5000ED689D /* LoadingEmptyStateViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingEmptyStateViewTests.swift; sourceTree = "<group>"; };
 		A5AFC4FF207C8B2B00ED689D /* DashboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTests.swift; sourceTree = "<group>"; };
-		A5B5B48D2053E4EA001806B6 /* URLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProvider.swift; sourceTree = "<group>"; };
+		A5B362562085D2E8007D45BB /* jobs-other.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "jobs-other.xml"; sourceTree = "<group>"; };
+		A5B5B48D2053E4EA001806B6 /* URLProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderFactory.swift; sourceTree = "<group>"; };
 		A5B7133D2056F89C0054439C /* Environment.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Environment.stencil; sourceTree = "<group>"; };
 		A5B713402056FB560054439C /* Environment.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.generated.swift; sourceTree = "<group>"; };
 		A5BF6F8A205B216C0066DE7C /* JobsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTableViewCell.swift; sourceTree = "<group>"; };
 		A5CAA28C20543C60009C56BA /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		A5CAA293205534D4009C56BA /* jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jobs.xml; sourceTree = "<group>"; };
-		A5CAA29520553BFC009C56BA /* URLProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderTests.swift; sourceTree = "<group>"; };
+		A5CAA29520553BFC009C56BA /* URLProviderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderFactoryTests.swift; sourceTree = "<group>"; };
 		A5D67539207004E6004C3A0B /* SwiftHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHash.framework; path = Carthage/Build/iOS/SwiftHash.framework; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F5485E207A6239001FEFD2 /* LoadingEmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingEmptyStateView.xib; sourceTree = "<group>"; };
@@ -296,7 +298,7 @@
 				A5973ACB206673CE000E4625 /* Platform.swift */,
 				A5159E26204FD6E00056AF57 /* RealmProvider.swift */,
 				A5F991102052736C005D7C42 /* Seed.swift */,
-				A5B5B48D2053E4EA001806B6 /* URLProvider.swift */,
+				A5B5B48D2053E4EA001806B6 /* URLProviderFactory.swift */,
 				A5CAA28E20552501009C56BA /* Fixtures */,
 				A5B7133C2056F8180054439C /* Stencils */,
 				A59F67A6206E3DA4006C6E6E /* Styles */,
@@ -531,6 +533,7 @@
 			isa = PBXGroup;
 			children = (
 				A5CAA293205534D4009C56BA /* jobs.xml */,
+				A5B362562085D2E8007D45BB /* jobs-other.xml */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -579,7 +582,7 @@
 			children = (
 				A5F99119205279B2005D7C42 /* SeedTests.swift */,
 				A5CAA28C20543C60009C56BA /* BaseTestCase.swift */,
-				A5CAA29520553BFC009C56BA /* URLProviderTests.swift */,
+				A5CAA29520553BFC009C56BA /* URLProviderFactoryTests.swift */,
 				A580E1EB2077D07600569B34 /* TestFixtures.swift */,
 			);
 			path = Support;
@@ -725,6 +728,7 @@
 			files = (
 				A57DDF26204ACCEB0031D7DF /* LaunchScreen.storyboard in Resources */,
 				A5B7133E2056F89C0054439C /* Environment.stencil in Resources */,
+				A5B362572085D2E8007D45BB /* jobs-other.xml in Resources */,
 				A5CAA294205534D4009C56BA /* jobs.xml in Resources */,
 				A5F5485F207A6239001FEFD2 /* LoadingEmptyStateView.xib in Resources */,
 				A51049C6208258560011A25A /* Assets.xcassets in Resources */,
@@ -827,7 +831,7 @@
 				A581C62020669943007EC4B0 /* Account+Query.swift in Sources */,
 				A57DDF1E204ACCEB0031D7DF /* JobViewController.swift in Sources */,
 				A581C61B206698F2007EC4B0 /* Job+Query.swift in Sources */,
-				A5B5B48E2053E4EA001806B6 /* URLProvider.swift in Sources */,
+				A5B5B48E2053E4EA001806B6 /* URLProviderFactory.swift in Sources */,
 				A50F1B512057D2EF00C73AF9 /* DashboardTableViewCell.swift in Sources */,
 				A5973ABA20666B09000E4625 /* JobsTableViewController+Segues.swift in Sources */,
 				A59F67B0206E431A006C6E6E /* JobViewController+WebView.swift in Sources */,
@@ -872,7 +876,7 @@
 				A581808B20680D7F006A62B8 /* Job+QueryTests.swift in Sources */,
 				A57DDF31204ACCEC0031D7DF /* JobTests.swift in Sources */,
 				A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */,
-				A5CAA29620553BFC009C56BA /* URLProviderTests.swift in Sources */,
+				A5CAA29620553BFC009C56BA /* URLProviderFactoryTests.swift in Sources */,
 				A5F9911520527705005D7C42 /* AppTests.swift in Sources */,
 				A5CAA28D20543C60009C56BA /* BaseTestCase.swift in Sources */,
 				A580E1FB2078B62400569B34 /* JobsTableViewControllerTests.swift in Sources */,

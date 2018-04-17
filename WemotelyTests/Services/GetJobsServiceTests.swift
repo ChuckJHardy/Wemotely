@@ -34,7 +34,8 @@ class GetJobsServiceTests: BaseTestCase {
         XCTAssertEqual(account1.lastUpdated, updatedAt)
         XCTAssertEqual(account2.lastUpdated, updatedAt)
         XCTAssertLessThan(account1PreviousCount, account1.jobs.count)
-        XCTAssertLessThan(account2PreviousCount, account2.jobs.count)
+        // Job already created
+        XCTAssertEqual(account2PreviousCount, account2.jobs.count)
     }
 
     private func saveApp(bulder: (_ app: App) -> Void) {
@@ -44,7 +45,7 @@ class GetJobsServiceTests: BaseTestCase {
 
         do {
             try realm.write {
-                realm.add(app)
+                realm.add(app, update: true)
             }
         } catch let err {
             logger.error("Failed to Save App", err)

@@ -11,7 +11,7 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     weak var delegate: JobsTableViewController?
     var didChangeJob: Bool = false
     var webView: WKWebView!
-    var jobRecord: Job!
+    var jobRecord: Job?
 
     override func viewDidLoad() {
         super.viewDidLoad()

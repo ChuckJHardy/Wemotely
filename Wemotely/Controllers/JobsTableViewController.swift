@@ -10,6 +10,7 @@ class JobsTableViewController: UITableViewController {
     weak var delegate: DashboardTableViewController?
     var row: Row?
     var didEdit: Bool = false
+    var previouslySelectedIndexPath: IndexPath?
 
     var jobs: Results<Job>? {
         return Job.byRowFilter(provider: realmProvider, row: row)
@@ -31,6 +32,8 @@ class JobsTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         updateNavigationPromptFromAccounts()
+        setClearsSelection()
+        super.viewWillAppear(animated)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

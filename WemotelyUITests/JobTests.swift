@@ -8,37 +8,11 @@ class JobTests: BaseUITestCase {
     func testNavigationBarTitlePrompt() {
         app.launch()
 
-        app.runWithSupportedOrientations {
-            app.startAndEndOnDashboard {
-                gotoJobs()
-                gotoJob()
-
-                app.assertNavigationTitle(app: app, title: companyName)
-                app.assertNavigationPrompt(app: app, title: companyName, prompt: jobTitle)
-
-                backToJobs()
-                backToDashboard()
-            }
-        }
-    }
-
-    func testReadUnreadState() {
-        app.launch()
-
         gotoJobs()
-
-        let jobsTable = app.tables["jobsTableView"]
-        let cell = app.cellByIndex(table: jobsTable, index: 0)
-        let image = cell.images["stateImageView"]
-
-        // Cell should have a unread icon
-        XCTAssertTrue(image.exists)
-
         gotoJob()
-        backToJobs()
 
-        // Cell should have no unread icon
-        XCTAssertFalse(image.exists)
+        app.assertNavigationTitle(app: app, title: companyName)
+        app.assertNavigationPrompt(app: app, title: companyName, prompt: jobTitle)
     }
 
     func testFavouritingJob() {

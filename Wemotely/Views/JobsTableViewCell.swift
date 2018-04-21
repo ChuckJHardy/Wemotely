@@ -17,11 +17,23 @@ class JobsTableViewCell: UITableViewCell {
         jobDescription?.text = JobPresenter().publishedAt(date: job.pubDate)
 
         if job.read {
-            stateImageView.isHidden = true
-            stateImageView?.image = nil
+            didSelect()
         } else {
             stateImageView.isHidden = false
             stateImageView?.image = UIImage(named: "unread-indicator")
         }
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        if selected {
+            didSelect()
+        }
+    }
+
+    private func didSelect() {
+        stateImageView.isHidden = true
+        stateImageView?.image = nil
     }
 }

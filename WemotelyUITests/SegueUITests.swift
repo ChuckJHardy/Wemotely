@@ -14,7 +14,7 @@ class SegueUITests: BaseUITestCase {
             XCTAssertFalse(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)
 
-            jobNavigationBar.buttons["Master"].tap()
+            jobNavigationBar.buttons[" "].tap()
 
             XCTAssert(app.isDisplayingDashboard)
             XCTAssert(app.isDisplayingJob)

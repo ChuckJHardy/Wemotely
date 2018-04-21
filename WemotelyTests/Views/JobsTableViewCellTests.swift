@@ -52,6 +52,17 @@ class JobsTableViewCellTests: BaseTestCase {
         XCTAssertNil(tableViewCell?.stateImageView.image)
     }
 
+    func testSelectedState() {
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.standardRow(), job: job)
+
+        tableViewCell.setSelected(false, animated: false)
+        XCTAssertNotNil(tableViewCell?.stateImageView.image)
+
+        tableViewCell.setSelected(true, animated: false)
+        XCTAssertNil(tableViewCell?.stateImageView.image)
+    }
+
     internal func setup(row: Row, job: Job? = nil) {
         let indexPath = IndexPath(row: 0, section: 0)
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)

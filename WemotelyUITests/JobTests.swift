@@ -122,7 +122,7 @@ class JobTests: BaseUITestCase {
 
     func testDeletingJob() {
         let account = (name: "Trash", index: 3)
-        let icon = (labelBefore: "Delete", labelAfter: "Undelete", index: 2)
+        let icon = (label: "Delete", index: 2)
 
         app.launch()
 
@@ -142,15 +142,13 @@ class JobTests: BaseUITestCase {
 
             // Check Icon State
             let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
-            XCTAssertEqual(deleteIcon.label, icon.labelBefore)
+            XCTAssertEqual(deleteIcon.label, icon.label)
 
             // Tap delete icon
             deleteIcon.tap()
 
-            // Check Icon State Changed
-            XCTAssertEqual(deleteIcon.label, icon.labelAfter)
-
-            backToJobs()
+            // Segue back to Jobs
+            XCTAssert(app.isDisplayingJobs)
 
             // Cell should have been removed
             XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
@@ -165,7 +163,7 @@ class JobTests: BaseUITestCase {
 
     func testUndeletingJob() {
         let account = (name: "Trash", index: 3)
-        let icon = (labelBefore: "Undelete", labelAfter: "Delete", index: 2)
+        let icon = (label: "Undelete", index: 2)
 
         app.launch()
 
@@ -197,15 +195,13 @@ class JobTests: BaseUITestCase {
 
             // Check Icon State
             let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
-            XCTAssertEqual(deleteIcon.label, icon.labelBefore)
+            XCTAssertEqual(deleteIcon.label, icon.label)
 
             // Tap delete icon
             deleteIcon.tap()
 
-            // Check Icon State Changed
-            XCTAssertEqual(deleteIcon.label, icon.labelAfter)
-
-            backToTrash()
+            // Segue back to Trash
+            XCTAssert(app.isDisplayingTrash)
 
             // Cell should have been removed
             XCTAssertEqual(app.countCellsInTable(table: jobsTable), deleteJobsTableCellCountBefore - 1)

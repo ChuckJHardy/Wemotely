@@ -44,7 +44,7 @@ extension JobViewController {
     }
 
     @objc private func toggleFavourite(_ sender: Any) {
-        toggle(name: "delete") { (job) in
+        toggle(name: "favourite") { (job) in
             job.favourite = !job.favourite
         }
     }
@@ -53,6 +53,8 @@ extension JobViewController {
         toggle(name: "delete") { (job) in
             job.trash = !job.trash
         }
+
+        _ = navigationController?.navigationController?.popViewController(animated: true)
     }
 
     @objc private func openInSafari(_ sender: Any) {

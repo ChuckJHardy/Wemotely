@@ -27,6 +27,7 @@ class JobViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         webView.allowsLinkPreview = false
 
         if let job = jobRecord {
+            setupToolbar(job: job)
             loadContent(job: job)
         }
     }

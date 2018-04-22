@@ -3,7 +3,7 @@ import UIKit
 extension JobViewController {
     func setupToolbar(job: Job) {
         let favouriteIcon = job.favourite ? "heart" : "unheart"
-        let deleteText = job.trash ? "Undelete" : "Delete"
+        let deleteIcon = job.trash ? "inbox" : "trash"
 
         let spacer = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
@@ -19,14 +19,14 @@ extension JobViewController {
         )
 
         let deleteAction = UIBarButtonItem(
-            title: deleteText,
+            image: UIImage(named: deleteIcon),
             style: .plain,
             target: self,
             action: #selector(toggleDeleteJob(_:))
         )
 
         let safariAction = UIBarButtonItem(
-            title: "Open",
+            image: UIImage(named: "safari"),
             style: .plain,
             target: self,
             action: #selector(openInSafari(_:))

@@ -122,7 +122,7 @@ class JobTests: BaseUITestCase {
 
     func testDeletingJob() {
         let account = (name: "Trash", index: 3)
-        let icon = (label: "Delete", index: 2)
+        let icon = (label: "trash", index: 2)
 
         app.launch()
 
@@ -148,7 +148,9 @@ class JobTests: BaseUITestCase {
             deleteIcon.tap()
 
             // Segue back to Jobs
-            XCTAssert(app.isDisplayingJobs)
+            if app.isPhone() {
+                XCTAssert(app.isDisplayingJobs)
+            }
 
             // Cell should have been removed
             XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
@@ -163,7 +165,7 @@ class JobTests: BaseUITestCase {
 
     func testUndeletingJob() {
         let account = (name: "Trash", index: 3)
-        let icon = (label: "Undelete", index: 2)
+        let icon = (label: "inbox", index: 2)
 
         app.launch()
 
@@ -201,7 +203,9 @@ class JobTests: BaseUITestCase {
             deleteIcon.tap()
 
             // Segue back to Trash
-            XCTAssert(app.isDisplayingTrash)
+            if app.isPhone() {
+                XCTAssert(app.isDisplayingJobs)
+            }
 
             // Cell should have been removed
             XCTAssertEqual(app.countCellsInTable(table: jobsTable), deleteJobsTableCellCountBefore - 1)

@@ -6,7 +6,7 @@ class JobsTableViewControllerTests: BaseTestCase {
     var tableViewController: JobsTableViewController!
 
     var row: Row!
-    let account = Account()
+    let account = TestFixtures.Accounts.simple()
 
     func testTableViewDelegateIsSet() {
         setup(row: TestFixtures.Rows.trashedRow())
@@ -200,6 +200,21 @@ class JobsTableViewControllerTests: BaseTestCase {
         setup(row: TestFixtures.Rows.standardRow())
         tableViewController.viewWillAppear(false)
         XCTAssertNil(tableViewController.navigationItem.prompt)
+    }
+
+    // MARK: - absoluteURL
+    func testAccountURLBaseURL() {
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.standardRow(), job: job)
+        let url = tableViewController.accountURL().absoluteString
+        XCTAssertEqual(url, "https://weworkremotely.com")
+    }
+
+    func testAccountURLAccountURL() {
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.unorganisedRow(accountUUID: account.uuid), job: job)
+        let url = tableViewController.accountURL().absoluteString
+        XCTAssertEqual(url, "https://weworkremotely.com/categories/A")
     }
 
     internal func setup(row: Row, job: Job? = nil) {

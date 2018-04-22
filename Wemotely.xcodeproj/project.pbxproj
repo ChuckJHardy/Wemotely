@@ -77,6 +77,8 @@
 		A5CAA28D20543C60009C56BA /* BaseTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA28C20543C60009C56BA /* BaseTestCase.swift */; };
 		A5CAA294205534D4009C56BA /* jobs.xml in Resources */ = {isa = PBXBuildFile; fileRef = A5CAA293205534D4009C56BA /* jobs.xml */; };
 		A5CAA29620553BFC009C56BA /* URLProviderFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CAA29520553BFC009C56BA /* URLProviderFactoryTests.swift */; };
+		A5CF931C208CE45000484E4A /* JobsTableViewController+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF931B208CE45000484E4A /* JobsTableViewController+Toolbar.swift */; };
+		A5CF931E208CF39C00484E4A /* JobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CF931D208CF39C00484E4A /* JobsTests.swift */; };
 		A5D6753A207004E6004C3A0B /* SwiftHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D67539207004E6004C3A0B /* SwiftHash.framework */; };
 		A5D6753B2070051A004C3A0B /* SwiftHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5D67539207004E6004C3A0B /* SwiftHash.framework */; };
 		A5DF66EC20528F5800DA181C /* DashboardPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */; };
@@ -199,6 +201,8 @@
 		A5CAA28C20543C60009C56BA /* BaseTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTestCase.swift; sourceTree = "<group>"; };
 		A5CAA293205534D4009C56BA /* jobs.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = jobs.xml; sourceTree = "<group>"; };
 		A5CAA29520553BFC009C56BA /* URLProviderFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProviderFactoryTests.swift; sourceTree = "<group>"; };
+		A5CF931B208CE45000484E4A /* JobsTableViewController+Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobsTableViewController+Toolbar.swift"; sourceTree = "<group>"; };
+		A5CF931D208CF39C00484E4A /* JobsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsTests.swift; sourceTree = "<group>"; };
 		A5D67539207004E6004C3A0B /* SwiftHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHash.framework; path = Carthage/Build/iOS/SwiftHash.framework; sourceTree = "<group>"; };
 		A5DF66EB20528F5800DA181C /* DashboardPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardPresenterTests.swift; sourceTree = "<group>"; };
 		A5F5485E207A6239001FEFD2 /* LoadingEmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingEmptyStateView.xib; sourceTree = "<group>"; };
@@ -371,6 +375,7 @@
 				A59F67B1206E5299006C6E6E /* JobTests.swift */,
 				A580E1FC2078B84300569B34 /* JobsRefreshTests.swift */,
 				A5AFC4FF207C8B2B00ED689D /* DashboardTests.swift */,
+				A5CF931D208CF39C00484E4A /* JobsTests.swift */,
 			);
 			path = WemotelyUITests;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				A5973AB7206669F3000E4625 /* JobsTableViewController+TableView.swift */,
 				A5973AB920666B09000E4625 /* JobsTableViewController+Segues.swift */,
 				A580E1F32078B4EE00569B34 /* JobsTableViewController+Refresh.swift */,
+				A5CF931B208CE45000484E4A /* JobsTableViewController+Toolbar.swift */,
 			);
 			name = Jobs;
 			sourceTree = "<group>";
@@ -846,6 +852,7 @@
 				A580E1F62078B56A00569B34 /* GetJobsService.swift in Sources */,
 				A526D6F4208B6F0900EFAB29 /* JobsTableViewController+CellSelection.swift in Sources */,
 				A5973ACC206673CE000E4625 /* Platform.swift in Sources */,
+				A5CF931C208CE45000484E4A /* JobsTableViewController+Toolbar.swift in Sources */,
 				A538841F204AF241008253D7 /* JobsTableViewController.swift in Sources */,
 				A580E1F42078B4EE00569B34 /* JobsTableViewController+Refresh.swift in Sources */,
 				A5963F75205843A10026BFE6 /* DashboardEditTableViewCell.swift in Sources */,
@@ -910,6 +917,7 @@
 				A528FD51204C05CD0020ABA9 /* XCUIApplication+Segues.swift in Sources */,
 				A5AFC500207C8B2B00ED689D /* DashboardTests.swift in Sources */,
 				A5159704205A7AB40096C52C /* XCUIApplication+Asserts.swift in Sources */,
+				A5CF931E208CF39C00484E4A /* JobsTests.swift in Sources */,
 				A58180872067EEBA006A62B8 /* JobsSwipeActionTests.swift in Sources */,
 				A59F67B2206E5299006C6E6E /* JobTests.swift in Sources */,
 				A580E1E82077C36300569B34 /* BaseUITestCase.swift in Sources */,

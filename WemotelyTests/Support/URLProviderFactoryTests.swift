@@ -12,20 +12,22 @@ class URLProviderFactoryTests: XCTestCase {
     }
 
     func testURLWhenTesting() {
-        let url = URLProviderFactory().build(key: "remote-copywriting-jobs")
-        XCTAssertTrue(url.absoluteString.contains("jobs.xml"))
+        let key = "remote-copywriting-jobs"
+        XCTAssertTrue(URLProviderFactory().build(key: key).url().absoluteString.contains("jobs.xml"))
+        XCTAssertTrue(URLProviderFactory().build(key: key).url().absoluteString.contains("jobs-other.xml"))
     }
 
-    func testURLWhenTestingAgain() {
+    func testURLWhenNotTestingURL() {
         let key = "remote-copywriting-jobs"
-        _ = URLProviderFactory().build(key: key)
-        let url = URLProviderFactory().build(key: key)
-        XCTAssertTrue(url.absoluteString.contains("jobs-other.xml"))
+        let sut = URLProviderFactory(isTesting: false).build(key: key).url()
+        let expectedURL = URL(string: "https://weworkremotely.com/categories/\(key)")
+
+        XCTAssertEqual(sut, expectedURL)
     }
 
-    func testURLWhenNotTesting() {
+    func testURLWhenNotTestingRSS() {
         let key = "remote-copywriting-jobs"
-        let sut = URLProviderFactory(isTesting: false).build(key: key)
+        let sut = URLProviderFactory(isTesting: false).build(key: key).rss()
         let expectedURL = URL(string: "https://weworkremotely.com/categories/\(key).rss")
 
         XCTAssertEqual(sut, expectedURL)

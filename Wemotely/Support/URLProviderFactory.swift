@@ -2,6 +2,7 @@ import Foundation
 
 protocol URLProviderProtocol {
     func url() -> URL
+    func rss() -> URL
 }
 
 class BaseURLProvider {
@@ -9,6 +10,10 @@ class BaseURLProvider {
 
     init(key: String) {
         self.key = key
+    }
+
+    static func baseUrl() -> URL {
+        return URL(string: "https://weworkremotely.com")!
     }
 }
 
@@ -19,11 +24,11 @@ class URLProviderFactory {
         self.isTesting = isTesting!
     }
 
-    func build(key: String) -> URL {
+    func build(key: String) -> URLProviderProtocol {
         if isTesting {
-            return Testing(key: key).url()
+            return Testing(key: key)
         } else {
-            return Running(key: key).url()
+            return Running(key: key)
         }
     }
 
@@ -33,6 +38,10 @@ class URLProviderFactory {
         func url() -> URL {
             Testing.testingHits[key] = testingFile()
             return FileLoader.load(name: Testing.testingHits[key]!, type: "xml")
+        }
+
+        func rss() -> URL {
+            return url()
         }
 
         private func testingFile() -> String {
@@ -46,7 +55,14 @@ class URLProviderFactory {
 
     class Running: BaseURLProvider, URLProviderProtocol {
         func url() -> URL {
-            return URL(string: "https://weworkremotely.com/categories/\(key).rss")!
+            return BaseURLProvider
+                .baseUrl()
+                .appendingPathComponent("categories")
+                .appendingPathComponent(key)
+        }
+
+        func rss() -> URL {
+            return url().appendingPathExtension("rss")
         }
     }
 }

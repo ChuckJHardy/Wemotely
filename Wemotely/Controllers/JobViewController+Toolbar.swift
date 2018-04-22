@@ -26,7 +26,7 @@ extension JobViewController {
         )
 
         let safariAction = UIBarButtonItem(
-            title: "Open",
+            image: UIImage(named: "safari"),
             style: .plain,
             target: self,
             action: #selector(openInSafari(_:))

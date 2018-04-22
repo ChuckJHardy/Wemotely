@@ -6,7 +6,7 @@ import SwiftHash
 class FeedServiceTests: BaseTestCase {
     func testE2E() {
         let account = Account()
-        let url = URLProviderFactory().build(key: "remote-programming-jobs")
+        let url = URLProviderFactory().build(key: "remote-programming-jobs").rss()
         let testDate = Date(timeInterval: 1000, since: Date())
         let feedService = FeedService(
             provider: realm,

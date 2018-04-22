@@ -19,7 +19,7 @@ struct GetJobsService {
                     continue
                 }
 
-                let feedURL = URLProviderFactory().build(key: account.urlKey!)
+                let feedURL = URLProviderFactory().build(key: account.urlKey!).rss()
                 let feedService = FeedService(
                     provider: threadProvider,
                     account: account,

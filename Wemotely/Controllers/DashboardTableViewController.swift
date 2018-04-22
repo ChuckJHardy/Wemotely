@@ -31,6 +31,7 @@ class DashboardTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         fixNavigationItemHighlightBug()
+        navigationController?.setToolbarHidden(true, animated: false)
         clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
     }

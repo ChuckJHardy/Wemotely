@@ -36,7 +36,7 @@ class JobTests: BaseUITestCase {
             gotoJob()
 
             // Check Icon State
-            let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars.element(boundBy: 1), position: icon.index)
             XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
 
             // Tap favourite icon
@@ -91,7 +91,7 @@ class JobTests: BaseUITestCase {
             gotoJob()
 
             // Check Icon State
-            let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            let favouriteIcon = app.iconInToolbar(toolbar: app.toolbars.element(boundBy: 1), position: icon.index)
             XCTAssertEqual(favouriteIcon.label, icon.labelBefore)
 
             // Tap favourite icon
@@ -141,7 +141,7 @@ class JobTests: BaseUITestCase {
             gotoJob()
 
             // Check Icon State
-            let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            let deleteIcon = app.iconInToolbar(toolbar: app.toolbars.element(boundBy: 1), position: icon.index)
             XCTAssertEqual(deleteIcon.label, icon.label)
 
             // Tap delete icon
@@ -196,7 +196,7 @@ class JobTests: BaseUITestCase {
             gotoJob()
 
             // Check Icon State
-            let deleteIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: icon.index)
+            let deleteIcon = app.iconInToolbar(toolbar: app.toolbars.element(boundBy: 1), position: icon.index)
             XCTAssertEqual(deleteIcon.label, icon.label)
 
             // Tap delete icon
@@ -235,7 +235,7 @@ class JobTests: BaseUITestCase {
             XCTAssertTrue(app.isDisplayingJob)
 
             // Tap open icon
-            let openIcon = app.iconInToolbar(toolbar: app.toolbars["Toolbar"], position: 0)
+            let openIcon = app.iconInToolbar(toolbar: app.toolbars.element(boundBy: 1), position: 0)
             openIcon.tap()
 
             sleep(10)

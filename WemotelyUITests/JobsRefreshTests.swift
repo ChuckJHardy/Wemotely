@@ -26,6 +26,7 @@ class JobsRefreshTests: BaseUITestCase {
         // Pull to Refresh
         let cell = app.cellByIndex(table: jobsTable, index: 0)
         app.pullToRefresh(cell: cell)
+        sleep(UInt32(delay))
 
         // Navigation prompt updates each appearance of view
         let prompt = app.navigationBars[account.name].staticTexts.firstMatch.label

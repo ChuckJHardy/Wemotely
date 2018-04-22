@@ -1,11 +1,12 @@
 import UIKit
 
 class JobsTableViewCell: UITableViewCell {
-    static var identifier: String = "jobsCell"
+    static var identifier = (withAccount: "jobsCellWithAccount", withoutAccount: "jobsCell")
 
     @IBOutlet weak var jobTitle: UILabel!
     @IBOutlet weak var jobSubtitle: UILabel!
     @IBOutlet weak var jobDescription: UILabel!
+    @IBOutlet weak var accountName: UILabel!
     @IBOutlet weak var stateImageView: UIImageView!
 
     func setup(job: Job) {
@@ -15,6 +16,7 @@ class JobsTableViewCell: UITableViewCell {
         jobTitle?.text = job.title
         jobSubtitle?.text = job.company
         jobDescription?.text = JobPresenter().publishedAt(date: job.pubDate)
+        accountName?.text = job.account?.title
 
         if job.read {
             didSelect()

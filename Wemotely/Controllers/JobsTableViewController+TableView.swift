@@ -14,7 +14,13 @@ extension JobsTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: JobsTableViewCell.identifier, for: indexPath)
+        var identifier = JobsTableViewCell.identifier.withAccount
+
+        if row?.accountUUID != nil {
+            identifier = JobsTableViewCell.identifier.withoutAccount
+        }
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
 
         if let jobCell = cell as? JobsTableViewCell {
             if let jobs = jobs {

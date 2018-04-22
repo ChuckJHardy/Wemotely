@@ -33,6 +33,13 @@ class JobsTableViewCellTests: BaseTestCase {
         XCTAssertEqual(tableViewCell?.jobDescription.text, "Published 16 minutes ago")
     }
 
+    func testAccountName() {
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.standardRow(), job: job)
+
+        XCTAssertEqual(tableViewCell?.accountName.text, job.account?.title)
+    }
+
     func testStateImageViewForUnreadJob() {
         let job = TestFixtures.Jobs.unorganised(account: account)
 

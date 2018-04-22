@@ -108,8 +108,15 @@ class SegueUITests: BaseUITestCase {
         }
     }
 
-    func testSelectingAJob() {
-        let accountName = "All Inboxes"
+    func testSelectingAJobSharedAccount() {
+        selectingAJob("All Inboxes")
+    }
+
+    func testSelectingAJobSpecificAccount() {
+        selectingAJob("Programming")
+    }
+
+    private func selectingAJob(_ accountName: String) {
         let companyName = "Car Next Door"
         let jobTitle = "Front-End Engineer - CND Growth Team"
 

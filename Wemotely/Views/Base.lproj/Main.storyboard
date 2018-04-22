@@ -329,20 +329,20 @@
         <scene sceneID="bCi-xY-VeE">
             <objects>
                 <tableViewController storyboardIdentifier="JobsTableView" title="Jobs" id="rLB-DV-Bnn" customClass="JobsTableViewController" customModule="Wemotely" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f1f-ND-63J">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f1f-ND-63J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobsCell" rowHeight="80" id="2Z1-H0-h1b" customClass="JobsTableViewCell" customModule="Wemotely" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobsCellWithAccount" rowHeight="100" id="2Z1-H0-h1b" customClass="JobsTableViewCell" customModule="Wemotely" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="2Z1-H0-h1b" id="43z-4D-VNs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="5sP-1T-HWl">
-                                            <rect key="frame" x="16" y="8" width="349" height="62.5"/>
+                                            <rect key="frame" x="16" y="8" width="349" height="82.5"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dlp-6C-uvW">
                                                     <rect key="frame" x="0.0" y="0.0" width="349" height="20.5"/>
@@ -389,6 +389,12 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="983-qe-JeZ">
+                                                    <rect key="frame" x="0.0" y="64.5" width="57" height="18"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Dlp-6C-uvW" firstAttribute="width" secondItem="5sP-1T-HWl" secondAttribute="width" id="8kZ-3d-Cmq"/>
@@ -405,11 +411,90 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="accountName" destination="983-qe-JeZ" id="X0t-on-oaX"/>
                                     <outlet property="jobDescription" destination="zAl-ex-7RY" id="ivt-F4-bqU"/>
                                     <outlet property="jobSubtitle" destination="LRf-cT-jJ8" id="gA1-mO-tN2"/>
                                     <outlet property="jobTitle" destination="7M0-aA-YJZ" id="XRE-Gs-63I"/>
                                     <outlet property="stateImageView" destination="Fvv-sT-gro" id="qgk-lC-ZxJ"/>
                                     <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showJob" id="ToR-dJ-bFk"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="jobsCell" rowHeight="80" id="8s8-Sz-Kka" customClass="JobsTableViewCell" customModule="Wemotely" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="128" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="8s8-Sz-Kka" id="f3u-XG-Akv">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="SRI-qK-PKc">
+                                            <rect key="frame" x="16" y="8" width="349" height="62.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dcm-Pi-6Np">
+                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Engineer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6L-18-D58">
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="disclosure" translatesAutoresizingMaskIntoConstraints="NO" id="tkG-4i-mYL">
+                                                            <rect key="frame" x="335" y="3.5" width="14" height="14"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="14" id="JxC-h6-uNQ"/>
+                                                                <constraint firstAttribute="width" constant="14" id="XDV-kW-iJE"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oib-Mb-7pG">
+                                                    <rect key="frame" x="0.0" y="22.5" width="349" height="20"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFz-1Q-RIZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="337" height="20"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jB4-8c-Ean">
+                                                            <rect key="frame" x="337" y="0.0" width="12" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="12" id="1TT-9Y-GUE"/>
+                                                                <constraint firstAttribute="height" constant="20" id="y1z-iJ-sw2"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="jB4-8c-Ean" secondAttribute="trailing" id="Drm-q8-hWr"/>
+                                                    </constraints>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYY-Zn-YVR">
+                                                    <rect key="frame" x="0.0" y="44.5" width="68" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Oib-Mb-7pG" secondAttribute="trailing" id="HGx-ig-bwM"/>
+                                                <constraint firstItem="Dcm-Pi-6Np" firstAttribute="width" secondItem="SRI-qK-PKc" secondAttribute="width" id="LcU-iP-MjW"/>
+                                                <constraint firstItem="Oib-Mb-7pG" firstAttribute="leading" secondItem="SRI-qK-PKc" secondAttribute="leading" id="TAy-T7-fPP"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="SRI-qK-PKc" secondAttribute="trailing" constant="10" id="4fF-sn-PDx"/>
+                                        <constraint firstItem="SRI-qK-PKc" firstAttribute="leading" secondItem="f3u-XG-Akv" secondAttribute="leadingMargin" id="Hr2-im-o9j"/>
+                                        <constraint firstItem="SRI-qK-PKc" firstAttribute="top" secondItem="f3u-XG-Akv" secondAttribute="top" constant="8" id="Qg0-hG-bnD"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SRI-qK-PKc" secondAttribute="bottom" constant="8" id="ZUX-Mx-UDA"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="jobDescription" destination="bYY-Zn-YVR" id="iXl-8o-GsF"/>
+                                    <outlet property="jobSubtitle" destination="pFz-1Q-RIZ" id="hDi-P0-j5V"/>
+                                    <outlet property="jobTitle" destination="n6L-18-D58" id="sxa-Pe-zGJ"/>
+                                    <outlet property="stateImageView" destination="jB4-8c-Ean" id="WCP-vf-9IO"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showJob" id="oEt-ZB-IFS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

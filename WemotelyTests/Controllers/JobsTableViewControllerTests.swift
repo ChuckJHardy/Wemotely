@@ -43,7 +43,7 @@ class JobsTableViewControllerTests: BaseTestCase {
         XCTAssertEqual(cellsCount, 0)
     }
 
-    func testTableViewCellForRowAt() {
+    func testTableViewCellForRowAtWithoutAccount() {
         let indexPath = IndexPath(row: 0, section: 0)
         let job = TestFixtures.Jobs.unorganised(account: account)
         setup(row: TestFixtures.Rows.standardRow(), job: job)
@@ -51,7 +51,20 @@ class JobsTableViewControllerTests: BaseTestCase {
             tableViewController.tableView, cellForRowAt: indexPath
         ) as? JobsTableViewCell
 
-        XCTAssertEqual(cell?.jobTitle.text, job.title)
+        XCTAssertEqual(cell?.accountName.text, job.account?.title)
+        XCTAssertEqual(cell?.reuseIdentifier, JobsTableViewCell.identifier.withAccount)
+    }
+
+    func testTableViewCellForRowAtWithAccount() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let job = TestFixtures.Jobs.unorganised(account: account)
+        setup(row: TestFixtures.Rows.unorganisedRow(accountUUID: account.uuid), job: job)
+        let cell = tableViewController.tableView(
+            tableViewController.tableView, cellForRowAt: indexPath
+        ) as? JobsTableViewCell
+
+        XCTAssertNil(cell?.accountName)
+        XCTAssertEqual(cell?.reuseIdentifier, JobsTableViewCell.identifier.withoutAccount)
     }
 
     func testTableViewDidSelectRowAt() {

@@ -28,6 +28,7 @@ class JobsTableViewController: UITableViewController {
         didEdit = false
 
         setupRefreshControl()
+        setupToolbar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +50,14 @@ class JobsTableViewController: UITableViewController {
         navigationItem.title = row.title
         navigationItem.leftItemsSupplementBackButton = true
         preferSmallTitles()
+    }
+
+    func accountURL() -> URL {
+        if row?.accountUUID != nil, let account = self.accounts?.first {
+            return URLProviderFactory(isTesting: false).build(key: account.urlKey!).url()
+        } else {
+            return BaseURLProvider.baseUrl()
+        }
     }
 
     private func preferSmallTitles() {

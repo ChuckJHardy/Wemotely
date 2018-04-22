@@ -148,7 +148,9 @@ class JobTests: BaseUITestCase {
             deleteIcon.tap()
 
             // Segue back to Jobs
-            XCTAssert(app.isDisplayingJobs)
+            if app.isPhone() {
+                XCTAssert(app.isDisplayingJobs)
+            }
 
             // Cell should have been removed
             XCTAssertEqual(app.countCellsInTable(table: jobsTable), jobsTableCellCountBefore - 1)
@@ -201,7 +203,9 @@ class JobTests: BaseUITestCase {
             deleteIcon.tap()
 
             // Segue back to Trash
-            XCTAssert(app.isDisplayingTrash)
+            if app.isPhone() {
+                XCTAssert(app.isDisplayingJobs)
+            }
 
             // Cell should have been removed
             XCTAssertEqual(app.countCellsInTable(table: jobsTable), deleteJobsTableCellCountBefore - 1)

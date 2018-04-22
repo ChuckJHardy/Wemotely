@@ -122,7 +122,7 @@ class JobTests: BaseUITestCase {
 
     func testDeletingJob() {
         let account = (name: "Trash", index: 3)
-        let icon = (label: "Delete", index: 2)
+        let icon = (label: "trash", index: 2)
 
         app.launch()
 
@@ -163,7 +163,7 @@ class JobTests: BaseUITestCase {
 
     func testUndeletingJob() {
         let account = (name: "Trash", index: 3)
-        let icon = (label: "Undelete", index: 2)
+        let icon = (label: "inbox", index: 2)
 
         app.launch()
 

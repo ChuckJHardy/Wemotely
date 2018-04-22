@@ -494,6 +494,7 @@
                                     <outlet property="jobSubtitle" destination="pFz-1Q-RIZ" id="hDi-P0-j5V"/>
                                     <outlet property="jobTitle" destination="n6L-18-D58" id="sxa-Pe-zGJ"/>
                                     <outlet property="stateImageView" destination="jB4-8c-Ean" id="WCP-vf-9IO"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showJob" id="oEt-ZB-IFS"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
